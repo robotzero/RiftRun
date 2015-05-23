@@ -1,1 +1,1 @@
-RiftRun for people looking for effective gift runs.
+RiftRun - searching for people to do rifts/grifts with.
