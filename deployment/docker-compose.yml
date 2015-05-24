@@ -1,0 +1,42 @@
+webserver:
+  build: nginx
+  hostname: riftrun.local
+  links:
+#    - sql
+#    - redis
+#    - phpfpm
+  expose:
+    - "80"
+    - "443"
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - /home/agnieszka/Code/RiftRun:/var/www/html/riftrun
+#phpfpm:
+#  build: resources/docker/web
+#  ports:
+#   - "9000:9000"
+#  volumes:
+#    - /home/agnieszka/Code/common_application_api:/srv/webserver/public_html/capi
+#  links:
+#    - sql
+#    - redis
+#sql:
+#   image: wiliamsouza/docker-mysql
+#   expose:
+#     - "3306"
+#   ports:
+#     - "3306:3306"
+#   volumes:
+#     - /home/agnieszka/dockerizor/capi/resources/docker/mysql/log:/var/log/mysql
+#     - /home/agnieszka/dockerizor/capi/resources/docker/mysql/lib:/var/lib/mysql
+#     - /home/agnieszka/dockerizor/capi/resources/docker/mysql/conf.d:/etc/mysql/conf.d
+#   environment:
+#     - MYSQL_ROOT_PASSWORD=adminuser
+#redis:
+#  build: resources/docker/redis
+#  ports:
+#    - "6379:6379"
+#  expose:
+#   - "6379"
