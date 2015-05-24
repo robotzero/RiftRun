@@ -4,7 +4,7 @@ webserver:
   links:
 #    - sql
 #    - redis
-#    - phpfpm
+    - phpfpm
   expose:
     - "80"
     - "443"
@@ -13,12 +13,10 @@ webserver:
     - "443:443"
   volumes:
     - /home/agnieszka/Code/RiftRun:/var/www/html/riftrun
-#phpfpm:
-#  build: resources/docker/web
-#  ports:
-#   - "9000:9000"
-#  volumes:
-#    - /home/agnieszka/Code/common_application_api:/srv/webserver/public_html/capi
+phpfpm:
+  build: php
+  volumes:
+    - /home/agnieszka/Code/RiftRun:/var/www/html/riftrun
 #  links:
 #    - sql
 #    - redis
