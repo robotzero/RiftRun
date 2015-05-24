@@ -1,0 +1,13 @@
+default:
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+          sessions:
+            default:
+              symfony2: ~
+    suites:
+        default:
+            # paths:    [ %paths.base%/tests/features ]
+            # contexts: [ Tests\Contexts\FeatureContext ]
+            paths: [ %paths.base%/test/integration/features ]
+            contexts: [ Test\Integration\Context\FeatureContext ]
