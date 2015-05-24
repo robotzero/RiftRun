@@ -9,5 +9,6 @@ default:
         default:
             # paths:    [ %paths.base%/tests/features ]
             # contexts: [ Tests\Contexts\FeatureContext ]
-            paths: [ %paths.base%/test/integration/features ]
+            # paths: [ %paths.base%/test/integration/features ]
+            # features: [ %paths.base%/test/integration/features ]
             contexts: [ Test\Integration\Context\FeatureContext ]

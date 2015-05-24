@@ -4,11 +4,10 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/", "SymfonyStandard\\": "app/", "Tests\\Contexts\\": "tests/features/contexts/" }
+        "psr-4": { "": "src/", "SymfonyStandard\\": "app/" }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Contexts\\": "tests/features/contexts/",
             "Test\\Integration\\Context\\" : "test/integration/contexts/"
         }
     },
