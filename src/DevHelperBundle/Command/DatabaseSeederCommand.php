@@ -16,9 +16,8 @@ class DatabaseSeederCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $fixtureLoader = $this->getContainer()->get('alice_fixture_loader');
+        $entityManager = $this->getContainer()->get('doctrine')->getManager();
 
-        $entityManager = $this->getContainer()->get('doctrine')->getEntityManager();
-        echo get_class($entityManager);
-        //$fixtureLoader->load($entityManager);
+        $fixtureLoader->load($entityManager);
     }
 }

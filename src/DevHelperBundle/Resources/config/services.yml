@@ -1,3 +1,6 @@
 services:
     alice_fixture_loader:
         class: DevHelperBundle\Command\AliceFixtureLoader
+        calls:
+            - [setContainer, ["@service_container"]]
+

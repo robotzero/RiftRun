@@ -19,9 +19,16 @@ class WizardsController extends Controller
      */
     public function getWizardsAction()
     {
+        $characterRepository = $this->container->get('doctrine')
+                                    ->getManager()
+                                    ->getRepository('RiftRunners:Character');
+
+        $wizards = $characterRepository->findBy(['type' => 'wizard']);
+
+
         $paginatedCollection = new PaginatedRepresentation(
             new CollectionRepresentation(
-                $this->container->get('mock_data')->getData(),
+                $wizards,
                 'wizards', // embedded rel
                 'wizards'  // xml element name
             ),
