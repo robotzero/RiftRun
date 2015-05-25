@@ -4,14 +4,13 @@ namespace Test\Integration\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Symfony\Component\HttpKernel\KernelInterface;
-
-//require_once __DIR__.'/../../../vendor/phpunit/phpunit/PHPUnit/Autoload.php';
-// require_once __DIR__.'/../../../../../vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Functions.php';
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 
@@ -25,6 +24,15 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     private $crawler = null;
 
     private $client = null;
+
+    private $response = null;
+
+    /** @BeforeScenario */
+    public function before(BeforeScenarioScope $scope)
+    {
+        $this->client = $this->kernel->getContainer()->get('test.client');
+        $this->client->setServerParameters([]);
+    }
 
     /**
      * Initializes context.
@@ -47,10 +55,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iRequest($httpMethod, $resource)
     {
-        $this->client = $this->kernel->getContainer()->get('test.client');
-        $this->client->setServerParameters([]);
-
         $this->crawler = $this->client->request($httpMethod, $resource);
+
+        $this->response = $this->client->getResponse();
     }
 
     /**
@@ -58,9 +65,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iGetAResponse($statusCode)
     {
-        $response = $this->client->getResponse();
-
-        assertEquals($response->getStatusCode(), 200);
+        $contentType = $this->response->headers->get('content-type');
+        assertTrue($this->response->isOk());
+        assertEquals($contentType, 'application/json');
     }
 
     /**
@@ -94,12 +101,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyExists($property)
     {
-        $response = $this->client->getResponse()->getContent();
-
-        $wizard = json_decode($response)->wizards[0];
-
-        assertObjectHasAttribute($property, $wizard, 'Missing attribute');
-        //print_r($wizard);
+        assertObjectHasAttribute($property, $this->getScopePayload(), 'Missing attribute');
     }
 
     /**
@@ -107,16 +109,23 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyIsAnInteger($property)
     {
-        $response = $this->client->getResponse()->getContent();
-
-        $wizard = json_decode($response)->wizards[0];
-
         isType(
             'int',
-            $wizard->id,
-            //$this->arrayGet($payload, $property),
+            $this->arrayGet($this->getScopePayload(), $property),
             "Asserting the [$property] property in current scope [{$this->scope}] is an integer: "
         );
+    }
+
+    private function getBody()
+    {
+        return json_decode($this->response->getContent());
+    }
+
+    private function getScopePayload()
+    {
+        $payload = $this->getBody();
+
+        return $this->arrayGet($payload, $this->scope);
     }
 
     /**

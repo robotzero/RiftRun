@@ -10,6 +10,8 @@ class Wizard
 
     private $server = 'EU';
 
+    private $paragonPoints = 0;
+
     public function setId($id)
     {
         $this->id = $id;
@@ -42,5 +44,17 @@ class Wizard
     public function setServer($server)
     {
         $this->server = $server;
+    }
+
+    public function getParagonPoints()
+    {
+        return $this->paragonPoints;
+    }
+
+    public function setParagonPoints($paragonPoints)
+    {
+        $this->paragonPoints = $paragonPoints;
+
+        return $this;
     }
 }

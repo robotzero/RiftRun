@@ -1,4 +1,6 @@
 RiftRunBundle\Model\Wizard:
     properties:
         battleTag:
-            serialized_name: battle
+            serialized_name: battleTag
+        paragonPoints:
+            serialized_name: paragonPoints
