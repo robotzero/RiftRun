@@ -2,8 +2,6 @@
 
 namespace RiftRunBundle\Model;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Character
  */
