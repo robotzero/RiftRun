@@ -22,6 +22,10 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 {
     protected $kernel;
 
+    private $crawler = null;
+
+    private $client = null;
+
     /**
      * Initializes context.
      *
@@ -43,7 +47,10 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iRequest($httpMethod, $resource)
     {
+        $this->client = $this->kernel->getContainer()->get('test.client');
+        $this->client->setServerParameters([]);
 
+        $this->crawler = $this->client->request($httpMethod, $resource);
     }
 
     /**
@@ -51,7 +58,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iGetAResponse($statusCode)
     {
+        $response = $this->client->getResponse();
 
+        assertEquals($response->getStatusCode(), 200);
     }
 
     /**
@@ -85,7 +94,12 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyExists($property)
     {
+        $response = $this->client->getResponse()->getContent();
 
+        $wizard = json_decode($response)->wizards[0];
+
+        assertObjectHasAttribute($property, $wizard, 'Missing attribute');
+        //print_r($wizard);
     }
 
     /**
@@ -93,10 +107,15 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyIsAnInteger($property)
     {
+        $response = $this->client->getResponse()->getContent();
+
+        $wizard = json_decode($response)->wizards[0];
+
         isType(
             'int',
-            $this->arrayGet($payload, $property),
-            "Asserting the [$property] property in current scope [{$this->scope}] is an integer: ".json_encode($payload)
+            $wizard->id,
+            //$this->arrayGet($payload, $property),
+            "Asserting the [$property] property in current scope [{$this->scope}] is an integer: "
         );
     }
 

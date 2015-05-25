@@ -14,11 +14,24 @@ class WizardsController extends Controller
      * @View()
      * @Get("/wizards")
      */
-    public function indexAction()
+    public function getWizardsAction()
     {
         $wizard = new Wizard();
         $wizardB = new Wizard();
 
         return (['wizards' => [$wizard, $wizardB]]);
+    }
+
+    /**
+     * @return Wizard
+     * @View()
+     * @Get("/wizards/{id}")
+     */
+    public function getWizardAction($id)
+    {
+        $wizard = new Wizard();
+        $wizard->setId(1);
+
+        return $wizard;
     }
 }
