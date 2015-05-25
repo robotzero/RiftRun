@@ -1,0 +1,3 @@
+services:
+    alice_fixture_loader:
+        class: DevHelperBundle\Command\AliceFixtureLoader

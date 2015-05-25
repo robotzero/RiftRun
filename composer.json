@@ -37,7 +37,9 @@
 	    "phpspec/phpspec": "dev-master",
         "behat/symfony2-extension": "^2.0",
         "behat/mink-extension": "^2.0",
-        "behat/mink-browserkit-driver": "^1.2"
+        "behat/mink-browserkit-driver": "^1.2",
+        "fzaninotto/faker": "^1.4",
+        "hautelook/alice-bundle": "dev-master"
     },
     "scripts": {
         "post-root-package-install": [

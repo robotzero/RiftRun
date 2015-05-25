@@ -4,3 +4,10 @@ RiftRunBundle\Model\Wizard:
             serialized_name: battleTag
         paragonPoints:
             serialized_name: paragonPoints
+    relations:
+        -
+            rel: self
+            href:
+                route: get_wizard
+                parameters:
+                    id: expr(object.getId())

@@ -1,0 +1,6 @@
+RiftRunBundle\Model\Character:
+    character (template):
+        paragonPoints: <numberBetween($min = 70, $max = 1000)>
+        battleTag: '#11111'
+        region: 'EU'
+        createdAt: <dateTime($max = 'now')>

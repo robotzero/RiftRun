@@ -27,6 +27,8 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $response = null;
 
+    private $scope = null;
+
     /** @BeforeScenario */
     public function before(BeforeScenarioScope $scope)
     {
@@ -116,6 +118,14 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         );
     }
 
+    /**
+     * @Given /^the "([^"]*)" property is an object$/
+     */
+    public function thePropertyIsAnObject($property)
+    {
+        print_r($property);
+    }
+
     private function getBody()
     {
         return json_decode($this->response->getContent());
@@ -124,6 +134,10 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     private function getScopePayload()
     {
         $payload = $this->getBody();
+
+        if (null === $this->scope) {
+            return $payload;
+        }
 
         return $this->arrayGet($payload, $this->scope);
     }

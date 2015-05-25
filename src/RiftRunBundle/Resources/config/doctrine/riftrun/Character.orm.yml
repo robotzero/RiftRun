@@ -1,0 +1,24 @@
+RiftRunBundle\Model\Character:
+    type: entity
+    table: characters
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: 255
+        paragonPoints:
+            type: smallint
+        battleTag:
+            type: string
+            length: 255
+        region:
+            type: string
+            length: '3'
+        createdAt:
+            type: datetimetz
+    lifecycleCallbacks: {  }

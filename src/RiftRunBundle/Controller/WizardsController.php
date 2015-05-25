@@ -19,17 +19,9 @@ class WizardsController extends Controller
      */
     public function getWizardsAction()
     {
-        $wizard = new Wizard();
-        $wizardB = new Wizard();
-
-        $wizard->setId(1);
-        $wizard->setParagonPoints(600);
-        $wizardB->setId(2);
-        $wizardB->setParagonPoints(200);
-
         $paginatedCollection = new PaginatedRepresentation(
             new CollectionRepresentation(
-                [$wizard, $wizardB],
+                $this->container->get('mock_data')->getData(),
                 'wizards', // embedded rel
                 'wizards'  // xml element name
             ),
@@ -40,7 +32,7 @@ class WizardsController extends Controller
             1,       // total pages
             'page',  // page route parameter name, optional, defaults to 'page'
             'limit', // limit route parameter name, optional, defaults to 'limit'
-            false,   // generate relative URIs, optional, defaults to `false`
+            true,   // generate relative URIs, optional, defaults to `false`
             null       // total collection size, optional, defaults to `null`
         );
 
@@ -55,9 +47,11 @@ class WizardsController extends Controller
      */
     public function getWizardAction($id)
     {
-        $wizard = new Wizard();
-        $wizard->setId(1);
+        $json = $this->get('serializer')->serialize(
+            $this->container->get('mock_data')->getSingleData(),
+            'json'
+        );
 
-        return $wizard;
+        return new Response($json);
     }
 }

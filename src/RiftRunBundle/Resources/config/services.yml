@@ -1,4 +1,7 @@
 services:
+    mock_data:
+        class: RiftRunBundle\DataService\MockDataService
+
 #    rift_run.example:
 #        class: RiftRunBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
