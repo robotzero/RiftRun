@@ -1,0 +1,4 @@
+RiftRunBundle\Model\Wizard:
+    properties:
+        battleTag:
+            serialized_name: battle

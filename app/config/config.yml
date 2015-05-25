@@ -71,10 +71,33 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+# FOS Rest Configuration
+sensio_framework_extra:
+    view:       { annotations: false }
+    router:     { annotations: true}
+
+fos_rest:
+    param_fetcher_listener: force
+    body_listener: true
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
+    view:
+        view_response_listener: true
+    routing_loader:
+        default_format: json
+        include_format: false
+    serializer:
+        serialize_null: true
+
+jms_serializer:
+    metadata:
+        cache: file
+        debug: "%kernel.debug%"
+        file_cache:
+            dir: "%kernel.cache_dir%/jms_serializer"
+        auto_detection: true
+        directories:
+            RiftRunBundle:
+                namespace_prefix: "RiftRunBundle\Model"
+                path: "@RiftRunBundle/Resources/config/serializer/"
