@@ -10,8 +10,10 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-require_once __DIR__.'/../../../../../vendor/phpunit/phpunit/PHPUnit/Autoload.php';
-require_once __DIR__.'/../../../../../vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Functions.php';
+//require_once __DIR__.'/../../../vendor/phpunit/phpunit/PHPUnit/Autoload.php';
+// require_once __DIR__.'/../../../../../vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Functions.php';
+
+require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 
 /**
  * Defines application features from the specific context.
@@ -19,6 +21,7 @@ require_once __DIR__.'/../../../../../vendor/phpunit/phpunit/PHPUnit/Framework/A
 class FeatureContext extends MinkContext implements KernelAwareContext, Context, SnippetAcceptingContext
 {
     protected $kernel;
+
     /**
      * Initializes context.
      *
@@ -95,5 +98,37 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
             $this->arrayGet($payload, $property),
             "Asserting the [$property] property in current scope [{$this->scope}] is an integer: ".json_encode($payload)
         );
+    }
+
+    /**
+     * Get an item from an array using "dot" notation.
+     *
+     * @copyright   Taylor Otwell
+     * @link        http://laravel.com/docs/helpers
+     * @param       array   $array
+     * @param       string  $key
+     * @param       mixed   $default
+     * @return      mixed
+     */
+    protected function arrayGet($array, $key)
+    {
+        if (is_null($key)) {
+            return $array;
+        }
+
+        foreach (explode('.', $key) as $segment) {
+            if (is_object($array)) {
+                if (! isset($array->{$segment})) {
+                    return;
+                }
+                $array = $array->{$segment};
+            } elseif (is_array($array)) {
+                if (! array_key_exists($segment, $array)) {
+                    return;
+                }
+                $array = $array[$segment];
+            }
+        }
+        return $array;
     }
 }

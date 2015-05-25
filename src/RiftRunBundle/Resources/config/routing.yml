@@ -1,0 +1,3 @@
+rift_run_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: RiftRunBundle:Default:index }
