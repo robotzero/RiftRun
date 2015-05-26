@@ -20,11 +20,9 @@ class WizardsController extends Controller
     public function getWizardsAction()
     {
         $characterRepository = $this->container->get('doctrine')
-                                    ->getManager()
                                     ->getRepository('RiftRunners:Character');
 
         $wizards = $characterRepository->findBy(['type' => 'wizard']);
-
 
         $paginatedCollection = new PaginatedRepresentation(
             new CollectionRepresentation(
@@ -54,8 +52,13 @@ class WizardsController extends Controller
      */
     public function getWizardAction($id)
     {
+        $characterRepository = $this->container->get('doctrine')
+                                    ->getRepository('RiftRunners:Character');
+
+        $wizard = $characterRepository->findBy(['id' => $id, 'type' => 'wizard'])[0];
+
         $json = $this->get('serializer')->serialize(
-            $this->container->get('mock_data')->getSingleData(),
+            $wizard,
             'json'
         );
 

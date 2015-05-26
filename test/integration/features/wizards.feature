@@ -8,7 +8,7 @@ Scenario: Returning a collection of wizards
             """
             id
             battleTag
-            server
+            region
             paragonPoints
             """
         And the "id" property is an integer
@@ -21,7 +21,7 @@ Scenario: Returning a single wizard
             """
             id
             battleTag
-            server
+            region
             paragonPoints
             """
     And the "id" property is an integer

@@ -1,4 +1,4 @@
-RiftRunBundle\Model\Wizard:
+RiftRunBundle\Model\Character:
     properties:
         battleTag:
             serialized_name: battleTag
