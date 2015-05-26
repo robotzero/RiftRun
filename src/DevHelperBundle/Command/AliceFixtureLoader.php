@@ -6,10 +6,18 @@ use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
 class AliceFixtureLoader extends DataFixtureLoader
 {
+    private $fixtures = null;
+
+    public function setFixtures(array $fixtures)
+    {
+        $this->fixtures = $fixtures;
+    }
     protected function getFixtures()
     {
-        $rootDir = $this->container->getParameter('kernel.root_dir');
+        if ($this->fixtures === null) {
+            throw new \Exception();
+        }
 
-        return ['riftrun' => $rootDir . '/../test/Fixtures/DatabaseSeeder/wizards.yml'];
+        return $this->fixtures;
     }
 }

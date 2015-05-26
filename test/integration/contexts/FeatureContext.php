@@ -29,6 +29,8 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $scope = null;
 
+    // TODO load custom fixtures.
+
     /** @BeforeScenario */
     public function before(BeforeScenarioScope $scope)
     {
@@ -58,7 +60,6 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     public function iRequest($httpMethod, $resource)
     {
         $this->crawler = $this->client->request($httpMethod, $resource);
-
         $this->response = $this->client->getResponse();
     }
 
