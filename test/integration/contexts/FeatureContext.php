@@ -108,6 +108,19 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     }
 
     /**
+     * @Given /^the "([^"]*)" property contains (\d+) items$/
+     */
+    public function thePropertyContainsItems($property, $count)
+    {
+        $payload = $this->getScopePayload();
+        assertCount(
+            $count,
+            $this->arrayGet($payload, $property),
+            "Asserting the [$property] property contains [$count] items: ".json_encode($payload)
+        );
+    }
+
+    /**
      * @Given /^the "([^"]*)" property is an integer$/
      */
     public function thePropertyIsAnInteger($property)
@@ -116,6 +129,50 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
             'int',
             $this->arrayGet($this->getScopePayload(), $property),
             "Asserting the [$property] property in current scope [{$this->scope}] is an integer: "
+        );
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a integer equalling "([^"]*)"$/
+     */
+    public function thePropertyIsAIntegerEqualling($property, $expectedValue)
+    {
+        $payload = $this->getScopePayload();
+        $actualValue = $this->arrayGet($payload, $property);
+        $this->thePropertyIsAnInteger($property);
+        assertSame(
+            $actualValue,
+            (int) $expectedValue,
+            "Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
+        );
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a string$/
+     */
+    public function thePropertyIsAString($property)
+    {
+        $payload = $this->getScopePayload();
+        isType(
+            'string',
+            $this->arrayGet($payload, $property),
+            "Asserting the [$property] property in current scope [{$this->scope}] is a string: ".json_encode($payload)
+        );
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a string equalling "([^"]*)"$/
+     */
+    public function thePropertyIsAStringEqualling($property, $expectedValue)
+    {
+        $payload = $this->getScopePayload();
+        $this->thePropertyIsAString($property);
+        $actualValue = $this->arrayGet($payload, $property);
+
+        assertSame(
+            $actualValue,
+            $expectedValue,
+            "Asserting the [$property] property in current scope [{$this->scope}] is a string equalling [$expectedValue]."
         );
     }
 
