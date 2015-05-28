@@ -10,7 +10,6 @@ use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
-use RiftRunBundle\Model\Wizard;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,60 +23,32 @@ class WizardsController extends Controller
      */
     public function getWizardsAction(Request $request)
     {
-        $characterRepository = $this->container->get('doctrine')
-                                    ->getRepository('RiftRunners:Character');
+        // $characterRepository = $this->container->get('doctrine')
+        //                             ->getRepository('RiftRunners:Character');
 
-        $queryBuilder = $characterRepository->createQueryBuilder('w')
-                                            ->select('w')
-                                            ->where('w.type=?1')
-                                            ->setParameter(1, 'monk');
-
-        //$wizards = $characterRepository->findBy(['type' => 'wizard']);
+        // $queryBuilder = $characterRepository->createQueryBuilder('w')
+        //                                     ->select('w')
+        //                                     ->where('w.type=?1')
+        //                                     ->setParameter(1, 'wizard');
 
 
-        $adapter = new DoctrineORMAdapter($queryBuilder);
-        $pagerfanta = new Pagerfanta($adapter);
+        // $adapter = new DoctrineORMAdapter($queryBuilder);
+        // $pagerfanta = new Pagerfanta($adapter);
 
-
-        $limit = $request->query->get('limit', 5);
-        $page = $request->query->get('page', 1);
-        // $pagerfanta->setCurrentPage($page);
+        // $limit = $request->query->get('limit', 20);
+        // $page = $request->query->get('page', 1);
         // $pagerfanta->setMaxPerPage($limit);
+        // $pagerfanta->setCurrentPage($page);
 
-        $pagerFantaFactory = new PagerfantaFactory();
-        // echo $adapter->getQuery()->getDQL();
-        //$wizards = $adapter->getQuery()->execute();
+        // $pagerFantaFactory = new PagerfantaFactory();
 
-        // print_r($wizards);
-        // my manual, silly pagination logic.
-        //$offset = ($page - 1) * $limit;
-        //$numberOfPages = (int) ceil(count($wizards) / $limit);
-        //$numberOfPages = $pagerfanta->getNbResults();
-
-        $paginatedCollection = $pagerFantaFactory->createRepresentation(
-            $pagerfanta,
-            new Route('get_wizards', [], true)
-        );
-
-        // $paginatedCollection = new PaginatedRepresentation(
-        //     new CollectionRepresentation(
-        //         array_slice($wizards, 25, 20),
-        //         'wizards', // embedded rel
-        //         'wizards'  // xml element name
-        //     ),
-        //     'get_wizards', // route
-        //     array(), // route parameters
-        //     1,       // page number
-        //     $limit,      // limit
-        //     $numberOfPages,       // total pages
-        //     'page',  // page route parameter name, optional, defaults to 'page'
-        //     'limit', // limit route parameter name, optional, defaults to 'limit'
-        //     true,   // generate relative URIs, optional, defaults to `false`
-        //     null       // total collection size, optional, defaults to `null`
+        // $paginatedCollection = $pagerFantaFactory->createRepresentation(
+        //     $pagerfanta,
+        //     new Route('get_wizards', [], true)
         // );
 
-        $json = $this->get('serializer')->serialize($paginatedCollection, 'json');
-        return new Response($json);
+        // $json = $this->get('serializer')->serialize($paginatedCollection, 'json');
+        // return new Response($json);
     }
 
     /**
