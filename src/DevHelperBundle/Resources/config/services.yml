@@ -4,3 +4,8 @@ services:
         calls:
             - [setContainer, ["@service_container"]]
 
+    database_seeder:
+        class: DevHelperBundle\Database\Seeder
+        arguments:
+            - @alice_fixture_loader
+            - @doctrine.orm.entity_manager
