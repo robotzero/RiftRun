@@ -7,3 +7,12 @@ services:
             - { name: command_handler, handles: DevHelperBundle\Command\LoadFixtures }
         calls:
             - [setContainer, ["@service_container"]]
+
+    clear_fixtures_command_handler:
+        class: DevHelperBundle\Command\DatabaseClearCommandHandler
+        arguments:
+            - @doctrine.orm.entity_manager
+        tags:
+            - { name: command_handler, handles: DevHelperBundle\Command\ClearDatabase }
+        # calls:
+        #     - [setContainer, ["@service_container"]]
