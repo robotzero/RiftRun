@@ -22,14 +22,15 @@ class DatabaseSeederCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $fileLocations = $input->getArgument('filelocations');
-        $seeder = $this->getContainer()->get('database_seeder');
 
         if (is_array($fileLocations) === false) {
             $fileLocations = [$fileLocations];
         }
 
+        $commandBus = $this->getContainer()->get('command_bus');
+
         try {
-            $loadFixtures = $seeder->loadFixtures($fileLocations);
+            $objects = $commandBus->handle(new LoadFixtures($fileLocations));
         } catch (\Exception $e){
             echo $e->getMessage();
         }

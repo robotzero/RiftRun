@@ -1,31 +1,32 @@
 <?php
 
-namespace spec\DevHelperBundle\Database;
+namespace spec\DevHelperBundle\Command;
 
 use DevHelperBundle\Command\AliceFixtureLoader;
+use DevHelperBundle\Command\LoadFixtures;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class SeederSpec extends ObjectBehavior
+class LoadFixturesCommandHandlerSpec extends ObjectBehavior
 {
-    private $aliceFixtureLoader;
+    private $entityManager;
 
-    function let(AliceFixtureLoader $aliceFixtureLoader, EntityManagerInterface $entityManager)
+    function let(EntityManagerInterface $entityManager)
     {
-        $this->beConstructedWith($aliceFixtureLoader, $entityManager, true);
-        $this->aliceFixtureLoader = $aliceFixtureLoader;
+        $this->beConstructedWith($entityManager);
+        $this->entityManager = $entityManager;
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('DevHelperBundle\Database\Seeder');
+        $this->shouldHaveType('DevHelperBundle\Command\LoadFixturesCommandHandler');
     }
 
-    function it_sets_fixtures_on_aliceloader(AliceFixtureLoader $aliceFixtureLoader)
+    function it_sets_fixtures_on_aliceloader(LoadFixtures $loadFixtures)
     {
-        $this->loadFixtures([]);
-        $aliceFixtureLoader->setFixtures([])->shouldBeCalled();
+        $this->handle($loadFixtures);
+        //$aliceFixtureLoader->setFixtures([])->shouldBeCalled();
     }
 
     function it_calls_load_on_aliceloader(AliceFixtureLoader $aliceFixtureLoader, EntityManagerInterface $entityManager)

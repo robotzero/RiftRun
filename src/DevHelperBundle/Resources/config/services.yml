@@ -1,11 +1,9 @@
 services:
-    alice_fixture_loader:
-        class: DevHelperBundle\Command\AliceFixtureLoader
+    load_fixtures_command_handler:
+        class: DevHelperBundle\Command\LoadFixturesCommandHandler
+        arguments:
+            - @doctrine.orm.entity_manager
+        tags:
+            - { name: command_handler, handles: DevHelperBundle\Command\LoadFixtures }
         calls:
             - [setContainer, ["@service_container"]]
-
-    database_seeder:
-        class: DevHelperBundle\Database\Seeder
-        arguments:
-            - @alice_fixture_loader
-            - @doctrine.orm.entity_manager

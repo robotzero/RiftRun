@@ -23,32 +23,32 @@ class WizardsController extends Controller
      */
     public function getWizardsAction(Request $request)
     {
-        // $characterRepository = $this->container->get('doctrine')
-        //                             ->getRepository('RiftRunners:Character');
+        $characterRepository = $this->container->get('doctrine')
+                                    ->getRepository('RiftRunners:Character');
 
-        // $queryBuilder = $characterRepository->createQueryBuilder('w')
-        //                                     ->select('w')
-        //                                     ->where('w.type=?1')
-        //                                     ->setParameter(1, 'wizard');
+        $queryBuilder = $characterRepository->createQueryBuilder('w')
+                                            ->select('w')
+                                            ->where('w.type=?1')
+                                            ->setParameter(1, 'wizard');
 
 
-        // $adapter = new DoctrineORMAdapter($queryBuilder);
-        // $pagerfanta = new Pagerfanta($adapter);
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
 
-        // $limit = $request->query->get('limit', 20);
-        // $page = $request->query->get('page', 1);
-        // $pagerfanta->setMaxPerPage($limit);
-        // $pagerfanta->setCurrentPage($page);
+        $limit = $request->query->get('limit', 20);
+        $page = $request->query->get('page', 1);
+        $pagerfanta->setMaxPerPage($limit);
+        $pagerfanta->setCurrentPage($page);
 
-        // $pagerFantaFactory = new PagerfantaFactory();
+        $pagerFantaFactory = new PagerfantaFactory();
 
-        // $paginatedCollection = $pagerFantaFactory->createRepresentation(
-        //     $pagerfanta,
-        //     new Route('get_wizards', [], true)
-        // );
+        $paginatedCollection = $pagerFantaFactory->createRepresentation(
+            $pagerfanta,
+            new Route('get_wizards', [], true)
+        );
 
-        // $json = $this->get('serializer')->serialize($paginatedCollection, 'json');
-        // return new Response($json);
+        $json = $this->get('serializer')->serialize($paginatedCollection, 'json');
+        return new Response($json);
     }
 
     /**
@@ -56,7 +56,7 @@ class WizardsController extends Controller
      * @View()
      * @Get("/wizards/{id}")
      */
-    public function getWizardAction($id)
+    public function getWizardAction(Request $request, $id)
     {
         $characterRepository = $this->container->get('doctrine')
                                     ->getRepository('RiftRunners:Character');

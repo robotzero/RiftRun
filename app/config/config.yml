@@ -108,3 +108,7 @@ bazinga_hateoas:
         cache:                file
         file_cache:
             dir:              %kernel.cache_dir%/hateoas
+
+doctrine_orm_bridge:
+    entity_manager: riftrun
+    connection: riftrun
