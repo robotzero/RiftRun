@@ -1,8 +1,8 @@
 <?php
 
-namespace DevHelperBundle\Command;
+namespace DevHelperBundle\Cli;
 
-use DevHelperBundle\Command\ClearDatabase;
+use DevHelperBundle\Command\Commands\ClearDatabase;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,7 +1,8 @@
 <?php
 
-namespace DevHelperBundle\Command;
+namespace DevHelperBundle\Cli;
 
+use DevHelperBundle\Command\Commands\LoadFixtures;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

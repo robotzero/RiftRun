@@ -1,8 +1,8 @@
 <?php
 
-namespace DevHelperBundle\Command;
+namespace DevHelperBundle\Command\Handlers;
 
-use DevHelperBundle\Command\ClearDatabase;
+use DevHelperBundle\Command\Commands\ClearDatabaseInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class DatabaseClearCommandHandler
@@ -14,7 +14,7 @@ final class DatabaseClearCommandHandler
         $this->entityManager = $entityManager;
     }
 
-    public function handle(ClearDatabase $clearDatabase)
+    public function handle(ClearDatabaseInterface $clearDatabase)
     {
         $connection = $this->entityManager->getConnection();
 

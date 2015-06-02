@@ -1,18 +1,26 @@
 services:
     load_fixtures_command_handler:
-        class: DevHelperBundle\Command\LoadFixturesCommandHandler
+        class: DevHelperBundle\Command\Handlers\LoadFixturesCommandHandler
         arguments:
             - @doctrine.orm.entity_manager
         tags:
-            - { name: command_handler, handles: DevHelperBundle\Command\LoadFixtures }
+            - { name: command_handler, handles: DevHelperBundle\Command\Commands\LoadFixtures }
         calls:
             - [setContainer, ["@service_container"]]
 
     clear_fixtures_command_handler:
-        class: DevHelperBundle\Command\DatabaseClearCommandHandler
+        class: DevHelperBundle\Command\Handlers\DatabaseClearCommandHandler
         arguments:
             - @doctrine.orm.entity_manager
         tags:
-            - { name: command_handler, handles: DevHelperBundle\Command\ClearDatabase }
-        # calls:
-        #     - [setContainer, ["@service_container"]]
+            - { name: command_handler, handles: DevHelperBundle\Command\Commands\ClearDatabase }
+
+    load_fixtures_cli:
+        class: DevHelperBundle\Cli\DatabaseSeederCommand
+        tags:
+            -  { name: console.command }
+
+    clear_database_cli:
+        class: DevHelperBundle\Cli\DatabaseClearCommand
+        tags:
+            -  { name: console.command }
