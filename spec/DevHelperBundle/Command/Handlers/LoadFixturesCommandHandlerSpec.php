@@ -10,6 +10,7 @@ use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 use Hautelook\AliceBundle\Alice\Loader;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\IntrospectableContainerInterface;
 
 class LoadFixturesCommandHandlerSpec extends ObjectBehavior
@@ -36,10 +37,10 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
 
     function it_will_throw_an_exception_when_fixtures_are_null(LoadFixturesInterface $loadFixtures, IntrospectableContainerInterface $container, Loader $loader)
     {
-        $this->shouldThrow('Symfony\Component\DependencyInjection\Exception\InvalidArgumentException');
+        $loadFixtures->fixtures()->willReturn(null);
         $this->setContainer($container);
         $container->get('hautelook_alice.loader')->willReturn($loader);
-        $loadFixtures->fixtures()->willReturn(null);
+        $this->shouldThrow(new InvalidArgumentException());
 
         $this->handle($loadFixtures);
     }
