@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\IntrospectableContainerInterface;
 
 class LoadFixturesCommandHandlerSpec extends ObjectBehavior
 {
-    function let(EntityManagerInterface $entityManager)
+    function let(ObjectManager $entityManager)
     {
         $this->beConstructedWith($entityManager);
     }
@@ -35,13 +35,12 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
         $this->handle($loadFixtures);
     }
 
-    function it_will_throw_an_exception_when_fixtures_are_null(LoadFixturesInterface $loadFixtures, IntrospectableContainerInterface $container, Loader $loader)
+    function it_will_throw_an_exception_when_fixtures_are_null(LoadFixturesInterface $loadFixtures, IntrospectableContainerInterface $container, Loader $loader, ObjectManager $entityManager)
     {
         $loadFixtures->fixtures()->willReturn(null);
         $this->setContainer($container);
         $container->get('hautelook_alice.loader')->willReturn($loader);
-        $this->shouldThrow(new InvalidArgumentException());
 
-        $this->handle($loadFixtures);
+        $this->shouldThrow(new InvalidArgumentException("Wrong"))->duringHandle($loadFixtures);
     }
 }

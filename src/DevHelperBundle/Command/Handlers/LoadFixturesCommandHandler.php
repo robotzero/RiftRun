@@ -5,6 +5,7 @@ namespace DevHelperBundle\Command\Handlers;
 use DevHelperBundle\Command\Commands\LoadFixturesInterface;
 use DevHelperBundle\Command\LoadFixtures;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
@@ -21,7 +22,7 @@ final class LoadFixturesCommandHandler extends DataFixtureLoader
      */
     private $fixtures = null;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(ObjectManager $entityManager)
     {
         $this->entityManager = $entityManager;
     }
@@ -32,7 +33,7 @@ final class LoadFixturesCommandHandler extends DataFixtureLoader
     protected function getFixtures()
     {
         if ($this->fixtures === null) {
-            throw new InvalidArgumentException();
+            throw new InvalidArgumentException("Wrong");
         }
 
         return $this->fixtures;
