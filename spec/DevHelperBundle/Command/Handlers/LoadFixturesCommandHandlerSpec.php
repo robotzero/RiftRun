@@ -5,7 +5,6 @@ namespace spec\DevHelperBundle\Command\Handlers;
 use DevHelperBundle\Command\Commands\LoadFixturesInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 use Hautelook\AliceBundle\Alice\Loader;
 use PhpSpec\ObjectBehavior;
@@ -25,8 +24,11 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
         $this->shouldHaveType('DevHelperBundle\Command\Handlers\LoadFixturesCommandHandler');
     }
 
-    function it_delegates_to_load_fixtures_command_to_get_the_fixtures(LoadFixturesInterface $loadFixtures, IntrospectableContainerInterface $container, Loader $loader)
-    {
+    function it_delegates_to_load_fixtures_command_to_get_the_fixtures(
+        LoadFixturesInterface $loadFixtures,
+        IntrospectableContainerInterface $container,
+        Loader $loader
+    ) {
         $this->setContainer($container);
         $container->get('hautelook_alice.loader')->willReturn($loader);
         $loadFixtures->fixtures()->shouldBeCalledTimes(1);
@@ -35,12 +37,16 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
         $this->handle($loadFixtures);
     }
 
-    function it_will_throw_an_exception_when_fixtures_are_null(LoadFixturesInterface $loadFixtures, IntrospectableContainerInterface $container, Loader $loader, ObjectManager $entityManager)
-    {
+    function it_will_throw_an_exception_when_fixtures_are_null(
+        LoadFixturesInterface $loadFixtures,
+        IntrospectableContainerInterface $container,
+        Loader $loader,
+        ObjectManager $entityManager
+    ) {
         $loadFixtures->fixtures()->willReturn(null);
         $this->setContainer($container);
         $container->get('hautelook_alice.loader')->willReturn($loader);
 
-        $this->shouldThrow(new InvalidArgumentException("Wrong"))->duringHandle($loadFixtures);
+        $this->shouldThrow(new InvalidArgumentException("Wrong fixtures!"))->duringHandle($loadFixtures);
     }
 }
