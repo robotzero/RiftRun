@@ -117,7 +117,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyContainsItems($property, $count)
     {
+        $count = (int) $count;
         $payload = $this->getScopePayload();
+
         assertCount(
             $count,
             $this->arrayGet($payload, $property),

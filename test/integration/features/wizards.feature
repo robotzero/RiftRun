@@ -20,10 +20,10 @@ Scenario: Returning a collection of wizards from a first page
         And the "href" property is a string equalling "http://localhost/v1/wizards?page=1&limit=20"
 
 Scenario: Returning paginated collection of wizards
-#    When "1000" objects exists in the database
     When I request "GET /v1/wizards"
     Then I get a "200" response
-    And the "items" property contains "20" items
+    And scope into the first "_embedded" property
+    And the "items" property contains 20 items
 #     When I request "Get /v1/wizards?page=20"
 #     And the "page" property exists
 #     And the "page" property is a integer equaling "20"
