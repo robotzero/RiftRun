@@ -10,6 +10,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
+use DevHelperBundle\Command\Commands\LoadFixtures;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
@@ -36,6 +37,10 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     {
         $this->client = $this->kernel->getContainer()->get('test.client');
         $this->client->setServerParameters([]);
+        $commandBus = $this->kernel->getContainer()->get('command_bus');
+        $fileLocations = ['test/Fixtures/DatabaseSeeder/wizards.yml'];
+        // Load database schema if it does not exists.
+        $commandBus->handle(new LoadFixtures($fileLocations));
     }
 
     /**

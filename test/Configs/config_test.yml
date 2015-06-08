@@ -1,5 +1,8 @@
 imports:
-    - { resource: config_dev.yml }
+    - { resource: ../../app/config/config_dev.yml }
+    - { resource: ../../app/config/parameters.yml }
+parameters:
+    database_path: '%kernel.root_dir%/../database/riftrun_test.db3'
 
 framework:
     test: ~
