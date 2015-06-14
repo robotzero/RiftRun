@@ -13,7 +13,7 @@ class WizardsSpecificationSpec extends ObjectBehavior
         $this->shouldHaveType('RiftRunBundle\ORM\Specification\WizardsSpecification');
     }
 
-    function it_should_build_a_query(QueryBuilder $queryBuilder)
+    function it_should_build_wizards_query(QueryBuilder $queryBuilder)
     {
         $queryBuilder->select('character')->shouldBeCalled()->willReturn($queryBuilder);
         $queryBuilder->where('character.type=?1')->shouldBeCalled()->willReturn($queryBuilder);
