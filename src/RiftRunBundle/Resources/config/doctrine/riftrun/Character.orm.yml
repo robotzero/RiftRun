@@ -1,4 +1,5 @@
 RiftRunBundle\Model\Character:
+    repositoryClass: RiftRunBundle\ORM\Repository\CharacterRepository
     type: entity
     table: characters
     id:

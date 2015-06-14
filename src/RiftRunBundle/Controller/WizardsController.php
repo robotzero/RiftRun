@@ -13,6 +13,7 @@ use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use RiftRunBundle\ORM\Specification\WizardsSpecification;
 
 class WizardsController extends Controller
 {
@@ -26,25 +27,11 @@ class WizardsController extends Controller
         $characterRepository = $this->container->get('doctrine')
                                     ->getRepository('RiftRunners:Character');
 
-        $queryBuilder = $characterRepository->createQueryBuilder('w')
-                                            ->select('w')
-                                            ->where('w.type=?1')
-                                            ->setParameter(1, 'wizard');
-
-
-        $adapter = new DoctrineORMAdapter($queryBuilder);
-        $pagerfanta = new Pagerfanta($adapter);
-
-        $limit = $request->query->get('limit', 20);
-        $page = $request->query->get('page', 1);
-        $pagerfanta->setMaxPerPage($limit);
-        $pagerfanta->setCurrentPage($page);
-
-        $pagerFantaFactory = new PagerfantaFactory();
-
-        $paginatedCollection = $pagerFantaFactory->createRepresentation(
-            $pagerfanta,
-            new Route('get_wizards', [], true)
+        $paginatedCollection = $this->container->get('paginationfactory')->create(
+            $characterRepository,
+            'get_wizards',
+            $request->query->get('limit', 20),
+            $request->query->get('page', 1)
         );
 
         $json = $this->get('serializer')->serialize($paginatedCollection, 'json');
