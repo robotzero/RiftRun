@@ -20,6 +20,7 @@ Feature: Wizards
 #         And the "href" property is a string equalling "http://localhost/v1/wizards?page=1&limit=20"
 
 Scenario: Returning default paginated collection of wizards
+    Given I have at least 1000 "wizard" in the database
     When I request "GET /v1/wizards?page=10"
     Then I get a "200" response
     And the "page" property exists

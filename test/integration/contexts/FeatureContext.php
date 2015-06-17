@@ -4,12 +4,14 @@ namespace Test\Integration\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
+use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -37,10 +39,14 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     {
         $this->client = $this->kernel->getContainer()->get('test.client');
         $this->client->setServerParameters([]);
-        $commandBus = $this->kernel->getContainer()->get('command_bus');
-        $fileLocations = ['test/Fixtures/DatabaseSeeder/wizards.yml'];
         // Load database schema if it does not exists.
-        $commandBus->handle(new LoadFixtures($fileLocations));
+    }
+
+    /** @AfterScenario */
+    public function after(AfterScenarioScope $scope)
+    {
+        $commandBus = $this->kernel->getContainer()->get('command_bus');
+        $commandBus->handle(new ClearDatabase());
     }
 
     /**
@@ -57,6 +63,26 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     public function setKernel(KernelInterface $kernelInterface)
     {
         $this->kernel = $kernelInterface;
+    }
+
+    /**
+     * @Given /^I have at least (\d+) "([^"]*)" in the database$/
+     */
+    public function iHaveInTheDatabase($number, $record)
+    {
+        $commandBus = $this->kernel->getContainer()->get('command_bus');
+        $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $record .  's_' . $number . '.yml'];
+        $commandBus->handle(new LoadFixtures($fileLocations));
+
+        $connection = $this->kernel->getContainer()
+                                   ->get('doctrine')
+                                   ->getManager()
+                                   ->getConnection();
+
+        $record = (string) $record;
+        $result = $connection->fetchAll('SELECT count() AS count FROM characters where type = "' . $record . '"');
+
+        assertEquals($result[0]['count'], 1000);
     }
 
     /**
