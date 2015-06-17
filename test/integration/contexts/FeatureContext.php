@@ -82,7 +82,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         $record = (string) $record;
         $result = $connection->fetchAll('SELECT count() AS count FROM characters where type = "' . $record . '"');
 
-        assertEquals($result[0]['count'], 1000);
+        assertEquals($result[0]['count'], $number);
     }
 
     /**
@@ -91,6 +91,15 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     public function iRequest($httpMethod, $resource)
     {
         $this->crawler = $this->client->request($httpMethod, $resource);
+        $this->response = $this->client->getResponse();
+    }
+
+    /**
+     * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)" with parameters "([^"]*)"$/
+     */
+    public function iRequestsWithParameters($httpMethod, $resource, $params)
+    {
+        $this->crawler = $this->client->request($httpMethod, $resource . $params);
         $this->response = $this->client->getResponse();
     }
 
