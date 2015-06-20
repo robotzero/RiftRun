@@ -1,3 +1,12 @@
 services:
     pagination_factory:
         class: RiftRunBundle\Factories\PaginationFactory
+        arguments:
+            - @request_stack
+        calls:
+            - [ setContainer, [ @service_container ]]
+
+    singletype_factory:
+        class: RiftRunBundle\Factories\SingleTypeFactory
+        calls:
+            - [ setContainer, [ @service_container ]]

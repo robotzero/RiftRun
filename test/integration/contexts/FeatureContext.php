@@ -39,6 +39,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     {
         $this->client = $this->kernel->getContainer()->get('test.client');
         $this->client->setServerParameters([]);
+        $this->resetScope();
         // Load database schema if it does not exists.
     }
 
@@ -144,6 +145,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyExists($property)
     {
+        echo $this->scope;
         assertObjectHasAttribute($property, $this->getScopePayload(), 'Missing attribute');
     }
 
@@ -224,6 +226,11 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     public function thePropertyIsAnObject($property)
     {
         print_r($property);
+    }
+
+    public function resetScope()
+    {
+        $this->scope = null;
     }
 
     private function getBody()
