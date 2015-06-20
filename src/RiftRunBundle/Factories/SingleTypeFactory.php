@@ -12,7 +12,7 @@ final class SingleTypeFactory extends ContainerAware implements Factory
     {
         $repository = $this->container->get('doctrine')->getRepository('RiftRunners:Character');
 
-        $wizard = $repository->findBy(['id' => $id, 'type' => $type]);
+        $wizard = $repository->findOneBy(['id' => $id, 'type' => $type]);
 
         return new Response($this->container->get('serializer')->serialize($wizard, 'json'));
     }

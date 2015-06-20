@@ -145,7 +145,6 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyExists($property)
     {
-        echo $this->scope;
         assertObjectHasAttribute($property, $this->getScopePayload(), 'Missing attribute');
     }
 
