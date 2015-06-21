@@ -1,4 +1,4 @@
-RiftRunBundle\Entity\SearchQuery:
+RiftRunBundle\Model\SearchQuery:
     type: entity
     table: searchquery
     repositoryClass: RiftRunBundle\ORM\Repository\SearchQueryRepository

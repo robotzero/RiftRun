@@ -3,9 +3,9 @@
 namespace RiftRunBundle\Model;
 
 /**
- * GameType
+ * Grift
  */
-class GameType
+class Grift extends GameType
 {
     /**
      * @var integer

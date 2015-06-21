@@ -1,4 +1,4 @@
-RiftRunBundle\Entity\CharacterClass:
+RiftRunBundle\Model\CharacterClass:
     type: entity
     table: characterclass
     repositoryClass: RiftRunBundle\ORM\Repository\CharacterClassRepository

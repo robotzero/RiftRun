@@ -1,4 +1,4 @@
-RiftRunBundle\Entity\Post:
+RiftRunBundle\Model\Post:
     type: entity
     table: posts
     repositoryClass: RiftRunBundle\ORM\Repository\PostRepository

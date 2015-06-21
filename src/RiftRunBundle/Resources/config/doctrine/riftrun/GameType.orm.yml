@@ -1,6 +1,13 @@
-RiftRunBundle\Entity\GameType:
+RiftRunBundle\Model\GameType:
     type: entity
-    table: null
+    table: gametype
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: discr
+        type: string
+    discriminatorMap:
+        gametype: GameType
+        grift: Grift
     id:
         id:
             type: integer

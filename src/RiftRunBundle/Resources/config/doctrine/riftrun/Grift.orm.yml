@@ -1,0 +1,4 @@
+RiftRunBundle\Model\Grift:
+    type: entity
+    table: null
+    lifecycleCallbacks: {  }

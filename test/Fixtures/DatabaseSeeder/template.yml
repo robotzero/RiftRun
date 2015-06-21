@@ -3,4 +3,6 @@ RiftRunBundle\Model\Character:
         paragonPoints: <numberBetween($min = 70, $max = 1000)>
         battleTag: '#11111'
         region: 'EU'
+        seasonal: false
+        gameType: "softcore"
         createdAt: <dateTime($max = 'now')>
