@@ -2,6 +2,13 @@ RiftRunBundle\Model\CharacterClass:
     type: entity
     table: characterclass
     repositoryClass: RiftRunBundle\ORM\Repository\CharacterClassRepository
+    manyToOne:
+        searchQuery:
+            targetEntity: SearchQuery
+            inversedBy: lookingFor
+            joinColumn:
+                name: searchquery_id
+                referencedColumnName: id
     id:
         id:
             type: integer

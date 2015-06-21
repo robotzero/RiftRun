@@ -2,7 +2,6 @@
 
 namespace RiftRunBundle\Model;
 
-
 /**
  * CharacterClass
  */
@@ -18,6 +17,10 @@ class CharacterClass
      */
     private $type;
 
+    /**
+     * @var \RiftRunBundle\Model\SearchQuery
+     */
+    private $searchQuery;
 
     /**
      * Get id
@@ -52,5 +55,28 @@ class CharacterClass
     {
         return $this->type;
     }
-}
 
+    /**
+     * Set searchQuery
+     *
+     * @param \RiftRunBundle\Model\SearchQuery $searchQuery
+     *
+     * @return CharacterClass
+     */
+    public function setSearchQuery(\RiftRunBundle\Model\SearchQuery $searchQuery = null)
+    {
+        $this->searchQuery = $searchQuery;
+
+        return $this;
+    }
+
+    /**
+     * Get searchQuery
+     *
+     * @return \RiftRunBundle\Model\SearchQuery
+     */
+    public function getSearchQuery()
+    {
+        return $this->searchQuery;
+    }
+}
