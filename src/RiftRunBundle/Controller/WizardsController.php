@@ -17,7 +17,7 @@ class WizardsController extends Controller
     public function getWizardsAction(Request $request)
     {
         return $this->container->get('paginationfactory')->create(
-            'wizard',
+            'allposts',
             'get_wizards'
         );
     }
