@@ -2,6 +2,17 @@ RiftRunBundle\Model\Post:
     type: entity
     table: posts
     repositoryClass: RiftRunBundle\ORM\Repository\PostRepository
+    oneToOne:
+        player:
+            targetEntity: Character
+            joinColumn:
+                name: player_id
+                referencedColumnName: id
+        query:
+            targetEntity: SearchQuery
+            joinColumn:
+                name: searchquery_id
+                referencedColumnName: id
     id:
         id:
             type: integer
@@ -11,7 +22,4 @@ RiftRunBundle\Model\Post:
     fields:
         createdAt:
             type: datetimetz
-        gameType:
-            type: string
-            length: 255
     lifecycleCallbacks: {  }

@@ -18,10 +18,14 @@ class Post
     private $createdAt;
 
     /**
-     * @var string
+     * @var \RiftRunBundle\Model\Character
      */
-    private $gameType;
+    private $player;
 
+    /**
+     * @var \RiftRunBundle\Model\SearchQuery
+     */
+    private $query;
 
     /**
      * Get id
@@ -58,27 +62,50 @@ class Post
     }
 
     /**
-     * Set gameType
+     * Set player
      *
-     * @param string $gameType
+     * @param \RiftRunBundle\Model\Character $player
      *
      * @return Post
      */
-    public function setGameType($gameType)
+    public function setPlayer(\RiftRunBundle\Model\Character $player = null)
     {
-        $this->gameType = $gameType;
+        $this->player = $player;
 
         return $this;
     }
 
     /**
-     * Get gameType
+     * Get player
      *
-     * @return string
+     * @return \RiftRunBundle\Model\Character
      */
-    public function getGameType()
+    public function getPlayer()
     {
-        return $this->gameType;
+        return $this->player;
+    }
+
+    /**
+     * Set query
+     *
+     * @param \RiftRunBundle\Model\SearchQuery $query
+     *
+     * @return Post
+     */
+    public function setQuery(\RiftRunBundle\Model\SearchQuery $query = null)
+    {
+        $this->query = $query;
+
+        return $this;
+    }
+
+    /**
+     * Get query
+     *
+     * @return \RiftRunBundle\Model\SearchQuery
+     */
+    public function getQuery()
+    {
+        return $this->query;
     }
 }
-
