@@ -1,6 +1,6 @@
 RiftRunBundle\Entity\Post:
     type: entity
-    table: null
+    table: posts
     repositoryClass: RiftRunBundle\ORM\Repository\PostRepository
     id:
         id:

@@ -1,6 +1,6 @@
 RiftRunBundle\Entity\SearchQuery:
     type: entity
-    table: null
+    table: searchquery
     repositoryClass: RiftRunBundle\ORM\Repository\SearchQueryRepository
     id:
         id:

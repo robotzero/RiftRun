@@ -1,6 +1,6 @@
 RiftRunBundle\Entity\CharacterClass:
     type: entity
-    table: null
+    table: characterclass
     repositoryClass: RiftRunBundle\ORM\Repository\CharacterClassRepository
     id:
         id:
