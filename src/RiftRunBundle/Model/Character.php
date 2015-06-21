@@ -37,6 +37,15 @@ class Character
      */
     private $createdAt;
 
+    /**
+     * @var boolean
+     */
+    private $seasonal;
+
+    /**
+     * @var string
+     */
+    private $gameType;
 
     /**
      * Get id
@@ -161,5 +170,53 @@ class Character
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set seasonal
+     *
+     * @param boolean $seasonal
+     *
+     * @return Character
+     */
+    public function setSeasonal($seasonal)
+    {
+        $this->seasonal = $seasonal;
+
+        return $this;
+    }
+
+    /**
+     * Get seasonal
+     *
+     * @return boolean
+     */
+    public function getSeasonal()
+    {
+        return $this->seasonal;
+    }
+
+    /**
+     * Set gameType
+     *
+     * @param string $gameType
+     *
+     * @return Character
+     */
+    public function setGameType($gameType)
+    {
+        $this->gameType = $gameType;
+
+        return $this;
+    }
+
+    /**
+     * Get gameType
+     *
+     * @return string
+     */
+    public function getGameType()
+    {
+        return $this->gameType;
     }
 }

@@ -1,0 +1,17 @@
+RiftRunBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: RiftRunBundle\ORM\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdAt:
+            type: datetimetz
+        gameType:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

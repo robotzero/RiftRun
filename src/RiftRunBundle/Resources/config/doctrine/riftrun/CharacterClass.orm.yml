@@ -1,0 +1,15 @@
+RiftRunBundle\Entity\CharacterClass:
+    type: entity
+    table: null
+    repositoryClass: RiftRunBundle\ORM\Repository\CharacterClassRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

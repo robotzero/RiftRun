@@ -12,14 +12,25 @@ RiftRunBundle\Model\Character:
         type:
             type: string
             length: 255
+            comment: "wizard, dh, wd, crusaider"
         paragonPoints:
             type: smallint
+            comment: "number of current paragon points"
         battleTag:
             type: string
             length: 255
+            comment: "Blizzard battle tag #11111"
         region:
             type: string
             length: '3'
+            comment: "EU, NA"
         createdAt:
             type: datetimetz
+        seasonal:
+            type: boolean
+            comment: "Is it seasonal or not"
+        gameType:
+            type: string
+            length: 255
+            comment: "hardcore, softcore"
     lifecycleCallbacks: {  }
