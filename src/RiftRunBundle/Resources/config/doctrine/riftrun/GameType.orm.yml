@@ -1,7 +1,7 @@
 RiftRunBundle\Model\GameType:
     type: entity
     table: gametype
-    inheritanceType: SINGLE_TABLE
+    inheritanceType: JOINED
     discriminatorColumn:
         name: discr
         type: string
