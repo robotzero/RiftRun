@@ -1,0 +1,5 @@
+include:
+    - grift_template.yml
+
+RiftRunBundle\Model\Grift:
+    grifts{1..10} (extends grift): []

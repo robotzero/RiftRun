@@ -1,0 +1,7 @@
+include:
+    - template.yml
+
+RiftRunBundle\Model\SearchQuery:
+    searchqueries{1..10} (extends searchquery):
+        gameType: @grifts<current()>
+        lookingFor: [@characterclasses<current()>]

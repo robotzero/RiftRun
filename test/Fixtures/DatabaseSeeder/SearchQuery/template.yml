@@ -1,0 +1,4 @@
+RiftRunBundle\Model\SearchQuery:
+    searchquery (template):
+        minParagon: <numberBetween($min = 70, $max = 1000)>
+        createdAt: <dateTime($max = 'now')>
