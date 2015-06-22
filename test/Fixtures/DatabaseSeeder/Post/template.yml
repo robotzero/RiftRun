@@ -1,5 +1,3 @@
 RiftRunBundle\Model\Post:
     post (template):
-        paragonPoints: <numberBetween($min = 70, $max = 1000)>
-        player: @player1
         createdAt: <dateTime($max = 'now')>
