@@ -25,15 +25,15 @@ final class PaginationFactory extends ContainerAware implements Factory
         $this->request = $request;
         $this->arrayObject =
             [
-                'wizard' => new WizardsSpecification(),
-                'allposts' => new AllPostsSpecification()
+                'wizard' => [new WizardsSpecification(), 'Character'],
+                'post' => [new AllPostsSpecification(), 'Post']
             ];
     }
     public function create($type, $route)
     {
-        //$this->repository = $this->container->get('doctrine')->getRepository('RiftRunners:Character');
-        $this->repository = $this->container->get('doctrine')->getRepository('RiftRunners:Post');
-        $queryBuilder = $this->repository->match($this->arrayObject[$type]);
+        $repositoryString = $this->arrayObject[$type][1];
+        $this->repository = $this->container->get('doctrine')->getRepository('RiftRunners:'.$repositoryString);
+        $queryBuilder = $this->repository->match($this->arrayObject[$type][0]);
         $pagerfanta = new Pagerfanta(new DoctrineORMAdapter($queryBuilder));
         $pagerFantaFactory = new PagerfantaFactory();
         $pagerfanta->setMaxPerPage($this->request->getCurrentRequest()->query->get('limit', 20));

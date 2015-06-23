@@ -7,28 +7,28 @@ use FOS\RestBundle\Controller\Annotations\View;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class WizardsController extends Controller
+class PostsController extends Controller
 {
     /**
      * @return array
      * @View()
-     * @Get("/wizards")
+     * @Get("/posts")
      */
-    public function getWizardsAction(Request $request)
+    public function getPostsAction(Request $request)
     {
         return $this->container->get('paginationfactory')->create(
-            'wizard',
-            'get_wizards'
+            'post',
+            'get_posts'
         );
     }
 
     /**
-     * @return Wizard
+     * @return Post
      * @View()
-     * @Get("/wizards/{id}")
+     * @Get("/posts/{id}")
      */
-    public function getWizardAction(Request $request, $id)
-    {
-        return $this->container->get('singletype_factory')->create($id, 'wizard');
-    }
+    // public function getPostAction(Request $request, $id)
+    // {
+    //     return $this->container->get('singletype_factory')->create($id, 'post');
+    // }
 }

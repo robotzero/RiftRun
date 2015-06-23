@@ -1,3 +1,6 @@
 rift_run_wizards:
     type: rest
     resource: RiftRunBundle\Controller\WizardsController
+rift_run_posts:
+    type: rest
+    resource: RiftRunBundle\Controller\PostsController
