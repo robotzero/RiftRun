@@ -19,6 +19,11 @@ final class DatabaseClearCommandHandler
         $connection = $this->entityManager->getConnection();
 
         $connection->exec('DELETE FROM characters');
+        $connection->exec('DELETE FROM posts');
+        $connection->exec('DELETE FROM Grift');
+        $connection->exec('DELETE FROM searchquery');
+        $connection->exec('DELETE FROM gametype');
+        $connection->exec('DELETE FROM characterclass');
         //$connection->exec('VACUUM characters');
     }
 }

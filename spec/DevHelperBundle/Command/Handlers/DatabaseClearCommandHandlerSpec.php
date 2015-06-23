@@ -25,5 +25,10 @@ class DatabaseClearCommandHandlerSpec extends ObjectBehavior
         $entityManager->getConnection()->willReturn($connection);
         $this->handle($clearDatabase);
         $connection->exec("DELETE FROM characters")->shouldHaveBeenCalledTimes(1);
+        $connection->exec("DELETE FROM posts")->shouldHaveBeenCalledTimes(1);
+        $connection->exec("DELETE FROM Grift")->shouldHaveBeenCalledTimes(1);
+        $connection->exec("DELETE FROM searchquery")->shouldHaveBeenCalledTimes(1);
+        $connection->exec("DELETE FROM gametype")->shouldHaveBeenCalledTimes(1);
+        $connection->exec("DELETE FROM characterclass")->shouldHaveBeenCalledTimes(1);
     }
 }
