@@ -25,19 +25,19 @@ class SearchQuery
     /**
      * @var \RiftRunBundle\Model\GameType
      */
-    private $gameType;
+    private $game;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $lookingFor;
+    private $characterClass;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->lookingFor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->characterClass = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -98,29 +98,6 @@ class SearchQuery
         return $this->createdAt;
     }
 
-    /**
-     * Set gameType
-     *
-     * @param \RiftRunBundle\Model\GameType $gameType
-     *
-     * @return SearchQuery
-     */
-    public function setGameType(\RiftRunBundle\Model\GameType $gameType = null)
-    {
-        $this->gameType = $gameType;
-
-        return $this;
-    }
-
-    /**
-     * Get gameType
-     *
-     * @return \RiftRunBundle\Model\GameType
-     */
-    public function getGameType()
-    {
-        return $this->gameType;
-    }
 
     /**
      * Add lookingFor
@@ -154,5 +131,63 @@ class SearchQuery
     public function getLookingFor()
     {
         return $this->lookingFor;
+    }
+
+    /**
+     * Set game
+     *
+     * @param \RiftRunBundle\Model\GameType $game
+     *
+     * @return SearchQuery
+     */
+    public function setGame(\RiftRunBundle\Model\GameType $game = null)
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \RiftRunBundle\Model\GameType
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
+
+    /**
+     * Add characterClass
+     *
+     * @param \RiftRunBundle\Model\CharacterClass $characterClass
+     *
+     * @return SearchQuery
+     */
+    public function addCharacterClass(\RiftRunBundle\Model\CharacterClass $characterClass)
+    {
+        $this->characterClass[] = $characterClass;
+
+        return $this;
+    }
+
+    /**
+     * Remove characterClass
+     *
+     * @param \RiftRunBundle\Model\CharacterClass $characterClass
+     */
+    public function removeCharacterClass(\RiftRunBundle\Model\CharacterClass $characterClass)
+    {
+        $this->characterClass->removeElement($characterClass);
+    }
+
+    /**
+     * Get characterClass
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCharacterClass()
+    {
+        return $this->characterClass;
     }
 }

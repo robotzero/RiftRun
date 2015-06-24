@@ -2,13 +2,13 @@ RiftRunBundle\Model\SearchQuery:
     type: entity
     table: searchquery
     oneToOne:
-        gameType:
+        game:
             targetEntity: GameType
             joinColumn:
                 name: gametype_id
                 referencedColumnName: id
     oneToMany:
-        lookingFor:
+        characterClass:
             targetEntity: CharacterClass
             mappedBy: searchQuery
     repositoryClass: RiftRunBundle\ORM\Repository\SearchQueryRepository

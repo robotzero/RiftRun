@@ -18,7 +18,7 @@ RiftRunBundle\Model\Grift:
 
 RiftRunBundle\Model\SearchQuery:
     searchqueries{1..10} (extends searchquery):
-        gameType: @grifts<current()>
+        game: @grifts<current()>
 
 RiftRunBundle\Model\Post:
     posts{1..10} (extends post):

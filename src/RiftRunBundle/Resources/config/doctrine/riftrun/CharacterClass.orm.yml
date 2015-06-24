@@ -5,7 +5,7 @@ RiftRunBundle\Model\CharacterClass:
     manyToOne:
         searchQuery:
             targetEntity: SearchQuery
-            inversedBy: lookingFor
+            inversedBy: characterClass
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id

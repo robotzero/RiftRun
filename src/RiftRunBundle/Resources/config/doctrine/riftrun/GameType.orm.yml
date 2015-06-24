@@ -3,7 +3,7 @@ RiftRunBundle\Model\GameType:
     table: gametype
     inheritanceType: JOINED
     discriminatorColumn:
-        name: discr
+        name: type
         type: string
     discriminatorMap:
         gametype: GameType
