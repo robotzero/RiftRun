@@ -8,3 +8,8 @@ default:
     suites:
         default:
             contexts: [ Test\Integration\Context\FeatureContext ]
+        # get:
+        #     contexts:
+        #         - Test\Integration\Context\FeatureContext
+        #     filters:
+        #         tags: '@get'
