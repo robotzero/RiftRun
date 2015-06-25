@@ -8,12 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class SingleTypeFactory extends ContainerAware implements Factory
 {
+    /** @var array */
+    private $arrayObject;
+
     public function __construct()
     {
         $this->arrayObject =
             [
-                'wizard' => ['RiftRunners:Character'],
-                'post' => ['RiftRunners:Post']
+                'wizard' => 'RiftRunners:Character',
+                'post' => 'RiftRunners:Post'
             ];
     }
 
@@ -21,8 +24,8 @@ final class SingleTypeFactory extends ContainerAware implements Factory
     {
         $repository = $this->container->get('doctrine')->getRepository($this->arrayObject[$type]);
 
-        $wizard = $repository->findOneBy(['id' => $id, 'type' => $type]);
+        $entity = $repository->findOneBy(['id' => $id]);
 
-        return new Response($this->container->get('serializer')->serialize($wizard, 'json'));
+        return new Response($this->container->get('serializer')->serialize($entity, 'json'));
     }
 }
