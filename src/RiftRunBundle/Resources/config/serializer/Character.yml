@@ -6,11 +6,13 @@ RiftRunBundle\Model\Character:
             serialized_name: paragonPoints
         createdAt:
             serialized_name: createdAt
-    relations:
-        -
-            rel: self
-            href:
-                route: get_wizard
-                parameters:
-                    id: expr(object.getId())
-                absolute: true
+        gameType:
+            serialized_name: gameType
+    # relations:
+    #     -
+    #         rel: self
+    #         href:
+    #             route: get_post
+    #             parameters:
+    #                 id: expr(object.getId())
+    #             absolute: true

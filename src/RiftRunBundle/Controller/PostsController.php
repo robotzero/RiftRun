@@ -27,8 +27,8 @@ class PostsController extends Controller
      * @View()
      * @Get("/posts/{id}")
      */
-    // public function getPostAction(Request $request, $id)
-    // {
-    //     return $this->container->get('singletype_factory')->create($id, 'post');
-    // }
+    public function getPostAction(Request $request, $id)
+    {
+        return $this->container->get('singletype_factory')->create($id, 'post');
+    }
 }

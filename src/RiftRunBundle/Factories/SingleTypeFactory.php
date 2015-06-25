@@ -8,9 +8,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class SingleTypeFactory extends ContainerAware implements Factory
 {
+    public function __construct()
+    {
+        $this->arrayObject =
+            [
+                'wizard' => ['RiftRunners:Character'],
+                'post' => ['RiftRunners:Post']
+            ];
+    }
+
     public function create($id, $type)
     {
-        $repository = $this->container->get('doctrine')->getRepository('RiftRunners:Character');
+        $repository = $this->container->get('doctrine')->getRepository($this->arrayObject[$type]);
 
         $wizard = $repository->findOneBy(['id' => $id, 'type' => $type]);
 
