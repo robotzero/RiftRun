@@ -1,13 +1,13 @@
-# Feature: Posts
+Feature: Posts
 
 # Scenario: When character or search query is missing for the given post
 # 	  do not display this post.
 
-# Scenario: Returning a collection of posts from a first page
-#     Given I have at least 10 "wizard" in the database
-#     When I request "GET /v1/posts"
-#     Then I get a "200" response
-#     And the "page" property exists
+Scenario: Returning a collection of posts from a first page
+    Given I have at least 10 "posts" in the database
+    When I request "GET /v1/posts"
+    Then I get a "200" response
+    And the "page" property exists
 #     And the "page" property is a integer equalling "1"
 #     And scope into the first "_embedded.items" property
 #         And the properties exist:

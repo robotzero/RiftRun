@@ -13,6 +13,8 @@ use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\LoadFixtures;
+use DevHelperBundle\Command\Commands\CreateSchema;
+use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
@@ -32,24 +34,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $scope = null;
 
+    private $commandBus;
+
     // TODO load custom fixtures.
-
-    /** @BeforeScenario */
-    public function before(BeforeScenarioScope $scope)
-    {
-        $this->client = $this->kernel->getContainer()->get('test.client');
-        $this->client->setServerParameters([]);
-        $this->resetScope();
-        // Load database schema if it does not exists.
-    }
-
-    /** @AfterScenario */
-    public function after(AfterScenarioScope $scope)
-    {
-        $commandBus = $this->kernel->getContainer()->get('command_bus');
-        $commandBus->handle(new ClearDatabase());
-    }
-
     /**
      * Initializes context.
      *
@@ -57,10 +44,27 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
      */
-    public function __construct()
+    public function __construct(MessageBus $commandBus)
     {
-
+        $this->commandBus = $commandBus;
     }
+
+    /** @BeforeScenario */
+    public function before(BeforeScenarioScope $scope)
+    {
+        $this->client = $this->kernel->getContainer()->get('test.client');
+        $this->client->setServerParameters([]);
+        $this->resetScope();
+        $entityManager = $this->kernel->getContainer()->get('doctrine')->getManager();
+        $this->commandBus->handle(new CreateSchema($entityManager));
+    }
+
+    /** @AfterScenario */
+    public function after(AfterScenarioScope $scope)
+    {
+        $this->commandBus->handle(new ClearDatabase());
+    }
+
     public function setKernel(KernelInterface $kernelInterface)
     {
         $this->kernel = $kernelInterface;
@@ -71,9 +75,10 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iHaveInTheDatabase($number, $record)
     {
-        $commandBus = $this->kernel->getContainer()->get('command_bus');
-        $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $record .  's_' . $number . '.yml'];
-        $commandBus->handle(new LoadFixtures($fileLocations));
+        $entityFolder = ucfirst($record);
+        echo "BLAH" . $entityFolder;
+        $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $record .  '_x' . $number . '.yml'];
+        $this->commandBus->handle(new LoadFixtures($fileLocations));
 
         $connection = $this->kernel->getContainer()
                                    ->get('doctrine')

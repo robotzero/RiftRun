@@ -7,7 +7,9 @@ default:
               symfony2: ~
     suites:
         default:
-            contexts: [ Test\Integration\Context\FeatureContext ]
+            contexts:
+                - Test\Integration\Context\FeatureContext:
+                    commandBus: @command_bus
         # get:
         #     contexts:
         #         - Test\Integration\Context\FeatureContext
