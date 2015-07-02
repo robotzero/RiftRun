@@ -2,7 +2,7 @@
 
 namespace DevHelperBundle\Command\Commands;
 
-interface CreateSchemaInterface
+interface ManipulateSchemaInterface
 {
     public function getSchemaTool();
 

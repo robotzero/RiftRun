@@ -13,7 +13,7 @@ use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\LoadFixtures;
-use DevHelperBundle\Command\Commands\CreateSchema;
+use DevHelperBundle\Command\Commands\ManipulateSchema;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -56,7 +56,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         $this->client->setServerParameters([]);
         $this->resetScope();
         $entityManager = $this->kernel->getContainer()->get('doctrine')->getManager();
-        $this->commandBus->handle(new CreateSchema($entityManager));
+        $this->commandBus->handle(new ManipulateSchema($entityManager));
     }
 
     /** @AfterScenario */

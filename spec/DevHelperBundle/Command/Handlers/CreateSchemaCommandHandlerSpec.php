@@ -2,7 +2,7 @@
 
 namespace spec\DevHelperBundle\Command\Handlers;
 
-use DevHelperBundle\Command\Commands\CreateSchemaInterface;
+use DevHelperBundle\Command\Commands\ManipulateSchemaInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -14,7 +14,7 @@ class CreateSchemaCommandHandlerSpec extends ObjectBehavior
     }
 
     function it_does_nothing_when_schema_manager_lists_tables(
-        CreateSchemaInterface $createSchema,
+        ManipulateSchemaInterface $createSchema,
         \Doctrine\DBAL\Schema\SqliteSchemaManager $schemaManager
     ) {
         $createSchema->getSchemaManager()->willReturn($schemaManager);
@@ -26,7 +26,7 @@ class CreateSchemaCommandHandlerSpec extends ObjectBehavior
     }
 
     function it_delegates_to_schema_tool_to_create_schema(
-        CreateSchemaInterface $createSchema,
+        ManipulateSchemaInterface $createSchema,
         \Doctrine\DBAL\Schema\SqliteSchemaManager $schemaManager,
         \Doctrine\ORM\Tools\SchemaTool $schemaTool
     ) {

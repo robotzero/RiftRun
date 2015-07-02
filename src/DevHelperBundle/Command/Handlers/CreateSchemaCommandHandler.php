@@ -2,11 +2,11 @@
 
 namespace DevHelperBundle\Command\Handlers;
 
-use DevHelperBundle\Command\Commands\CreateSchemaInterface;
+use DevHelperBundle\Command\Commands\ManipulateSchemaInterface;
 
 final class CreateSchemaCommandHandler
 {
-    public function handle(CreateSchemaInterface $createSchema)
+    public function handle(ManipulateSchemaInterface $createSchema)
     {
         if (empty($createSchema->getSchemaManager()->listTables()) === true) {
             $metadatas = $createSchema->getMetadata();

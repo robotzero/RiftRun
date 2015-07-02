@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\Mapping\ClassMetadataFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class CreateSchemaSpec extends ObjectBehavior
+class ManipulateSchemaSpec extends ObjectBehavior
 {
     function let(EntityManagerInterface $entityManager)
     {
@@ -16,12 +16,12 @@ class CreateSchemaSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('DevHelperBundle\Command\Commands\CreateSchema');
+        $this->shouldHaveType('DevHelperBundle\Command\Commands\ManipulateSchema');
     }
 
     function it_should_implement_an_interface()
     {
-        $this->shouldImplement('DevHelperBundle\Command\Commands\CreateSchemaInterface');
+        $this->shouldImplement('DevHelperBundle\Command\Commands\ManipulateSchemaInterface');
     }
 
     function it_delegates_to_metadatafactory_to_get_metadata(
