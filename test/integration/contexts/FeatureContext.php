@@ -34,7 +34,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $scope = null;
 
-    private $commandBus;
+    private $commandBus = null;
 
     // TODO load custom fixtures.
     /**

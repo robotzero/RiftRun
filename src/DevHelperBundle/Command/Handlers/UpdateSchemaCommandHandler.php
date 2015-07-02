@@ -2,14 +2,14 @@
 
 namespace DevHelperBundle\Command\Handlers;
 
-use DevHelperBundle\Command\Commands\CreateSchemaInterface;
+use DevHelperBundle\Command\Commands\ManipulateSchemaInterface;
 
 final class UpdateSchemaCommandHandler
 {
-    public function handle(CreateSchemaInterface $createSchema)
+    public function handle(ManipulateSchemaInterface $updateSchema)
     {
-        $metadatas = $createSchema->getMetadata();
-        $schemaTool = $createSchema->getSchemaTool();
+        $metadatas = $updateSchema->getMetadata();
+        $schemaTool = $updateSchema->getSchemaTool();
 
         $schemaTool->updateSchema($metadatas);
     }
