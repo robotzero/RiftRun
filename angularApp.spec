@@ -27,6 +27,6 @@ endpoint = /posts?page=1&rpp=?&q=paragonMin:500
 
 
 
-
+sudo docker run --rm -ti -v /home/subzero/Code/RiftRun/:/var/www/html/riftrun --workdir=/var/www/html/riftrun deployment_phpfpm /usr/local/php7/bin/php bin/behat -c test/integration/behat.yml
 
 
