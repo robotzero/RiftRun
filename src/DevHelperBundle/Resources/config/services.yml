@@ -18,7 +18,12 @@ services:
     create_schema_command_handler:
         class: DevHelperBundle\Command\Handlers\CreateSchemaCommandHandler
         tags:
-            - { name: command_handler, handles: DevHelperBundle\Command\Commands\ManipulateSchema }
+            - { name: command_handler, handles: DevHelperBundle\Command\Commands\CreateSchema }
+
+    update_schema_command_handler:
+        class: DevHelperBundle\Command\Handlers\UpdateSchemaCommandHandler
+        tags:
+            - { name: command_handler, handles: DevHelperBundle\Command\Commands\UpdateSchema }
 
     load_fixtures_cli:
         class: DevHelperBundle\Cli\DatabaseSeederCommand

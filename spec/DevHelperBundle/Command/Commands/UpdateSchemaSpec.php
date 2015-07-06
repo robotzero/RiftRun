@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\Mapping\ClassMetadataFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ManipulateSchemaSpec extends ObjectBehavior
+class UpdateSchemaSpec extends ObjectBehavior
 {
     function let(EntityManagerInterface $entityManager)
     {

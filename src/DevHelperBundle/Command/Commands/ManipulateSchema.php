@@ -5,7 +5,7 @@ namespace DevHelperBundle\Command\Commands;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
 
-final class ManipulateSchema implements ManipulateSchemaInterface
+abstract class ManipulateSchema implements ManipulateSchemaInterface
 {
     private $entityManager;
 
