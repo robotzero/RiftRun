@@ -13,7 +13,8 @@ use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\LoadFixtures;
-use DevHelperBundle\Command\Commands\ManipulateSchema;
+use DevHelperBundle\Command\Commands\CreateSchema;
+use DevHelperBundle\Command\Commands\UpdateSchema;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -56,7 +57,8 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         $this->client->setServerParameters([]);
         $this->resetScope();
         $entityManager = $this->kernel->getContainer()->get('doctrine')->getManager();
-        $this->commandBus->handle(new ManipulateSchema($entityManager));
+        $this->commandBus->handle(new CreateSchema($entityManager));
+        $this->commandBus->handle(new UpdateSchema($entityManager));
     }
 
     /** @AfterScenario */
@@ -75,9 +77,10 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iHaveInTheDatabase($number, $record)
     {
+        $record = substr($record, 0, -1);
         $entityFolder = ucfirst($record);
-        echo "BLAH" . $entityFolder;
-        $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $record .  '_x' . $number . '.yml'];
+
+        $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $entityFolder . '/' .  $record .  '_x' . $number . '.yml'];
         $this->commandBus->handle(new LoadFixtures($fileLocations));
 
         $connection = $this->kernel->getContainer()
@@ -86,7 +89,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
                                    ->getConnection();
 
         $record = (string) $record;
-        $result = $connection->fetchAll('SELECT count() AS count FROM characters where type = "' . $record . '"');
+        $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's');
 
         assertEquals($result[0]['count'], $number);
     }
