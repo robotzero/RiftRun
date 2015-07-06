@@ -176,10 +176,11 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function thePropertyIsAnInteger($property)
     {
-        isType(
-            'int',
-            $this->arrayGet($this->getScopePayload(), $property),
+        assertInternalType('int', $this->arrayGet(
+            $this->getScopePayload(),
+            $property,
             "Asserting the [$property] property in current scope [{$this->scope}] is an integer: "
+            )
         );
     }
 
@@ -204,10 +205,14 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     public function thePropertyIsAString($property)
     {
         $payload = $this->getScopePayload();
-        isType(
+
+        assertInternalType(
             'string',
-            $this->arrayGet($payload, $property),
-            "Asserting the [$property] property in current scope [{$this->scope}] is a string: ".json_encode($payload)
+            $this->arrayGet(
+                $payload,
+                $property,
+                "Asserting the [$property] property in current scope [{$this->scope}] is a string: ".json_encode($payload)
+            )
         );
     }
 
@@ -228,11 +233,59 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     }
 
     /**
+     * @Given /^the "([^"]*)" property is an array$/
+     */
+    public function thePropertyIsAnArray($property)
+    {
+        $payload = $this->getScopePayload();
+        $actualValue = $this->arrayGet($payload, $property);
+        assertTrue(
+            is_array($actualValue),
+            "Asserting the [$property] property in current scope [{$this->scope}] is an array: ".json_encode($payload)
+        );
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a boolean$/
+     */
+    public function thePropertyIsABoolean($property)
+    {
+        $payload = $this->getScopePayload();
+        assertTrue(
+            gettype($this->arrayGet($payload, $property)) == 'boolean',
+            "Asserting the [$property] property in current scope [{$this->scope}] is a boolean."
+        );
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a boolean equalling "([^"]*)"$/
+     */
+    public function thePropertyIsABooleanEqualling($property, $expectedValue)
+    {
+        $payload = $this->getScopePayload();
+        $actualValue = $this->arrayGet($payload, $property);
+        if (! in_array($expectedValue, ['true', 'false'])) {
+            throw new \InvalidArgumentException("Testing for booleans must be represented by [true] or [false].");
+        }
+        $this->thePropertyIsABoolean($property);
+        assertSame(
+            $actualValue,
+            $expectedValue == 'true',
+            "Asserting the [$property] property in current scope [{$this->scope}] is a boolean equalling [$expectedValue]."
+        );
+    }
+
+    /**
      * @Given /^the "([^"]*)" property is an object$/
      */
     public function thePropertyIsAnObject($property)
     {
-        print_r($property);
+        $payload = $this->getScopePayload();
+        $actualValue = $this->arrayGet($payload, $property);
+        assertTrue(
+            is_object($actualValue),
+            "Asserting the [$property] property in current scope [{$this->scope}] is an object: ".json_encode($payload)
+        );
     }
 
     public function resetScope()
