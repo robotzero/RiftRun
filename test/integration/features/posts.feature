@@ -21,24 +21,21 @@ Scenario: Returning a collection of posts from a first page
         And the "createdAt" property is a string
         And the "player" property is an object
         And the "query" property is an object
-        And scope into the "player" property
-            And the "id" property is an integer
-            # And the "type" property is a string
-            # And the "paragonPoints" property is an integer
-            # And the "battleTag" property is a string
-            # And the "region" property is a string
-            # And the "createdAt" property is a string
-            # And the "seasonal" property is a boolean
-            # And the "gameType" property is a string
-        # And scope into the "query" property
-        #     And the "id" property is an integer
-        #     And the "minParagon" property is an integer
-        #     And the "createdAt" property is a string
-        #     And the "game" property is an object
-        #     And the "characterClass" property is an array
-        # And scope into the "query.game" property
-        #     And the "level" property is a string
-        #     And the "type" property is a string
+        And the "player.id" property is an integer
+        And the "player.type" property is a string
+        And the "player.paragonPoints" property is an integer
+        And the "player.battleTag" property is a string
+        And the "player.region" property is a string
+        And the "player.createdAt" property is a string
+        And the "player.seasonal" property is a boolean
+        And the "player.gameType" property is a string
+        And the "query.id" property is an integer
+        And the "query.minParagon" property is an integer
+        And the "query.createdAt" property is a string
+        And the "query.game" property is an object
+        And the "query.characterClass" property is an array
+        And the "query.game.level" property is a string
+        And the "query.game.type" property is a string
         And scope into the "_links.self" property
             And the "href" property exists
             And the "href" property is a string equalling "http://localhost/v1/posts?page=1&limit=20"
