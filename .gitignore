@@ -4,3 +4,4 @@ vendor
 bin
 database
 web/bundles
+.tags*
