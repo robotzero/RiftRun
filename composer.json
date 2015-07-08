@@ -26,6 +26,7 @@
 	    "jms/serializer": "dev-master",
 	    "nelmio/api-doc-bundle": "dev-master",
 	    "willdurand/hateoas-bundle": "dev-master",
+        "jms/serializer-bundle": "dev-master",
         "hautelook/templated-uri-bundle": "dev-master",
         "willdurand/rest-extra-bundle": "dev-master",
 	"pagerfanta/pagerfanta": "dev-master",

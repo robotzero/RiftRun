@@ -46,6 +46,10 @@ final class LoadFixturesCommandHandler extends DataFixtureLoader
     public function handle(LoadFixturesInterface $loadFixtures)
     {
         $this->fixtures = $loadFixtures->fixtures();
-        return $this->load($this->entityManager);
+        var_dump($this->fixtures);
+        $references = $this->load($this->entityManager);
+        $this->entityManager->clear();
+        $this->entityManager->detach($references);
+        return $references;
     }
 }

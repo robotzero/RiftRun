@@ -21,6 +21,6 @@ include:
 #         game: @grifts<current()>
 
 RiftRunBundle\Model\Post:
-    posts{1..1000} (extends post): []
+    posts{1..100} (extends post): []
         #player: @monks<current()>
         #query:  @searchqueries<current()>
