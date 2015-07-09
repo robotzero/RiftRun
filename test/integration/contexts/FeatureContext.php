@@ -12,9 +12,10 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use DevHelperBundle\Command\Commands\ClearDatabase;
-use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\CreateSchema;
+use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
+use SimpleBus\DoctrineORMBridge\MessageBus\WrapsMessageHandlingInTransaction;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -37,6 +38,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $commandBus = null;
 
+    private $doctrine = null;
+
+    private $entityManager = null;
     // TODO load custom fixtures.
     /**
      * Initializes context.
@@ -45,9 +49,11 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
      */
-    public function __construct(MessageBus $commandBus)
+    public function __construct(MessageBus $commandBus, $doctrine)
     {
         $this->commandBus = $commandBus;
+        $this->doctrine   = $doctrine;
+        $this->entityManager = $doctrine->getManager();
     }
 
     /** @BeforeScenario */
@@ -56,9 +62,8 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         $this->client = $this->kernel->getContainer()->get('test.client');
         $this->client->setServerParameters([]);
         $this->resetScope();
-        $entityManager = $this->kernel->getContainer()->get('doctrine')->getManager();
-        $this->commandBus->handle(new CreateSchema($entityManager));
-        $this->commandBus->handle(new UpdateSchema($entityManager));
+        $this->commandBus->handle(new CreateSchema($this->entityManager));
+        $this->commandBus->handle(new UpdateSchema($this->entityManager));
     }
 
     /** @AfterScenario */
@@ -83,15 +88,15 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $entityFolder . '/' .  $record .  '_x' . $number . '.yml'];
         $this->commandBus->handle(new LoadFixtures($fileLocations));
 
-        // $connection = $this->kernel->getContainer()
-        //                            ->get('doctrine')
-        //                            ->getManager()
-        //                            ->getConnection();
+        $connection = $this->kernel->getContainer()
+                                   ->get('doctrine')
+                                   ->getManager()
+                                   ->getConnection();
 
-        // $record = (string) $record;
-        // $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's');
+        $record = (string) $record;
+        $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's');
 
-        // assertEquals($result[0]['count'], $number);
+        assertEquals($result[0]['count'], $number);
     }
 
     /**

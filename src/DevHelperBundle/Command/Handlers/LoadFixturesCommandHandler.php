@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 
-final class LoadFixturesCommandHandler extends DataFixtureLoader
+final class LoadFixturesCommandHandler
 {
     /**
      * @var EntityManagerInterface
@@ -46,10 +46,15 @@ final class LoadFixturesCommandHandler extends DataFixtureLoader
     public function handle(LoadFixturesInterface $loadFixtures)
     {
         $this->fixtures = $loadFixtures->fixtures();
-        var_dump($this->fixtures);
-        $references = $this->load($this->entityManager);
-        $this->entityManager->clear();
-        $this->entityManager->detach($references);
-        return $references;
+
+        $objects = \Nelmio\Alice\Fixtures::load($this->fixtures, $this->entityManager);
+        // $references = $this->load($this->entityManager);
+
+        // foreach($references as $reference) {
+        //     $this->entityManager->detach($reference);
+        // }
+        // $this->entityManager->clear();
+        //$this->entityManager->detach($references);
+        //return $references;
     }
 }

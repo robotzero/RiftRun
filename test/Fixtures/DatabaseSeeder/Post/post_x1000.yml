@@ -5,22 +5,22 @@ include:
     - ../GameType/grift_template.yml
     - ../SearchQuery/template.yml
 
-# RiftRunBundle\Model\Character:
-#     monks{1..1000} (extends character):
-#         type: 'monk'
+RiftRunBundle\Model\Character:
+    monks{1..1000} (extends character):
+        type: 'monk'
 
-# RiftRunBundle\Model\CharacterClass:
-#     characterclasses{1..1000} (extends characterclass):
-#         searchQuery: @searchqueries<current()>
+RiftRunBundle\Model\CharacterClass:
+    characterclasses{1..1000} (extends characterclass):
+        searchQuery: @searchqueries<current()>
 
-# RiftRunBundle\Model\Grift:
-#     grifts{1..1000} (extends grift): []
+RiftRunBundle\Model\Grift:
+    grifts{1..1000} (extends grift): []
 
-# RiftRunBundle\Model\SearchQuery:
-#     searchqueries{1..1000} (extends searchquery):
-#         game: @grifts<current()>
+RiftRunBundle\Model\SearchQuery:
+    searchqueries{1..1000} (extends searchquery):
+        game: @grifts<current()>
 
 RiftRunBundle\Model\Post:
-    posts{1..1000} (extends post): []
-        #player: @monks<current()>
-        #query:  @searchqueries<current()>
+    posts{1..1000} (extends post):
+        player: @monks<current()>
+        query:  @searchqueries<current()>

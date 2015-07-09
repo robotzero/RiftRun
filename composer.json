@@ -29,9 +29,9 @@
         "jms/serializer-bundle": "dev-master",
         "hautelook/templated-uri-bundle": "dev-master",
         "willdurand/rest-extra-bundle": "dev-master",
-	"pagerfanta/pagerfanta": "dev-master",
-	"simple-bus/symfony-bridge": "dev-master",
-	"simple-bus/doctrine-orm-bridge": "dev-master"	
+	    "pagerfanta/pagerfanta": "dev-master",
+	    "simple-bus/symfony-bridge": "dev-master",
+	    "simple-bus/doctrine-orm-bridge": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

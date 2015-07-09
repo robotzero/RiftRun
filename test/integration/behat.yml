@@ -10,6 +10,7 @@ default:
             contexts:
                 - Test\Integration\Context\FeatureContext:
                     commandBus: @command_bus
+                    doctrine: @doctrine
         # get:
         #     contexts:
         #         - Test\Integration\Context\FeatureContext
