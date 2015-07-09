@@ -41,7 +41,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     private $doctrine = null;
 
     private $entityManager = null;
-    // TODO load custom fixtures.
+
     /**
      * Initializes context.
      *
