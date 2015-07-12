@@ -30,7 +30,7 @@ RUN cp -r server-configs-nginx/sites-available /etc/nginx
 RUN cp -r server-configs-nginx/sites-enabled /etc/nginx
 ADD riftrun.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/riftrun.conf /etc/nginx/sites-enabled/riftrun.conf
-RUN sed -i 's/user www-data www-data;/user nginx nginx;/g' /etc/nginx/nginx.conf
+RUN sed -i 's/user www www;/user nginx nginx;/g' /etc/nginx/nginx.conf
 RUN mkdir -p /usr/share/nginx/logs/
 RUN chmod -R a+rwx /usr/share/nginx/logs
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
