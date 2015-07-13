@@ -5,6 +5,7 @@ namespace Test\Integration\Context;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
+use Behat\Behat\Hook\Scope\BeforeFeatureScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
@@ -19,6 +20,7 @@ use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
+require_once __DIR__.'/../../../app/AppKernel.php';
 
 /**
  * Defines application features from the specific context.
@@ -41,8 +43,6 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $entityManager = null;
 
-    private $fixtureNumber = 1000;
-
     /**
      * Initializes context.
      *
@@ -53,12 +53,14 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     public function __construct(
         \Doctrine\Bundle\DoctrineBundle\Registry $doctrine,
         $commandBus,
-        int $fixtureNumber
+        int $fixtureNumber = 1000,
+        string $typeOfFixture = 'posts'
     ) {
         $this->doctrine   = $doctrine;
         $this->commandBus = $commandBus;
         $this->entityManager = $doctrine->getManager();
-        $this->fixtureNumber = $fixtureNumber;
+
+        //$this->loadTheFixtures($fixtureNumber, $typeOfFixture);
     }
 
     /** @BeforeScenario */
@@ -67,14 +69,6 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
         $this->client = $this->kernel->getContainer()->get('test.client');
         $this->client->setServerParameters([]);
         $this->resetScope();
-        $this->commandBus->handle(new CreateSchema($this->entityManager));
-        $this->commandBus->handle(new UpdateSchema($this->entityManager));
-    }
-
-    /** @AfterScenario */
-    public function after(AfterScenarioScope $scope)
-    {
-        $this->commandBus->handle(new ClearDatabase());
     }
 
     public function setKernel(KernelInterface $kernelInterface)
@@ -87,22 +81,15 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iHaveInTheDatabase($number, $record)
     {
-        $record = substr($record, 0, -1);
-        $entityFolder = ucfirst($record);
-
-        $fileLocations = ['test/Fixtures/DatabaseSeeder/' . $entityFolder . '/' .  $record .  '_x' . $number . '.yml'];
-        $this->commandBus->handle(new LoadFixtures($fileLocations));
-
         $connection = $this->kernel->getContainer()
                                    ->get('doctrine')
                                    ->getManager()
                                    ->getConnection();
 
         $record = (string) $record;
-        $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's');
+        $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record);
 
         assertTrue($result[0]['count'] >= $number);
-        //assertEquals($result[0]['count'], $number);
     }
 
     /**
@@ -350,5 +337,30 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
             }
         }
         return $array;
+    }
+
+    /** @BeforeFeature */
+    public static function loadTheFixtures(BeforeFeatureScope $scope)
+    {
+        $kernel = new \AppKernel('test', false);
+        $kernel->boot();
+
+        $entityManager = $kernel->getContainer()->get('doctrine')->getManager();
+        $commandBus = $kernel->getContainer()->get('commandBus');
+        $commandBus->handle(new ClearDatabase());
+        $commandBus->handle(new CreateSchema($entityManager));
+        $commandBus->handle(new UpdateSchema($entityManager));
+
+        // $record = substr($typeOfFixture, 0, -1);
+        // $entityFolder = ucfirst($record);
+
+        // $fileLocations = [
+        //     'test/Fixtures/DatabaseSeeder/' .
+        //     $entityFolder . '/' .  $record .
+        //     '_x' . $fixtureNumber . '.yml'
+        // ];
+
+        // $this->commandBus->handle(new LoadFixtures($fileLocations));
+        $kernel->terminate();
     }
 }
