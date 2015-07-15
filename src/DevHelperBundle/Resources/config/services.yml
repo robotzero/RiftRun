@@ -1,4 +1,7 @@
 services:
+    standard_orm_purger:
+        class: Doctrine\Common\DataFixtures\Purger\ORMPurger
+
     load_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\LoadFixturesCommandHandler
         arguments:
@@ -10,6 +13,7 @@ services:
         class: DevHelperBundle\Command\Handlers\DatabaseClearCommandHandler
         arguments:
             - @doctrine.orm.entity_manager
+            - @standard_orm_purger
         tags:
             - { name: command_handler, handles: DevHelperBundle\Command\Commands\ClearDatabase }
 
