@@ -8,7 +8,7 @@ default:
     suites:
         default:
             contexts:
-                - Test\Integration\Context\FeatureContext:
+                - Test\Integration\Context\ApiContext:
                     doctrine: @doctrine
         # get:
         #     contexts:

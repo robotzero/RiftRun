@@ -26,7 +26,7 @@ require_once __DIR__.'/../../../app/AppKernel.php';
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext extends MinkContext implements KernelAwareContext, Context, SnippetAcceptingContext
+class ApiContext extends MinkContext implements KernelAwareContext, Context, SnippetAcceptingContext
 {
     protected $kernel;
 

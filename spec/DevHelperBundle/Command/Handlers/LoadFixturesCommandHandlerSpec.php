@@ -29,8 +29,6 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
         IntrospectableContainerInterface $container,
         Loader $loader
     ) {
-        $this->setContainer($container);
-        $container->get('hautelook_alice.loader')->willReturn($loader);
         $loadFixtures->fixtures()->shouldBeCalledTimes(1);
         $loadFixtures->fixtures()->willReturn(['array of fixtures']);
 
@@ -44,8 +42,6 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
         ObjectManager $entityManager
     ) {
         $loadFixtures->fixtures()->willReturn(null);
-        $this->setContainer($container);
-        $container->get('hautelook_alice.loader')->willReturn($loader);
 
         $this->shouldThrow(new InvalidArgumentException("Wrong fixtures!"))->duringHandle($loadFixtures);
     }

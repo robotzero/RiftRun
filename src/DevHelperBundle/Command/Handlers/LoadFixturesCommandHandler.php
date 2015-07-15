@@ -48,13 +48,7 @@ final class LoadFixturesCommandHandler
         $this->fixtures = $loadFixtures->fixtures();
 
         $objects = \Nelmio\Alice\Fixtures::load($this->fixtures, $this->entityManager);
-        // $references = $this->load($this->entityManager);
 
-        // foreach($references as $reference) {
-        //     $this->entityManager->detach($reference);
-        // }
-        // $this->entityManager->clear();
-        //$this->entityManager->detach($references);
-        //return $references;
+        return $objects;
     }
 }
