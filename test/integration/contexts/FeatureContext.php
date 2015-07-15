@@ -4,6 +4,7 @@ namespace Test\Integration\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Behat\Hook\Scope\AfterFeatureScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeFeatureScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -37,11 +38,13 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
 
     private $scope = null;
 
-    private $commandBus = null;
-
     private $doctrine = null;
 
-    private $entityManager = null;
+    private static $entityManager = null;
+
+    private static $mykernel = null;
+
+    private static $commandBus = null;
 
     /**
      * Initializes context.
@@ -51,16 +54,9 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      * context constructor through behat.yml.
      */
     public function __construct(
-        \Doctrine\Bundle\DoctrineBundle\Registry $doctrine,
-        $commandBus,
-        int $fixtureNumber = 1000,
-        string $typeOfFixture = 'posts'
+        \Doctrine\Bundle\DoctrineBundle\Registry $doctrine
     ) {
         $this->doctrine   = $doctrine;
-        $this->commandBus = $commandBus;
-        $this->entityManager = $doctrine->getManager();
-
-        //$this->loadTheFixtures($fixtureNumber, $typeOfFixture);
     }
 
     /** @BeforeScenario */
@@ -81,10 +77,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
      */
     public function iHaveInTheDatabase($number, $record)
     {
-        $connection = $this->kernel->getContainer()
-                                   ->get('doctrine')
-                                   ->getManager()
-                                   ->getConnection();
+        $connection = $this->doctrine->getManager()->getConnection();
 
         $record = (string) $record;
         $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record);
@@ -342,25 +335,36 @@ class FeatureContext extends MinkContext implements KernelAwareContext, Context,
     /** @BeforeFeature */
     public static function loadTheFixtures(BeforeFeatureScope $scope)
     {
-        $kernel = new \AppKernel('test', false);
-        $kernel->boot();
+        self::$mykernel = new \AppKernel('test', false);
+        self::$mykernel->boot();
 
-        $entityManager = $kernel->getContainer()->get('doctrine')->getManager();
-        $commandBus = $kernel->getContainer()->get('commandBus');
-        $commandBus->handle(new ClearDatabase());
-        $commandBus->handle(new CreateSchema($entityManager));
-        $commandBus->handle(new UpdateSchema($entityManager));
+        self::$entityManager = self::$mykernel->getContainer()->get('doctrine')->getManager();
+        self::$commandBus = self::$mykernel->getContainer()->get('commandBus');
+        self::$commandBus->handle(new CreateSchema(self::$entityManager));
+        self::$commandBus->handle(new UpdateSchema(self::$entityManager));
 
-        // $record = substr($typeOfFixture, 0, -1);
-        // $entityFolder = ucfirst($record);
+        if ($scope->getFeature()->hasBackground() === false) {
+            throw new \Exception('Do not know how to load fixtures.');
+        }
 
-        // $fileLocations = [
-        //     'test/Fixtures/DatabaseSeeder/' .
-        //     $entityFolder . '/' .  $record .
-        //     '_x' . $fixtureNumber . '.yml'
-        // ];
+        $background = $scope->getFeature()->getBackground();
+        $title = $background->getTitle();
 
-        // $this->commandBus->handle(new LoadFixtures($fileLocations));
-        $kernel->terminate();
+        $record = explode(' ', $title)[1];
+        $number = explode(' ', $title)[0];
+
+        $fileLocations = [
+            'test/Fixtures/DatabaseSeeder/' .
+            ucfirst($record) . '/' . $record .
+            '_x' . $number . '.yml'
+        ];
+
+        self::$commandBus->handle(new LoadFixtures($fileLocations));
+    }
+
+    /** @AfterFeature */
+    public static function cleanTheFixtures(AfterFeatureScope $scope)
+    {
+        self::$commandBus->handle(new ClearDatabase());
     }
 }

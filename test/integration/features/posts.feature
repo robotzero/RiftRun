@@ -2,9 +2,11 @@ Feature: Posts
 
 # Scenario: When character or search query is missing for the given post
 # 	  do not display this post.
+Background: 1000 post
+    Given I have at least 1000 "posts" in the database
 
 Scenario: Returning a collection of posts from a first page
-    Given I have at least 10 "posts" in the database
+    #Given I have at least 10 "posts" in the database
     When I request "GET /v1/posts"
     Then I get a "200" response
     And the "page" property exists
@@ -41,7 +43,7 @@ Scenario: Returning a collection of posts from a first page
             And the "href" property is a string equalling "http://localhost/v1/posts?page=1&limit=20"
 
 Scenario Outline: Returning default paginated collection of wizards
-     Given I have at least 1000 "posts" in the database
+     #Given I have at least 1000 "posts" in the database
      When I request "GET /v1/posts" with parameters <params>
      Then I get a "200" response
      And the "page" property exists
@@ -64,8 +66,9 @@ Scenario Outline: Returning default paginated collection of wizards
         | params             |  page  | pages   | items | self                                           | first                                         | next                                             |
         | "?page=15&limit=5" | "15"   | "200"   | 5     | "http://localhost/v1/posts?page=15&limit=5"  | "http://localhost/v1/posts?page=1&limit=5" |  "http://localhost/v1/posts?page=16&limit=5"    |
         | "?page=10"         | "10"   | "50"    | 20    | "http://localhost/v1/posts?page=10&limit=20" | "http://localhost/v1/posts?page=1&limit=20" |  "http://localhost/v1/posts?page=11&limit=20"  |
+
 Scenario: Returning a single post
-    Given I have at least 10 "posts" in the database
+    #Given I have at least 10 "posts" in the database
     When I request "GET /v1/posts/1"
     Then I get a "200" response
     And the properties exist:

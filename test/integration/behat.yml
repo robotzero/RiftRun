@@ -10,9 +10,6 @@ default:
             contexts:
                 - Test\Integration\Context\FeatureContext:
                     doctrine: @doctrine
-                    commandBus: @command_bus
-                    fixtureNumber: 1000
-                    typeOfFixture: posts
         # get:
         #     contexts:
         #         - Test\Integration\Context\FeatureContext
