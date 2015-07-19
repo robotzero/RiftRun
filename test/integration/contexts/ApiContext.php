@@ -86,6 +86,16 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
+     * @Given /^I have (\d+) posts missing "([^"]*)" object$/
+     */
+    public function iHavePostsMissingObject($broken, $obj)
+    {
+        $connection = $this->doctrine->getManager()->getConnection();
+        $connection->delete($obj, ['id' => '1, 2, 3, 4, 5, 6, 7, 8, 9, 10']);
+    }
+
+
+    /**
      * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
      */
     public function iRequest($httpMethod, $resource)

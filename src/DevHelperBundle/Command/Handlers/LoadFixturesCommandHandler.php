@@ -26,18 +26,6 @@ final class LoadFixturesCommandHandler
         $this->entityManager = $entityManager;
     }
 
-    // /**
-    //  * @return array
-    //  */
-    // protected function getFixtures()
-    // {
-    //     if ($this->fixtures === null) {
-    //         throw new InvalidArgumentException("Wrong fixtures!");
-    //     }
-
-    //     return $this->fixtures;
-    // }
-
     /**
      * Loads fixtures into the sql lite database
      * @param  LoadFixtures $loadFixtures Command
