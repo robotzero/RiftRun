@@ -8,11 +8,13 @@ RiftRunBundle\Model\Post:
             joinColumn:
                 name: player_id
                 referencedColumnName: id
+            fetch: LAZY
         query:
             targetEntity: SearchQuery
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id
+            fetch: LAZY
     id:
         id:
             type: integer
