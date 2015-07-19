@@ -8,9 +8,7 @@ final class AllPostsSpecification implements Specification
 {
     public function __invoke(QueryBuilder $queryBuilder)
     {
-        $queryBuilder->select('posts')->where(
-            'posts.query != 0'
-        );
+        $queryBuilder->select('posts');
 
         return $queryBuilder;
     }
