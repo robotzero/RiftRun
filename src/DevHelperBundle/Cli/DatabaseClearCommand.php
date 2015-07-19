@@ -18,7 +18,7 @@ class DatabaseClearCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $commandBus = $this->getContainer()->get('command_bus');
+        $commandBus = $this->getContainer()->get('tactician.commandbus.default');
 
         try {
             $commandBus->handle(new ClearDatabase());

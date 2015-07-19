@@ -339,7 +339,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         self::$mykernel->boot();
 
         self::$entityManager = self::$mykernel->getContainer()->get('doctrine')->getManager();
-        self::$commandBus = self::$mykernel->getContainer()->get('commandBus');
+        self::$commandBus = self::$mykernel->getContainer()->get('tactician.commandbus.default');
         self::$commandBus->handle(new CreateSchema(self::$entityManager));
         self::$commandBus->handle(new UpdateSchema(self::$entityManager));
 

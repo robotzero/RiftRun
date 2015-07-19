@@ -109,6 +109,11 @@ bazinga_hateoas:
         file_cache:
             dir:              %kernel.cache_dir%/hateoas
 
-doctrine_orm_bridge:
-    entity_manager: riftrun
-    connection: riftrun
+# doctrine_orm_bridge:
+#     entity_manager: riftrun
+#     connection: riftrun
+tactician:
+    commandbus:
+        default:
+            middleware:
+                - tactician.middleware.command_handler

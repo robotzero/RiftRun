@@ -31,7 +31,8 @@
         "willdurand/rest-extra-bundle": "dev-master",
 	    "pagerfanta/pagerfanta": "dev-master",
 	    "simple-bus/symfony-bridge": "dev-master",
-	    "simple-bus/doctrine-orm-bridge": "dev-master"
+	    "simple-bus/doctrine-orm-bridge": "dev-master",
+        "league/tactician-bundle": "^0.3.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

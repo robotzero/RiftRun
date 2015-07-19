@@ -28,7 +28,7 @@ class DatabaseSeederCommand extends ContainerAwareCommand
             $fileLocations = [$fileLocations];
         }
 
-        $commandBus = $this->getContainer()->get('command_bus');
+        $commandBus = $this->getContainer()->get('tactician.commandbus.default');
 
         try {
             $objects = $commandBus->handle(new LoadFixtures($fileLocations));
