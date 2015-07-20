@@ -84,7 +84,8 @@ fos_rest:
         rules:
             - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
     view:
-        view_response_listener: false
+        view_response_listener: force
+        failed_validation: HTTP_BAD_REQUEST
     routing_loader:
         default_format: json
         include_format: false
