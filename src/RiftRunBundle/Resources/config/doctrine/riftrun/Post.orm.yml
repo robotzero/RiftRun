@@ -8,14 +8,16 @@ RiftRunBundle\Model\Post:
             joinColumn:
                 name: player_id
                 referencedColumnName: id
-            fetch: LAZY
+                fetch: EAGER
+            fetch: EAGER
         query:
             targetEntity: SearchQuery
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id
                 nullable: true
-            fetch: LAZY
+                fetch: EAGER
+            fetch: EAGER
     id:
         id:
             type: integer
