@@ -9,7 +9,7 @@ RiftRunBundle\Model\Post:
                 name: player_id
                 referencedColumnName: id
                 nullable: true
-            fetch: EAGER
+            fetch: LAZY
         query:
             targetEntity: SearchQuery
             joinColumn:
