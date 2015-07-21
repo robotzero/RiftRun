@@ -8,7 +8,7 @@ RiftRunBundle\Model\Post:
             joinColumn:
                 name: player_id
                 referencedColumnName: id
-                fetch: EAGER
+                nullable: true
             fetch: EAGER
         query:
             targetEntity: SearchQuery
@@ -16,7 +16,6 @@ RiftRunBundle\Model\Post:
                 name: searchquery_id
                 referencedColumnName: id
                 nullable: true
-                fetch: EAGER
             fetch: EAGER
     id:
         id:

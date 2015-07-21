@@ -36,6 +36,7 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
+	"sebastian/resource-operations": "dev-master",
 	    "phpunit/phpunit": "dev-master",
 	    "behat/behat": "dev-master",
 	    "phpspec/phpspec": "dev-master",
