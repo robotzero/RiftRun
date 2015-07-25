@@ -2,8 +2,6 @@ RiftRunBundle\Model\Post:
     properties:
         createdAt:
             serialized_name: createdAt
-        # query:
-        #     exclude: true
     relations:
         -
             rel: self

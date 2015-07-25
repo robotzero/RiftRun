@@ -9,13 +9,6 @@ services:
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
 
-    # load_fixtures_command_handler:
-    #     class: DevHelperBundle\Command\Handlers\LoadFixturesCommandHandler
-    #     arguments:
-    #         - @doctrine.orm.entity_manager
-    #     tags:
-    #         - { name: command_handler, handles: DevHelperBundle\Command\Commands\LoadFixtures }
-
     clear_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\DatabaseClearCommandHandler
         arguments:

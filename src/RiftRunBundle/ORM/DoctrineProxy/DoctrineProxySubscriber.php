@@ -35,7 +35,7 @@ class DoctrineProxySubscriber extends JMSDoctrineProxySubscriber
             return;
         }
 
-        //$object->__load();
+        $object->__load();
 
         if ( ! $virtualType) {
             $event->setType(get_parent_class($object));
