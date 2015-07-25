@@ -91,7 +91,8 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iHavePostsMissingObject($broken, $obj)
     {
         $connection = $this->doctrine->getManager()->getConnection();
-        $connection->delete($obj, ['id' => '1, 2, 3, 4, 5, 6, 7, 8, 9, 10']);
+        $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)');
+        $result = $connection->fetchAll('SELECT count() AS count FROM searchquery');
     }
 
 
