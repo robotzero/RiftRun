@@ -100,6 +100,14 @@ Scenario: Returning a single post
         And the "href" property exists
         And the "href" property is a string equalling "http://localhost/v1/posts/1"
 
+Scenario: Do not show posts older than a 30 days.
+    Given I have at least 10 posts older than a month
+    When I request "GET /v1/posts?limit=500&page=2"
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "2"
+    And the "total" property is a integer equalling "1000"
+
 Scenario Outline: When object is missing for the given post do not display this post.
     Given I have <numberMissing> posts missing <object> object starting from <ids>
     When I request "GET /v1/posts?limit=500&page=2"
@@ -117,4 +125,3 @@ Scenario Outline: When object is missing for the given post do not display this 
         | 10              | "gametype"      | 21  |  "970"   |  470  |
         | 10              | "characterclass"| 31  |  "960"   |  460  |
 
-# Scenario: Do not show posts older than a 30 days.

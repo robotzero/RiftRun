@@ -101,11 +101,26 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         }
 
         $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
-
-        //$connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
-        // $result = $connection->fetchAll('SELECT count() AS count FROM searchquery');
     }
 
+    /**
+     * @Given /^I have at least (\d+) posts older than a month$/
+     */
+    public function iHaveAtLeastPostsOlderThanAMonth($oldPostsNumber)
+    {
+        $fileLocations = [
+            'test/Fixtures/DatabaseSeeder/Post/posts_old_x10.yml'
+        ];
+
+        static::$commandBus->handle(new LoadFixtures($fileLocations));
+
+        $connection = $this->doctrine->getManager()->getConnection();
+
+        $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt < date('now', '-1 month')");
+
+        assertTrue((int)$result[0]['count'] === 10);
+
+    }
 
     /**
      * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
