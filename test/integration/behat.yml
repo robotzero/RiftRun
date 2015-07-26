@@ -10,6 +10,7 @@ default:
             contexts:
                 - Test\Integration\Context\ApiContext:
                     doctrine: @doctrine
+                - Test\Integration\Context\CreateContext
         # get:
         #     contexts:
         #         - Test\Integration\Context\FeatureContext

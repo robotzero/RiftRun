@@ -1,4 +1,4 @@
-Feature: Posts
+Feature: Get Posts
 
 Background: 1000 post
     Given I have at least 1000 "posts" in the database

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: doctrine_extensions.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -62,6 +63,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         # naming_strategy: doctrine.orm.naming_strategy.underscore
         default_entity_manager: riftrun
+
         entity_managers:
             riftrun:
                 connection: riftrun
@@ -71,6 +73,11 @@ doctrine:
                         dir: "%kernel.root_dir%/../src/RiftRunBundle/Resources/config/doctrine/riftrun"
                         prefix: "RiftRunBundle\Model"
                         alias: "RiftRunners"
+                    Translatable:
+                        type: annotation
+                        alias: Gedmo
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
         #auto_mapping: true
 
 # FOS Rest Configuration

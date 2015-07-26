@@ -10,6 +10,7 @@ RiftRunBundle\Model\Post:
                 referencedColumnName: id
                 nullable: true
             fetch: LAZY
+            cascade: [ persist ]
         query:
             targetEntity: SearchQuery
             joinColumn:
@@ -17,6 +18,7 @@ RiftRunBundle\Model\Post:
                 referencedColumnName: id
                 nullable: true
             fetch: LAZY
+            cascade: [ persist ]
     id:
         id:
             type: integer
@@ -26,4 +28,7 @@ RiftRunBundle\Model\Post:
     fields:
         createdAt:
             type: datetimetz
+            gedmo:
+                timestampable:
+                    on: create
     lifecycleCallbacks: {  }

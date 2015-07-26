@@ -16,6 +16,7 @@
         "symfony/symfony": "~2.7@beta",
         "doctrine/orm": "2.6.x-dev",
         "doctrine/doctrine-bundle": "~1.4",
+        "gedmo/doctrine-extensions": "dev-master",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
@@ -36,8 +37,8 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-	"sebastian/resource-operations": "dev-master",
-	    "phpunit/phpunit": "dev-master",
+	    "sebastian/resource-operations": "dev-master",
+	    "phpunit/phpunit": "4.0.x-dev",
 	    "behat/behat": "dev-master",
 	    "phpspec/phpspec": "dev-master",
 	    "phpspec/prophecy": "dev-master",
@@ -46,7 +47,8 @@
         "behat/mink-browserkit-driver": "^1.2",
         "fzaninotto/faker": "^1.4",
         "hautelook/alice-bundle": "dev-master",
-	"phpunit/phpunit-mock-objects": "dev-master"
+	    "phpunit/phpunit-mock-objects": "2.0.x-dev",
+        "behat/web-api-extension": "dev-master"
     },
     "scripts": {
         "post-root-package-install": [
