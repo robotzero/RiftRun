@@ -114,3 +114,7 @@ Scenario Outline: When object is missing for the given post do not display this 
         | numberMissing   | object          | ids | result   | items |
         | 10              | "searchquery"   | 1   |  "990"   |  490  |
         | 10              | "characters"    | 11  |  "980"   |  480  |
+        | 10              | "gametype"      | 21  |  "970"   |  470  |
+        | 10              | "characterclass"| 31  |  "960"   |  460  |
+
+# Scenario: Do not show posts older than a 30 days.

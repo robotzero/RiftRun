@@ -10,7 +10,10 @@ final class AllPostsSpecification implements Specification
     {
         $queryBuilder->select('posts')
                      ->innerJoin('posts.query', 'q')
-                     ->innerJoin('posts.player', 'p');
+                     ->innerJoin('posts.player', 'p')
+                     ->innerJoin('q.game', 'g')
+                     ->innerJoin('q.characterClass', 'cl');
+
         return $queryBuilder;
     }
 }
