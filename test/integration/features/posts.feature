@@ -3,16 +3,6 @@ Feature: Posts
 Background: 1000 post
     Given I have at least 1000 "posts" in the database
 
-Scenario: When character or search query is missing for the given post do not display this post.
-    Given I have 10 posts missing "searchquery" object
-    When I request "GET /v1/posts?limit=500&page=2"
-    Then I get a "200" response
-    And the "page" property exists
-    And the "page" property is a integer equalling "2"
-    And the "total" property is a integer equalling "990"
-    And scope into the "_embedded" property
-        And the "items" property contains 490 items
-
 Scenario: Returning a collection of posts from a first page
     When I request "GET /v1/posts"
     Then I get a "200" response
@@ -70,7 +60,7 @@ Scenario Outline: Returning default paginated collection of wizards
          And the "href" property is a string equalling <next>
 
     Examples:
-        | params             |  page  | pages   | items | self                                           | first                                         | next                                             |
+        | params             |  page  | pages   | items | self                                           | first                                         | next                                       |
         | "?page=15&limit=5" | "15"   | "200"   | 5     | "http://localhost/v1/posts?page=15&limit=5"  | "http://localhost/v1/posts?page=1&limit=5" |  "http://localhost/v1/posts?page=16&limit=5"    |
         | "?page=10"         | "10"   | "50"    | 20    | "http://localhost/v1/posts?page=10&limit=20" | "http://localhost/v1/posts?page=1&limit=20" |  "http://localhost/v1/posts?page=11&limit=20"  |
 
@@ -109,3 +99,18 @@ Scenario: Returning a single post
     And scope into the "_links.self" property
         And the "href" property exists
         And the "href" property is a string equalling "http://localhost/v1/posts/1"
+
+Scenario Outline: When object is missing for the given post do not display this post.
+    Given I have <numberMissing> posts missing <object> object starting from <ids>
+    When I request "GET /v1/posts?limit=500&page=2"
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "2"
+    And the "total" property is a integer equalling <result>
+    And scope into the "_embedded" property
+        And the "items" property contains <items> items
+
+    Examples:
+        | numberMissing   | object          | ids | result   | items |
+        | 10              | "searchquery"   | 1   |  "990"   |  490  |
+        | 10              | "characters"    | 11  |  "980"   |  480  |

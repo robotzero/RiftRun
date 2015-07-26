@@ -86,13 +86,24 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @Given /^I have (\d+) posts missing "([^"]*)" object$/
+     * @Given /^I have (\d+) posts missing "([^"]*)" object starting from (\d+)$/
      */
-    public function iHavePostsMissingObject($broken, $obj)
+    public function iHavePostsMissingObject($broken, $obj, $id)
     {
         $connection = $this->doctrine->getManager()->getConnection();
-        $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)');
-        $result = $connection->fetchAll('SELECT count() AS count FROM searchquery');
+        $ids = '';
+        for($i = $id; $i < $id+10; $i++) {
+            if ($i == ($id + 10) - 1) {
+                $ids .= $i;
+                break;
+            }
+            $ids .=$i . ', ';
+        }
+
+        $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
+
+        //$connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
+        // $result = $connection->fetchAll('SELECT count() AS count FROM searchquery');
     }
 
 
