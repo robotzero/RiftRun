@@ -125,3 +125,6 @@ Scenario Outline: When object is missing for the given post do not display this 
         | 10              | "gametype"      | 21  |  "970"   |  470  |
         | 10              | "characterclass"| 31  |  "960"   |  460  |
 
+Scenario: By default posts should be sorted by created date. Newest at the top.
+    When I request
+    And the newest posts are displayed at the top
