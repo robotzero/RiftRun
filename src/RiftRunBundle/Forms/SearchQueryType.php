@@ -2,7 +2,7 @@
 
 namespace RiftRunBundle\Forms;
 
-use RiftRunBundle\Forms\GriftType;
+use RiftRunBundle\Forms\GameType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -11,7 +11,7 @@ class SearchQueryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('game', new GriftType());
+        $builder->add('game', new GameType());
         $builder->add('minParagon', 'integer');
     }
 

@@ -12,7 +12,7 @@ final class AllPostsSpecification implements Specification
                      ->innerJoin('posts.query', 'q')
                      ->innerJoin('posts.player', 'p')
                      ->innerJoin('q.game', 'g')
-                     ->innerJoin('q.characterClass', 'cl')
+                     //->leftJoin('q.characterClass', 'cl')
                      ->add('where', 'posts.createdAt > :createdAt')
                      ->setParameter('createdAt', new \DateTime('-1 month'), \Doctrine\DBAL\Types\Type::DATETIME);
 

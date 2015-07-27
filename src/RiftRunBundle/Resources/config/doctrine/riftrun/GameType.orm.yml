@@ -5,9 +5,11 @@ RiftRunBundle\Model\GameType:
     discriminatorColumn:
         name: type
         type: string
+        cascade: [ persist ]
     discriminatorMap:
         gametype: GameType
         grift: Grift
+    cascade: [ persist ]
     id:
         id:
             type: integer
