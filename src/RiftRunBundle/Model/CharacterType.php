@@ -3,9 +3,9 @@
 namespace RiftRunBundle\Model;
 
 /**
- * CharacterClass
+ * CharacterType
  */
-class CharacterClass
+class CharacterType
 {
     /**
      * @var integer
@@ -37,7 +37,7 @@ class CharacterClass
      *
      * @param string $type
      *
-     * @return CharacterClass
+     * @return CharacterType
      */
     public function setType($type)
     {
@@ -61,7 +61,7 @@ class CharacterClass
      *
      * @param \RiftRunBundle\Model\SearchQuery $searchQuery
      *
-     * @return CharacterClass
+     * @return CharacterType
      */
     public function setSearchQuery(\RiftRunBundle\Model\SearchQuery $searchQuery = null)
     {

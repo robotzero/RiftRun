@@ -30,14 +30,14 @@ class SearchQuery
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $characterClass;
+    private $characterType;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->characterClass = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->characterType = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -98,41 +98,6 @@ class SearchQuery
         return $this->createdAt;
     }
 
-
-    /**
-     * Add lookingFor
-     *
-     * @param \RiftRunBundle\Model\CharacterClass $lookingFor
-     *
-     * @return SearchQuery
-     */
-    public function addLookingFor(\RiftRunBundle\Model\CharacterClass $lookingFor)
-    {
-        $this->lookingFor[] = $lookingFor;
-
-        return $this;
-    }
-
-    /**
-     * Remove lookingFor
-     *
-     * @param \RiftRunBundle\Model\CharacterClass $lookingFor
-     */
-    public function removeLookingFor(\RiftRunBundle\Model\CharacterClass $lookingFor)
-    {
-        $this->lookingFor->removeElement($lookingFor);
-    }
-
-    /**
-     * Get lookingFor
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLookingFor()
-    {
-        return $this->lookingFor;
-    }
-
     /**
      * Set game
      *
@@ -158,36 +123,40 @@ class SearchQuery
     }
 
     /**
-     * Add characterClass
+     * Add characterType
      *
-     * @param \RiftRunBundle\Model\CharacterClass $characterClass
+     * @param \RiftRunBundle\Model\CharacterType $characterType
      *
      * @return SearchQuery
      */
-    public function addCharacterClass(\RiftRunBundle\Model\CharacterClass $characterClass)
+    public function addCharacterType(\RiftRunBundle\Model\CharacterType $characterType)
     {
-        $this->characterClass[] = $characterClass;
+        //$this->characterType[] = $characterType;
+        $characterType->setSearchQuery($this);
+
+        //$this->tags->add($tag);
+        $this->characterType->add($characterType);
 
         return $this;
     }
 
     /**
-     * Remove characterClass
+     * Remove characterType
      *
-     * @param \RiftRunBundle\Model\CharacterClass $characterClass
+     * @param \RiftRunBundle\Model\CharacterType $characterType
      */
-    public function removeCharacterClass(\RiftRunBundle\Model\CharacterClass $characterClass)
+    public function removeCharacterType(\RiftRunBundle\Model\CharacterType $characterType)
     {
-        $this->characterClass->removeElement($characterClass);
+        $this->characterType->removeElement($characterType);
     }
 
     /**
-     * Get characterClass
+     * Get characterType
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCharacterClass()
+    public function getCharacterType()
     {
-        return $this->characterClass;
+        return $this->characterType;
     }
 }

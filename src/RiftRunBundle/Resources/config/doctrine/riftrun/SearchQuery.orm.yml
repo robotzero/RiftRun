@@ -9,9 +9,10 @@ RiftRunBundle\Model\SearchQuery:
                 referencedColumnName: id
             cascade: [ persist ]
     oneToMany:
-        characterClass:
-            targetEntity: CharacterClass
+        characterType:
+            targetEntity: CharacterType
             mappedBy: searchQuery
+            cascade: [ persist ]
     repositoryClass: RiftRunBundle\ORM\Repository\SearchQueryRepository
     id:
         id:

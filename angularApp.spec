@@ -30,3 +30,5 @@ endpoint = /posts?page=1&rpp=?&q=paragonMin:500
 sudo docker run --rm -ti -v /home/subzero/Code/RiftRun/:/var/www/html/riftrun --workdir=/var/www/html/riftrun deployment_phpfpm /usr/local/php7/bin/php bin/behat -c test/integration/behat.yml
 
 curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"dh","paragonPoints":"13","battleTag":"20","region":"EU","seasonal":"false","gameType":"hardcore"},"query":{"minParagon":"10","game":{"level":"4"}}}' http://riftrun.local/v1/posts
+
+curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"dh","paragonPoints":"13","battleTag":"20","region":"EU","seasonal":"false","gameType":"hardcore"},"query":{"minParagon":"10","game":{"type":"grift","level":"40+"},"characterType":[{"type":"dh"},{"type":"wizard"}]}}' http://riftrun.local/v1/posts

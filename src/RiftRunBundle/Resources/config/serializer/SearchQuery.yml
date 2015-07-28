@@ -4,5 +4,5 @@ RiftRunBundle\Model\SearchQuery:
             serialized_name: minParagon
         createdAt:
             serialized_name: createdAt
-        characterClass:
-            serialized_name: characterClass
+        characterType:
+            serialized_name: characterType

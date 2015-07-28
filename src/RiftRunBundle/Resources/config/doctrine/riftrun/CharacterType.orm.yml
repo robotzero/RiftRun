@@ -1,14 +1,15 @@
-RiftRunBundle\Model\CharacterClass:
+RiftRunBundle\Model\CharacterType:
     type: entity
-    table: characterclass
-    repositoryClass: RiftRunBundle\ORM\Repository\CharacterClassRepository
+    table: charactertype
+    repositoryClass: RiftRunBundle\ORM\Repository\CharacterTypeRepository
     manyToOne:
         searchQuery:
             targetEntity: SearchQuery
-            inversedBy: characterClass
+            inversedBy: characterType
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id
+            cascade: [ persist ]
     id:
         id:
             type: integer
