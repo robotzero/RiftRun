@@ -9,7 +9,6 @@ RiftRunBundle\Model\CharacterType:
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id
-            cascade: [ persist ]
     id:
         id:
             type: integer

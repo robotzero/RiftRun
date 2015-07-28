@@ -131,10 +131,7 @@ class SearchQuery
      */
     public function addCharacterType(\RiftRunBundle\Model\CharacterType $characterType)
     {
-        //$this->characterType[] = $characterType;
         $characterType->setSearchQuery($this);
-
-        //$this->tags->add($tag);
         $this->characterType->add($characterType);
 
         return $this;

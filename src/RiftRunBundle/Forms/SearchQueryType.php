@@ -3,7 +3,7 @@
 namespace RiftRunBundle\Forms;
 
 use RiftRunBundle\Forms\CharacterTypeType;
-use RiftRunBundle\Forms\GameType;
+use RiftRunBundle\Forms\GriftType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -25,7 +25,12 @@ class SearchQueryType extends AbstractType
         $builder->add(
             'characterType',
             'collection',
-            ['type' => new CharacterTypeType(), 'allow_add' => true, 'by_reference' => false]
+            [
+                'type' => new CharacterTypeType(),
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => false
+            ]
         );
         $builder->add('minParagon', 'integer');
     }
