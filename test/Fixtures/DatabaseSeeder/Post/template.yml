@@ -1,3 +1,4 @@
 RiftRunBundle\Model\Post:
     post (template):
-        createdAt: <dateTimeThisMonth($max = 'now')>
+#        createdAt: <dateTimeThisMonth($max = 'now')>
+        createdAt: <dateTimeBetween($startDate = '-26 days', $now = 'now')>

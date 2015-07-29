@@ -316,6 +316,53 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         );
     }
 
+    /**
+     * @Then newest posts are displayed at the top
+     */
+    public function newestPostsAreDisplayedAtTheTop()
+    {
+        $createdAts = [];
+        $scope = $this->getScopePayload();
+        foreach ($scope->_embedded->items as $item) {
+            $createdAts[] = $item->createdAt;
+        }
+
+        assertTrue($createdAts[0] > $createdAts[9]);
+    }
+
+    /**
+     * @Given I have :arg1 posts in the database with created date :arg2 days old
+     */
+    public function iHavePostsInTheDatabaseWithCreatedDateDaysOld($arg1, $arg2)
+    {
+        $fileLocations = [
+            'test/Fixtures/DatabaseSeeder/Post/posts_29_old_x10.yml'
+        ];
+
+        static::$commandBus->handle(new LoadFixtures($fileLocations));
+
+        $connection = $this->doctrine->getManager()->getConnection();
+
+        $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt <= date('now', '-27 days') AND createdAt >= date('now', '-29 days')");
+
+        assertTrue((int)$result[0]['count'] === 5);
+    }
+
+    /**
+     * @When :arg1 old posts are displayed at the last page
+     */
+    public function oldPostsAreDisplayedAtTheLastPage($arg1)
+    {
+        $createdAts = [];
+        $scope = $this->getScopePayload();
+        foreach ($scope->_embedded->items as $item) {
+            $createdAts[] = $item->createdAt;
+        }
+
+
+        print_r($createdAts);
+    }
+
     public function resetScope()
     {
         $this->scope = null;

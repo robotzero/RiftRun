@@ -10,7 +10,7 @@ RiftRunBundle\Model\Character:
         type: 'monk'
 
 RiftRunBundle\Model\CharacterType:
-    charactertype{1..10} (extends charactertype):
+    charactertypes{1..10} (extends charactertype):
         searchQuery: @searchqueries<current()>
 
 RiftRunBundle\Model\Grift:
@@ -24,4 +24,4 @@ RiftRunBundle\Model\Post:
     posts{1..10} (extends post):
         player: @monks<current()>
         query:  @searchqueries<current()>
-        createdAt: <dateTimeBetween($startDate = '-3 months', $now = '-31 days')>
+        createdAt: <dateTimeBetween($startDate = '-29 days', $now = '-27 days')>

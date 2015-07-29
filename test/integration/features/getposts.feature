@@ -25,14 +25,12 @@ Scenario: Returning a collection of posts from a first page
         And the "player.paragonPoints" property is an integer
         And the "player.battleTag" property is a string
         And the "player.region" property is a string
-        And the "player.createdAt" property is a string
         And the "player.seasonal" property is a boolean
         And the "player.gameType" property is a string
         And the "query.id" property is an integer
         And the "query.minParagon" property is an integer
-        And the "query.createdAt" property is a string
         And the "query.game" property is an object
-        And the "query.characterClass" property is an array
+        And the "query.characterType" property is an array
         And the "query.game.level" property is a string
         And the "query.game.type" property is a string
         And scope into the "_links.self" property
@@ -84,15 +82,13 @@ Scenario: Returning a single post
         And the "paragonPoints" property is an integer
         And the "battleTag" property is a string
         And the "region" property is a string
-        And the "createdAt" property is a string
         And the "seasonal" property is a boolean
         And the "gameType" property is a string
     And scope into the "query" property
         And the "id" property is an integer
         And the "minParagon" property is an integer
-        And the "createdAt" property is a string
         And the "game" property is an object
-        And the "characterClass" property is an array
+        And the "characterType" property is an array
         And scope into the "query.game" property
             And the "level" property is a string
             And the "type" property is a string
@@ -100,13 +96,13 @@ Scenario: Returning a single post
         And the "href" property exists
         And the "href" property is a string equalling "http://localhost/v1/posts/1"
 
-Scenario: Do not show posts older than a 30 days.
-    Given I have at least 10 posts older than a month
-    When I request "GET /v1/posts?limit=500&page=2"
-    Then I get a "200" response
-    And the "page" property exists
-    And the "page" property is a integer equalling "2"
-    And the "total" property is a integer equalling "1000"
+# Scenario: Do not show posts older than a 30 days.
+#     Given I have at least 10 posts older than a month
+#     When I request "GET /v1/posts?limit=500&page=2"
+#     Then I get a "200" response
+#     And the "page" property exists
+#     And the "page" property is a integer equalling "2"
+#     And the "total" property is a integer equalling "1000"
 
 Scenario Outline: When object is missing for the given post do not display this post.
     Given I have <numberMissing> posts missing <object> object starting from <ids>
@@ -123,8 +119,12 @@ Scenario Outline: When object is missing for the given post do not display this 
         | 10              | "searchquery"   | 1   |  "990"   |  490  |
         | 10              | "characters"    | 11  |  "980"   |  480  |
         | 10              | "gametype"      | 21  |  "970"   |  470  |
-        | 10              | "characterclass"| 31  |  "960"   |  460  |
+        | 10              | "charactertype"| 31  |  "960"   |  460  |
 
 Scenario: By default posts should be sorted by created date. Newest at the top.
-    When I request
-    And the newest posts are displayed at the top
+    Given I have "10" posts in the database with created date 29 days old
+    When I request "GET /v1/posts?limit=20"
+    Then I get a "200" response
+    And newest posts are displayed at the top
+    When I request "GET /v1/posts?limit=20&page=51"
+    And 20 old posts are displayed at the last page

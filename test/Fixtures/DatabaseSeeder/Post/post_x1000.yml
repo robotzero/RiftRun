@@ -1,7 +1,7 @@
 include:
     - template.yml
     - ../Character/template.yml
-    - ../CharacterClass/template.yml
+    - ../CharacterType/template.yml
     - ../GameType/grift_template.yml
     - ../SearchQuery/template.yml
 
@@ -9,8 +9,8 @@ RiftRunBundle\Model\Character:
     monks{1..1000} (extends character):
         type: 'monk'
 
-RiftRunBundle\Model\CharacterClass:
-    characterclasses{1..1000} (extends characterclass):
+RiftRunBundle\Model\CharacterType:
+    charactertypes{1..1000} (extends charactertype):
         searchQuery: @searchqueries<current()>
 
 RiftRunBundle\Model\Grift:

@@ -1,6 +1,0 @@
-include:
-    - template.yml
-
-RiftRunBundle\Model\CharacterClass:
-    characterclasses{1..10} (extends characterclass): []
-        #searchQuery: @searchqueries1()>
