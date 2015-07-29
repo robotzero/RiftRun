@@ -1,4 +1,5 @@
-app
+app/logs
+app/cache
 app/bootstrap.php.cache
 vendor
 bin
