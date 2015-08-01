@@ -146,9 +146,11 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function IRequestsWithValues($httpMethod, $resource, TableNode $table)
     {
+        $table = $table->getHash()[0];
+
         $payload = [
-            "player" => ["type" => "dh", "paragonPoints" => 13, "battleTag" => "123", "region" => "EU", "seasonal" => 0, "gameType" => "softcore"],
-            "query" => ["minParagon" => 10, "game" => ["type" => "grift", "level" => "40+"], "characterType" => [["type" => "wizard"], ["type" => "dh"]]]
+            "player" => ["type" => $table["type"], "paragonPoints" => $table["paragonPoints"], "battleTag" => $table["battleTag"], "region" => $table["region"], "seasonal" => $table["seasonal"], "gameType" => $table["gameType"]],
+            "query"  => ["minParagon" => $table["minParagon"], "game" => ["type" => $table["game"], "level" => $table["level"]], "characterType" => [["type" => $table["char1"]], ["type" => $table["char2"]], ["type" => $table["char3"]], ["type" => $table["char4"]]]]
         ];
 
         $this->client->followRedirects(true);

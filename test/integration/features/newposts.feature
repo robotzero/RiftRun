@@ -2,8 +2,8 @@ Feature: Create new Posts
 
 Scenario: I can create new post
     When I request "POST v1/posts" with values:
-        | player | type | dh | paragonPonts:40,battleTag: 01, region: eu, seasonal: false, gameType: softcore |
-        | query  | minParagon: 30, game: |type:grift, level: 40|
+        | type | paragonPoints | battleTag | region | seasonal | gameType | minParagon | game | level | char1 | char2 | char3 | char4 |
+        | dh   | 20            | 1000      | EU     | 0        | hardcore | 20         | grift| 40    | dh    | barb  | wizard| monk  |
     Then I get a "302" response
     And the "page" property exists
     And the "page" property is a integer equalling "1"
