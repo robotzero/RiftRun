@@ -52,7 +52,7 @@ final class CreatePostCommandHandler
             $this->entityManager->persist($post);
             $this->entityManager->flush($post);
         } catch (\Exception $e) {
-            echo $e->getMessage();
+            // TODO send error response
         }
 
         return new RedirectResponse('posts', 302);

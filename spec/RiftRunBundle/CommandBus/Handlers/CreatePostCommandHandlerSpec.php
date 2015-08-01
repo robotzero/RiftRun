@@ -83,7 +83,7 @@ class CreatePostCommandHandlerSpec extends ObjectBehavior
         $createPost->getModel()->willReturn($post);
         $entityManager->persist($post)->willThrow(new \InvalidArgumentException('Some message'));
 
-        $result = $this->handle($createPost);
+        $this->handle($createPost);
     }
 
     function it_returns_redirect_response(Create $createPost)
