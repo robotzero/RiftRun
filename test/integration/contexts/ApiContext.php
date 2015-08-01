@@ -345,7 +345,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
 
         $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt <= date('now', '-27 days') AND createdAt >= date('now', '-29 days')");
 
-        assertTrue((int)$result[0]['count'] === 5);
+        assertTrue((int)$result[0]['count'] >= 5);
     }
 
     /**
@@ -353,14 +353,17 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function oldPostsAreDisplayedAtTheLastPage($arg1)
     {
-        $createdAts = [];
         $scope = $this->getScopePayload();
-        foreach ($scope->_embedded->items as $item) {
-            $createdAts[] = $item->createdAt;
-        }
 
+        $oldCreatedAt = $scope->_embedded->items[0]->createdAt;
 
-        print_r($createdAts);
+        $this->crawler = $this->client->request("GET", "/v1/posts");
+        $this->response = $this->client->getResponse();
+
+        $scope = $this->getScopePayload();
+        $createdAt = $scope->_embedded->items[0]->createdAt;
+        $this->resetScope();
+        assertTrue($oldCreatedAt < $createdAt);
     }
 
     public function resetScope()

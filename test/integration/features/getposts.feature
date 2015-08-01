@@ -126,5 +126,5 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
     When I request "GET /v1/posts?limit=20"
     Then I get a "200" response
     And newest posts are displayed at the top
-    When I request "GET /v1/posts?limit=20&page=51"
+    When I request "GET /v1/posts?limit=20&page=40"
     And 20 old posts are displayed at the last page
