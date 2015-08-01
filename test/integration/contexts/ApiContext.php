@@ -13,6 +13,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
+use Behat\WebApiExtension\Context\WebApiContext;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\CreateSchema;
 use DevHelperBundle\Command\Commands\LoadFixtures;
@@ -137,6 +138,30 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iRequestsWithParameters($httpMethod, $resource, $params)
     {
         $this->crawler = $this->client->request($httpMethod, $resource . $params);
+        $this->response = $this->client->getResponse();
+    }
+
+    /**
+     * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)" with values:$/
+     */
+    public function IRequestsWithValues($httpMethod, $resource, TableNode $table)
+    {
+        $payload = [
+            "player" => ["type" => "dh", "paragonPoints" => 13, "battleTag" => "123", "region" => "EU", "seasonal" => 0, "gameType" => "softcore"],
+            "query" => ["minParagon" => 10, "game" => ["type" => "grift", "level" => "40+"], "characterType" => [["type" => "wizard"], ["type" => "dh"]]]
+        ];
+
+        $this->client->followRedirects(true);
+
+        $this->crawler = $this->client->request(
+            $httpMethod,
+            $resource,
+            [],
+            [],
+            [],
+            $payload
+        );
+
         $this->response = $this->client->getResponse();
     }
 
@@ -431,7 +456,8 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         self::$commandBus->handle(new UpdateSchema(self::$entityManager));
 
         if ($scope->getFeature()->hasBackground() === false) {
-            throw new \Exception('Do not know how to load fixtures.');
+            return;
+            //throw new \Exception('Do not know how to load fixtures.');
         }
 
         $background = $scope->getFeature()->getBackground();

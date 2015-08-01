@@ -10,3 +10,18 @@ services:
         class: RiftRunBundle\Factories\SingleTypeFactory
         calls:
             - [ setContainer, [ @service_container ]]
+
+    create_post_command_handler:
+        class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
+        arguments:
+            - @form.factory
+            - @doctrine.orm.entity_manager
+            - @post_form_type
+            - @request_stack
+        tags:
+            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
+
+    # FormTypes
+    post_form_type:
+        class: RiftRunBundle\Forms\PostType
+

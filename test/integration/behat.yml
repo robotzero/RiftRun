@@ -10,7 +10,8 @@ default:
             contexts:
                 - Test\Integration\Context\ApiContext:
                     doctrine: @doctrine
-                - Test\Integration\Context\CreateContext
+                # - Test\Integration\Context\CreateContext:
+                #     container: @service_container
         # get:
         #     contexts:
         #         - Test\Integration\Context\FeatureContext

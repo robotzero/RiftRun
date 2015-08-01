@@ -6,6 +6,7 @@ use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
+use RiftRunBundle\CommandBus\Commands\CreatePost;
 use RiftRunBundle\Forms\PostType;
 use RiftRunBundle\Model\Post as PostModel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -43,24 +44,7 @@ class PostsController extends FOSRestController
      */
     public function createPostAction(Request $request)
     {
-        $content = json_decode($request->getContent(), true);
-        $formFactory = $this->container->get('form.factory');
-        $post = new PostModel();
-        $form = $formFactory->create(new PostType(), $post, ['method' => 'POST']);
-        $form->submit($content, true);
-
-        //$form = $this->createForm(new PostType($post));
-        //var_dump($post);
-        //var_dump($content);
-        $em = $this->container->get('doctrine')->getManager();
-
-        try {
-            $em->persist($post);
-            $em->flush($post);
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-
-        return [];
+        $commandBus = $this->container->get('tactician.commandbus.default');
+        return $commandBus->handle(new CreatePost());
     }
 }

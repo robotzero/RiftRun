@@ -3,6 +3,7 @@
 namespace RiftRunBundle\ORM\Specification;
 
 use Doctrine\ORM\QueryBuilder;
+use RiftRunBundle\ORM\Specification\Specification;
 
 final class AllPostsSpecification implements Specification
 {
