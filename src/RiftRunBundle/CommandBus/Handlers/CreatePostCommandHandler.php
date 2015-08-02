@@ -48,6 +48,11 @@ final class CreatePostCommandHandler
 
         $form->submit($currentRequest->getContent(), true);
 
+        if ($form->isValid() === false) {
+            $iterator = $form->getErrors(true, true);
+        }
+
+
         try {
             $this->entityManager->persist($post);
             $this->entityManager->flush($post);

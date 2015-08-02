@@ -7,6 +7,7 @@ use Hateoas\Representation\Factory\PagerfantaFactory;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use RiftRunBundle\ORM\Specification\AllPostsSpecification;
+use RiftRunBundle\ORM\Specification\Specification;
 use RiftRunBundle\ORM\Specification\WizardsSpecification;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -20,17 +21,21 @@ final class PaginationFactory extends ContainerAware implements Factory
 
     private $request;
 
-    public function __construct(RequestStack $request)
+    private $postsSpecification;
+
+    public function __construct(RequestStack $request, Specification $postsSpecification)
     {
         $this->request = $request;
+        $this->postsSpecification = $postsSpecification;
         $this->arrayObject =
             [
-                'wizard' => [new WizardsSpecification(), 'Character'],
-                'post' => [new AllPostsSpecification(), 'Post']
+                'post' => [$this->postsSpecification, 'Post']
             ];
     }
     public function create($type, $route)
     {
+        $filters = $this->request->getCurrentRequest()->query->get('limit');
+
         $repositoryString = $this->arrayObject[$type][1];
         $this->repository = $this->container->get('doctrine')->getRepository('RiftRunners:'.$repositoryString);
         $queryBuilder = $this->repository->match($this->arrayObject[$type][0]);

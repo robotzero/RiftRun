@@ -1,0 +1,8 @@
+RiftRunBundle\Model\CharacterType:
+    properties:
+        type:
+            - NotBlank
+            - Type:
+                type: string
+                message: The value {{ value }} is not a valid {{ type }}
+

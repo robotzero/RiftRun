@@ -161,7 +161,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
             [],
             [],
             [],
-            $payload
+            json_encode($payload)
         );
 
         $this->response = $this->client->getResponse();

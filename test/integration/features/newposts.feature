@@ -16,4 +16,9 @@ Scenario: I can create new post
             createdAt
             """
 
+Scenario: Validation of player object
+    When I request "POST v1/posts" with values:
+        | type | paragonPoints | battleTag | region | seasonal | gameType | minParagon | game | level | char1 | char2 | char3 | char4 |
+        | dh   | 20            | 1000      | EU     | 0        | hardcore | 20         | grift| 40    | dh    | barb  | wizard| monk  |
+
 

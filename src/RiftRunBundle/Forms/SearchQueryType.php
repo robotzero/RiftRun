@@ -14,14 +14,6 @@ class SearchQueryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
-            $data = $event->getData();
-            $form = $event->getForm();
-            if ($data['game']['type'] === 'grift') {
-                $form->add('game', new GriftType());
-            }
-        });
-
         $builder->add(
             'characterType',
             'collection',
@@ -40,6 +32,7 @@ class SearchQueryType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\Model\SearchQuery',
             'csrf_protection' => false,
+            'allow_extra_fields' => true
         ));
     }
 

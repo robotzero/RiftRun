@@ -3,6 +3,8 @@ services:
         class: RiftRunBundle\Factories\PaginationFactory
         arguments:
             - @request_stack
+            - @all_posts_specification
+
         calls:
             - [ setContainer, [ @service_container ]]
 
@@ -25,3 +27,6 @@ services:
     post_form_type:
         class: RiftRunBundle\Forms\PostType
 
+    # QueryBuilder Specification
+    all_posts_specification:
+        class: RiftRunBundle\ORM\Specification\AllPostsSpecification
