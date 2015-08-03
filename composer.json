@@ -48,7 +48,8 @@
         "fzaninotto/faker": "^1.4",
         "hautelook/alice-bundle": "dev-master",
 	    "phpunit/phpunit-mock-objects": "2.0.x-dev",
-        "behat/web-api-extension": "dev-master"
+        "behat/web-api-extension": "dev-master",
+	"ralfmaxxx/behat_multidimensional_extension": "dev-master"
     },
     "scripts": {
         "post-root-package-install": [
