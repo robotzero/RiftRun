@@ -14,19 +14,19 @@ class PostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
-            $data = $event->getData();
-            $form = $event->getForm();
-            $data = json_decode($data);
+        // $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+        //     $data = $event->getData();
+        //     $form = $event->getForm();
+        //     $data = json_decode($data);
 
-            if ($data->query->game->type === 'grift') {
-            //if ($data['query']['game']['type'] === 'grift') {
-                $searchquery = $form->get('query');
-                $searchquery->add('game', new GriftType());
-            }
-        });
+        //     if ($data->query->game->type === 'grift') {
+        //     //if ($data['query']['game']['type'] === 'grift') {
+        //         $searchquery = $form->get('query');
+        //         $searchquery->add('game', new GriftType());
+        //     }
+        // });
 
-        $builder->add('query', new SearchQueryType());
+        #$builder->add('query', new SearchQueryType());
         $builder->add('player', new CharacterType());
     }
 

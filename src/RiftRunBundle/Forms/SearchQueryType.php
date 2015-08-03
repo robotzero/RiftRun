@@ -31,8 +31,7 @@ class SearchQueryType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\Model\SearchQuery',
-            'csrf_protection' => false,
-            'allow_extra_fields' => true
+            'csrf_protection' => false
         ));
     }
 

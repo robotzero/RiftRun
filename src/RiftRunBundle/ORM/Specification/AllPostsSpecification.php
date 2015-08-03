@@ -14,7 +14,7 @@ final class AllPostsSpecification implements Specification
         $queryBuilder->select('posts')
                      ->innerJoin('posts.query', 'q')
                      ->innerJoin('posts.player', 'p')
-                     //->innerJoin('q.game', 'g')
+                     ->innerJoin('q.game', 'g')
                      ->innerJoin('q.characterType', 'ct')
                      ->orderBy('posts.createdAt', 'desc')
                      ->add('where', 'posts.createdAt > :createdAt')

@@ -49,9 +49,9 @@ final class CreatePostCommandHandler
         $form->submit($currentRequest->getContent(), true);
 
         if ($form->isValid() === false) {
-            $iterator = $form->getErrors(true, true);
+            $iterator = $form->getErrors(true, false);
+            print_r($iterator->__toString());
         }
-
 
         try {
             $this->entityManager->persist($post);
@@ -59,7 +59,7 @@ final class CreatePostCommandHandler
         } catch (\Exception $e) {
             // TODO send error response
         }
-
-        return new RedirectResponse('posts', 302);
+        return [];
+        //return new RedirectResponse('posts', 302);
     }
 }
