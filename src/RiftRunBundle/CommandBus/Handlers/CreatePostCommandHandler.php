@@ -49,7 +49,7 @@ final class CreatePostCommandHandler
         $form->submit(json_decode($currentRequest->getContent(), true), true);
 
         if ($form->isValid() === false) {
-            $iterator = $form->getErrors(true, false);
+            $iterator = $form->getErrors(true, true);
             print_r($iterator->__toString());
         }
 
@@ -57,7 +57,7 @@ final class CreatePostCommandHandler
             $this->entityManager->persist($post);
             $this->entityManager->flush($post);
         } catch (\Exception $e) {
-            // TODO send error response
+            echo $e->getMessage();
         }
         return [];
         //return new RedirectResponse('posts', 302);
