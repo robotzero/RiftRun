@@ -947,12 +947,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "e4be52fbeccb47ca08f53773a69bff7adc8e6a42"
+                "reference": "5197cd30e0ff091a9b9e95d2f3c8fec3c5d618b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/e4be52fbeccb47ca08f53773a69bff7adc8e6a42",
-                "reference": "e4be52fbeccb47ca08f53773a69bff7adc8e6a42",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/5197cd30e0ff091a9b9e95d2f3c8fec3c5d618b1",
+                "reference": "5197cd30e0ff091a9b9e95d2f3c8fec3c5d618b1",
                 "shasum": ""
             },
             "require": {
@@ -1018,7 +1018,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-07-31 17:28:09"
+            "time": "2015-08-04 06:17:09"
         },
         {
             "name": "hautelook/templated-uri-bundle",
@@ -4017,12 +4017,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "0b51208f757ebea6f1b9cc9062d03ef512a492a6"
+                "reference": "6b9d0f3642094c47eef0166036ed885b1548104f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/0b51208f757ebea6f1b9cc9062d03ef512a492a6",
-                "reference": "0b51208f757ebea6f1b9cc9062d03ef512a492a6",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6b9d0f3642094c47eef0166036ed885b1548104f",
+                "reference": "6b9d0f3642094c47eef0166036ed885b1548104f",
                 "shasum": ""
             },
             "require": {
@@ -4034,7 +4034,6 @@
                 "symfony/console": "~2.3",
                 "symfony/event-dispatcher": "~2.1",
                 "symfony/finder": "~2.1",
-                "symfony/process": "~2.1",
                 "symfony/yaml": "~2.1"
             },
             "require-dev": {
@@ -4042,7 +4041,7 @@
                 "bossa/phpspec2-expect": "~1.0",
                 "phpunit/phpunit": "~4.4",
                 "symfony/filesystem": "~2.1",
-                "symfony/process": "~2.1"
+                "symfony/process": "2.6.*"
             },
             "suggest": {
                 "phpspec/nyan-formatters": "~1.0 – Adds Nyan formatters"
@@ -4087,7 +4086,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2015-08-03 16:29:45"
+            "time": "2015-08-03 20:55:05"
         },
         {
             "name": "phpspec/prophecy",
