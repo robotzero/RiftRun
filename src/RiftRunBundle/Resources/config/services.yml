@@ -4,7 +4,6 @@ services:
         arguments:
             - @request_stack
             - @all_posts_specification
-
         calls:
             - [ setContainer, [ @service_container ]]
 

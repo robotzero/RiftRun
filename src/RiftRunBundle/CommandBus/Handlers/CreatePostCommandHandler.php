@@ -59,7 +59,7 @@ final class CreatePostCommandHandler
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-        return [];
-        //return new RedirectResponse('posts', 302);
+        //return [];
+        return new RedirectResponse('posts', 302);
     }
 }

@@ -5,6 +5,7 @@ default:
           sessions:
             default:
               symfony2: ~
+        TableNode\Extension\NestedTableNodeExtension: ~
     suites:
         default:
             contexts:

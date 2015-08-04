@@ -20,6 +20,7 @@ use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
+use TableNode\Extension\NestedTableNode;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 require_once __DIR__.'/../../../app/AppKernel.php';
@@ -146,12 +147,18 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function IRequestsWithValues($httpMethod, $resource, TableNode $table)
     {
-        $table = $table->getHash()[0];
+        $table2 = $table->getNestedHash()[0];
 
-        $payload = [
-            "player" => ["type" => $table["type"], "paragonPoints" => $table["paragonPoints"], "battleTag" => $table["battleTag"], "region" => $table["region"], "seasonal" => $table["seasonal"], "gameType" => $table["gameType"]],
-            "query"  => ["minParagon" => $table["minParagon"], "game" => ["type" => $table["game"], "level" => $table["level"]], "characterType" => [["type" => $table["char1"]], ["type" => $table["char2"]], ["type" => $table["char3"]], ["type" => $table["char4"]]]]
+        $table2['query']['characterType'] = [
+            ['type' => $table2['char1']],
+            ['type' => $table2['char2']],
+            ['type' => $table2['char3']],
+            ['type' => $table2['char4']],
         ];
+        unset($table2['char1']);
+        unset($table2['char2']);
+        unset($table2['char3']);
+        unset($table2['char4']);
 
         $this->client->followRedirects(true);
 
@@ -161,7 +168,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
             [],
             [],
             [],
-            json_encode($payload)
+            json_encode($table2)
         );
 
         $this->response = $this->client->getResponse();

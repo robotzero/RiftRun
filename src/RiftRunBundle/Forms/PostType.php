@@ -18,7 +18,7 @@ class PostType extends AbstractType
             $data = $event->getData();
             $form = $event->getForm();
 
-            if ($data['query']['game']['type'] === 'grift') {
+            if (isset($data['query']['game']['type']) && $data['query']['game']['type'] === 'grift') {
                 $searchquery = $form->get('query');
                 $searchquery->add('game', new GriftType());
             }

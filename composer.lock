@@ -786,12 +786,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "71b1dde0961a3094eba2e4a95bda390bd7446e53"
+                "reference": "f88896cc9df756ce2d0e3f3f63bcaf24ef536dd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/71b1dde0961a3094eba2e4a95bda390bd7446e53",
-                "reference": "71b1dde0961a3094eba2e4a95bda390bd7446e53",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/f88896cc9df756ce2d0e3f3f63bcaf24ef536dd5",
+                "reference": "f88896cc9df756ce2d0e3f3f63bcaf24ef536dd5",
                 "shasum": ""
             },
             "require": {
@@ -855,7 +855,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-07-25 22:19:44"
+            "time": "2015-08-04 18:17:50"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -4017,12 +4017,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "6b9d0f3642094c47eef0166036ed885b1548104f"
+                "reference": "e35b1140445c268b69ce7f5f07b504b4154c5c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6b9d0f3642094c47eef0166036ed885b1548104f",
-                "reference": "6b9d0f3642094c47eef0166036ed885b1548104f",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/e35b1140445c268b69ce7f5f07b504b4154c5c4b",
+                "reference": "e35b1140445c268b69ce7f5f07b504b4154c5c4b",
                 "shasum": ""
             },
             "require": {
@@ -4041,7 +4041,7 @@
                 "bossa/phpspec2-expect": "~1.0",
                 "phpunit/phpunit": "~4.4",
                 "symfony/filesystem": "~2.1",
-                "symfony/process": "2.6.*"
+                "symfony/process": "^2.6"
             },
             "suggest": {
                 "phpspec/nyan-formatters": "~1.0 – Adds Nyan formatters"
@@ -4086,7 +4086,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2015-08-03 20:55:05"
+            "time": "2015-08-04 08:15:31"
         },
         {
             "name": "phpspec/prophecy",
