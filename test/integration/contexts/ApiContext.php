@@ -149,16 +149,16 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     {
         $table2 = $table->getNestedHash()[0];
 
-        $table2['query']['characterType'] = [
-            ['type' => $table2['char1']],
-            ['type' => $table2['char2']],
-            ['type' => $table2['char3']],
-            ['type' => $table2['char4']],
-        ];
-        unset($table2['char1']);
-        unset($table2['char2']);
-        unset($table2['char3']);
-        unset($table2['char4']);
+        $pattern = '/^char[1-4]/';
+
+        foreach ($table2 as $key => $value) {
+            if (is_array($key) === false) {
+                if (preg_match($pattern, $key) == true) {
+                    $table2['query']['characterType'][] = ['type' => $table2[$key]];
+                    unset($table2[$key]);
+                }
+            }
+        }
 
         $this->client->followRedirects(true);
 
