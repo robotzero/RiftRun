@@ -1,0 +1,5 @@
+RiftRunBundle\Model\Post:
+    properties:
+        player:
+            - NotBlank: ~
+

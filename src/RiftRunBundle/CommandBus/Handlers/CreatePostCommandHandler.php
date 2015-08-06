@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 final class CreatePostCommandHandler
 {
@@ -50,7 +51,7 @@ final class CreatePostCommandHandler
 
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);
-            print_r($iterator->__toString());
+            throw new BadRequestHttpException('Invalid form ' . $iterator->__toString());
         }
 
         try {

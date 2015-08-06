@@ -33,6 +33,7 @@ class PostType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\Model\Post',
             'csrf_protection' => false,
+            'cascade_validation' => true
         ));
     }
 

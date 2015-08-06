@@ -31,7 +31,8 @@ class SearchQueryType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\Model\SearchQuery',
-            'csrf_protection' => false
+            'csrf_protection' => false,
+            'cascade_validation' => true
         ));
     }
 

@@ -180,7 +180,11 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iGetAResponse($statusCode)
     {
         $contentType = $this->response->headers->get('content-type');
-        assertTrue($this->response->isOk());
+
+        if ($statusCode === "200") {
+            assertTrue($this->response->isOk());
+        }
+        assertEquals($statusCode, $this->response->getStatusCode());
         assertEquals($contentType, 'application/json');
     }
 
