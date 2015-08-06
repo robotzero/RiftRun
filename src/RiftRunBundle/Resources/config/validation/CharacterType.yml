@@ -1,0 +1,4 @@
+RiftRunBundle\Model\CharacterType:
+    properties:
+        type:
+            - NotBlank: ~
