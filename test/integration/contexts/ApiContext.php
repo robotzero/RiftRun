@@ -48,6 +48,8 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
 
     private static $commandBus = null;
 
+    private $postPayload = null;
+
     /**
      * Initializes context.
      *
@@ -125,6 +127,14 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
+     * @Given I have default payload:
+     */
+    public function iHaveDefaultPayload(TableNode $table)
+    {
+        $this->postPayload = $table->getNestedHash()[0];
+    }
+
+    /**
      * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
      */
     public function iRequest($httpMethod, $resource)
@@ -143,19 +153,18 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)" with values:$/
+     * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)" with payload$/
      */
-    public function IRequestsWithValues($httpMethod, $resource, TableNode $table)
+    public function IRequestsWithDefaultValues($httpMethod, $resource)
     {
-        $table2 = $table->getNestedHash()[0];
-
+        $table = $this->postPayload;
         $pattern = '/^char[1-4]/';
 
-        foreach ($table2 as $key => $value) {
+        foreach ($table as $key => $value) {
             if (is_array($key) === false) {
                 if (preg_match($pattern, $key) == true) {
-                    $table2['query']['characterType'][] = ['type' => $table2[$key]];
-                    unset($table2[$key]);
+                    $table['query']['characterType'][] = ['type' => $table[$key]];
+                    unset($table[$key]);
                 }
             }
         }
@@ -168,10 +177,39 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
             [],
             [],
             [],
-            json_encode($table2)
+            json_encode($table)
         );
 
         $this->response = $this->client->getResponse();
+    }
+
+    /**
+     * @When /^the obj "([^"]*)" has set "([^"]*)" to "([^"]*)"$/
+     */
+    public function theObjectHasSetItemToMissing($obj, $item, $value)
+    {
+        if ($value === 'missing') {
+            unset($this->postPayload[$obj][$item]);
+            return;
+        } elseif ($value === 'null') {
+            $this->postPayload[$obj][$item] = null;
+        } elseif ($value === 'false') {
+            $this->postPayload[$obj][$item] = false;
+        } elseif ($value === 'true') {
+            $this->postPayload[$obj][$item] = true;
+        } else {
+            $this->postPayload[$obj][$item] = $value;
+        }
+
+        var_dump($this->postPayload);
+    }
+
+    /**
+     * @When /^the obj "([^"]*)" has set "([^"]*)" to (\d+)$/
+     */
+    public function theObjectHasSetItemToInteger($obj, $item, $value)
+    {
+        $this->postPayload[$obj][$item] = $value;
     }
 
     /**
@@ -468,7 +506,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         self::$commandBus->handle(new CreateSchema(self::$entityManager));
         self::$commandBus->handle(new UpdateSchema(self::$entityManager));
 
-        if ($scope->getFeature()->hasBackground() === false) {
+        if ($scope->getFeature()->hasBackground() === false || $scope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
             return;
             //throw new \Exception('Do not know how to load fixtures.');
         }
@@ -492,5 +530,11 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public static function cleanTheFixtures(AfterFeatureScope $scope)
     {
         self::$commandBus->handle(new ClearDatabase());
+    }
+
+    /** @AfterScenario */
+    public function resetPayload(AfterScenarioScope $scope)
+    {
+        $this->postPayload = null;
     }
 }

@@ -46,11 +46,11 @@ final class CreatePostCommandHandler
         );
 
         $currentRequest = $this->requestStack->getCurrentRequest();
-
         $form->submit(json_decode($currentRequest->getContent(), true), true);
 
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);
+            //echo $iterator->__toString();
             throw new BadRequestHttpException('Invalid form ' . $iterator->__toString());
         }
 

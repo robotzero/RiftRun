@@ -3,18 +3,44 @@ RiftRunBundle\Model\Character:
         type:
             - NotBlank: ~
             - NotNull: ~
+            - Type:
+                type: alpha
         paragonPoints:
             - NotBlank: ~
             - NotNull: ~
+            - Type:
+                type: integer
+            - Regex:
+                pattern: '/^\d+$/'
+            - GreaterThan:
+                value: 1
         battleTag:
             - NotBlank: ~
             - NotNull: ~
+            - Type:
+                type: string
+            - Regex:
+                pattern: '/^#\d{4}$/'
         region:
             - NotBlank: ~
             - NotNull: ~
+            - Choice:
+                choices:  [EU, NA]
         seasonal:
             - NotBlank: ~
             - NotNull: ~
+            - Choice:
+                choices:  [1, 0]
+            - Type:
+                type: bool
+            - GreaterThanOrEqual:
+                value: 0
+            - LessThanOrEqual:
+                value: 1
+            - Regex:
+                pattern: '/^\d{1}$/'
         gameType:
             - NotBlank: ~
             - NotNull: ~
+            - Choice:
+                choices:  [hardcore, softcore]

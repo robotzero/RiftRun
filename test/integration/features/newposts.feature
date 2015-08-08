@@ -1,9 +1,12 @@
 Feature: Create new Posts
 
-Scenario: I can create new post
-    When I request "POST v1/posts" with values:
+Background: Correct payload
+    Given I have default payload:
         | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | 1000             | EU            | 0               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
+        | dh          | 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
+
+Scenario: I can create new post
+    When I request "POST v1/posts" with payload
     #Then I get a "302" response
     And the "page" property exists
     And the "page" property is a integer equalling "1"
@@ -16,62 +19,70 @@ Scenario: I can create new post
             createdAt
             """
 
-Scenario: Empty player object
-    When I request "POST v1/posts" with values:
-        | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
+Scenario Outline: Wrong object player
+    When the obj <object> has set <item> to <value>
+    And  I request "POST v1/posts" with payload
     Then I get a "400" response
-
-Scenario: Empty player.type object
-    When I request "POST v1/posts" with values:
-        | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | 20                   | 1000             | EU            | 0               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty player.paragonPoints object
-    When I request "POST v1/posts" with values:
-        | player.type | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 1000             | EU            | 0               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty player.battleTag object
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | EU            | 0               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty player.region object
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.battleTag | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | 1000             | 0               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty player.seasonal object
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | 1000             | EU            | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty player.gameType object
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | 1000             | EU            | 0               | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty query object
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType |  char1 | char2 | char3 | char4 |
-        | dh          | 20                   | 1000             | EU            | 0               | hardcore        |  dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty query.minParagon property
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | 1000             | EU            | 0               | hardcore        | grift           | 40               | dh    | barb  | wizard| monk  |
-    Then I get a "400" response
-
-Scenario: Empty query.characterType object
-    When I request "POST v1/posts" with values:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level |
-        | dh          | 20                   | 1000             | EU            | 0               | hardcore        | 20               | grift           | 40               |
-    Then I get a "400" response
+    Examples:
+        | object           | item               | value     |
+        # | "player"         | "type"             | "missing" |
+        # | "player"         | "type"             | 1         |
+        # | "player"         | "type"             | "null"    |
+        # | "player"         | "type"             | "false"   |
+        # | "player"         | "type"             | "true"    |
+        # | "player"         | "type"             | 0         |
+        # | "player"         | "type"             | ""        |
+        # | "player"         | "type"             | "  "      |
+        # | "player"         | "paragonPoints"    | "missing" |
+        # | "player"         | "paragonPoints"    | "word"    |
+        # | "player"         | "paragonPoints"    | 0         |
+        # | "player"         | "paragonPoints"    | "-100"    |
+        # | "player"         | "paragonPoints"    | "null"    |
+        # | "player"         | "paragonPoints"    | "false"   |
+        # | "player"         | "paragonPoints"    | "true"    |
+        # | "player"         | "paragonPoints"    | ""        |
+        # | "player"         | "paragonPoints"    | "  "      |
+        # | "player"         | "battleTag"        | "missing" |
+        # | "player"         | "battleTag"        | 1         |
+        # | "player"         | "battleTag"        | 1000      |
+        # | "player"         | "battleTag"        | "-100"    |
+        # | "player"         | "battleTag"        | "-00"     |
+        # | "player"         | "battleTag"        | "null"    |
+        # | "player"         | "battleTag"        | "false"   |
+        # | "player"         | "battleTag"        | "true"    |
+        # | "player"         | "battleTag"        | ""        |
+        # | "player"         | "battleTag"        | "  "      |
+        # | "player"         | "region"           | "missing" |
+        # | "player"         | "region"           | "abcde"   |
+        # | "player"         | "region"           | "eu"      |
+        # | "player"         | "region"           | "na"      |
+        # | "player"         | "region"           | 1         |
+        # | "player"         | "region"           | "-100"    |
+        # | "player"         | "region"           | "null"    |
+        # | "player"         | "region"           | "false"   |
+        # | "player"         | "region"           | "true"    |
+        # | "player"         | "region"           | ""        |
+        # | "player"         | "region"           | "  "      |
+        # | "player"         | "seasonal"         | "missing" |
+        # | "player"         | "seasonal"         | "000"     |
+        # | "player"         | "seasonal"         | 000       |
+        # | "player"         | "seasonal"         | "-10"     |
+        # | "player"         | "seasonal"         | "abcde"   |
+        # | "player"         | "seasonal"         | "null"    |
+        | "player"         | "seasonal"         | "false"   |
+        # | "player"         | "seasonal"         | "true"    |
+        # | "player"         | "seasonal"         | ""        |
+        # | "player"         | "seasonal"         | "  "      |
+        # | "player"         | "gameType"         | "missing" |
+        # | "player"         | "gameType"         | "blabla " |
+        # | "player"         | "gameType"         | "SOFTCORE"|
+        # | "player"         | "gameType"         | "HARDCORE"|
+        # | "player"         | "gameType"         | 0         |
+        # | "player"         | "gameType"         | -0        |
+        # | "player"         | "gameType"         | -100      |
+        # | "player"         | "gameType"         | 100       |
+        # | "player"         | "gameType"         | null      |
+        # | "player"         | "gameType"         | false     |
+        # | "player"         | "gameType"         | true      |
+        # | "player"         | "gameType"         | ""        |
+        # | "player"         | "gameType"         | "  "      |
