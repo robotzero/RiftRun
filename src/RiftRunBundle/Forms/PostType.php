@@ -20,12 +20,12 @@ class PostType extends AbstractType
 
             if (isset($data['query']['game']['type']) && $data['query']['game']['type'] === 'grift') {
                 $searchquery = $form->get('query');
-                $searchquery->add('game', new GriftType());
+                $searchquery->add('game', new GriftType(), ['required' => true]);
             }
         });
 
-        $builder->add('query', new SearchQueryType());
-        $builder->add('player', new CharacterType());
+        $builder->add('query', new SearchQueryType(), ['required' => true]);
+        $builder->add('player', new CharacterType(), ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

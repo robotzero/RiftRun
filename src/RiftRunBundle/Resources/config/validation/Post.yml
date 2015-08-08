@@ -2,6 +2,8 @@ RiftRunBundle\Model\Post:
     properties:
         player:
             - NotBlank: ~
+            - NotNull: ~
         query:
             - NotBlank: ~
+            - NotNull: ~
 

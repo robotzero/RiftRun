@@ -1,5 +1,5 @@
-RiftRunBundle\Model\CharacterType:
+RiftRunBundle\Model\Grift:
     properties:
-        type:
+        level:
             - NotBlank: ~
             - NotNull: ~

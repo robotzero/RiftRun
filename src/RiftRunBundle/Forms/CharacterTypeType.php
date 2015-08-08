@@ -10,7 +10,7 @@ class CharacterTypeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('type', 'text');
+        $builder->add('type', 'text', ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

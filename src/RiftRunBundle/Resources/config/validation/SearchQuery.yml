@@ -2,7 +2,12 @@ RiftRunBundle\Model\SearchQuery:
     properties:
         minParagon:
             - NotBlank: ~
+            - NotNull: ~
         characterType:
-            - NotBlank: ~
-        game:
-            - NotBlank: ~
+            - Valid: ~
+            - All:
+                - NotNull: ~
+                - NotBlank: ~
+            - Count:
+                min: 1
+                max: 4

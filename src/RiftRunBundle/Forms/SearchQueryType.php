@@ -20,11 +20,12 @@ class SearchQueryType extends AbstractType
             [
                 'type' => new CharacterTypeType(),
                 'allow_add' => true,
+                'required' => true,
                 'by_reference' => false,
                 'allow_delete' => false
             ]
         );
-        $builder->add('minParagon', 'integer');
+        $builder->add('minParagon', 'integer', ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -10,8 +10,8 @@ class GriftType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('level', 'text');
-        $builder->add('type', 'text', [ 'mapped' => false ]);
+        $builder->add('level', 'text', ['required' => true]);
+        $builder->add('type', 'text', [ 'required' => true, 'mapped' => false ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

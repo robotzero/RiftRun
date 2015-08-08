@@ -2,3 +2,19 @@ RiftRunBundle\Model\Character:
     properties:
         type:
             - NotBlank: ~
+            - NotNull: ~
+        paragonPoints:
+            - NotBlank: ~
+            - NotNull: ~
+        battleTag:
+            - NotBlank: ~
+            - NotNull: ~
+        region:
+            - NotBlank: ~
+            - NotNull: ~
+        seasonal:
+            - NotBlank: ~
+            - NotNull: ~
+        gameType:
+            - NotBlank: ~
+            - NotNull: ~
