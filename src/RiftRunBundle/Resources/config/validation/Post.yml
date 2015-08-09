@@ -3,7 +3,11 @@ RiftRunBundle\Model\Post:
         player:
             - NotBlank: ~
             - NotNull: ~
+            - Type:
+                type: object
         query:
             - NotBlank: ~
             - NotNull: ~
+            - Type:
+                type: object
 

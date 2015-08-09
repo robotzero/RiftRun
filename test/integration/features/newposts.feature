@@ -86,3 +86,23 @@ Scenario Outline: Wrong object player
         | "player"         | "gameType"         | "true"    |
         | "player"         | "gameType"         | ""        |
         | "player"         | "gameType"         | "  "      |
+        | "post"           | "player"           | "missing" |
+        | "post"           | "player"           | "blabla"  |
+        | "post"           | "player"           | 0         |
+        | "post"           | "player"           | "-0"      |
+        | "post"           | "player"           | 100       |
+        | "post"           | "player"           | "null"    |
+        | "post"           | "player"           | "false"   |
+        | "post"           | "player"           | "true"    |
+        | "post"           | "player"           | ""        |
+        | "post"           | "player"           | "  "      |
+        | "post"           | "query"            | "missing" |
+        | "post"           | "query"            | "blabla"  |
+        | "post"           | "query"            | 0         |
+        | "post"           | "query"            | "-0"      |
+        | "post"           | "query"            | 100       |
+        | "post"           | "query"            | "null"    |
+        | "post"           | "query"            | "false"   |
+        | "post"           | "query"            | "true"    |
+        | "post"           | "query"            | ""        |
+        | "post"           | "query"            | "  "      |

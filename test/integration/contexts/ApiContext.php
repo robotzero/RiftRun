@@ -160,11 +160,13 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $table = $this->postPayload;
         $pattern = '/^char[1-4]/';
 
-        foreach ($table as $key => $value) {
-            if (is_array($key) === false) {
-                if (preg_match($pattern, $key) == true) {
-                    $table['query']['characterType'][] = ['type' => $table[$key]];
-                    unset($table[$key]);
+        if (isset($table['query']) && is_array($table['query'])) {
+            foreach ($table as $key => $value) {
+                if (is_array($key) === false) {
+                    if (preg_match($pattern, $key) == true) {
+                        $table['query']['characterType'][] = ['type' => $table[$key]];
+                        unset($table[$key]);
+                    }
                 }
             }
         }
@@ -188,6 +190,22 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function theObjectHasSetItemToMissing($obj, $item, $value)
     {
+        if ($obj === 'post') {
+            if ($value === 'missing') {
+                unset($this->postPayload[$item]);
+                return;
+            } elseif ($value === 'null') {
+                $this->postPayload[$item] = null;
+            } elseif ($value === 'false') {
+                $this->postPayload[$item] = false;
+            } elseif ($value === 'true') {
+                $this->postPayload[$item] = true;
+            } else {
+                $this->postPayload[$item] = $value;
+            }
+            return;
+        }
+
         if ($value === 'missing') {
             unset($this->postPayload[$obj][$item]);
             return;
