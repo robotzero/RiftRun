@@ -3,6 +3,12 @@ RiftRunBundle\Model\SearchQuery:
         minParagon:
             - NotBlank: ~
             - NotNull: ~
+            - Type:
+                type: integer
+            - GreaterThan:
+                value: 1
+            - Regex:
+                pattern: '/^\d+$/'
         characterType:
             - Valid: ~
             - All:
@@ -11,3 +17,8 @@ RiftRunBundle\Model\SearchQuery:
             - Count:
                 min: 1
                 max: 4
+        game:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object

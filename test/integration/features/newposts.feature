@@ -3,7 +3,7 @@ Feature: Create new Posts
 Background: Correct payload
     Given I have default payload:
         | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40               | dh    | barb  | wizard| monk  |
+        | dh          | 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | dh    | barb  | wizard| monk  |
 
 Scenario: I can create new post
     When I request "POST v1/posts" with payload
@@ -105,4 +105,34 @@ Scenario Outline: Wrong object player
         | "post"           | "query"            | "false"   |
         | "post"           | "query"            | "true"    |
         | "post"           | "query"            | ""        |
-        | "post"           | "query"            | "  "      |
+        | "post"             | "query"            | "  "      |
+        | "query"            | "minParagon"       | "missing" |
+        | "query"            | "minParagon"       | "blabla"  |
+        | "query"            | "minParagon"       | 0         |
+        | "query"            | "minParagon"       | "-0"      |
+        | "query"            | "minParagon"       | "-100"    |
+        | "query"            | "minParagon"       | "null"    |
+        | "query"            | "minParagon"       | "false"   |
+        | "query"            | "minParagon"       | "true"    |
+        | "query"            | "minParagon"       | ""        |
+        | "query"            | "minParagon"       | "  "      |
+        | "query"            | "game"             | "missing" |
+        | "query"            | "game"             | "blabla"  |
+        | "query"            | "game"             | 0         |
+        | "query"            | "game"             | "-0"      |
+        | "query"            | "game"             | "-100"    |
+        | "query"            | "game"             | "null"    |
+        | "query"            | "game"             | "false"   |
+        | "query"            | "game"             | "true"    |
+        | "query"            | "game"             | ""        |
+        | "query"            | "game"             | "  "      |
+        | "game"             | "level"            | "missing" |
+        | "game"             | "level"            | "blabla"  |
+        | "game"             | "level"            | 0         |
+        | "game"             | "level"            | "-0"      |
+        | "game"             | "level"            | "-100"    |
+        | "game"             | "level"            | "null"    |
+        | "game"             | "level"            | "false"   |
+        | "game"             | "level"            | "true"    |
+        | "game"             | "level"            | ""        |
+        | "game"             | "level"            | "  "      |

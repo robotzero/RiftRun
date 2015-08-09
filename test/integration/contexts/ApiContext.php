@@ -190,6 +190,21 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function theObjectHasSetItemToMissing($obj, $item, $value)
     {
+        if ($obj === 'game') {
+            if ($value === 'missing') {
+                unset($this->postPayload['query']['game'][$item]);
+                return;
+            } elseif ($value === 'null') {
+                $this->postPayload['query']['game'][$item] = null;
+            } elseif ($value === 'false') {
+                $this->postPayload['query']['game'][$item] = false;
+            } elseif ($value === 'true') {
+                $this->postPayload['query']['game'][$item] = true;
+            } else {
+                $this->postPayload['query']['game'][$item] = $value;
+            }
+            return;
+        }
         if ($obj === 'post') {
             if ($value === 'missing') {
                 unset($this->postPayload[$item]);
