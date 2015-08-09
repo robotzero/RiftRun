@@ -30,13 +30,7 @@ RiftRunBundle\Model\Character:
             - NotBlank: ~
             - NotNull: ~
             - Choice:
-                choices:  [1, 0]
-            - Type:
-                type: bool
-            - GreaterThanOrEqual:
-                value: 0
-            - LessThanOrEqual:
-                value: 1
+                choices:  [0, 1]
             - Regex:
                 pattern: '/^\d{1}$/'
         gameType:

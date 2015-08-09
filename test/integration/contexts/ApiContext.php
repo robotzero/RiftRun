@@ -200,8 +200,6 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         } else {
             $this->postPayload[$obj][$item] = $value;
         }
-
-        var_dump($this->postPayload);
     }
 
     /**
