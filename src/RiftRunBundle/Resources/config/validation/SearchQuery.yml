@@ -16,7 +16,7 @@ RiftRunBundle\Model\SearchQuery:
                 - NotBlank: ~
             - Count:
                 min: 1
-                max: 4
+                max: 5
         game:
             - NotBlank: ~
             - NotNull: ~

@@ -3,3 +3,5 @@ RiftRunBundle\Model\CharacterType:
         type:
             - NotBlank: ~
             - NotNull: ~
+            - Choice:
+                choices: ["demon hunter", "barbarian", "wizard", "witch doctor", "monk"]

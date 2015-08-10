@@ -132,7 +132,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iHaveDefaultPayload(TableNode $table)
     {
         $this->postPayload = $table->getNestedHash()[0];
-        $pattern = '/^char[1-4]/';
+        $pattern = '/^char[1-5]/';
 
         if (isset($this->postPayload['query']) && is_array($this->postPayload['query'])) {
             foreach ($this->postPayload as $key => $value) {
@@ -188,12 +188,20 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     /**
      * @When /^the obj "([^"]*)" has set "([^"]*)" to "([^"]*)"$/
      */
-    public function theObjectHasSetItemToMissing($obj, $item, $value)
+    public function theObjectHasSetItemToValue($obj, $item, $value)
     {
-        if ($obj === 'query' && $item === 'characterType') {
+        if ($obj === 'query' && $item === 'characterTypes') {
             if ($value === 'missing') {
                 unset($this->postPayload['query']['characterType']);
+                return;
             }
+
+            $this->postPayload['query']['characterType'] = $this->setupCharacterType($value);
+
+            if ($value === 'less') {
+                $this->postPayload['query']['characterType'] = 'yahoo';
+            }
+            return;
         }
 
         if ($obj === 'game') {
@@ -530,6 +538,20 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
             }
         }
         return $array;
+    }
+
+    protected function setupCharacterType(string $value)
+    {
+        $arr = [];
+        if (is_null($value)) {
+            throw new \Exception();
+        }
+
+        foreach (explode(',', $value) as $cclass) {
+            $arr[] = ['type' => $cclass];
+        }
+
+        return $arr;
     }
 
     /** @BeforeFeature */

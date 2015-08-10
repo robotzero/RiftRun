@@ -2,8 +2,8 @@ Feature: Create new Posts
 
 Background: Correct payload
     Given I have default payload:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1 | char2 | char3 | char4 |
-        | dh          | 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | dh    | barb  | wizard| monk  |
+        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1           | char2      | char3 | char4 | char5        |
+        | dh          | 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | demon hunter    | barbarian  | wizard| monk  | witch doctor |
 
 Scenario: I can create new post
     When I request "POST v1/posts" with payload
@@ -136,4 +136,34 @@ Scenario Outline: Wrong object
         | "game"             | "level"            | "true"    |
         | "game"             | "level"            | ""        |
         | "game"             | "level"            | "  "      |
-        | "query"            | "characterType"    | "missing" |
+        | "query"            | "characterTypes"      | "missing" |
+        | "query"            | "characterTypes"      | "dh,barb,wiz" |
+        | "query"            | "characterTypes"      | "demon hunter,barb,wiz" |
+        | "query"            | "characterTypes"      | "demon hunter,barbarian,monk,witch" |
+        | "query"            | "characterTypes"      | "demon hunter,barbarian,monk,witch doctor,wizard,and" |
+        | "query"            | "characterTypes"      | "demon hunter,null" |
+        | "query"            | "characterTypes"      | "null" |
+        | "query"            | "characterTypes"      | "blabla"  |
+        | "query"            | "characterTypes"      | 0         |
+        | "query"            | "characterTypes"      | "-0"      |
+        | "query"            | "characterTypes"      | "-100"    |
+        | "query"            | "characterTypes"      | "false"   |
+        | "query"            | "characterTypes"      | "true"    |
+        | "query"            | "characterTypes"      | ""        |
+        | "query"            | "characterTypes"      | "  "      |
+        | "query"            | "characterTypes"      | "0,2,1"   |
+        | "query"            | "characterTypes"      | "less "   |
+        | "query"            | "characterType"      | "missing" |
+        | "query"            | "characterType"      | "dh,barb,wiz" |
+        | "query"            | "characterType"      | "demon hunter" |
+        | "query"            | "characterType"      | "null" |
+        | "query"            | "characterType"      | "blabla"  |
+        | "query"            | "characterType"      | 0         |
+        | "query"            | "characterType"      | "-0"      |
+        | "query"            | "characterType"      | "-100"    |
+        | "query"            | "characterType"      | "false"   |
+        | "query"            | "characterType"      | "true"    |
+        | "query"            | "characterType"      | ""        |
+        | "query"            | "characterType"      | "  "      |
+        | "query"            | "characterType"      | "0,2,1"   |
+

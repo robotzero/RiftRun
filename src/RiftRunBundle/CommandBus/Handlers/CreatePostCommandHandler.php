@@ -50,7 +50,6 @@ final class CreatePostCommandHandler
 
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);
-            //echo $iterator->__toString();
             throw new BadRequestHttpException('Invalid form ' . $iterator->__toString());
         }
 
