@@ -19,7 +19,7 @@ Scenario: I can create new post
             createdAt
             """
 
-Scenario Outline: Wrong object player
+Scenario Outline: Wrong object
     When the obj <object> has set <item> to <value>
     And  I request "POST v1/posts" with payload
     Then I get a "400" response
@@ -136,3 +136,4 @@ Scenario Outline: Wrong object player
         | "game"             | "level"            | "true"    |
         | "game"             | "level"            | ""        |
         | "game"             | "level"            | "  "      |
+        | "query"            | "characterType"    | "missing" |

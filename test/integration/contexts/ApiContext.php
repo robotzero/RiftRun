@@ -132,6 +132,18 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iHaveDefaultPayload(TableNode $table)
     {
         $this->postPayload = $table->getNestedHash()[0];
+        $pattern = '/^char[1-4]/';
+
+        if (isset($this->postPayload['query']) && is_array($this->postPayload['query'])) {
+            foreach ($this->postPayload as $key => $value) {
+                if (is_array($key) === false) {
+                    if (preg_match($pattern, $key) == true) {
+                        $this->postPayload['query']['characterType'][] = ['type' => $this->postPayload[$key]];
+                        unset($this->postPayload[$key]);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -158,18 +170,6 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function IRequestsWithDefaultValues($httpMethod, $resource)
     {
         $table = $this->postPayload;
-        $pattern = '/^char[1-4]/';
-
-        if (isset($table['query']) && is_array($table['query'])) {
-            foreach ($table as $key => $value) {
-                if (is_array($key) === false) {
-                    if (preg_match($pattern, $key) == true) {
-                        $table['query']['characterType'][] = ['type' => $table[$key]];
-                        unset($table[$key]);
-                    }
-                }
-            }
-        }
 
         $this->client->followRedirects(true);
 
@@ -190,6 +190,12 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function theObjectHasSetItemToMissing($obj, $item, $value)
     {
+        if ($obj === 'query' && $item === 'characterType') {
+            if ($value === 'missing') {
+                unset($this->postPayload['query']['characterType']);
+            }
+        }
+
         if ($obj === 'game') {
             if ($value === 'missing') {
                 unset($this->postPayload['query']['game'][$item]);
