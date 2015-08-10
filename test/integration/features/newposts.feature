@@ -7,7 +7,6 @@ Background: Correct payload
 
 Scenario: I can create new post
     When I request "POST v1/posts" with payload
-    #Then I get a "302" response
     And the "page" property exists
     And the "page" property is a integer equalling "1"
     And scope into the first "_embedded.items" property
