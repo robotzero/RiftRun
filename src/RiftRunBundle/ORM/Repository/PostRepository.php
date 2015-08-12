@@ -10,10 +10,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
-    public function match(Callable $criteria)
+    public function match(Callable $criteria, $searchCriteria)
     {
         $queryBuilder = $this->createQueryBuilder('posts');
 
-        return call_user_func($criteria, $queryBuilder);
+        return call_user_func_array($criteria, [$queryBuilder, $searchCriteria]);
     }
 }

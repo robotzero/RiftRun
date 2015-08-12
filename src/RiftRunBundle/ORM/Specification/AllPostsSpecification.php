@@ -7,7 +7,7 @@ use RiftRunBundle\ORM\Specification\Specification;
 
 final class AllPostsSpecification implements Specification
 {
-    public function __invoke(QueryBuilder $queryBuilder)
+    public function __invoke(QueryBuilder $queryBuilder, $searchCriteria)
     {
         $queryBuilder->select('posts')
                      ->innerJoin('posts.query', 'q')

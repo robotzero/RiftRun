@@ -34,11 +34,19 @@ final class PaginationFactory extends ContainerAware implements Factory
     }
     public function create($type, $route)
     {
-        $filters = $this->request->getCurrentRequest()->query->get('limit');
+        $searchCriteria = $this->request->getCurrentRequest()->query->get('search', []);
+
+        $searchCriteria = explode(' ', $searchCriteria);
+
+        foreach ($searchCriteria as $searchC) {
+            $search[] = explode(':', $searchC);
+
+        }
+        dump($search);
 
         $repositoryString = $this->arrayObject[$type][1];
         $this->repository = $this->container->get('doctrine')->getRepository('RiftRunners:'.$repositoryString);
-        $queryBuilder = $this->repository->match($this->arrayObject[$type][0]);
+        $queryBuilder = $this->repository->match($this->arrayObject[$type][0], $searchCriteria);
         $pagerfanta = new Pagerfanta(new DoctrineORMAdapter($queryBuilder));
         $pagerFantaFactory = new PagerfantaFactory();
         $pagerfanta->setMaxPerPage($this->request->getCurrentRequest()->query->get('limit', 20));
