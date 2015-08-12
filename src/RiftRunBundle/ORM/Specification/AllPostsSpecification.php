@@ -7,8 +7,6 @@ use RiftRunBundle\ORM\Specification\Specification;
 
 final class AllPostsSpecification implements Specification
 {
-    private $filters;
-
     public function __invoke(QueryBuilder $queryBuilder)
     {
         $queryBuilder->select('posts')

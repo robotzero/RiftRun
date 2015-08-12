@@ -3,8 +3,8 @@ RiftRunBundle\Model\Character:
         type:
             - NotBlank: ~
             - NotNull: ~
-            - Type:
-                type: alpha
+            - Choice:
+                choices: ["demon hunter", "monk", "wizard", "witch doctor", "barbarian"]
         paragonPoints:
             - NotBlank: ~
             - NotNull: ~
