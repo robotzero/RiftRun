@@ -27,7 +27,8 @@ class AllPostsSpecificationSpec extends ObjectBehavior
         $queryBuilder->innerJoin('q.characterType', 'ct')->shouldBeCalled()->willReturn($queryBuilder);
         $queryBuilder->orderBy('posts.createdAt', 'desc')->shouldBeCalled()->willReturn($queryBuilder);
         $queryBuilder->add('where', 'posts.createdAt > :createdAt')->shouldBeCalled()->willReturn($queryBuilder);
-        $queryBuilder->setParameter('createdAt', Argument::type('\DateTime'), 'datetime')->shouldBeCalled()->willReturn($queryBuilder);
+        $queryBuilder->setParameter('createdAt', Argument::type('\DateTime'), 'datetime')
+                     ->shouldBeCalled()->willReturn($queryBuilder);
 
         $this->__invoke($queryBuilder);
     }

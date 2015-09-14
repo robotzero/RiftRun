@@ -6,3 +6,4 @@ bin
 database
 web/bundles
 .tags*
+.idea

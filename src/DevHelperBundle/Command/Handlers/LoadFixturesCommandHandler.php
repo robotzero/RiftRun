@@ -3,39 +3,38 @@
 namespace DevHelperBundle\Command\Handlers;
 
 use DevHelperBundle\Command\Commands\LoadFixturesInterface;
-use DevHelperBundle\Command\LoadFixtures;
+use DevHelperBundle\Factories\LoaderFactory;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Persistence\ObjectManager;
-use Hautelook\AliceBundle\Alice\DataFixtureLoader;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Nelmio\Alice\Fixtures;
 
 final class LoadFixturesCommandHandler
 {
     /**
-     * @var EntityManagerInterface
+     * @var LoaderFactory
      */
-    private $entityManager = null;
+    private $loaderFactory = null;
 
     /**
      * @var null
      */
     private $fixtures = null;
 
-    public function __construct(ObjectManager $entityManager)
+    public function __construct(LoaderFactory $loaderFactory)
     {
-        $this->entityManager = $entityManager;
+        $this->loaderFactory = $loaderFactory;
     }
 
     /**
      * Loads fixtures into the sql lite database
-     * @param  LoadFixtures $loadFixtures Command
+     * @param  LoadFixturesInterface $loadFixtures Command
      * @return ArrayCollection
      */
     public function handle(LoadFixturesInterface $loadFixtures)
     {
-        $this->fixtures = $loadFixtures->fixtures();
+        $fixtures = $loadFixtures->fixtures();
 
-        $objects = \Nelmio\Alice\Fixtures::load($this->fixtures, $this->entityManager);
+        $fixturesLoader = $this->loaderFactory->getLoader();
+        $objects = $fixturesLoader->loadFiles($fixtures);
 
         return $objects;
     }

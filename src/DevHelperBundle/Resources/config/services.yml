@@ -5,7 +5,7 @@ services:
     load_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\LoadFixturesCommandHandler
         arguments:
-            - @doctrine.orm.entity_manager
+            - @nelmio_loader_factory
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
 
@@ -36,3 +36,9 @@ services:
         class: DevHelperBundle\Cli\DatabaseClearCommand
         tags:
             -  { name: console.command }
+
+    # Factories
+    nelmio_loader_factory:
+        class: DevHelperBundle\Factories\AliceLoaderFactory
+        arguments:
+            - @doctrine.orm.entity_manager

@@ -3,20 +3,18 @@
 namespace spec\DevHelperBundle\Command\Handlers;
 
 use DevHelperBundle\Command\Commands\LoadFixturesInterface;
+use DevHelperBundle\Factories\LoaderFactory;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Persistence\ObjectManager;
-use Hautelook\AliceBundle\Alice\DataFixtureLoader;
-use Hautelook\AliceBundle\Alice\Loader;
+use Nelmio\Alice\Fixtures;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\IntrospectableContainerInterface;
 
 class LoadFixturesCommandHandlerSpec extends ObjectBehavior
 {
-    function let(ObjectManager $entityManager)
+    function let(LoaderFactory $loaderFactory)
     {
-        $this->beConstructedWith($entityManager);
+        $this->beConstructedWith($loaderFactory);
     }
 
     function it_is_initializable()
@@ -27,16 +25,15 @@ class LoadFixturesCommandHandlerSpec extends ObjectBehavior
     function it_delegates_to_load_fixtures_command_to_get_the_fixtures(
         LoadFixturesInterface $loadFixtures,
         IntrospectableContainerInterface $container,
-        Loader $loader
+        LoaderFactory $loaderFactory,
+        Fixtures $nelmioFixturesLoader
     ) {
         $loadFixtures->fixtures()->shouldBeCalledTimes(1);
         $loadFixtures->fixtures()->willReturn(['something/something.yml']);
 
-        // Ugly hack.
-        try {
-            $this->handle($loadFixtures);
-        } catch (\Exception $e) {
+        $loaderFactory->getLoader()->willReturn($nelmioFixturesLoader);
+        $nelmioFixturesLoader->loadFiles(['something/something.yml'])->shouldBeCalledTimes(1);
 
-        }
+        $this->handle($loadFixtures);
     }
 }
