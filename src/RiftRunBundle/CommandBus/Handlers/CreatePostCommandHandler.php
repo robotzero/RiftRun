@@ -46,7 +46,7 @@ final class CreatePostCommandHandler
         );
 
         $currentRequest = $this->requestStack->getCurrentRequest();
-        $form->submit(json_decode($currentRequest->getContent(), true), true);
+        $form->handleRequest($currentRequest);
 
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);
