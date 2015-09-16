@@ -15,8 +15,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class CreatePostCommandHandlerSpec extends ObjectBehavior
 {
-    private $formMock;
-
+    private $form;
+    private $post;
     private $formFactory;
 
     function let(
@@ -24,23 +24,24 @@ class CreatePostCommandHandlerSpec extends ObjectBehavior
         EntityManagerInterface $entityManager,
         PostType $postFormType,
         RequestStack $requestStack,
-        Form $form
+        Form $form,
+        Create $createPost
     ) {
+        $this->post = new Post();
+        $createPost->getModel()->willReturn($this->post);
         $request = new Request();
         $requestStack->getCurrentRequest()->willReturn($request);
+        $this->form = $form;
+        $this->formFactory = $formFactory;
 
-//        $this->formFactory = $formFactory;
-//
-//        $formFactory->create(
-//            $postFormType,
-//            null,
-//            ['method' => 'POST']
-//        )->willReturn($form);
-
-        //$this->formMock = $form;
+        $this->formFactory->create(
+            $postFormType,
+            $this->post,
+            ['method' => 'POST']
+        )->willReturn($this->form);
 
         $this->beConstructedWith(
-            $formFactory,
+            $this->formFactory,
             $entityManager,
             $postFormType,
             $requestStack
@@ -55,46 +56,59 @@ class CreatePostCommandHandlerSpec extends ObjectBehavior
     function it_delegates_to_entity_manager_to_persist_new_post_data(
         EntityManagerInterface $entityManager,
         Create $createPost,
-        PostType $postFormType,
-        RequestStack $requestStack,
-        FormFactory $formFactory,
         Form $form
     ) {
-        $post = new Post();
-        $createPost->getModel()->willReturn($post);
-
-        $formFactory->create(
-            $postFormType,
-            $post,
-            ['method' => 'POST']
-        )->willReturn($form);
-
-        $form->handleRequest(
+        $this->form->handleRequest(
             Argument::type('Symfony\Component\HttpFoundation\Request')
         )->shouldBeCalledTimes(1);
 
-        $form->isValid()->willReturn(true);
+        $this->form->isValid()->willReturn(true);
         $this->handle($createPost);
 
-        $entityManager->persist($post)->shouldHaveBeenCalledTimes(1);
-        $entityManager->flush($post)->shouldHaveBeenCalledTimes(1);
+        $entityManager->persist($this->post)->shouldHaveBeenCalledTimes(1);
+        $entityManager->flush($this->post)->shouldHaveBeenCalledTimes(1);
     }
 
-//    function it_catches_an_exception_when_persist_fails(EntityManagerInterface $entityManager, Create $createPost)
-//    {
-//        $post = new Post();
-//        $createPost->getModel()->willReturn($post);
-//        $entityManager->persist($post)->willThrow(new \InvalidArgumentException('Some message'));
-//
-//        $this->handle($createPost);
-//    }
-//
-//    function it_returns_redirect_response(Create $createPost)
-//    {
-//        $post = new Post();
-//        $createPost->getModel()->willReturn($post);
-//
-//        $this->handle($createPost)->shouldHaveType('Symfony\Component\HttpFoundation\RedirectResponse');
-//    }
+    function it_catches_an_exception_when_persist_fails(
+        EntityManagerInterface $entityManager,
+        Create $createPost,
+        Form $form
+    ) {
+        $this->form->handleRequest(
+            Argument::type('Symfony\Component\HttpFoundation\Request')
+        )->shouldBeCalledTimes(1);
 
+        $this->form->isValid()->willReturn(true);
+
+        $entityManager->persist($this->post)->willThrow(new \InvalidArgumentException('Some message'));
+
+        $this->handle($createPost);
+    }
+
+    function it_returns_redirect_response(
+        Create $createPost,
+        Form $form
+    ) {
+        $this->form->handleRequest(
+            Argument::type('Symfony\Component\HttpFoundation\Request')
+        )->shouldBeCalledTimes(1);
+
+        $this->form->isValid()->willReturn(true);
+
+        $this->handle($createPost)->shouldHaveType('Symfony\Component\HttpFoundation\RedirectResponse');
+    }
+
+    function it_throws_an_exception_when_form_is_invalid(
+        Create $createPost,
+        Form $form
+    ) {
+        $this->form->handleRequest(
+            Argument::type('Symfony\Component\HttpFoundation\Request')
+        )->shouldBeCalledTimes(1);
+
+        $this->form->isValid()->willReturn(false);
+        $this->form->getErrors(true, true)->willReturn(Argument::type('\RecursiveIterator'));
+
+        $this->shouldThrow('\Symfony\Component\HttpKernel\Exception\BadRequestHttpException')->during('handle', [$createPost]);
+    }
 }
