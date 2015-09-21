@@ -18,6 +18,7 @@ RUN yum -y -q install \
 RUN mkdir -p /etc/ssl/certs/
 RUN mkdir -p /etc/ssl/private/
 RUN mkdir -p /var/www/html/riftrun/web/
+RUN mkdir -p /var/www/fa/
 RUN chmod -R a+rwx /etc/ssl
 ADD myssl.crt  /etc/ssl/certs/
 ADD myssl.key  /etc/ssl/private/
@@ -29,7 +30,9 @@ RUN chmod -R a+rwx /etc/ssl/
 RUN cp -r server-configs-nginx/sites-available /etc/nginx
 RUN cp -r server-configs-nginx/sites-enabled /etc/nginx
 ADD riftrun.conf /etc/nginx/sites-available/
+ADD fa.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/riftrun.conf /etc/nginx/sites-enabled/riftrun.conf
+RUN ln -s /etc/nginx/sites-available/fa.conf /etc/nginx/sites-enabled/fa.conf
 RUN sed -i 's/user www www;/user nginx nginx;/g' /etc/nginx/nginx.conf
 RUN mkdir -p /usr/share/nginx/logs/
 RUN chmod -R a+rwx /usr/share/nginx/logs

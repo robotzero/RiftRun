@@ -13,6 +13,7 @@ webserver:
     - "443:443"
   volumes:
     - /home/agnieszka/Code/RiftRun:/var/www/html/riftrun
+    - /home/agnieszka/Code/RiftRun/fa:/var/www/html/fa
 phpfpm:
   build: php
   volumes:
