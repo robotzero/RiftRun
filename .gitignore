@@ -7,3 +7,4 @@ database
 web/bundles
 .tags*
 .idea
+node_modules

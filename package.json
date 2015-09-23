@@ -1,0 +1,22 @@
+{
+  "name": "data",
+  "version": "1.0.0",
+  "description": "RiftRun - searching for people to do rifts/grifts with.",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:agnieszka_kocinski/riftrun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.9.0"
+  }
+}
