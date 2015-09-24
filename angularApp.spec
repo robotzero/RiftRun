@@ -34,3 +34,4 @@ curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"dh","par
 curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"dh","paragonPoints":"13","battleTag":"#2000","region":"EU","seasonal":1,"gameType":"hardcore"},"query":{"minParagon":"10","game":{"type":"grift","level":"40+"},"characterType":[{"type":"dh"},{"type":"wizard"}]}}' http://riftrun.local/v1/posts
 
 sudo docker run -it --rm -v /home/agnieszka/Code/RiftRun:/data dockerfile/nodejs-bower-gulp gulp compile-ts
+sudo docker run -it --rm --workdir /data jamesgroat/node-bower-gulp-tsd-sass tsd install angular2 es6-promise rx rx-lite

@@ -8,3 +8,6 @@ web/bundles
 .tags*
 .idea
 node_modules
+typings
+fa/*.js
+fa/**/.js
