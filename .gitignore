@@ -11,3 +11,5 @@ node_modules
 typings
 fa/*.js
 fa/**/.js
+fa/*.map
+*.log

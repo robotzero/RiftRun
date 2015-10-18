@@ -1,7 +1,9 @@
 module.exports = function() {
-    return {
+    var config = {
         allTs: './fa/**/*.ts',
         typings: './typings/**/*.d.ts',
         tsOutputPath: './fa/'
     };
+
+    return config;
 };
