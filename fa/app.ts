@@ -1,7 +1,7 @@
 /// <reference path="../node_modules/angular2/angular2.d.ts" />
 /// <reference path="../node_modules/angular2/router.d.ts" />
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
-import {ROUTER_BINDINGS, RouterOutlet, RouterLink, RouteConfig} from 'angular2/router';
+import {ROUTER_BINDINGS, ROUTER_DIRECTIVES, RouterOutlet, RouterLink, RouteConfig} from 'angular2/router';
 import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
 //import {About} from "./components/about/about";
 import {Todo} from "./components/todo/todo";
