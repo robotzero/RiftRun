@@ -4,13 +4,14 @@
     <a class = "glyphicon glyphicon-remove" (click) = "removeTodo(todo)"></a>
 </div>
 
-<form [ng-form-model]="myForm" (submit) = "onSubmit(myForm.value)" class = "form-inline">
-    <!--div class = "form-group" [class.has-error]="!newTodo.valid && newTodo.touched"-->
+<form [ng-form-model]="myForm" (submit) = "onSubmit(myForm.value['newTodo'])" class = "form-inline">
+    <div class = "form-group" [class.has-error]="!myForm.find('newTodo').valid && myForm.find('newTodo').touched">
         <input class="form-control" #newTodo = "form" [ng-form-control]="myForm.controls['newTodo']" placeholder="new todo">
-        <!--input class="form-control" [ng-form-control]="newTodo" placeholder="new todo"-->
     </div>
+    <div *ng-if="!myForm.valid" class="bg-warning">Form is invalid.</div>
     <button class="btn btn-primary" type="submit">Add Todo</button>
 </form>
 
-<!--div *ng-if="!myForm.controls.valid && newTodo.control.valid" class="bg-warning">Form is invalid</div-->
+
+<!--div *ng-if="!myForm.valid && newTodo.control.valid" class="bg-warning">Form is invalid</div-->
 <!--div *ng-if="!newTodo.valid && newTodo.touched" class="bg-warning">New Todo is invalid</div-->

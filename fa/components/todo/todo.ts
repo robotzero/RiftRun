@@ -28,12 +28,11 @@ export class Todo {
         });
     }
 
-
     removeTodo(item: TodoItem) {
         this.todos.splice(this.todos.indexOf(item), 1);
     }
 
     onSubmit(value) {
-        this.todos.push(new TodoItem(value.toString(), false));
+        this.todos.push(new TodoItem(value, false));
     }
 }
