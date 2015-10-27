@@ -1,5 +1,5 @@
 import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
-import {status, text} from 'fetch';
+declare var fetch, Zone;
 
 @Component({
     selector: 'post'
@@ -12,23 +12,18 @@ import {status, text} from 'fetch';
 export class Post {
     response: string;
 
-    callPostsEndpoint() {
-        this.response = null;
-        window.fetch('http://localhost/v1/posts', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    })
-            .then(status)
-            .then(text)
-            .then((response) => {
-            this.response = response;
-        })
-            .catch((error) => {
-            this.response = error.message;
+    constructor() {
+        Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {
+            this.response = r;
         });
     }
+    callPostsEndpoint() {
+        this.response = null;
 
+        Zone.bindPromiseFn(fetch)('http://localhost/v1/posts').then(r => r.json()).then(r => {
+            this.response = r;
+        });
+
+        return this.response;
+    }
 }

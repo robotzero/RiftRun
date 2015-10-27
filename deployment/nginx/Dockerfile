@@ -26,11 +26,11 @@ RUN git clone https://github.com/h5bp/server-configs-nginx
 RUN cp server-configs-nginx/nginx.conf /etc/nginx/
 RUN cp -r server-configs-nginx/h5bp /etc/nginx/
 RUN chmod -R a+rwx /etc/ssl/
-#ADD configs/nginx.conf /etc/nginx/
 RUN cp -r server-configs-nginx/sites-available /etc/nginx
 RUN cp -r server-configs-nginx/sites-enabled /etc/nginx
+RUN echo "test"
 ADD riftrun.conf /etc/nginx/sites-available/
-ADD fa.conf /etc/nginx/sites-available/
+ADD  fa.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/riftrun.conf /etc/nginx/sites-enabled/riftrun.conf
 RUN ln -s /etc/nginx/sites-available/fa.conf /etc/nginx/sites-enabled/fa.conf
 RUN sed -i 's/user www www;/user nginx nginx;/g' /etc/nginx/nginx.conf

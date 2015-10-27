@@ -1,10 +1,9 @@
 /// <reference path="../node_modules/angular2/angular2.d.ts" />
 /// <reference path="../node_modules/angular2/router.d.ts" />
 /// <reference path="../node_modules/angular2/http.d.ts" />
-//import 'reflect-metadata';
+
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import {ROUTER_BINDINGS, ROUTER_DIRECTIVES, RouterOutlet, RouterLink, RouteConfig} from 'angular2/router';
-import {HTTP_PROVIDERS} from 'angular2/http';
 import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {About} from "./components/about/about";
 import {Todo} from "./components/todo/todo";
@@ -42,4 +41,4 @@ class MyAppComponent {
 
 }
 
-bootstrap(MyAppComponent, [ROUTER_BINDINGS, HTTP_PROVIDERS, bind(LocationStrategy).toClass(HashLocationStrategy)]);
+bootstrap(MyAppComponent, [ROUTER_BINDINGS, bind(LocationStrategy).toClass(HashLocationStrategy)]);
