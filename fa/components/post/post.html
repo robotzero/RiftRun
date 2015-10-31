@@ -1,1 +1,7 @@
-<div>{{response}}</div>
+<!--<div *ng-if="response">{{response | json }}</div>-->
+<!--div {{ items }} </div-->
+<div *ng-for="#item of items">
+    <div *ng-if="item.empty"> There are no posts </div>
+         {{ item.player | json }}
+         {{ item.query | json }}
+</div>

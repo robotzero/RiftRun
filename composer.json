@@ -11,6 +11,12 @@
             "Test\\Integration\\Context\\" : "test/integration/contexts/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ciaranmcnulty/phpspec"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "~2.7@beta",
@@ -40,7 +46,7 @@
 	    "sebastian/resource-operations": "dev-master",
 	    "phpunit/phpunit": "4.0.x-dev",
 	    "behat/behat": "dev-master",
-	    "phpspec/phpspec": "dev-master",
+        "phpspec/phpspec": "dev-feature/php7-typehint-support",
 	    "phpspec/prophecy": "dev-master",
         "behat/symfony2-extension": "^2.0",
         "behat/mink-extension": "^2.0",

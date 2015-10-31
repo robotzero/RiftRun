@@ -1,4 +1,4 @@
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View, NgFor, NgIf, CORE_DIRECTIVES} from 'angular2/angular2';
 declare var fetch, Zone;
 
 @Component({
@@ -6,24 +6,21 @@ declare var fetch, Zone;
 })
 @View({
     templateUrl: './components/post/post.html',
-    directives: [CORE_DIRECTIVES]
+    directives: [CORE_DIRECTIVES, NgFor, NgIf]
 })
 
 export class Post {
     response: string;
+    items: Array<string>;
 
     constructor() {
-        Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {
-            this.response = r;
-        });
+        this.callPostsEndpoint();
     }
     callPostsEndpoint() {
         this.response = null;
-
-        Zone.bindPromiseFn(fetch)('http://localhost/v1/posts').then(r => r.json()).then(r => {
+        Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {
             this.response = r;
+            this.items = r._embedded.items;
         });
-
-        return this.response;
     }
 }
