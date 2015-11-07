@@ -16,6 +16,7 @@ export class Post {
     constructor() {
         this.callPostsEndpoint();
     }
+
     callPostsEndpoint() {
         this.response = null;
         Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {

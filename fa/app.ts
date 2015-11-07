@@ -19,8 +19,8 @@ import {Post} from "./components/post/post";
         <div class="container">
             <nav>
                 <ul>
-                    <li><a [router-link]="['/Todo']">Todo</a></li>
-                    <li><a [router-link]="['/Post']">Post</a></li>
+                    <!--li><a [router-link]="['/Todo']">Todo</a></li>
+                    <li><a [router-link]="['/Post']">Post</a></li-->
                     <!--li><a [router-link]="['/Home']">About</a></li-->
                 </ul>
             </nav>
@@ -31,8 +31,8 @@ import {Post} from "./components/post/post";
 })
 
 @RouteConfig([
-    { path: '/', component: Todo, as: 'Todo' },
-    { path: '/post', component: Post, as: 'Post'}
+    { path: '/todo', component: Todo, as: 'Todo' },
+    { path: '/', component: Post, as: 'Post'}
     //{ path: '/', component: About, as: 'Home' }
 ])
 
