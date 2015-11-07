@@ -18,6 +18,12 @@ phpfpm:
   build: php
   volumes:
     - /home/agnieszka/Code/RiftRun:/var/www/html/riftrun
+  environment:
+    XDEBUG_CONFIG: remote_host=172.17.42.1
+  ports:
+    - "9001:9001"
+  expose:
+    - "9001"
 #  links:
 #    - sql
 #    - redis
