@@ -11,17 +11,13 @@
             "Test\\Integration\\Context\\" : "test/integration/contexts/"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/ciaranmcnulty/phpspec"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "~2.7@beta",
+        "symfony/symfony": "2.8.x-dev",
         "doctrine/orm": "2.6.x-dev",
-        "doctrine/doctrine-bundle": "~1.4",
+        "doctrine/doctrine-bundle": "dev-master",
+        "doctrine/doctrine-cache-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
         "gedmo/doctrine-extensions": "dev-master",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
@@ -46,7 +42,7 @@
 	    "sebastian/resource-operations": "dev-master",
 	    "phpunit/phpunit": "4.0.x-dev",
 	    "behat/behat": "dev-master",
-        "phpspec/phpspec": "dev-feature/php7-typehint-support",
+        "phpspec/phpspec": "dev-master",
 	    "phpspec/prophecy": "dev-master",
         "behat/symfony2-extension": "^2.0",
         "behat/mink-extension": "^2.0",
@@ -92,7 +88,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.7-dev"
+            "dev-master": "2.8-dev"
         }
     }
 }
