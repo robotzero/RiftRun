@@ -13,6 +13,8 @@ fa/*.js
 fa/**/.js
 fa/components/**/*.js
 fa/components/**/*.map
+fa/services/**/*.js
+fa/services/**/*.map
 fa/*.map
 *.log
 fa/components/*.js
