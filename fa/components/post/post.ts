@@ -1,8 +1,9 @@
 import {Component, View, NgFor, NgIf, CORE_DIRECTIVES} from 'angular2/angular2';
-declare var fetch, Zone;
+import {APIGetService} from '../../services/apigetservice';
 
 @Component({
-    selector: 'post'
+    selector: 'post',
+    providers:[APIGetService]
 })
 @View({
     templateUrl: './components/post/post.html',
@@ -10,18 +11,19 @@ declare var fetch, Zone;
 })
 
 export class Post {
-    response: string;
+    //result: Object;
     items: Array<string>;
 
-    constructor() {
-        this.callPostsEndpoint();
+    constructor(getService:APIGetService) {
+        //this.result = {items: []};
+        getService.get('http://riftrun.local/v1/posts').subscribe(res => this.items = res._embedded.items);
     }
 
-    callPostsEndpoint() {
-        this.response = null;
-        Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {
-            this.response = r;
-            this.items = r._embedded.items;
-        });
-    }
+    //callPostsEndpoint() {
+    //    this.response = null;
+    //    Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {
+    //        this.response = r;
+    //        this.items = r._embedded.items;
+    //    });
+    //}
 }
