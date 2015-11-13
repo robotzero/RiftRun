@@ -11,19 +11,10 @@ import {APIGetService} from '../../services/apigetservice';
 })
 
 export class Post {
-    //result: Object;
     items: Array<string>;
 
     constructor(getService:APIGetService) {
-        //this.result = {items: []};
-        getService.get('http://riftrun.local/v1/posts').subscribe(res => this.items = res._embedded.items);
+        getService.get('http://riftrun.local/v1/posts')
+                  .subscribe(response => this.items = response._embedded.items);
     }
-
-    //callPostsEndpoint() {
-    //    this.response = null;
-    //    Zone.bindPromiseFn(fetch,{method:'GET','Content-Type':'application/json'})('http://riftrun.local/v1/posts').then(r => r.json()).then(r => {
-    //        this.response = r;
-    //        this.items = r._embedded.items;
-    //    });
-    //}
 }

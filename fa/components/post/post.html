@@ -6,6 +6,7 @@
 </div-->
 
 <div *ng-for="#item of items">
-    {{item | json}}
+    {{item.player | json}}
+    {{item.query | json}}
 </div>
 
