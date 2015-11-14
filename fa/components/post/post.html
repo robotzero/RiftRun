@@ -4,9 +4,16 @@
     <div *ng-if="item.empty"> There are no posts </div>
          {{ item.player | json }}
 </div-->
-
-<div *ng-for="#item of items">
-    {{item.player | json}}
-    {{item.query | json}}
+<div>
+    Player Id
+    Player Paragon
+</div>
+<div *ng-for="#post of posts">
+    {{post.query.minParagon}}
+    {{post.player.type}}
+    {{post.player.battleTag}}
+    {{post.player.region}}
+    {{post.player.seasonal}}
+    {{post.player.gameType}}
 </div>
 
