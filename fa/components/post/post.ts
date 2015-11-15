@@ -22,9 +22,14 @@ export class Post {
     items: Array<string>;
     posts: Array<PostQuery> = [];
     postService: APIPostService;
+    postForm: ControlGroup;
 
-    constructor(getService:APIGetService, postService:APIPostService) {
+    constructor(getService:APIGetService, postService:APIPostService, formBuilder: FormBuilder) {
         this.postService = postService;
+        this.postForm = formBuilder.group({
+            newPost: [''],
+            newQuery: ['']
+        });
         getService.get('http://riftrun.local/v1/posts')
                   .map((posts: any) => {
                       let result:Array<PostQuery> = [];
@@ -54,7 +59,7 @@ export class Post {
                   .subscribe(response => this.posts = response);
     }
 
-    postContent() {
-        this.postService.postContent("Hello");
+    postContent(item:any) {
+        this.postService.postContent(item);
     }
 }

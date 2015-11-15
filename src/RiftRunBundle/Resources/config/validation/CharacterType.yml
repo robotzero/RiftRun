@@ -1,7 +1,7 @@
-RiftRunBundle\Model\CharacterType:
-    properties:
-        type:
-            - NotBlank: ~
-            - NotNull: ~
-            - Choice:
-                choices: ["demon hunter", "barbarian", "wizard", "witch doctor", "monk"]
+#RiftRunBundle\Model\CharacterType:
+#    properties:
+#        type:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Choice:
+#                choices: ["demon hunter", "barbarian", "wizard", "witch doctor", "monk"]

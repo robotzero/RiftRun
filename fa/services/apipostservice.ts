@@ -6,11 +6,11 @@ export class APIPostService
 {
     http:Http;
 
-    constructor(http:Http) {
+    constructor(http : Http) {
         this.http = http;
     }
 
-    postContent(json:string) {
-        console.log("I posted something!");
+    postContent(json:string) : void {
+        console.log(json);
     }
 }

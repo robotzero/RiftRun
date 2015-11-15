@@ -1,7 +1,8 @@
 <div>
-    <form [ng-form-model]="postForm" (submit) = "postContent()">
+    <form [ng-form-model]="postForm" (submit) = "postContent(postForm.value)">
         <div class = "form-group">
             <input class="form-control" #newPost = "form" [ng-form-control]="postForm.controls['newPost']" placeholder="new post">
+            <input class="form-control" #newQuery = "form" [ng-form-control]="postForm.controls['newQuery']" placeholder="new query">
         </div>
         <button class="btn btn-primary" type="submit">Add Post</button>
     </form>

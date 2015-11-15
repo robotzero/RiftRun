@@ -11,11 +11,11 @@ class CharacterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('type', 'text', ['required' => true]);
-        $builder->add('paragonPoints', 'integer', ['required' => true]);
-        $builder->add('battleTag', 'text', ['required' => true]);
-        $builder->add('region', 'text', ['required' => true]);
-        $builder->add('seasonal', 'text', ['required' => true]);
-        $builder->add('gameType', 'text', ['required' => true]);
+//        $builder->add('paragonPoints', 'integer', ['required' => true]);
+//        $builder->add('battleTag', 'text', ['required' => true]);
+//        $builder->add('region', 'text', ['required' => true]);
+//        $builder->add('seasonal', 'text', ['required' => true]);
+//        $builder->add('gameType', 'text', ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

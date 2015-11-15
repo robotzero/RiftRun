@@ -1,40 +1,40 @@
-RiftRunBundle\Model\Character:
-    properties:
-        type:
-            - NotBlank: ~
-            - NotNull: ~
-            - Choice:
-                choices: ["demon hunter", "monk", "wizard", "witch doctor", "barbarian"]
-        paragonPoints:
-            - NotBlank: ~
-            - NotNull: ~
-            - Type:
-                type: integer
-            - Regex:
-                pattern: '/^\d+$/'
-            - GreaterThan:
-                value: 1
-        battleTag:
-            - NotBlank: ~
-            - NotNull: ~
-            - Type:
-                type: string
-            - Regex:
-                pattern: '/^#\d{4}$/'
-        region:
-            - NotBlank: ~
-            - NotNull: ~
-            - Choice:
-                choices:  [EU, NA]
-        seasonal:
-            - NotBlank: ~
-            - NotNull: ~
-            - Choice:
-                choices:  [0, 1]
-            - Regex:
-                pattern: '/^\d{1}$/'
-        gameType:
-            - NotBlank: ~
-            - NotNull: ~
-            - Choice:
-                choices:  [hardcore, softcore]
+#RiftRunBundle\Model\Character:
+#    properties:
+#        type:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Choice:
+#                choices: ["demon hunter", "monk", "wizard", "witch doctor", "barbarian"]
+#        paragonPoints:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Type:
+#                type: integer
+#            - Regex:
+#                pattern: '/^\d+$/'
+#            - GreaterThan:
+#                value: 1
+#        battleTag:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Type:
+#                type: string
+#            - Regex:
+#                pattern: '/^#\d{4}$/'
+#        region:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Choice:
+#                choices:  [EU, NA]
+#        seasonal:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Choice:
+#                choices:  [0, 1]
+#            - Regex:
+#                pattern: '/^\d{1}$/'
+#        gameType:
+#            - NotBlank: ~
+#            - NotNull: ~
+#            - Choice:
+#                choices:  [hardcore, softcore]
