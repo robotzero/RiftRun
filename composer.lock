@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4d1d326a2bd23584a2a286a974e664fe",
-    "content-hash": "7ca7dfa67a90215b99c296f223119f4b",
+    "hash": "b615716e5257b8d19b09ec57d9614469",
+    "content-hash": "b5cfc0f7c8f9be503a944e0f7d97903f",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a5b3ba908ba68f3e14e42762a7b940fde65ed7da"
+                "reference": "c4ffef2b2296e9d0179eb0b5248e5ae25c9bba3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a5b3ba908ba68f3e14e42762a7b940fde65ed7da",
-                "reference": "a5b3ba908ba68f3e14e42762a7b940fde65ed7da",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/c4ffef2b2296e9d0179eb0b5248e5ae25c9bba3b",
+                "reference": "c4ffef2b2296e9d0179eb0b5248e5ae25c9bba3b",
                 "shasum": ""
             },
             "require": {
@@ -581,7 +581,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2015-11-04 21:33:02"
+            "time": "2015-11-16 17:11:46"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -905,12 +905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "71bb27a62fe792c75803e5b701f3d4afe0795f35"
+                "reference": "84eb175dbf638a50ad00aaed5b31238e1b8deb7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/71bb27a62fe792c75803e5b701f3d4afe0795f35",
-                "reference": "71bb27a62fe792c75803e5b701f3d4afe0795f35",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/84eb175dbf638a50ad00aaed5b31238e1b8deb7d",
+                "reference": "84eb175dbf638a50ad00aaed5b31238e1b8deb7d",
                 "shasum": ""
             },
             "require": {
@@ -932,8 +932,7 @@
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
             "bin": [
-                "bin/doctrine",
-                "bin/doctrine.php"
+                "bin/doctrine"
             ],
             "type": "library",
             "extra": {
@@ -974,7 +973,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-11-13 16:38:55"
+            "time": "2015-11-16 03:24:01"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -2663,16 +2662,16 @@
         },
         {
             "name": "symfony/assetic-bundle",
-            "version": "v2.7.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/assetic-bundle.git",
-                "reference": "3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5"
+                "reference": "9a2c6138b5c06768ba3dfb68972157adb5460b40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5",
-                "reference": "3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5",
+                "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/9a2c6138b5c06768ba3dfb68972157adb5460b40",
+                "reference": "9a2c6138b5c06768ba3dfb68972157adb5460b40",
                 "shasum": ""
             },
             "require": {
@@ -2729,20 +2728,20 @@
                 "compression",
                 "minification"
             ],
-            "time": "2015-09-01 00:05:29"
+            "time": "2015-09-01 00:28:46"
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "2.8.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "7117b9a145722e3c5768db4585f6ad0643ed5c4a"
+                "reference": "201fec36b7d80e8c83b40b5a1dc6205fa31e531e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/7117b9a145722e3c5768db4585f6ad0643ed5c4a",
-                "reference": "7117b9a145722e3c5768db4585f6ad0643ed5c4a",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/201fec36b7d80e8c83b40b5a1dc6205fa31e531e",
+                "reference": "201fec36b7d80e8c83b40b5a1dc6205fa31e531e",
                 "shasum": ""
             },
             "require": {
@@ -2788,7 +2787,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2015-10-02 11:51:59"
+            "time": "2015-11-13 16:18:14"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -3241,16 +3240,16 @@
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v2.3.8",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "970b13d01871207e81d17b17ddda025e7e21e797"
+                "reference": "6febf558532ee6f25edd2699f74072c56def3f4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/970b13d01871207e81d17b17ddda025e7e21e797",
-                "reference": "970b13d01871207e81d17b17ddda025e7e21e797",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/6febf558532ee6f25edd2699f74072c56def3f4a",
+                "reference": "6febf558532ee6f25edd2699f74072c56def3f4a",
                 "shasum": ""
             },
             "require": {
@@ -3294,7 +3293,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2014-12-01 17:44:50"
+            "time": "2015-09-30 17:01:01"
         },
         {
             "name": "symfony/symfony",
@@ -3302,12 +3301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "fef28b2fa143119161e421a5c8ecd558189d2938"
+                "reference": "86b4c0536cac411cdbe7cef3c1c68f17c49d49ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/fef28b2fa143119161e421a5c8ecd558189d2938",
-                "reference": "fef28b2fa143119161e421a5c8ecd558189d2938",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/86b4c0536cac411cdbe7cef3c1c68f17c49d49ec",
+                "reference": "86b4c0536cac411cdbe7cef3c1c68f17c49d49ec",
                 "shasum": ""
             },
             "require": {
@@ -3427,7 +3426,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-11-12 01:14:48"
+            "time": "2015-11-16 12:50:22"
         },
         {
             "name": "twig/twig",
@@ -3756,12 +3755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "149f8881a1df56496c37094f32d05b53e0cde37b"
+                "reference": "2059cbe4bb8055c8555fa3365c6ea3b4b30288f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/149f8881a1df56496c37094f32d05b53e0cde37b",
-                "reference": "149f8881a1df56496c37094f32d05b53e0cde37b",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/2059cbe4bb8055c8555fa3365c6ea3b4b30288f5",
+                "reference": "2059cbe4bb8055c8555fa3365c6ea3b4b30288f5",
                 "shasum": ""
             },
             "require": {
@@ -3769,18 +3768,18 @@
                 "behat/transliterator": "~1.0",
                 "ext-mbstring": "*",
                 "php": ">=5.3.3",
-                "symfony/class-loader": "~2.1",
-                "symfony/config": "~2.3",
-                "symfony/console": "~2.1",
-                "symfony/dependency-injection": "~2.1",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/translation": "~2.3",
-                "symfony/yaml": "~2.1"
+                "symfony/class-loader": "~2.1|~3.0",
+                "symfony/config": "~2.3|~3.0",
+                "symfony/console": "~2.1|~3.0",
+                "symfony/dependency-injection": "~2.1|~3.0",
+                "symfony/event-dispatcher": "~2.1|~3.0",
+                "symfony/translation": "~2.3|~3.0",
+                "symfony/yaml": "~2.1|~3.0"
             },
             "require-dev": {
                 "phpspec/prophecy-phpunit": "~1.0",
                 "phpunit/phpunit": "~4.0",
-                "symfony/process": "~2.1"
+                "symfony/process": "~2.1|~3.0"
             },
             "suggest": {
                 "behat/mink-extension": "for integration with Mink testing framework",
@@ -3829,7 +3828,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2015-11-07 19:03:37"
+            "time": "2015-11-16 18:19:22"
         },
         {
             "name": "behat/gherkin",
@@ -5570,6 +5569,9 @@
         "doctrine/doctrine-cache-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "gedmo/doctrine-extensions": 20,
+        "symfony/assetic-bundle": 20,
+        "symfony/swiftmailer-bundle": 20,
+        "symfony/monolog-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
         "jms/serializer": 20,
         "nelmio/api-doc-bundle": 20,
