@@ -38,21 +38,18 @@ final class CreatePostCommandHandler
     public function handle(Create $createPost)
     {
         $post = $createPost->getModel();
+        $currentRequest = $this->requestStack->getCurrentRequest();
 
         $form = $this->formFactory->create(
             $this->postFormType,
             $post,
-            ['method' => 'POST']
+            ['method' => $currentRequest->getMethod()]
         );
 
-        $currentRequest = $this->requestStack->getCurrentRequest();
-        $form = $form->handleRequest($currentRequest);
-
-        //$form->submit($form->getData(), false);
+        $form->submit($currentRequest->request->all(), false);
 
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);
-            //print_r($this->getFormErrors($form));
             throw new BadRequestHttpException('Invalid form ' . (string) $iterator);
         }
 

@@ -1,24 +1,24 @@
-#RiftRunBundle\Model\SearchQuery:
-#    properties:
-#        minParagon:
-#            - NotBlank: ~
-#            - NotNull: ~
-#            - Type:
-#                type: integer
-#            - GreaterThan:
-#                value: 1
-#            - Regex:
-#                pattern: '/^\d+$/'
-#        characterType:
-#            - Valid: ~
-#            - All:
-#                - NotNull: ~
-#                - NotBlank: ~
-#            - Count:
-#                min: 1
-#                max: 5
-#        game:
-#            - NotBlank: ~
-#            - NotNull: ~
-#            - Type:
-#                type: object
+RiftRunBundle\Model\SearchQuery:
+    properties:
+        minParagon:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: integer
+            - GreaterThan:
+                value: 1
+            - Regex:
+                pattern: '/^\d+$/'
+        characterType:
+            - Valid: ~
+            - All:
+                - NotNull: ~
+                - NotBlank: ~
+            - Count:
+                min: 1
+                max: 5
+        game:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object
