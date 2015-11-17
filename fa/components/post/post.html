@@ -1,6 +1,18 @@
 <div>
     <form [ng-form-model]="postForm" (submit) = "postContent(postForm.value)">
         <div class = "form-group">
+            <div class="dropdown open">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" #playerType = "form" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [ng-form-control]="postForm.controls['playerType']">
+                    {{postForm.controls['playerType'].value}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <button class="dropdown-item" type="button">Demon Hunter</button>
+                    <button class="dropdown-item" type="button">Wizard</button>
+                    <button class="dropdown-item" type="button">Barbarian</button>
+                    <button class="dropdown-item" type="button">Witch Doctor</button>
+                    <button class="dropdown-item" type="button">Monk</button>
+                </div>
+            </div>
             <input class="form-control" #newPost = "form" [ng-form-control]="postForm.controls['newPost']" placeholder="new post">
             <input class="form-control" #newQuery = "form" [ng-form-control]="postForm.controls['newQuery']" placeholder="new query">
         </div>

@@ -38,6 +38,8 @@ curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"demon hu
 sudo docker run -it --rm -v /home/agnieszka/Code/RiftRun:/data dockerfile/nodejs-bower-gulp gulp compile-ts
 sudo docker run -it --rm --workdir /data jamesgroat/node-bower-gulp-tsd-sass tsd install angular2 es6-promise rx rx-lite
 
+sudo docker run -it --rm -v /home/subzero/Code/RiftRun:/data --workdir=/data/fa dockerfile/nodejs-bower-gulp bower install --config.analytics=false --allow-root
+
 https://github.com/Belkar/CampinaAsAService/blob/master/src/CampinaAsAService/app/main.ts#L1
 https://github.com/angular/angular/issues/4504
 

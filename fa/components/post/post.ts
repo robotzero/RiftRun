@@ -28,8 +28,11 @@ export class Post {
         this.postService = postService;
         this.postForm = formBuilder.group({
             newPost: [''],
-            newQuery: ['']
+            newQuery: [''],
+            playerType: ['Choose your class type.']
         });
+
+        console.log(this.postForm.controls['playerType']);
         getService.get('http://riftrun.local/v1/posts')
                   .map((posts: any) => {
                       let result:Array<PostQuery> = [];
