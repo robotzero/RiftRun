@@ -20,3 +20,4 @@ fa/models/**/*.map
 fa/*.map
 *.log
 fa/components/*.js
+fa/bower_components
