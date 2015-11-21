@@ -6,7 +6,7 @@
                     {{postForm.controls['playerType'].value}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <button class="dropdown-item" type="button">Demon Hunter</button>
+                    <button class="dropdown-item" (click)="onSelection($event)" type="button">Demon Hunter</button>
                     <button class="dropdown-item" type="button">Wizard</button>
                     <button class="dropdown-item" type="button">Barbarian</button>
                     <button class="dropdown-item" type="button">Witch Doctor</button>
@@ -19,6 +19,7 @@
         <button class="btn btn-primary" type="submit">Add Post</button>
     </form>
 </div>
+
 <div>
     Player Id
     Player Paragon

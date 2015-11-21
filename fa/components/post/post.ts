@@ -65,4 +65,9 @@ export class Post {
     postContent(item:any) {
         this.postService.postContent(item);
     }
+
+    onSelection(product) {
+        console.log(this.postForm.controls['playerType']);
+        this.postForm.controls['playerType'].value = "clicked";
+    }
 }
