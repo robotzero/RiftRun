@@ -9,6 +9,7 @@ import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {About} from "./components/about/about";
 import {Todo} from "./components/todo/todo";
 import {Post} from "./components/post/post";
+import {Test} from "./components/test/test";
 
 // Annotation section
 @Component({
@@ -20,8 +21,8 @@ import {Post} from "./components/post/post";
         <div class="container">
             <nav>
                 <ul>
-                    <!--li><a [router-link]="['/Todo']">Todo</a></li>
-                    <li><a [router-link]="['/Post']">Post</a></li-->
+                    <li><a [router-link]="['/Test']">Test</a></li>
+                    <!--li><a [router-link]="['/Post']">Post</a></li-->
                     <!--li><a [router-link]="['/Home']">About</a></li-->
                 </ul>
             </nav>
@@ -32,7 +33,8 @@ import {Post} from "./components/post/post";
 })
 
 @RouteConfig([
-    { path: '/todo', component: Todo, as: 'Todo' },
+    //{ path: '/todo', component: Todo, as: 'Todo' },
+    { path: '/test', component: Test, as: 'Test'},
     { path: '/', component: Post, as: 'Post'}
     //{ path: '/', component: About, as: 'Home' }
 ])

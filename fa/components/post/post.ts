@@ -11,18 +11,19 @@ import {APIPostService} from "../../services/apipostservice";
 @Component({
     selector: 'post',
     providers:[APIGetService, APIPostService],
-    viewBindings: [FormBuilder]
-})
-@View({
+    viewBindings: [FormBuilder],
     templateUrl: './components/post/post.html',
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgFor, NgIf]
 })
+//@View({
+//})
 
 export class Post {
     items: Array<string>;
     posts: Array<PostQuery> = [];
     postService: APIPostService;
     postForm: ControlGroup;
+    firstName = 'Agnieszkaa';
 
     constructor(getService:APIGetService, postService:APIPostService, formBuilder: FormBuilder) {
         this.postService = postService;
