@@ -15,8 +15,6 @@ import {APIPostService} from "../../services/apipostservice";
     templateUrl: './components/post/post.html',
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgFor, NgIf]
 })
-//@View({
-//})
 
 export class Post {
     items: Array<string>;
