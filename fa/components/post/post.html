@@ -2,19 +2,19 @@
     <form [ng-form-model]="postForm" (submit) = "postContent(postForm.value)">
         <div class = "form-group">
             <div class="dropdown open">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" #playerType = "form" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [ng-form-control]="postForm.controls['playerType']">
-                    {{postForm.controls['playerType'].value}}
+                <button class="btn btn-secondary dropdown-toggle" type="button" value="Demon Hunter" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hola
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <button class="dropdown-item" (click)="onSelection($event)" type="button">Demon Hunter</button>
-                    <button class="dropdown-item" type="button">Wizard</button>
-                    <button class="dropdown-item" type="button">Barbarian</button>
-                    <button class="dropdown-item" type="button">Witch Doctor</button>
-                    <button class="dropdown-item" type="button">Monk</button>
+                    <button class="dropdown-item" (click)="onSelection(button1)" value="Demon Hunter" #button1 type="button">Demon Hunter</button>
+                    <button class="dropdown-item" (click)="onSelection(button2)" value="Wizard" #button2 type="button">Wizard</button>
+                    <button class="dropdown-item" (click)="onSelection(button3)" value="Barbarian" #button3 type="button">Barbarian</button>
+                    <button class="dropdown-item" (click)="onSelection(button4)" value="Witch Doctor" #button4 type="button">Witch Doctor</button>
+                    <button class="dropdown-item" (click)="onSelection(button5)" value="Monk" #button5 type="button">Monk</button>
                 </div>
             </div>
-            <input class="form-control" #newPost = "form" [ng-form-control]="postForm.controls['newPost']" placeholder="new post">
-            <input class="form-control" #newQuery = "form" [ng-form-control]="postForm.controls['newQuery']" placeholder="new query">
+            <input class="form-control" #newPost [ng-form-control]="postForm.controls['newPost']" placeholder="new post">
+            <input class="form-control" #newQuery [ng-form-control]="postForm.controls['newQuery']" placeholder="new query">
         </div>
         <button class="btn btn-primary" type="submit">Add Post</button>
     </form>

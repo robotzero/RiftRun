@@ -9,6 +9,7 @@ export class APIGetService {
         this.http = http;
     }
     get(url:string) : any {
+        //return this.http.get(url);
         return this.http.get(url).map(res => res.json());
     }
 }
