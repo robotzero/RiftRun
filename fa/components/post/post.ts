@@ -1,5 +1,6 @@
 import {Component, View, NgFor, NgIf, CORE_DIRECTIVES} from 'angular2/angular2';
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/angular2';
+import {Control} from 'angular2/angular2';
 import {APIGetService} from '../../services/apigetservice';
 import {PostQuery} from "../../models/postquery";
 import {Player} from "../../models/player";
@@ -70,8 +71,8 @@ export class Post {
 
     onSelection(value) {
         //this.playerType = value.value;
-
-        console.log(value);
+        console.log(this.postForm);
+        //console.log(value);
         //console.log(this.postForm.controls['playerType']);
         //this.postForm.controls['playerType'].value = "clicked";
     }

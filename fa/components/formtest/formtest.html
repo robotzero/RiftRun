@@ -1,0 +1,18 @@
+<div>
+    <form (ng-submit)="onSubmit(f)" #f="form">
+        <select class="form-control" ng-control="power" #power="form" [(ng-model)]="model.power">
+            <option *ng-for="#p of powers" [value] = "p">{{p}}</option>
+        </select>
+        <!--div class = "form-group">
+            <div class="dropdown open">
+                <button class="btn btn-secondary dropdown-toggle" ng-control="power" #power="form" [(ng-model)]="model.power" type="button" value="Demon Hunter" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    EH
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1" ng-control="power" #power="form" [(ng-model)]="model.power">
+                    <button class="dropdown-item" type="button" *ng-for="#p of powers" [value] = "p" ng-control="power" #power="form" [(ng-model)]="model.power">{{p}}</button>
+                </div>
+            </div>
+        </div-->
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

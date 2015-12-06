@@ -10,6 +10,7 @@ import {About} from "./components/about/about";
 import {Todo} from "./components/todo/todo";
 import {Post} from "./components/post/post";
 import {Test} from "./components/test/test";
+import {FormTest} from "./components/formtest/formtest";
 
 // Annotation section
 @Component({
@@ -22,6 +23,7 @@ import {Test} from "./components/test/test";
             <nav>
                 <ul>
                     <li><a [router-link]="['/Test']">Test</a></li>
+                    <li><a [router-link]="['/FormTest']">Form Test</a></li>
                     <!--li><a [router-link]="['/Post']">Post</a></li-->
                     <!--li><a [router-link]="['/Home']">About</a></li-->
                 </ul>
@@ -35,7 +37,8 @@ import {Test} from "./components/test/test";
 @RouteConfig([
     //{ path: '/todo', component: Todo, as: 'Todo' },
     { path: '/test', component: Test, as: 'Test'},
-    { path: '/', component: Post, as: 'Post'}
+    { path: '/', component: Post, as: 'Post'},
+    { path: '/formtest', component: FormTest, as: 'FormTest'}
     //{ path: '/', component: About, as: 'Home' }
 ])
 
