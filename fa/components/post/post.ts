@@ -24,14 +24,22 @@ export class Post {
     postForm: ControlGroup;
     firstName = 'Agnieszkaa';
     response: any;
-    //playerType: string = 'Choose your class type.';
+    playerTypes: Array<string> = ['Demon Hunner', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader'];
+    queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+'];
+    queryGameTypes: Array<string> = ['Rift', 'Grift', 'PowerGrift', 'Bounties', 'Keywardens', 'Ubers'];
 
     constructor(getService:APIGetService, postService:APIPostService, formBuilder: FormBuilder) {
         this.postService = postService;
         this.postForm = formBuilder.group({
-            newPost: [''],
-            newQuery: [''],
-            playerType: ['']
+            playerType: [''],
+            playerParagonPoints: [''],
+            playerBattleTag: [''],
+            playerRegion: [''],
+            playerGameType: [''],
+            queryMinParagon: [''],
+            queryGameLevel: [''],
+            queryGameType: [''],
+            queryCharacterType: ['']
         });
 
         console.log(getService.get('http://riftrun.local/v1/posts'));
@@ -67,13 +75,5 @@ export class Post {
 
     postContent(item:any) {
         this.postService.postContent(item);
-    }
-
-    onSelection(value) {
-        //this.playerType = value.value;
-        console.log(this.postForm);
-        //console.log(value);
-        //console.log(this.postForm.controls['playerType']);
-        //this.postForm.controls['playerType'].value = "clicked";
     }
 }
