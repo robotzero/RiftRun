@@ -1,8 +1,8 @@
 <div>
-    <form [ng-form-model]="testForm" (ng-submit)="onSubmit(f)" #f="form">
+    <form [ngFormModel]="testForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
         <!--select class="form-control" ng-control="power" [ng-form-control]="testForm.controls['power']" #power="form" [(ng-model)]="model.power"-->
-        <select class="form-control" [ng-form-control]="testForm.controls['hero']" #power="form">
-            <option *ng-for="#p of powers" [value] = "p">{{p}}</option>
+        <select class="form-control" [ngFormControl]="testForm.controls['hero']" #power="ngForm">
+            <option *ngFor="#p of powers" [value] = "p">{{p}}</option>
         </select>
         <!--div class = "form-group">
             <div class="dropdown open">

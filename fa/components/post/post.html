@@ -1,12 +1,12 @@
 <div>
-    <form [ng-form-model]="postForm" (submit) = "postContent(postForm.value)">
+    <form [ngFormModel]="postForm" (ngSubmit) = "postContent(postForm.value)">
         <div class = "form-group">
-            <select class="c-select" [ng-form-control]="postForm.controls['playerType']" #class="form">
+            <select class="c-select" [ngFormControl]="postForm.controls['playerType']" #class="ngForm">
                 <option selected>Select your class</option>
-                <option *ng-for="#p of playerTypes" [value] = "p">{{p}}</option>
+                <option *ngFor="#p of playerTypes" [value] = "p">{{p}}</option>
             </select>
-            <input class="form-control" #newPost [ng-form-control]="postForm.controls['newPost']" placeholder="new post">
-            <input class="form-control" #newQuery [ng-form-control]="postForm.controls['newQuery']" placeholder="new query">
+            <!--<input class="form-control" #newPost [ngFormControl]="postForm.controls['newPost']" placeholder="new post">-->
+            <!--<input class="form-control" #newQuery [ngFormControl]="postForm.controls['newQuery']" placeholder="new query">-->
         </div>
         <button class="btn btn-primary" type="submit">Add Post</button>
     </form>
@@ -17,7 +17,7 @@
     Player Id
     Player Paragon
 </div>
-<div *ng-for="#post of posts">
+<div *ngFor="#post of posts">
     {{post.query.minParagon}}
     {{post.player.type}}
     {{post.player.battleTag}}

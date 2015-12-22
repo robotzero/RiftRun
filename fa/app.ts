@@ -22,8 +22,8 @@ import {FormTest} from "./components/formtest/formtest";
         <div class="container">
             <nav>
                 <ul>
-                    <li><a [router-link]="['/Test']">Test</a></li>
-                    <li><a [router-link]="['/FormTest']">Form Test</a></li>
+                    <li><a [routerLink]="['/Test']">Test</a></li>
+                    <li><a [routerLink]="['/FormTest']">Form Test</a></li>
                     <!--li><a [router-link]="['/Post']">Post</a></li-->
                     <!--li><a [router-link]="['/Home']">About</a></li-->
                 </ul>
@@ -31,7 +31,7 @@ import {FormTest} from "./components/formtest/formtest";
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [RouterOutlet, RouterLink, About, Todo, Post]
+    directives: [RouterOutlet, RouterLink, About, Todo, Post, ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
