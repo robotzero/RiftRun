@@ -13,6 +13,10 @@ gulp.task('ts-lint', function() {
         }))
 })
 
+gulp.task('rxjs', function () {
+   return gulp.src(paths.npm + 'rxjs/**/*.js').pipe(gulp.dest(paths.lib + 'rxjs/'));
+});
+
 gulp.task('compile-ts', function() {
     var sourceTsFiles = [
       config.allTs,
