@@ -1,10 +1,18 @@
-var GameType = (function () {
-    function GameType(level, type) {
-        this.level = level;
-        this.type = type;
+System.register([], function(exports_1) {
+    var GameType;
+    return {
+        setters:[],
+        execute: function() {
+            GameType = (function () {
+                function GameType(level, type) {
+                    this.level = level;
+                    this.type = type;
+                }
+                return GameType;
+            })();
+            exports_1("GameType", GameType);
+        }
     }
-    return GameType;
-})();
-exports.GameType = GameType;
+});
 
 //# sourceMappingURL=gametype.js.map

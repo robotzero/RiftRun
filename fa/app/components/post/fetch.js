@@ -1,19 +1,26 @@
-function status(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return Promise.resolve(response);
+System.register([], function(exports_1) {
+    function status(response) {
+        if (response.status >= 200 && response.status < 300) {
+            return Promise.resolve(response);
+        }
+        return response.text().then(function (text) {
+            throw new Error(text);
+        });
     }
-    return response.text().then(function (text) {
-        throw new Error(text);
-    });
-}
-exports.status = status;
-function text(response) {
-    return response.text();
-}
-exports.text = text;
-function json(response) {
-    return response.json();
-}
-exports.json = json;
+    exports_1("status", status);
+    function text(response) {
+        return response.text();
+    }
+    exports_1("text", text);
+    function json(response) {
+        return response.json();
+    }
+    exports_1("json", json);
+    return {
+        setters:[],
+        execute: function() {
+        }
+    }
+});
 
 //# sourceMappingURL=fetch.js.map

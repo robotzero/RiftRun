@@ -17,7 +17,7 @@ import {ControlGroup} from "angular2/common";
     selector: 'post',
     providers:[APIGetService, APIPostService],
     viewBindings: [FormBuilder],
-    templateUrl: './components/post/post.html',
+    templateUrl: './app/components/post/post.html',
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgFor, NgIf]
 })
 

@@ -1,6 +1,4 @@
-/// <reference path="../../models.ts" />
-
-import {TodoItem} from '../../models';
+import {TodoItem} from '../../models/models';
 import {Component} from "angular2/core";
 import {FormBuilder} from "angular2/common";
 import {NgFor} from "angular2/common";
@@ -17,7 +15,7 @@ import {Validators} from "angular2/common";
 })
 
 @View({
-    templateUrl: './components/todo/todo.html',
+    templateUrl: './app/components/todo/todo.html',
     directives: [NgFor, NgIf, FORM_DIRECTIVES]
 })
     // Component controller
