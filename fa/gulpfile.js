@@ -11,16 +11,11 @@ gulp.task('ts-lint', function() {
         .pipe(tslint.report('prose', {
             emitError: false
         }))
-})
-
-gulp.task('rxjs', function () {
-   return gulp.src(paths.npm + 'rxjs/**/*.js').pipe(gulp.dest(paths.lib + 'rxjs/'));
 });
 
 gulp.task('compile-ts', function() {
     var sourceTsFiles = [
-      config.allTs,
-      config.typings
+      config.allTs
     ];
 
     var tsResult = gulp.src(sourceTsFiles).pipe(sourcemaps.init()).pipe(tsc(tsProject));

@@ -1,4 +1,4 @@
-<!--div>
+<div>
     <form [ngFormModel]="postForm" (ngSubmit) = "postContent(postForm.value)">
         <div class = "form-group">
             <select class="c-select" [ngFormControl]="postForm.controls['playerType']" #class="ngForm">
@@ -8,10 +8,7 @@
         </div>
         <button class="btn btn-primary" type="submit">Add Post</button>
     </form>
-    <input [value] = "firstName">
-</div-->
-
-
+</div>
 
 <div>
     Player Id

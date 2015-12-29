@@ -26,8 +26,6 @@ import {FormTest} from "./components/formtest/formtest";
                     <li><a [routerLink]="['/Test']">Test</a></li>
                     <li><a [routerLink]="['/FormTest']">Form Test</a></li>
                     <li><a [routerLink]="['/About']">About</a></li>
-                    <!--li><a [router-link]="['/Post']">Post</a></li-->
-                    <!--li><a [router-link]="['/Home']">About</a></li-->
                 </ul>
             </nav>
             <router-outlet></router-outlet>

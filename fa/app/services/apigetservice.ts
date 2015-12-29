@@ -1,5 +1,6 @@
 import {Injectable} from "angular2/core";
 import {Http} from "angular2/http";
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class APIGetService {
@@ -9,8 +10,6 @@ export class APIGetService {
         this.http = http;
     }
     get(url:string) : any {
-        //return this.http.get(url);
-        //return this.http.get(url).map(res => res.json());
-        return null;
+        return this.http.get(url).map(res => res.json());
     }
 }

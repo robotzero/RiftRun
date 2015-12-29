@@ -53,7 +53,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/platform/browser'
                         selector: 'my-app',
                     }),
                     core_1.View({
-                        template: "\n        <div class=\"container\">\n            <nav>\n                <ul>\n                    <li><a [routerLink]=\"['/Test']\">Test</a></li>\n                    <li><a [routerLink]=\"['/FormTest']\">Form Test</a></li>\n                    <li><a [routerLink]=\"['/About']\">About</a></li>\n                    <!--li><a [router-link]=\"['/Post']\">Post</a></li-->\n                    <!--li><a [router-link]=\"['/Home']\">About</a></li-->\n                </ul>\n            </nav>\n            <router-outlet></router-outlet>\n        </div>\n    ",
+                        template: "\n        <div class=\"container\">\n            <nav>\n                <ul>\n                    <li><a [routerLink]=\"['/Test']\">Test</a></li>\n                    <li><a [routerLink]=\"['/FormTest']\">Form Test</a></li>\n                    <li><a [routerLink]=\"['/About']\">About</a></li>\n                </ul>\n            </nav>\n            <router-outlet></router-outlet>\n        </div>\n    ",
                         directives: [router_1.RouterOutlet, router_1.RouterLink, about_1.About, todo_1.Todo, post_1.Post, about_1.About, router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
