@@ -6,6 +6,23 @@
                 <option *ngFor="#p of playerTypes" [value] = "p">{{p}}</option>
             </select>
         </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">Your Paragon points</span>
+            <input type="text" [ngFormControl]="postForm.controls['playerParagonPoints']" class="form-control" placeholder="Paragon points" aria-describedby="sizing-addon2">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">#</span>
+            <input type="text" [ngFormControl]="postForm.controls['playerBattleTag']" class="form-control" placeholder="Battle Tag" aria-describedby="sizing-addon2">
+        </div>
+        <br>
+        <div class = "form-group">
+            <select class="c-select" [ngFormControl]="postForm.controls['playerRegion']" #region="ngForm">
+                <option selected>Select your region</option>
+                <option *ngFor="#r of playerRegions" [value] = "r">{{r}}</option>
+            </select>
+        </div>
         <button class="btn btn-primary" type="submit">Add Post</button>
     </form>
 </div>

@@ -28,6 +28,7 @@ export class Post {
     postForm: ControlGroup;
     response: any;
     playerTypes: Array<string> = ['Demon Hunter', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader'];
+    playerRegions: Array<string> = ['EU', 'US', 'ASIA'];
     queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+'];
     queryGameTypes: Array<string> = ['Rift', 'Grift', 'PowerGrift', 'Bounties', 'Keywardens', 'Ubers'];
 
@@ -38,13 +39,13 @@ export class Post {
             playerParagonPoints: [''],
             playerBattleTag: [''],
             playerRegion: [''],
-            playerGameType: [''],
-            queryMinParagon: [''],
-            queryGameLevel: [''],
-            queryGameType: [''],
-            queryCharacterType: ['']
+            playerGameType: ['seasonal'],
+            queryMinParagon: ['15'],
+            queryGameLevel: ['40+'],
+            queryGameType: ['grift'],
+            queryCharacterType: ['demon hunter']
         });
-        
+
         getService.get('http://riftrun.local/v1/posts')
                   .map((posts: any) => {
                       let result:Array<PostQuery> = [];

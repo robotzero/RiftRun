@@ -8,7 +8,6 @@ import {View} from "angular2/core";
 import {ControlGroup} from "angular2/common";
 import {Validators} from "angular2/common";
 
-// Annotation section
 @Component({
     selector: 'todo',
     viewBindings: [FormBuilder]
@@ -18,7 +17,7 @@ import {Validators} from "angular2/common";
     templateUrl: './app/components/todo/todo.html',
     directives: [NgFor, NgIf, FORM_DIRECTIVES]
 })
-    // Component controller
+
 export class Todo {
     todos: Array<TodoItem>;
     myForm: ControlGroup;

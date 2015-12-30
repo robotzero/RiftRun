@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 final class CreatePostCommandHandler
@@ -47,7 +48,6 @@ final class CreatePostCommandHandler
         );
 
         $form->submit($currentRequest->request->all(), false);
-
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);
             throw new BadRequestHttpException('Invalid form ' . (string) $iterator);
@@ -59,8 +59,15 @@ final class CreatePostCommandHandler
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-        //return [];
-        return new RedirectResponse('posts', 302);
+
+        $response = new Response();
+        $response->setContent(json_encode([]));
+        $response->setStatusCode(201);
+        $response->headers->set('Access-Control-Allow-Headers', 'Origin, Access-Control-Allow-Origin, Key, X-Access-Control-Allow-Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
+        $response->headers->set('Access-Control-Allow-Origin', 'http://fa.local');
+        $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        return $response;
+        //return new RedirectResponse('posts', 302);
     }
 
     /**
