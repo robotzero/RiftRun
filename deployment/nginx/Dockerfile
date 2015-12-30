@@ -28,7 +28,7 @@ RUN cp -r server-configs-nginx/h5bp /etc/nginx/
 RUN chmod -R a+rwx /etc/ssl/
 RUN cp -r server-configs-nginx/sites-available /etc/nginx
 RUN cp -r server-configs-nginx/sites-enabled /etc/nginx
-RUN echo "test"
+RUN echo "cache buster"
 ADD riftrun.conf /etc/nginx/sites-available/
 ADD  fa.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/riftrun.conf /etc/nginx/sites-enabled/riftrun.conf
