@@ -9,12 +9,14 @@ use Pagerfanta\Pagerfanta;
 use RiftRunBundle\ORM\Specification\AllPostsSpecification;
 use RiftRunBundle\ORM\Specification\Specification;
 use RiftRunBundle\ORM\Specification\WizardsSpecification;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
-final class PaginationFactory extends ContainerAware implements Factory
+final class PaginationFactory implements Factory
 {
+    use ContainerAwareTrait;
+
     private $arrayObject;
 
     private $repository;
