@@ -4,7 +4,8 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/", "SymfonyStandard\\": "app/" }
+        "psr-4": { "": "src/"},
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -13,7 +14,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.8.x-dev",
+        "symfony/symfony": "3.0.1",
         "doctrine/orm": "2.6.x-dev",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "dev-master",
@@ -22,7 +23,7 @@
         "symfony/assetic-bundle": "dev-master",
         "symfony/swiftmailer-bundle": "dev-master",
         "symfony/monolog-bundle": "dev-master",
-        "sensio/distribution-bundle": "~3.0,>=3.0.12",
+        "sensio/distribution-bundle": "dev-master",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
 	    "friendsofsymfony/rest-bundle": "dev-master",
@@ -31,40 +32,37 @@
 	    "willdurand/hateoas-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
         "hautelook/templated-uri-bundle": "dev-master",
-        "willdurand/rest-extra-bundle": "dev-master",
 	    "pagerfanta/pagerfanta": "dev-master",
 	    "simple-bus/symfony-bridge": "dev-master",
 	    "simple-bus/doctrine-orm-bridge": "dev-master",
         "league/tactician-bundle": "^0.3.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
+        "sensio/generator-bundle": "dev-master",
 	    "sebastian/resource-operations": "dev-master",
-	    "phpunit/phpunit": "4.0.x-dev",
+	    "phpunit/phpunit": "dev-master",
 	    "behat/behat": "dev-master",
         "phpspec/phpspec": "dev-master",
 	    "phpspec/prophecy": "dev-master",
-        "behat/symfony2-extension": "^2.0",
-        "behat/mink-extension": "^2.0",
-        "behat/mink-browserkit-driver": "^1.2",
+        "behat/symfony2-extension": "dev-master",
+        "behat/mink-extension": "dev-master",
+        "behat/mink-browserkit-driver": "dev-master",
+        "behat/mink": "dev-master",
         "fzaninotto/faker": "^1.4",
         "hautelook/alice-bundle": "dev-master",
-	    "phpunit/phpunit-mock-objects": "2.0.x-dev",
+	    "phpunit/phpunit-mock-objects": "dev-master",
         "behat/web-api-extension": "dev-master",
 	    "ralfmaxxx/behat_multidimensional_extension": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "sebastian/object-enumerator": "dev-master"
     },
     "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
-        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-update-cmd": [
@@ -73,7 +71,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
     },
@@ -83,12 +80,15 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "symfony-var-dir": "var",
+        "symfony-bin-dir": "bin",
+        "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.8-dev"
+            "dev-master": "3.1-dev"
         }
     }
 }

@@ -2,23 +2,23 @@ services:
     pagination_factory:
         class: RiftRunBundle\Factories\PaginationFactory
         arguments:
-            - @request_stack
-            - @all_posts_specification
+            - '@request_stack'
+            - '@all_posts_specification'
         calls:
-            - [ setContainer, [ @service_container ]]
+            - [ setContainer, [ '@service_container' ]]
 
     singletype_factory:
         class: RiftRunBundle\Factories\SingleTypeFactory
         calls:
-            - [ setContainer, [ @service_container ]]
+            - [ setContainer, [ '@service_container' ]]
 
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
-            - @form.factory
-            - @doctrine.orm.entity_manager
-            - @post_form_type
-            - @request_stack
+            - '@form.factory'
+            - '@doctrine.orm.entity_manager'
+            - '@post_form_type'
+            - '@request_stack'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 

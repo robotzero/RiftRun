@@ -5,15 +5,15 @@ services:
     load_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\LoadFixturesCommandHandler
         arguments:
-            - @nelmio_loader_factory
+            - '@nelmio_loader_factory'
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
 
     clear_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\DatabaseClearCommandHandler
         arguments:
-            - @doctrine.orm.entity_manager
-            - @standard_orm_purger
+            - '@doctrine.orm.entity_manager'
+            - '@standard_orm_purger'
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ClearDatabase }
 
@@ -41,4 +41,4 @@ services:
     nelmio_loader_factory:
         class: DevHelperBundle\Factories\AliceLoaderFactory
         arguments:
-            - @doctrine.orm.entity_manager
+            - '@doctrine.orm.entity_manager'

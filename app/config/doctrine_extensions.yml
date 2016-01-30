@@ -4,4 +4,4 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: riftrun }
         calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]
