@@ -27,14 +27,10 @@ class PostsController extends FOSRestController
             'post',
             'get_posts'
         );
-        $response->headers->set('Access-Control-Allow-Headers', 'Origin, Access-Control-Allow-Origin, Key, X-Access-Control-Allow-Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
+
         $response->headers->set('Access-Control-Allow-Origin', 'http://fa.local');
-        $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+
         return $response;
-        return $this->container->get('paginationfactory')->create(
-            'post',
-            'get_posts'
-        );
     }
 
     /**
