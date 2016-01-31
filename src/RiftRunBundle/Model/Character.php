@@ -47,6 +47,24 @@ class Character
      */
     private $gameType;
 
+    public function __construct(
+        string $type,
+        int $paragonPoints,
+        string $battleTag,
+        string $region,
+        string $seasonal,
+        string $gameType,
+        \DateTime $createdAt
+    ) {
+        $this->type = $type;
+        $this->paragonPoints = $paragonPoints;
+        $this->battleTag = $battleTag;
+        $this->region = $region;
+        $this->seasonal = $seasonal;
+        $this->gameType = $gameType;
+        $this->createdAt = $createdAt;
+    }
+
     /**
      * Get id
      *
@@ -55,19 +73,6 @@ class Character
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Character
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -81,19 +86,6 @@ class Character
     }
 
     /**
-     * Set paragonPoints
-     *
-     * @param integer $paragonPoints
-     * @return Character
-     */
-    public function setParagonPoints($paragonPoints)
-    {
-        $this->paragonPoints = $paragonPoints;
-
-        return $this;
-    }
-
-    /**
      * Get paragonPoints
      *
      * @return integer
@@ -101,19 +93,6 @@ class Character
     public function getParagonPoints()
     {
         return $this->paragonPoints;
-    }
-
-    /**
-     * Set battleTag
-     *
-     * @param string $battleTag
-     * @return Character
-     */
-    public function setBattleTag($battleTag)
-    {
-        $this->battleTag = $battleTag;
-
-        return $this;
     }
 
     /**
@@ -127,19 +106,6 @@ class Character
     }
 
     /**
-     * Set region
-     *
-     * @param string $region
-     * @return Character
-     */
-    public function setRegion($region)
-    {
-        $this->region = $region;
-
-        return $this;
-    }
-
-    /**
      * Get region
      *
      * @return string
@@ -148,20 +114,7 @@ class Character
     {
         return $this->region;
     }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Character
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
+    
     /**
      * Get createdAt
      *
@@ -173,20 +126,6 @@ class Character
     }
 
     /**
-     * Set seasonal
-     *
-     * @param boolean $seasonal
-     *
-     * @return Character
-     */
-    public function setSeasonal($seasonal)
-    {
-        $this->seasonal = $seasonal;
-
-        return $this;
-    }
-
-    /**
      * Get seasonal
      *
      * @return boolean
@@ -194,20 +133,6 @@ class Character
     public function getSeasonal()
     {
         return $this->seasonal;
-    }
-
-    /**
-     * Set gameType
-     *
-     * @param string $gameType
-     *
-     * @return Character
-     */
-    public function setGameType($gameType)
-    {
-        $this->gameType = $gameType;
-
-        return $this;
     }
 
     /**

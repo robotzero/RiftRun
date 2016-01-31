@@ -38,13 +38,17 @@ final class CreatePostCommandHandler
     }
     public function handle(Create $createPost)
     {
-        $post = $createPost->getModel();
+        //$post = $createPost->getModel();
         $currentRequest = $this->requestStack->getCurrentRequest();
 
+//        $form = $this->formFactory->create(
+//            'RiftRunBundle\Forms\PostType',
+//            $post,
+//            ['method' => $currentRequest->getMethod()]
+//        );
+
         $form = $this->formFactory->create(
-            'RiftRunBundle\Forms\PostType',
-            $post,
-            ['method' => $currentRequest->getMethod()]
+            'RiftRunBundle\Forms\PostType'
         );
 
         $form->submit($currentRequest->request->all(), false);
@@ -54,8 +58,8 @@ final class CreatePostCommandHandler
         }
 
         try {
-            $this->entityManager->persist($post);
-            $this->entityManager->flush($post);
+//            $this->entityManager->persist($post);
+//            $this->entityManager->flush($post);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }

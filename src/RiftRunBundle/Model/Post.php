@@ -27,6 +27,11 @@ class Post
      */
     private $query;
 
+    public function __construct($player)
+    {
+        $this->player = $player;
+    }
+
     /**
      * Get id
      *
