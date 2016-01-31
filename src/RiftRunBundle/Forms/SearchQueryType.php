@@ -2,14 +2,10 @@
 
 namespace RiftRunBundle\Forms;
 
-use RiftRunBundle\Forms\CharacterTypeType;
-use RiftRunBundle\Forms\GriftType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SearchQueryType extends AbstractType

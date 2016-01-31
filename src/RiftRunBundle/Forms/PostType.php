@@ -2,8 +2,6 @@
 
 namespace RiftRunBundle\Forms;
 
-use RiftRunBundle\Forms\CharacterType;
-use RiftRunBundle\Forms\SearchQueryType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
