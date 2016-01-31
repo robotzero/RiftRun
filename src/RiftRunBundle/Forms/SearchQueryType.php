@@ -5,6 +5,8 @@ namespace RiftRunBundle\Forms;
 use RiftRunBundle\Forms\CharacterTypeType;
 use RiftRunBundle\Forms\GriftType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -16,16 +18,16 @@ class SearchQueryType extends AbstractType
     {
         $builder->add(
             'characterType',
-            'collection',
+            CollectionType::class,
             [
-                'type' => new CharacterTypeType(),
+                'entry_type' => CharacterTypeType::class,
                 'allow_add' => true,
                 'required' => true,
                 'by_reference' => false,
                 'allow_delete' => false
             ]
         );
-        $builder->add('minParagon', 'integer', ['required' => true]);
+        $builder->add('minParagon', IntegerType::class, ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
