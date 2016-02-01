@@ -14,6 +14,16 @@ class Grift extends GameType
 
 
     /**
+     * @var string
+     */
+    private $level;
+
+    public function __construct(string $level)
+    {
+        $this->level = $level;
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -21,25 +31,6 @@ class Grift extends GameType
     public function getId()
     {
         return $this->id;
-    }
-    /**
-     * @var string
-     */
-    private $level;
-
-
-    /**
-     * Set level
-     *
-     * @param string $level
-     *
-     * @return Grift
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
     }
 
     /**

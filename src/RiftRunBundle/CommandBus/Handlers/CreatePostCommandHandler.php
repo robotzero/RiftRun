@@ -41,14 +41,10 @@ final class CreatePostCommandHandler
         //$post = $createPost->getModel();
         $currentRequest = $this->requestStack->getCurrentRequest();
 
-//        $form = $this->formFactory->create(
-//            'RiftRunBundle\Forms\PostType',
-//            $post,
-//            ['method' => $currentRequest->getMethod()]
-//        );
-
         $form = $this->formFactory->create(
-            'RiftRunBundle\Forms\PostType'
+            'RiftRunBundle\Forms\PostType',
+            null,
+            ['method' => $currentRequest->getMethod()]
         );
 
         $form->submit($currentRequest->request->all(), false);
@@ -56,10 +52,11 @@ final class CreatePostCommandHandler
             $iterator = $form->getErrors(true, true);
             throw new BadRequestHttpException('Invalid form ' . (string) $iterator);
         }
+        $post = $form->getData();
 
         try {
-//            $this->entityManager->persist($post);
-//            $this->entityManager->flush($post);
+            $this->entityManager->persist($post);
+            $this->entityManager->flush($post);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }

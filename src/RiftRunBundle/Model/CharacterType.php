@@ -22,6 +22,11 @@ class CharacterType
      */
     private $searchQuery;
 
+    public function __construct(string $type)
+    {
+        $this->type = $type;
+    }
+
     /**
      * Get id
      *
@@ -30,20 +35,6 @@ class CharacterType
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return CharacterType
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -63,20 +54,20 @@ class CharacterType
      *
      * @return CharacterType
      */
-    public function setSearchQuery(\RiftRunBundle\Model\SearchQuery $searchQuery = null)
-    {
-        $this->searchQuery = $searchQuery;
-
-        return $this;
-    }
+//    public function setSearchQuery(\RiftRunBundle\Model\SearchQuery $searchQuery = null)
+//    {
+//        $this->searchQuery = $searchQuery;
+//
+//        return $this;
+//    }
 
     /**
      * Get searchQuery
      *
      * @return \RiftRunBundle\Model\SearchQuery
      */
-    public function getSearchQuery()
-    {
-        return $this->searchQuery;
-    }
+//    public function getSearchQuery()
+//    {
+//        return $this->searchQuery;
+//    }
 }

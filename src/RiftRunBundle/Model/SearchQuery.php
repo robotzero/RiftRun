@@ -35,9 +35,12 @@ class SearchQuery
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(int $minParagon, GameType $game, \DateTime $createdAt)
     {
         $this->characterType = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->game = $game;
+        $this->minParagon = $minParagon;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -51,20 +54,6 @@ class SearchQuery
     }
 
     /**
-     * Set minParagon
-     *
-     * @param integer $minParagon
-     *
-     * @return SearchQuery
-     */
-    public function setMinParagon($minParagon)
-    {
-        $this->minParagon = $minParagon;
-
-        return $this;
-    }
-
-    /**
      * Get minParagon
      *
      * @return integer
@@ -75,20 +64,6 @@ class SearchQuery
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return SearchQuery
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get createdAt
      *
      * @return \DateTime
@@ -96,20 +71,6 @@ class SearchQuery
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Set game
-     *
-     * @param \RiftRunBundle\Model\GameType $game
-     *
-     * @return SearchQuery
-     */
-    public function setGame(\RiftRunBundle\Model\GameType $game = null)
-    {
-        $this->game = $game;
-
-        return $this;
     }
 
     /**
@@ -131,7 +92,7 @@ class SearchQuery
      */
     public function addCharacterType(\RiftRunBundle\Model\CharacterType $characterType)
     {
-        $characterType->setSearchQuery($this);
+        //$characterType->setSearchQuery($this);
         $this->characterType->add($characterType);
 
         return $this;

@@ -2,9 +2,11 @@
 
 namespace RiftRunBundle\Forms;
 
+use RiftRunBundle\Model\Grift;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GriftType extends AbstractType
@@ -19,6 +21,11 @@ class GriftType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\Model\Grift',
+            'empty_data' => function (FormInterface $form) {
+                return new Grift(
+                    $form->get('level')->getData()
+                );
+            },
             'csrf_protection' => false,
         ));
     }

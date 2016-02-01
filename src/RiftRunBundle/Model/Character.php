@@ -114,7 +114,7 @@ class Character
     {
         return $this->region;
     }
-    
+
     /**
      * Get createdAt
      *

@@ -5,9 +5,9 @@ RiftRunBundle\Model\Post:
             - NotNull: ~
             - Type:
                 type: object
-#        query:
-#            - NotBlank: ~
-#            - NotNull: ~
-#            - Type:
-#                type: object
+        query:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object
 

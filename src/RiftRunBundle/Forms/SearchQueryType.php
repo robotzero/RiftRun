@@ -2,10 +2,12 @@
 
 namespace RiftRunBundle\Forms;
 
+use RiftRunBundle\Model\SearchQuery;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SearchQueryType extends AbstractType
@@ -30,6 +32,13 @@ class SearchQueryType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\Model\SearchQuery',
+            'empty_data' => function (FormInterface $form) {
+                return new SearchQuery(
+                    $form->get('minParagon')->getData(),
+                    $form->get('game')->getData(),
+                    new \DateTime('now')
+                );
+            },
             'csrf_protection' => false,
             'cascade_validation' => true
         ));

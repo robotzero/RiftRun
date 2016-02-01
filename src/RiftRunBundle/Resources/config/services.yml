@@ -22,6 +22,17 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 
+    paginate_posts_command:
+        class: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate
+        arguments:
+            - '@request_stack'
+            - '@doctrine'
+
+#    paginate_posts_command_handler:
+#        class: RiftRunBundle\CommandBus\Handlers\PaginatePostsCommandHandler
+#        tags:
+#            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate }
+
     # FormTypes
     post_form_type:
         class: RiftRunBundle\Forms\PostType

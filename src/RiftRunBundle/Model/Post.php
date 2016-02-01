@@ -27,9 +27,11 @@ class Post
      */
     private $query;
 
-    public function __construct($player)
+    public function __construct(Character $player, SearchQuery $query, \DateTime $createdAt)
     {
         $this->player = $player;
+        $this->query = $query;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -43,20 +45,6 @@ class Post
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Post
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get createdAt
      *
      * @return \DateTime
@@ -67,20 +55,6 @@ class Post
     }
 
     /**
-     * Set player
-     *
-     * @param \RiftRunBundle\Model\Character $player
-     *
-     * @return Post
-     */
-    public function setPlayer(\RiftRunBundle\Model\Character $player = null)
-    {
-        $this->player = $player;
-
-        return $this;
-    }
-
-    /**
      * Get player
      *
      * @return \RiftRunBundle\Model\Character
@@ -88,20 +62,6 @@ class Post
     public function getPlayer()
     {
         return $this->player;
-    }
-
-    /**
-     * Set query
-     *
-     * @param \RiftRunBundle\Model\SearchQuery $query
-     *
-     * @return Post
-     */
-    public function setQuery(\RiftRunBundle\Model\SearchQuery $query = null)
-    {
-        $this->query = $query;
-
-        return $this;
     }
 
     /**
