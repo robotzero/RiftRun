@@ -1,11 +1,9 @@
 services:
-    pagination_factory:
-        class: RiftRunBundle\Factories\PaginationFactory
-        arguments:
-            - '@request_stack'
-            - '@all_posts_specification'
-        calls:
-            - [ setContainer, [ '@service_container' ]]
+    pagerfanta_factory_library:
+        class: Hateoas\Representation\Factory\PagerfantaFactory
+
+    pagerfanta_factory:
+        class: RiftRunBundle\Factories\PagerfantaFactory
 
     singletype_factory:
         class: RiftRunBundle\Factories\SingleTypeFactory
@@ -22,16 +20,13 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 
-    paginate_posts_command:
-        class: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate
+    paginate_posts_command_handler:
+        class: RiftRunBundle\CommandBus\Handlers\PaginatePostsCommandHandler
         arguments:
-            - '@request_stack'
             - '@doctrine'
-
-#    paginate_posts_command_handler:
-#        class: RiftRunBundle\CommandBus\Handlers\PaginatePostsCommandHandler
-#        tags:
-#            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate }
+            - '@pagerfanta_factory'
+        tags:
+            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate }
 
     # FormTypes
     post_form_type:

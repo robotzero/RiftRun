@@ -8,6 +8,7 @@ use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
 use RiftRunBundle\CommandBus\Commands\CreatePost;
+use RiftRunBundle\CommandBus\Commands\PagerfantaPaginate;
 use RiftRunBundle\Forms\PostType;
 use RiftRunBundle\Model\Post as PostModel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,14 +24,15 @@ class PostsController extends FOSRestController
      */
     public function getPostsAction(Request $request)
     {
-        $response = $this->container->get('paginationfactory')->create(
-            'post',
-            'get_posts'
+        $commandBus = $this->container->get('tactician.commandbus.default');
+        $collection = $commandBus->handle(new PagerfantaPaginate(
+            $request->get('page', 1),
+            $request->get('limit', 20),
+            'Post',
+            $request->get('_route'))
         );
 
-        $response->headers->set('Access-Control-Allow-Origin', 'http://fa.local');
-
-        return $response;
+        return new Response($this->container->get('serializer')->serialize($collection, 'json'));
     }
 
     /**

@@ -2,36 +2,58 @@
 
 namespace RiftRunBundle\CommandBus\Commands;
 
-use Doctrine\Bundle\DoctrineBundle\Registry;
+use Hateoas\Configuration\Route;
 use RiftRunBundle\ORM\Specification\AllPostsSpecification;
 use RiftRunBundle\ORM\Specification\Specification;
-use Symfony\Component\HttpFoundation\RequestStack;
 
-class PagerfantaPaginate implements Paginate
+final class PagerfantaPaginate implements Paginate
 {
-    private $requestStack;
+    /**
+     * @var int
+     */
+    private $page;
 
-    private $doctrine;
+    /**
+     * @var int
+     */
+    private $limit;
 
-    public function __construct(RequestStack $requestStack, Registry $doctrine)
+    /**
+     * @var string
+     */
+    private $route;
+
+    /**
+     * @var string
+     */
+    private $repositoryName;
+
+    public function __construct(int $page, int $limit, string $repositoryName, string $route)
     {
-        $this->requestStack = $requestStack;
-        $this->doctrine = $doctrine;
+        $this->page = $page;
+        $this->limit = $limit;
+        $this->route = $route;
+        $this->repositoryName = $repositoryName;
     }
 
     public function getLimit():int
     {
-        return $this->requestStack->getCurrentRequest()->get('limit', 20);
+        return $this->limit;
     }
 
     public function getPageNumber():int
     {
-        return $this->requestStack->getCurrentRequest()->get('page', 1);
+        return $this->page;
     }
 
-    public function getRepository(string $repositoryName)
+    public function getRoute():Route
     {
-        return $this->doctrine->getRepository($repositoryName);
+        return new Route($this->route, [], true);
+    }
+
+    public function getRepositoryName():string
+    {
+        return $this->repositoryName;
     }
 
     public function getDefaultSpecification():Specification
