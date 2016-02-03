@@ -41,10 +41,16 @@ final class CreatePostCommandHandler
         //$post = $createPost->getModel();
         $currentRequest = $this->requestStack->getCurrentRequest();
 
+//        $form = $this->formFactory->create(
+//            'RiftRunBundle\Forms\PostType',
+//            null,
+//            ['method' => $currentRequest->getMethod()]
+//        );
+
         $form = $this->formFactory->create(
-            'RiftRunBundle\Forms\PostType',
+            $createPost->getFormType(),
             null,
-            ['method' => $currentRequest->getMethod()]
+            ['method' => $createPost->getRequestMethod()]
         );
 
         $form->submit($currentRequest->request->all(), false);

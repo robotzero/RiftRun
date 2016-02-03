@@ -14,19 +14,30 @@ final class CreatePost implements Create
      */
     private $requestMethod;
 
-    public function __construct(string $formType, string $requestMethod)
+    /**
+     * @var array
+     */
+    private $requestData;
+
+    public function __construct(string $formType, string $requestMethod, array $requestData)
     {
         $this->formType = $formType;
         $this->requestMethod = $requestMethod;
+        $this->requestData = $requestData;
     }
 
-    public function getFormType()
+    public function getFormType():string
     {
         return $this->formType;
     }
 
-    public function getRequestMethod()
+    public function getRequestMethod():string
     {
         return $this->requestMethod;
+    }
+
+    public function getRequestData():array
+    {
+        return $this->requestData;
     }
 }
