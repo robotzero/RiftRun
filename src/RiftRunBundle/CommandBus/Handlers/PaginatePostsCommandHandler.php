@@ -2,10 +2,6 @@
 
 namespace RiftRunBundle\CommandBus\Handlers;
 
-use Hateoas\Configuration\Route;
-use Hateoas\Representation\Factory\PagerfantaFactory;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
-use Pagerfanta\Pagerfanta;
 use RiftRunBundle\CommandBus\Commands\Paginate;
 use RiftRunBundle\Factories\Factory;
 
@@ -30,8 +26,6 @@ final class PaginatePostsCommandHandler
         $pagerfanta->setMaxPerPage($paginate->getLimit());
         $pagerfanta->setCurrentPage($paginate->getPageNumber());
 
-        $collection = $this->pagerfantaFactory->getPagerfantaLib()->createRepresentation($pagerfanta, $paginate->getRoute());
-
-        return $collection;
+        return $this->pagerfantaFactory->getPagerfantaLib()->createRepresentation($pagerfanta, $paginate->getRoute());
     }
 }

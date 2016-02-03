@@ -9,9 +9,6 @@ use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
 use RiftRunBundle\CommandBus\Commands\CreatePost;
 use RiftRunBundle\CommandBus\Commands\PagerfantaPaginate;
-use RiftRunBundle\Forms\PostType;
-use RiftRunBundle\Model\Post as PostModel;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -53,7 +50,11 @@ class PostsController extends FOSRestController
     public function createPostAction(Request $request)
     {
         $commandBus = $this->container->get('tactician.commandbus.default');
-        return $commandBus->handle(new CreatePost());
+        return $commandBus->handle(new CreatePost(
+            'RiftRunBundle\Forms\PostType',
+            $request->getMethod(),
+            $request->request->all()
+        ));
     }
 
     /**

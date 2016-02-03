@@ -19,33 +19,21 @@ final class CreatePostCommandHandler
     /** @var EntityManagerInterface */
     private $entityManager;
 
-    /** @var AbstractType */
-    private $postFormType;
-
     /** @var RequestStack */
     private $requestStack;
 
     public function __construct(
         FormFactory $formFactory,
         EntityManagerInterface $entityManager,
-        AbstractType $postFormType,
         RequestStack $requestStack
     ) {
         $this->formFactory = $formFactory;
         $this->entityManager = $entityManager;
-        $this->postFormType = $postFormType;
         $this->requestStack = $requestStack;
     }
     public function handle(Create $createPost)
     {
-        //$post = $createPost->getModel();
         $currentRequest = $this->requestStack->getCurrentRequest();
-
-//        $form = $this->formFactory->create(
-//            'RiftRunBundle\Forms\PostType',
-//            null,
-//            ['method' => $currentRequest->getMethod()]
-//        );
 
         $form = $this->formFactory->create(
             $createPost->getFormType(),
