@@ -2,12 +2,31 @@
 
 namespace RiftRunBundle\CommandBus\Commands;
 
-use RiftRunBundle\Model\Post;
-
 final class CreatePost implements Create
 {
-    public function getModel()
+    /**
+     * @var string
+     */
+    private $formType;
+
+    /**
+     * @var string
+     */
+    private $requestMethod;
+
+    public function __construct(string $formType, string $requestMethod)
     {
-        return new Post();
+        $this->formType = $formType;
+        $this->requestMethod = $requestMethod;
+    }
+
+    public function getFormType()
+    {
+        return $this->formType;
+    }
+
+    public function getRequestMethod()
+    {
+        return $this->requestMethod;
     }
 }
