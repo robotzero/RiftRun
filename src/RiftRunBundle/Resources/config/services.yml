@@ -1,4 +1,7 @@
 services:
+    tactitian.middleware.event_emmiter:
+        class: League\Tactician\CommandEvents\EventMiddleware
+
     pagerfanta_factory_library:
         class: Hateoas\Representation\Factory\PagerfantaFactory
 
@@ -13,9 +16,7 @@ services:
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
-            - '@form.factory'
             - '@doctrine.orm.entity_manager'
-            - '@request_stack'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 
@@ -26,6 +27,13 @@ services:
             - '@pagerfanta_factory'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate }
+
+    process_form_command_handler:
+        class: RiftRunBundle\CommandBus\Handlers\ProcessFormCommandHandler
+        arguments:
+            - '@form.factory'
+        tags:
+            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\ProcessPostForm }
 
     # QueryBuilder Specification
     all_posts_specification:

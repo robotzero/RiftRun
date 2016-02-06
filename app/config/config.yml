@@ -113,4 +113,5 @@ tactician:
     commandbus:
         default:
             middleware:
+                - tactitian.middleware.event_emmiter
                 - tactician.middleware.command_handler

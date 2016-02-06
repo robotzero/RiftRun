@@ -7,8 +7,12 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
+use League\Event\Emitter;
+use League\Tactician\CommandEvents\Event\CommandHandled;
 use RiftRunBundle\CommandBus\Commands\CreatePost;
 use RiftRunBundle\CommandBus\Commands\PagerfantaPaginate;
+use RiftRunBundle\CommandBus\Commands\ProcessPostForm;
+use RiftRunBundle\CommandBus\Listeners\CreateFormListener;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -50,7 +54,12 @@ class PostsController extends FOSRestController
     public function createPostAction(Request $request)
     {
         $commandBus = $this->container->get('tactician.commandbus.default');
-        return $commandBus->handle(new CreatePost(
+        $eventmiddleware = $this->container->get('tactitian.middleware.event_emmiter');
+
+        $eventmiddleware->addListener('command.handled', new CreateFormListener($commandBus));
+
+        return $commandBus->handle(new ProcessPostForm(
+            $request,
             'RiftRunBundle\Forms\PostType',
             $request->getMethod(),
             $request->request->all()

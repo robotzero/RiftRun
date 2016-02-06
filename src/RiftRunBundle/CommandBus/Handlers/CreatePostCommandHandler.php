@@ -4,50 +4,22 @@ namespace RiftRunBundle\CommandBus\Handlers;
 
 use Doctrine\ORM\EntityManagerInterface;
 use RiftRunBundle\CommandBus\Commands\Create;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormFactory;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 final class CreatePostCommandHandler
 {
-    /** @var FormFactory */
-    private $formFactory;
-
     /** @var EntityManagerInterface */
     private $entityManager;
 
-    /** @var RequestStack */
-    private $requestStack;
-
     public function __construct(
-        FormFactory $formFactory,
-        EntityManagerInterface $entityManager,
-        RequestStack $requestStack
+        EntityManagerInterface $entityManager
     ) {
-        $this->formFactory = $formFactory;
         $this->entityManager = $entityManager;
-        $this->requestStack = $requestStack;
     }
+
     public function handle(Create $createPost)
     {
-        $currentRequest = $this->requestStack->getCurrentRequest();
-
-        $form = $this->formFactory->create(
-            $createPost->getFormType(),
-            null,
-            ['method' => $createPost->getRequestMethod()]
-        );
-
-        $form->submit($currentRequest->request->all(), false);
-        if ($form->isValid() === false) {
-            $iterator = $form->getErrors(true, true);
-            throw new BadRequestHttpException('Invalid form ' . (string) $iterator);
-        }
-        $post = $form->getData();
-
+        $post = $createPost->getPost();
         try {
             $this->entityManager->persist($post);
             $this->entityManager->flush($post);

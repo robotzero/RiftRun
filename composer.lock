@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0080109ace284df6a4dcd6a12b228d2d",
-    "content-hash": "fef831b42379c322680a40502c067ea8",
+    "hash": "722c0f37b60cb7527a5b39868b74d847",
+    "content-hash": "364b0544901a99a5e72b65c5af73143d",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -989,12 +989,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "6e64133f95433d4cf381d2e0ef83c948900002bd"
+                "reference": "89edb3309e39348a7ddc8dfca1f9d62529430b83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/6e64133f95433d4cf381d2e0ef83c948900002bd",
-                "reference": "6e64133f95433d4cf381d2e0ef83c948900002bd",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/89edb3309e39348a7ddc8dfca1f9d62529430b83",
+                "reference": "89edb3309e39348a7ddc8dfca1f9d62529430b83",
                 "shasum": ""
             },
             "require": {
@@ -1065,7 +1065,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2016-01-24 21:22:41"
+            "time": "2016-02-05 16:31:52"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1073,12 +1073,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "e4738a362b1bffcb2d7ec771263ae55873d8ba33"
+                "reference": "08be3017f45cea64d6f10ec1c67c39c96f1e8ac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/e4738a362b1bffcb2d7ec771263ae55873d8ba33",
-                "reference": "e4738a362b1bffcb2d7ec771263ae55873d8ba33",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/08be3017f45cea64d6f10ec1c67c39c96f1e8ac3",
+                "reference": "08be3017f45cea64d6f10ec1c67c39c96f1e8ac3",
                 "shasum": ""
             },
             "require": {
@@ -1101,7 +1101,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
@@ -1144,7 +1144,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2016-01-28 09:55:33"
+            "time": "2016-02-03 08:59:26"
         },
         {
             "name": "hautelook/templated-uri-bundle",
@@ -1662,17 +1662,67 @@
             "time": "2015-11-12 13:51:40"
         },
         {
-            "name": "league/tactician",
-            "version": "v0.6.1",
+            "name": "league/event",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thephpleague/tactician.git",
-                "reference": "5313db226bf4e236faf8e5bb2a79203b78a9ae41"
+                "url": "https://github.com/thephpleague/event.git",
+                "reference": "e4bfc88dbcb60c8d8a2939a71f9813e141bbe4cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/5313db226bf4e236faf8e5bb2a79203b78a9ae41",
-                "reference": "5313db226bf4e236faf8e5bb2a79203b78a9ae41",
+                "url": "https://api.github.com/repos/thephpleague/event/zipball/e4bfc88dbcb60c8d8a2939a71f9813e141bbe4cd",
+                "reference": "e4bfc88dbcb60c8d8a2939a71f9813e141bbe4cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
+                "phpspec/phpspec": "~2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Event\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Event package",
+            "keywords": [
+                "emitter",
+                "event",
+                "listener"
+            ],
+            "time": "2015-05-21 12:24:47"
+        },
+        {
+            "name": "league/tactician",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician.git",
+                "reference": "041299a7b49f45632c87e9cb335f93cd06a52703"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/041299a7b49f45632c87e9cb335f93cd06a52703",
+                "reference": "041299a7b49f45632c87e9cb335f93cd06a52703",
                 "shasum": ""
             },
             "require": {
@@ -1686,7 +1736,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.7-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -1710,29 +1760,29 @@
                 "command bus",
                 "service layer"
             ],
-            "time": "2015-08-02 09:13:42"
+            "time": "2015-12-31 11:41:09"
         },
         {
             "name": "league/tactician-bundle",
-            "version": "v0.3.1",
+            "version": "v0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/tactician-bundle.git",
-                "reference": "ca476837c8223d6aba0e2434c38063f839ddc0ab"
+                "reference": "b2d3062ce02ad0b67f778136ff00e38d4f691d86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/tactician-bundle/zipball/ca476837c8223d6aba0e2434c38063f839ddc0ab",
-                "reference": "ca476837c8223d6aba0e2434c38063f839ddc0ab",
+                "url": "https://api.github.com/repos/thephpleague/tactician-bundle/zipball/b2d3062ce02ad0b67f778136ff00e38d4f691d86",
+                "reference": "b2d3062ce02ad0b67f778136ff00e38d4f691d86",
                 "shasum": ""
             },
             "require": {
-                "league/tactician": "^0.6",
+                "league/tactician": "^1.0",
                 "php": ">=5.5",
                 "symfony/framework-bundle": "^2.3|^3.0"
             },
             "require-dev": {
-                "league/tactician-doctrine": "^0.6",
+                "league/tactician-doctrine": "^1.0",
                 "matthiasnoback/symfony-config-test": "~1.0",
                 "matthiasnoback/symfony-dependency-injection-test": "^0.7",
                 "mockery/mockery": "~0.9.4",
@@ -1781,7 +1831,58 @@
                 "symfony",
                 "tactician"
             ],
-            "time": "2015-12-01 10:40:51"
+            "time": "2015-12-31 13:43:56"
+        },
+        {
+            "name": "league/tactician-command-events",
+            "version": "v0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician-command-events.git",
+                "reference": "dff9a4ef0120b837a6ba38b689102ca651c7f231"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician-command-events/zipball/dff9a4ef0120b837a6ba38b689102ca651c7f231",
+                "reference": "dff9a4ef0120b837a6ba38b689102ca651c7f231",
+                "shasum": ""
+            },
+            "require": {
+                "league/event": "~2.1",
+                "league/tactician": "^1.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0",
+                "phpspec/phpspec": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\CommandEvents\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Tactician Command Events",
+            "homepage": "http://tactician.thephpleague.com",
+            "keywords": [
+                "event",
+                "tactician"
+            ],
+            "time": "2015-12-31 13:38:20"
         },
         {
             "name": "michelf/php-markdown",
@@ -2064,16 +2165,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.6",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b0e69d10852716b2ccbdff69c75c477637220790",
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790",
                 "shasum": ""
             },
             "require": {
@@ -2108,7 +2209,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-29 16:19:52"
+            "time": "2016-02-06 03:52:05"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2696,12 +2797,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "95cf1421823fe84b2993e1b38f07e33dda4339b2"
+                "reference": "c25e740ae9addc7309090122229929e84a3b9ba1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/95cf1421823fe84b2993e1b38f07e33dda4339b2",
-                "reference": "95cf1421823fe84b2993e1b38f07e33dda4339b2",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/c25e740ae9addc7309090122229929e84a3b9ba1",
+                "reference": "c25e740ae9addc7309090122229929e84a3b9ba1",
                 "shasum": ""
             },
             "require": {
@@ -2747,7 +2848,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-01-29 10:48:16"
+            "time": "2016-02-01 10:54:01"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -3803,12 +3904,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Symfony2Extension.git",
-                "reference": "7fb32ea4bc3d8264a89eba4275c0c868acf7cb1c"
+                "reference": "ed1908390fa8064929586302f8d26e180eb07648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/7fb32ea4bc3d8264a89eba4275c0c868acf7cb1c",
-                "reference": "7fb32ea4bc3d8264a89eba4275c0c868acf7cb1c",
+                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/ed1908390fa8064929586302f8d26e180eb07648",
+                "reference": "ed1908390fa8064929586302f8d26e180eb07648",
                 "shasum": ""
             },
             "require": {
@@ -3855,7 +3956,7 @@
                 "framework",
                 "symfony"
             ],
-            "time": "2016-01-18 13:40:54"
+            "time": "2016-02-06 12:03:14"
         },
         {
             "name": "behat/web-api-extension",
@@ -4532,16 +4633,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "64d40a593fc31a8abf4ce3d200147ddf8ca64e52"
+                "reference": "92f5c61b5c64159faec5298325ffab0c7e59dcc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/64d40a593fc31a8abf4ce3d200147ddf8ca64e52",
-                "reference": "64d40a593fc31a8abf4ce3d200147ddf8ca64e52",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/92f5c61b5c64159faec5298325ffab0c7e59dcc8",
+                "reference": "92f5c61b5c64159faec5298325ffab0c7e59dcc8",
                 "shasum": ""
             },
             "require": {
@@ -4550,7 +4651,7 @@
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-token-stream": "~1.3",
                 "sebastian/environment": "^1.3.2",
-                "sebastian/version": "~1.0"
+                "sebastian/version": "~1.0|~2.0"
             },
             "require-dev": {
                 "ext-xdebug": ">=2.1.4",
@@ -4590,7 +4691,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-01-11 10:05:34"
+            "time": "2016-02-04 13:05:19"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4776,12 +4877,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "374e1d4c2b71575d2717aa8aa9def0051ae83a05"
+                "reference": "e527a371046f6c18c8363745014dc6644ddb0a60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/374e1d4c2b71575d2717aa8aa9def0051ae83a05",
-                "reference": "374e1d4c2b71575d2717aa8aa9def0051ae83a05",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e527a371046f6c18c8363745014dc6644ddb0a60",
+                "reference": "e527a371046f6c18c8363745014dc6644ddb0a60",
                 "shasum": ""
             },
             "require": {
@@ -4805,7 +4906,7 @@
                 "sebastian/global-state": "~1.0",
                 "sebastian/object-enumerator": "~1.0",
                 "sebastian/resource-operations": "~1.0",
-                "sebastian/version": "~1.0",
+                "sebastian/version": "~1.0|~2.0",
                 "symfony/yaml": "~2.1|~3.0"
             },
             "suggest": {
@@ -4817,7 +4918,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.3.x-dev"
+                    "dev-master": "5.4.x-dev"
                 }
             },
             "autoload": {
@@ -4843,7 +4944,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-01-29 14:30:19"
+            "time": "2016-02-05 17:47:30"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5275,12 +5376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "3b6d44d30fb93c4a3d796591ad6de547f1fb75e5"
+                "reference": "d4ca2fb70344987502567bc50081c03e6192fb26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/3b6d44d30fb93c4a3d796591ad6de547f1fb75e5",
-                "reference": "3b6d44d30fb93c4a3d796591ad6de547f1fb75e5",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/d4ca2fb70344987502567bc50081c03e6192fb26",
+                "reference": "d4ca2fb70344987502567bc50081c03e6192fb26",
                 "shasum": ""
             },
             "require": {
@@ -5313,7 +5414,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2016-01-28 11:45:41"
+            "time": "2016-01-28 13:25:10"
         },
         {
             "name": "sebastian/recursion-context",
@@ -5412,19 +5513,27 @@
         },
         {
             "name": "sebastian/version",
-            "version": "1.0.6",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "58b3a85e7999757d6ad81c787a1fbf5ff6c628c6"
+                "reference": "c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/58b3a85e7999757d6ad81c787a1fbf5ff6c628c6",
-                "reference": "58b3a85e7999757d6ad81c787a1fbf5ff6c628c6",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5",
+                "reference": "c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.6"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src/"
@@ -5443,7 +5552,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21 13:59:46"
+            "time": "2016-02-04 12:56:52"
         },
         {
             "name": "sensio/generator-bundle",

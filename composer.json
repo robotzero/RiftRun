@@ -35,7 +35,8 @@
 	    "pagerfanta/pagerfanta": "dev-master",
 	    "simple-bus/symfony-bridge": "dev-master",
 	    "simple-bus/doctrine-orm-bridge": "dev-master",
-        "league/tactician-bundle": "^0.3.0"
+        "league/tactician-bundle": "^0.4.0",
+        "league/tactician-command-events": "^0.6.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",

@@ -2,8 +2,13 @@
 
 namespace RiftRunBundle\CommandBus\Commands;
 
+use RiftRunBundle\Model\Post;
+use Symfony\Component\HttpFoundation\Request;
+
 class ProcessPostForm implements ProcessForm
 {
+    private $request;
+
     /**
      * @var string
      */
@@ -19,8 +24,11 @@ class ProcessPostForm implements ProcessForm
      */
     private $requestData;
 
-    public function __construct(string $formType, string $requestMethod, array $requestData)
+    private $post;
+
+    public function __construct(Request $request, string $formType, string $requestMethod, array $requestData)
     {
+        $this->request = $request;
         $this->formType = $formType;
         $this->requestMethod = $requestMethod;
         $this->requestData = $requestData;
@@ -39,5 +47,20 @@ class ProcessPostForm implements ProcessForm
     public function getRequestData():array
     {
         return $this->requestData;
+    }
+
+    public function getRequest():Request
+    {
+        return $this->request;
+    }
+
+    public function setPost(Post $post)
+    {
+        $this->post = $post;
+    }
+
+    public function getPost():Post
+    {
+        return $this->post;
     }
 }
