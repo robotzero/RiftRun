@@ -2,12 +2,12 @@
 
 namespace RiftRunBundle\CommandBus\Listeners;
 
-use League\Event\AbstractListener;
 use League\Event\EventInterface;
 use League\Tactician\CommandBus;
 use RiftRunBundle\CommandBus\Commands\CreatePost;
+use Symfony\Component\EventDispatcher\Event;
 
-class CreateFormListener extends AbstractListener
+class CreateFormListener
 {
     private $commandBus;
 
@@ -23,14 +23,10 @@ class CreateFormListener extends AbstractListener
      *
      * @return void
      */
-    public function handle(EventInterface $event)
+    public function handle(Event $event)
     {
-        $instanceName = 'RiftRunBundle\CommandBus\Commands\ProcessForm';
+        $processedObject = $event->getProcessedObject();
 
-        if ($event->getCommand() instanceof $instanceName) {
-            $post = $event->getCommand()->getPost();
-            $this->commandBus->handle(new CreatePost($post));
-        }
-
+        $this->commandBus->handle(new CreatePost($processedObject));
     }
 }

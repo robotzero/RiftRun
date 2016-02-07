@@ -8,11 +8,6 @@ services:
     pagerfanta_factory:
         class: RiftRunBundle\Factories\PagerfantaFactory
 
-    singletype_factory:
-        class: RiftRunBundle\Factories\SingleTypeFactory
-        calls:
-            - [ setContainer, [ '@service_container' ]]
-
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
@@ -32,9 +27,26 @@ services:
         class: RiftRunBundle\CommandBus\Handlers\ProcessFormCommandHandler
         arguments:
             - '@form.factory'
+            - '@default_event_dispatcher'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\ProcessPostForm }
+
+    fetch_single_command_handler:
+        class: RiftRunBundle\CommandBus\Handlers\FetchSingleCommandHandler
+        arguments:
+            - '@doctrine'
+            - '@jms_serializer'
+        tags:
+            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\FetchSingle }
 
     # QueryBuilder Specification
     all_posts_specification:
         class: RiftRunBundle\ORM\Specification\AllPostsSpecification
+
+    # Listeners
+    process_form_listener:
+        class: RiftRunBundle\CommandBus\Listeners\CreateFormListener
+        arguments:
+            - '@tactician.commandbus.default'
+        tags:
+            - { name: tactician.listener, event: hydrate.form, method: handle }

@@ -3,12 +3,25 @@
 namespace spec\RiftRunBundle\CommandBus\Commands;
 
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+use RiftRunBundle\Model\Character;
+use RiftRunBundle\Model\Post;
+use RiftRunBundle\Model\SearchQuery;
+use RiftRunBundle\Model\GameType;
 
 class CreatePostSpec extends ObjectBehavior
 {
+    private $post;
+
     function let()
     {
-        $this->beConstructedWith('Bundle/ExampleType', 'GET', ['variable' => 'setting']);
+        $this->post = new Post(
+            new Character(1, 2, 3, 4, 5, 6, new \DateTime('now')),
+            new SearchQuery(1, new GameType(), new \DateTime('now')),
+            new \DateTime('now')
+        );
+
+        $this->beConstructedWith($this->post);
     }
 
     function it_is_initializable()
@@ -21,18 +34,8 @@ class CreatePostSpec extends ObjectBehavior
         $this->shouldHaveType('RiftRunBundle\CommandBus\Commands\Create');
     }
 
-    function it_returns_formtype()
+    function it_returns_post_object()
     {
-        $this->getFormType()->shouldReturn('Bundle/ExampleType');
-    }
-
-    function it_returns_request_method()
-    {
-        $this->getRequestMethod()->shouldReturn('GET');
-    }
-
-    function it_returns_request_data()
-    {
-        $thi->getRequestData()->shouldReturn(['variable' => 'setting']);
+        $this->getPost()->shouldReturn($this->post);
     }
 }

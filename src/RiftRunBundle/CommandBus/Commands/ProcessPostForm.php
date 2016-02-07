@@ -54,11 +54,6 @@ class ProcessPostForm implements ProcessForm
         return $this->request;
     }
 
-    public function setPost(Post $post)
-    {
-        $this->post = $post;
-    }
-
     public function getPost():Post
     {
         return $this->post;
