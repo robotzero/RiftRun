@@ -41,7 +41,7 @@ class PostsController extends FOSRestController
     public function getPostAction(Request $request, $id)
     {
         $commandBus = $this->container->get('tactician.commandbus.default');
-        return $commandBus->handle(new FetchSingle($id, 'Post'));
+        return new Response($this->container->get('serializer')->serialize($commandBus->handle(new FetchSingle($id, 'Post')), 'json'));
     }
 
     /**

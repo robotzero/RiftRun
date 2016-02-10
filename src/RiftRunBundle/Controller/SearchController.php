@@ -3,19 +3,23 @@
 namespace RiftRunBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
+use RiftRunBundle\CommandBus\Commands\FetchSingle;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations\View;
-use FOS\RestBundle\Controller\Annotations\Post;
+use FOS\RestBundle\Controller\Annotations\Get;
 
 class SearchController extends FOSRestController
 {
     /**
      * @return array
-     * @Post("/search")
+     * @Get("/search/{id}")
      * @View()
      */
-    public function searchAction(Request $request)
+    public function searchAction(Request $request, $id)
     {
-        return [];
+        $commandBus = $this->container->get('tactician.commandbus.default');
+        $searchQuery = $commandBus->handle(new FetchSingle($id, 'SearchQuery'));
+
+        return $searchQuery;
     }
 }

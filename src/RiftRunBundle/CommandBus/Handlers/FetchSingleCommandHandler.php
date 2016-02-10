@@ -22,7 +22,6 @@ final class FetchSingleCommandHandler
     {
         $repository = $this->doctrine->getRepository('RiftRunners:' . $fetch->getRepositoryName());
 
-        $entity = $repository->findOneBy(['id' => $fetch->getResourceId()]);
-        return new Response($this->serializer->serialize($entity, 'json'));
+        return $repository->findOneBy(['id' => $fetch->getResourceId()]);
     }
 }
