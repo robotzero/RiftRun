@@ -20,6 +20,6 @@ class SearchController extends FOSRestController
         $commandBus = $this->container->get('tactician.commandbus.default');
         $searchQuery = $commandBus->handle(new FetchSingle($id, 'SearchQuery'));
 
-        return $searchQuery;
+        return $commandBus->handle(new SearchQuery($serchQuery));
     }
 }
