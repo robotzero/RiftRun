@@ -39,6 +39,13 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\FetchSingle }
 
+#    search_query_command_handler:
+#        class: RiftRunBundle\CommandBus\Handlers\SearchQueryCommandHandler
+#        arguments:
+#            - '@doctrine'
+#        tags:
+#           - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\SearchQuery }
+
     # QueryBuilder Specification
     all_posts_specification:
         class: RiftRunBundle\ORM\Specification\AllPostsSpecification

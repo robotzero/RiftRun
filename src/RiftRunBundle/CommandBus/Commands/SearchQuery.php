@@ -3,6 +3,7 @@
 namespace RiftRunBundle\CommandBus\Commands;
 
 use RiftRunBundle\Model\SearchQuery as SearchQueryObject;
+use RiftRunBundle\ORM\Specification\Specification;
 
 final class SearchQuery
 {
@@ -10,9 +11,12 @@ final class SearchQuery
 
     private $repositoryName;
 
-    public function __construct(SearchQueryObject $searchQueryObject, $repositoryName)
+    private $specification;
+
+    public function __construct(SearchQueryObject $searchQueryObject, Specification $specification, $repositoryName)
     {
         $this->searchQueryObject = $searchQueryObject;
+        $this->specification = $specification;
         $this->repositoryName = $repositoryName;
     }
 
@@ -24,5 +28,10 @@ final class SearchQuery
     public function getRepositoryName():string
     {
         return $this->repositoryName;
+    }
+
+    public function getSpecification():Specification
+    {
+        return $this->specification;
     }
 }

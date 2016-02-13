@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityRepository;
 
 class CharacterRepository extends EntityRepository
 {
-    public function match(Callable $criteria)
+    public function match(Callable $criteria, \Object $searchCriteria)
     {
         $queryBuilder = $this->createQueryBuilder('character');
 

@@ -22,6 +22,11 @@ final class FetchSingleCommandHandler
     {
         $repository = $this->doctrine->getRepository('RiftRunners:' . $fetch->getRepositoryName());
 
-        return $repository->findOneBy(['id' => $fetch->getResourceId()]);
+        $singleEntity = $repository->findOneBy(['id' => $fetch->getResourceId()]);
+
+        if (is_null($singleEntity)) {
+            throw new \Exception('Search query not found!');
+        }
+        return $singleEntity;
     }
 }

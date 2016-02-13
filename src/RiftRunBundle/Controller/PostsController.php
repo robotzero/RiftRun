@@ -10,6 +10,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use RiftRunBundle\CommandBus\Commands\FetchSingle;
 use RiftRunBundle\CommandBus\Commands\PagerfantaPaginate;
 use RiftRunBundle\CommandBus\Commands\ProcessPostForm;
+use RiftRunBundle\ORM\Specification\AllPostsSpecification;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -24,10 +25,12 @@ class PostsController extends FOSRestController
     {
         $commandBus = $this->container->get('tactician.commandbus.default');
         $collection = $commandBus->handle(new PagerfantaPaginate(
-            $request->get('page', 1),
-            $request->get('limit', 20),
-            'Post',
-            $request->get('_route'))
+                new AllPostsSpecification(),
+                null,
+                $request->get('page', 1),
+                $request->get('limit', 20),
+                'Post',
+                $request->get('_route'))
         );
 
         return new Response($this->container->get('serializer')->serialize($collection, 'json'));

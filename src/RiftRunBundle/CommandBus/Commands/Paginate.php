@@ -25,5 +25,10 @@ interface Paginate
     /**
      * @return Specification
      */
-    public function getDefaultSpecification():Specification;
+    public function getSpecification():Specification;
+
+    /**
+     * @return Object
+     */
+    public function getSearchQueryObject();
 }

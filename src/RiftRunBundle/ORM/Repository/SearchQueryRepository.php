@@ -10,4 +10,10 @@ namespace RiftRunBundle\ORM\Repository;
  */
 class SearchQueryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function match(Callable $criteria, $searchCriteria)
+    {
+        $queryBuilder = $this->createQueryBuilder('searchQuery');
+
+        return call_user_func_array($criteria, [$queryBuilder, $searchCriteria]);
+    }
 }

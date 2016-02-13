@@ -7,11 +7,13 @@ RiftRunBundle\Model\SearchQuery:
             joinColumn:
                 name: gametype_id
                 referencedColumnName: id
+            fetch: EAGER
             cascade: [ persist ]
     oneToMany:
         characterType:
             targetEntity: CharacterType
             mappedBy: searchQuery
+            fetch: EAGER
             cascade: [ persist ]
     repositoryClass: RiftRunBundle\ORM\Repository\SearchQueryRepository
     id:

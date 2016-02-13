@@ -3,11 +3,16 @@
 namespace RiftRunBundle\CommandBus\Commands;
 
 use Hateoas\Configuration\Route;
-use RiftRunBundle\ORM\Specification\AllPostsSpecification;
+use RiftRunBundle\Model\SearchQuery as SearchQueryObject;
 use RiftRunBundle\ORM\Specification\Specification;
 
 final class PagerfantaPaginate implements Paginate
 {
+    /**
+     * @var Specification
+     */
+    private $specification;
+
     /**
      * @var int
      */
@@ -28,12 +33,16 @@ final class PagerfantaPaginate implements Paginate
      */
     private $repositoryName;
 
-    public function __construct(int $page, int $limit, string $repositoryName, string $route)
+    private $searchQueryObject;
+
+    public function __construct(Specification $specification, SearchQueryObject $searchQueryObject = null, int $page, int $limit, string $repositoryName, string $route)
     {
+        $this->specification = $specification;
         $this->page = $page;
         $this->limit = $limit;
         $this->route = $route;
         $this->repositoryName = $repositoryName;
+        $this->searchQueryObject = $searchQueryObject;
     }
 
     public function getLimit():int
@@ -56,8 +65,13 @@ final class PagerfantaPaginate implements Paginate
         return $this->repositoryName;
     }
 
-    public function getDefaultSpecification():Specification
+    public function getSpecification():Specification
     {
-        return new AllPostsSpecification();
+        return $this->specification;
+    }
+
+    public function getSearchQueryObject()
+    {
+        return $this->searchQueryObject;
     }
 }

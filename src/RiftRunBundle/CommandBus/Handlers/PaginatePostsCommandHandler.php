@@ -20,7 +20,7 @@ final class PaginatePostsCommandHandler
     public function handle(Paginate $paginate)
     {
         $repository = $this->doctrine->getRepository('RiftRunners:' . $paginate->getRepositoryName());
-        $queryBuilder = $repository->match($paginate->getDefaultSpecification(), null);
+        $queryBuilder = $repository->match($paginate->getSpecification(), $paginate->getSearchQueryObject());
         $pagerfanta = $this->pagerfantaFactory->getPagerfanta($queryBuilder);
 
         $pagerfanta->setMaxPerPage($paginate->getLimit());
