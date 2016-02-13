@@ -10,7 +10,7 @@ default:
         default:
             contexts:
                 - Test\Integration\Context\ApiContext:
-                    doctrine: @doctrine
+                    doctrine: '@doctrine'
                 # - Test\Integration\Context\CreateContext:
                 #     container: @service_container
         # get:
