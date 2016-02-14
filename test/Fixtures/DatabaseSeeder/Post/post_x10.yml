@@ -7,20 +7,21 @@ include:
 
 RiftRunBundle\Model\Character:
     monks{1..10} (extends character):
-        type: 'monk'
+        __construct: ['monk', <{paragonPoints}>, <{battleTag}>, <{region}>, <{seasonal}>, <{gameType}>, <{createdAt}>]
 
 RiftRunBundle\Model\CharacterType:
     charactertypes{1..10} (extends charactertype):
-        searchQuery: @searchqueries<current()>
+        __construct: [<{type}>]
+        searchQuery: '@searchqueries<current()>'
 
 RiftRunBundle\Model\Grift:
-    grifts{1..10} (extends grift): []
+    grifts{1..10} (extends grift):
+        __construct: [<{level}>]
 
 RiftRunBundle\Model\SearchQuery:
     searchqueries{1..10} (extends searchquery):
-        game: @grifts<current()>
+        __construct: [<{minParagon}>, '@grifts<current()>', <{createdAt}>]
 
 RiftRunBundle\Model\Post:
     posts{1..10} (extends post):
-        player: @monks<current()>
-        query:  @searchqueries<current()>
+        __construct: ['@monks<current()>', '@searchqueries<current()>', "<dateTimeBetween('-26 days', 'now')>"]

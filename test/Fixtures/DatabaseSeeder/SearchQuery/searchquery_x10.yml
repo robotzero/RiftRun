@@ -3,5 +3,5 @@ include:
 
 RiftRunBundle\Model\SearchQuery:
     searchqueries{1..10} (extends searchquery):
-        gameType: @grifts<current()>
-        lookingFor: [@characterclasses<current()>]
+        __construct: [<{minParagon}>, @grifts<current()>, <{createdAt}>]
+        lookingFor: ['@characterclasses<current()>']

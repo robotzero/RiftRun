@@ -3,6 +3,7 @@ namespace DevHelperBundle\Factories;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Nelmio\Alice\Fixtures;
+use Nelmio\Alice\Persister\Doctrine;
 
 final class AliceLoaderFactory implements LoaderFactory
 {
@@ -21,6 +22,6 @@ final class AliceLoaderFactory implements LoaderFactory
      */
     public function getLoader()
     {
-        return new Fixtures($this->entityManager);
+        return new Fixtures(new Doctrine($this->entityManager));
     }
 }

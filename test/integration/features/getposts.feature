@@ -35,9 +35,9 @@ Scenario: Returning a collection of posts from a first page
         And the "query.game.type" property is a string
         And scope into the "_links.self" property
             And the "href" property exists
-            And the "href" property is a string equalling "http://localhost/v1/posts?page=1&limit=20"
+            And the "href" property is a string equalling "/v1/posts?page=1&limit=20"
 
-Scenario Outline: Returning default paginated collection of wizards
+Scenario Outline: Returning default paginated collection of posts
 
      When I request "GET /v1/posts" with parameters <params>
      Then I get a "200" response
@@ -59,8 +59,8 @@ Scenario Outline: Returning default paginated collection of wizards
 
     Examples:
         | params             |  page  | pages   | items | self                                           | first                                         | next                                       |
-        | "?page=15&limit=5" | "15"   | "200"   | 5     | "http://localhost/v1/posts?page=15&limit=5"  | "http://localhost/v1/posts?page=1&limit=5" |  "http://localhost/v1/posts?page=16&limit=5"    |
-        | "?page=10"         | "10"   | "50"    | 20    | "http://localhost/v1/posts?page=10&limit=20" | "http://localhost/v1/posts?page=1&limit=20" |  "http://localhost/v1/posts?page=11&limit=20"  |
+        | "?page=15&limit=5" | "15"   | "200"   | 5     | "/v1/posts?page=15&limit=5"  | "/v1/posts?page=1&limit=5" |  "/v1/posts?page=16&limit=5"    |
+        | "?page=10"         | "10"   | "50"    | 20    | "/v1/posts?page=10&limit=20" | "/v1/posts?page=1&limit=20" |  "/v1/posts?page=11&limit=20"  |
 
 Scenario: Returning a single post
     When I request "GET /v1/posts/1"
@@ -94,7 +94,7 @@ Scenario: Returning a single post
             And the "type" property is a string
     And scope into the "_links.self" property
         And the "href" property exists
-        And the "href" property is a string equalling "http://localhost/v1/posts/1"
+        And the "href" property is a string equalling "/v1/posts/1"
 
 Scenario: Do not show posts older than a 30 days.
     Given I have at least 10 posts older than a month

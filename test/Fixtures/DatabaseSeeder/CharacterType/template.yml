@@ -1,3 +1,6 @@
+parameters:
+    type: "demon hunter"
+
 RiftRunBundle\Model\CharacterType:
     charactertype (template):
-        type: 'dh'
+        __construct: false

@@ -16,7 +16,7 @@ final class AllPostsSpecification implements Specification
                      ->innerJoin('q.characterType', 'ct')
                      ->orderBy('posts.createdAt', 'desc')
                      ->add('where', 'posts.createdAt > :createdAt')
-                     ->setParameter('createdAt', new \DateTime('-5 months'), \Doctrine\DBAL\Types\Type::DATETIME);
+                     ->setParameter('createdAt', new \DateTime('-1 month'), \Doctrine\DBAL\Types\Type::DATETIME);
 
         return $queryBuilder;
     }

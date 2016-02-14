@@ -24,6 +24,7 @@ final class FetchSingleCommandHandler
 
         $singleEntity = $repository->findOneBy(['id' => $fetch->getResourceId()]);
 
+        //@TODO Change to 400 bad request exception.
         if (is_null($singleEntity)) {
             throw new \Exception('Search query not found!');
         }
