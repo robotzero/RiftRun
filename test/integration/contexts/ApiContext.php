@@ -170,7 +170,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function IRequestsWithDefaultValues($httpMethod, $resource)
     {
         $table = $this->postPayload;
-
+        
         $this->client->followRedirects(true);
 
         $this->crawler = $this->client->request(
