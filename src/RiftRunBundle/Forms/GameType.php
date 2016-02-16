@@ -10,7 +10,7 @@ abstract class GameType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\Model\GameType',
+            'data_class' => 'RiftRunBundle\DTO\GameTypeDTO',
             'csrf_protection' => false,
         ));
     }

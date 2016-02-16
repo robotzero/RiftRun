@@ -5,20 +5,20 @@ Background: Correct payload
         | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1           | char2      | char3 | char4 | char5        |
         | demon hunter| 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | demon hunter    | barbarian  | wizard| monk  | witch doctor |
 
-Scenario: I can create new post
-    When I request "POST v1/posts" with payload
-    And the properties exist:
-        """
-        id
-        """
+#Scenario: I can create new post
+#    When I request "POST v1/posts" with payload
+#    And the properties exist:
+#        """
+#        id
+#        """
 
-#Scenario Outline: Wrong object
-#    When the obj <object> has set <item> to <value>
-#    And  I request "POST v1/posts" with payload
-#    Then I get a "400" response
-#    Examples:
-#        | object           | item               | value     |
-#        | "player"         | "type"             | "missing" |
+Scenario Outline: Wrong object
+    When the obj <object> has set <item> to <value>
+    And  I request "POST v1/posts" with payload
+    Then I get a "400" response
+    Examples:
+        | object           | item               | value     |
+        | "player"         | "type"             | "missing" |
 #        | "player"         | "type"             | 1         |
 #        | "player"         | "type"             | "null"    |
 #        | "player"         | "type"             | "false"   |

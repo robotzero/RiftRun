@@ -2,6 +2,7 @@
 
 namespace RiftRunBundle\Forms;
 
+use RiftRunBundle\DTO\SearchQueryDTO;
 use RiftRunBundle\Model\SearchQuery;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -31,14 +32,20 @@ class SearchQueryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\Model\SearchQuery',
-            'empty_data' => function (FormInterface $form) {
-                return new SearchQuery(
-                    $form->get('minParagon')->getData(),
-                    $form->get('game')->getData(),
-                    new \DateTime('now')
-                );
-            },
+            'data_class' => 'RiftRunBundle\DTO\SearchQueryDTO',
+//            'empty_data' => function (FormInterface $form) {
+//                $searchQueryDTO = new SearchQueryDTO();
+//                $searchQueryDTO->minParagon = $form->get('minParagon')->getData();
+//                $searchQueryDTO->game = $form->get('game')->getData();
+//                $searchQueryDTO->createdAt = new \DateTime('now');
+//
+//                return $searchQueryDTO;
+//                return new SearchQuery(
+//                    $form->get('minParagon')->getData(),
+//                    $form->get('game')->getData(),
+//                    new \DateTime('now')
+//                );
+//            },
             'csrf_protection' => false,
             'cascade_validation' => true
         ));

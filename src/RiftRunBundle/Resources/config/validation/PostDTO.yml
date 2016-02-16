@@ -1,0 +1,12 @@
+RiftRunBundle\DTO\PostDTO:
+    properties:
+        player:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object
+        query:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object

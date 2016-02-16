@@ -24,8 +24,6 @@ class ProcessPostForm implements ProcessForm
      */
     private $requestData;
 
-    private $post;
-
     public function __construct(Request $request, string $formType, string $requestMethod, array $requestData)
     {
         $this->request = $request;
@@ -52,10 +50,5 @@ class ProcessPostForm implements ProcessForm
     public function getRequest():Request
     {
         return $this->request;
-    }
-
-    public function getPost():Post
-    {
-        return $this->post;
     }
 }

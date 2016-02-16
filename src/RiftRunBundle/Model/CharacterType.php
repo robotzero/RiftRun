@@ -17,11 +17,6 @@ class CharacterType
      */
     private $type;
 
-    /**
-     * @var \RiftRunBundle\Model\SearchQuery
-     */
-    private $searchQuery;
-
     public function __construct(string $type)
     {
         $this->type = $type;
@@ -46,28 +41,4 @@ class CharacterType
     {
         return $this->type;
     }
-
-    /**
-     * Set searchQuery
-     *
-     * @param \RiftRunBundle\Model\SearchQuery $searchQuery
-     *
-     * @return CharacterType
-     */
-//    public function setSearchQuery(\RiftRunBundle\Model\SearchQuery $searchQuery = null)
-//    {
-//        $this->searchQuery = $searchQuery;
-//
-//        return $this;
-//    }
-
-    /**
-     * Get searchQuery
-     *
-     * @return \RiftRunBundle\Model\SearchQuery
-     */
-//    public function getSearchQuery()
-//    {
-//        return $this->searchQuery;
-//    }
 }

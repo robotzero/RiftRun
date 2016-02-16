@@ -2,6 +2,7 @@
 
 namespace RiftRunBundle\Forms;
 
+use RiftRunBundle\DTO\CharacterTypeDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,12 +20,15 @@ class CharacterTypeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\Model\CharacterType',
-            'empty_data' => function (FormInterface $form) {
-                return new ModelCharacterType(
-                    $form->get('type')->getData()
-                );
-            },
+            'data_class' => 'RiftRunBundle\DTO\CharacterTypeDTO',
+//            'empty_data' => function (FormInterface $form) {
+//                $characterTypeDTO = new CharacterTypeDTO();
+//                $characterTypeDTO->type = $form->get('type')->getData();
+//                return $characterTypeDTO;
+//                return new ModelCharacterType(
+//                    $form->get('type')->getData()
+//                );
+//            },
             'csrf_protection' => false,
         ));
     }

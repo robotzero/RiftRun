@@ -27,7 +27,7 @@ final class ProcessFormCommandHandler
             ['method' => $processForm->getRequestMethod()]
         );
 
-        $form->submit($processForm->getRequest()->request->all(), false);
+        $form->submit($processForm->getRequest()->request->all(), true);
 
         if ($form->isValid() === false) {
             $iterator = $form->getErrors(true, true);

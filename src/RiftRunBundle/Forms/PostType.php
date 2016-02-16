@@ -2,6 +2,7 @@
 
 namespace RiftRunBundle\Forms;
 
+use RiftRunBundle\DTO\PostDTO;
 use RiftRunBundle\Model\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -31,16 +32,9 @@ class PostType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\Model\Post',
-            'empty_data' => function (FormInterface $form) {
-                return new Post(
-                    $form->get('player')->getData(),
-                    $form->get('query')->getData(),
-                    new \DateTime('now')
-                );
-            },
+            'data_class' => 'RiftRunBundle\DTO\PostDTO',
             'csrf_protection' => false,
-            'cascade_validation' => false
+            'cascade_validation' => true
         ));
     }
 

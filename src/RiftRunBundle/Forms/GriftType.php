@@ -2,6 +2,7 @@
 
 namespace RiftRunBundle\Forms;
 
+use RiftRunBundle\DTO\GriftDTO;
 use RiftRunBundle\Model\Grift;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,12 +21,16 @@ class GriftType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\Model\Grift',
-            'empty_data' => function (FormInterface $form) {
-                return new Grift(
-                    $form->get('level')->getData()
-                );
-            },
+            'data_class' => 'RiftRunBundle\DTO\GriftDTO',
+//            'empty_data' => function (FormInterface $form) {
+//                $griftDTO = new GriftDTO();
+//                $griftDTO->level = $form->get('level')->getData();
+//
+//                return $griftDTO;
+//                return new Grift(
+//                    $form->get('level')->getData()
+//                );
+//            },
             'csrf_protection' => false,
         ));
     }
