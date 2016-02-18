@@ -2,7 +2,9 @@
 
 namespace RiftRunBundle\CommandBus\Commands;
 
+use RiftRunBundle\DTO\DTO;
+
 interface Adapter
 {
-    public function transform($data):\Object;
+    public function getDTO():DTO;
 }

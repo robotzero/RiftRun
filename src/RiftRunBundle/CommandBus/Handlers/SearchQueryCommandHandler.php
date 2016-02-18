@@ -4,7 +4,7 @@ namespace RiftRunBundle\CommandBus\Handlers;
 
 use RiftRunBundle\CommandBus\Commands\SearchQuery;
 
-class SearchQueryCommandHandler
+final class SearchQueryCommandHandler implements CommandHandler
 {
     private $doctrine;
 

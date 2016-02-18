@@ -2,7 +2,7 @@
 
 namespace RiftRunBundle\DTO;
 
-class CharacterTypeDTO
+class CharacterTypeDTO implements DTO
 {
     /**
      * @var string

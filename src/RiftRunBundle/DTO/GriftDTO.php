@@ -2,7 +2,7 @@
 
 namespace RiftRunBundle\DTO;
 
-class GriftDTO
+class GriftDTO implements DTO
 {
     /**
      * @var string

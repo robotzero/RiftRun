@@ -8,7 +8,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-final class ProcessFormCommandHandler
+final class ProcessFormCommandHandler implements CommandHandler
 {
     private $formFactory;
     private $eventDispatcher;

@@ -39,12 +39,10 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\FetchSingle }
 
-#    search_query_command_handler:
-#        class: RiftRunBundle\CommandBus\Handlers\SearchQueryCommandHandler
-#        arguments:
-#            - '@doctrine'
-#        tags:
-#           - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\SearchQuery }
+    transform_dto_to_model_command_handler:
+        class: RiftRunBundle\CommandBus\Handlers\TransformDTOModelCommandHandler
+        tags:
+            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\DTOAdapter }
 
     # QueryBuilder Specification
     all_posts_specification:

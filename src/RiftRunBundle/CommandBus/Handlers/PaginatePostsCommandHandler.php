@@ -5,7 +5,7 @@ namespace RiftRunBundle\CommandBus\Handlers;
 use RiftRunBundle\CommandBus\Commands\Paginate;
 use RiftRunBundle\Factories\Factory;
 
-final class PaginatePostsCommandHandler
+final class PaginatePostsCommandHandler implements CommandHandler
 {
     private $doctrine;
 

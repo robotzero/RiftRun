@@ -2,7 +2,7 @@
 
 namespace RiftRunBundle\DTO;
 
-class PostDTO
+class PostDTO implements DTO
 {
     /**
      * @var \DateTime

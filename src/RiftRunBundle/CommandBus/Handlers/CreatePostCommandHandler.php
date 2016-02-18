@@ -5,7 +5,7 @@ namespace RiftRunBundle\CommandBus\Handlers;
 use Doctrine\ORM\EntityManagerInterface;
 use RiftRunBundle\CommandBus\Commands\Create;
 
-final class CreatePostCommandHandler
+final class CreatePostCommandHandler implements CommandHandler
 {
     /** @var EntityManagerInterface */
     private $entityManager;

@@ -63,6 +63,7 @@ class PostsController extends FOSRestController
             $request->request->all()
         ));
 
+        return [];
         return new Response(json_encode(['id' => $createdResource->getId()]), 201);
     }
 

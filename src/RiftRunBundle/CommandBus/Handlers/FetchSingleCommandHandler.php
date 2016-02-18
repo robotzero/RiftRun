@@ -4,9 +4,8 @@ namespace RiftRunBundle\CommandBus\Handlers;
 
 use JMS\Serializer\SerializerInterface;
 use RiftRunBundle\CommandBus\Commands\Fetch;
-use Symfony\Component\HttpFoundation\Response;
 
-final class FetchSingleCommandHandler
+final class FetchSingleCommandHandler implements CommandHandler
 {
     private $doctrine;
 

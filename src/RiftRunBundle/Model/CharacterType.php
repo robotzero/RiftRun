@@ -13,6 +13,11 @@ class CharacterType
     private $id;
 
     /**
+     * @var RiftRunBundle\CommandBus\Commands\SearchQuery;
+     */
+    private $searchQuery;
+
+    /**
      * @var string
      */
     private $type;

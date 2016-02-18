@@ -2,7 +2,7 @@
 
 namespace RiftRunBundle\DTO;
 
-class SearchQueryDTO
+class SearchQueryDTO implements DTO
 {
     /**
      * @var integer

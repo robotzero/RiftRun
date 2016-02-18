@@ -4,7 +4,7 @@ namespace RiftRunBundle\CommandBus\Listeners;
 
 use League\Event\EventInterface;
 use League\Tactician\CommandBus;
-use RiftRunBundle\CommandBus\Commands\CreatePost;
+use RiftRunBundle\CommandBus\Commands\DTOAdapter;
 use Symfony\Component\EventDispatcher\Event;
 
 class CreateFormListener
@@ -27,6 +27,6 @@ class CreateFormListener
     {
         $processedObject = $event->getProcessedObject();
 
-        $this->commandBus->handle(new CreatePost($processedObject));
+        $this->commandBus->handle(new DTOAdapter($processedObject));
     }
 }
