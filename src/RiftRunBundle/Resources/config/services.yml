@@ -29,7 +29,6 @@ services:
         class: RiftRunBundle\CommandBus\Handlers\FetchSingleCommandHandler
         arguments:
             - '@doctrine'
-            - '@jms_serializer'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\FetchSingle }
 

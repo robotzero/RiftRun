@@ -13,7 +13,8 @@ Scenario: I can create new post
         searchQueryId
         """
     Then I get a "201" response
-    #And the "id" property is an integer equalling "id" of object in the database
+    And the "postId" property is an integer equalling id of object in the "Post" database
+    And the "searchQueryId" property is an integer equalling id of object in the "SearchQuery" database
 
 Scenario Outline: Wrong object
     When the obj <object> has set <item> to <value>

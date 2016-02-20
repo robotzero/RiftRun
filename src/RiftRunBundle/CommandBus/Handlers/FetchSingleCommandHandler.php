@@ -2,19 +2,15 @@
 
 namespace RiftRunBundle\CommandBus\Handlers;
 
-use JMS\Serializer\SerializerInterface;
 use RiftRunBundle\CommandBus\Commands\Fetch;
 
 final class FetchSingleCommandHandler implements CommandHandler
 {
     private $doctrine;
 
-    private $serializer;
-
-    public function __construct($doctrine, SerializerInterface $serializer)
+    public function __construct($doctrine)
     {
         $this->doctrine = $doctrine;
-        $this->serializer = $serializer;
     }
 
     public function handle(Fetch $fetch)
@@ -25,7 +21,7 @@ final class FetchSingleCommandHandler implements CommandHandler
 
         //@TODO Change to 400 bad request exception.
         if (is_null($singleEntity)) {
-            throw new \Exception('Search query not found!');
+            throw new \Exception('Object not found!');
         }
         return $singleEntity;
     }

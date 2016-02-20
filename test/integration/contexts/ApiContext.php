@@ -16,8 +16,10 @@ use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Behat\WebApiExtension\Context\WebApiContext;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\CreateSchema;
+use DevHelperBundle\Command\Commands\GetValueFromDatabase;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
+use RiftRunBundle\CommandBus\Commands\FetchSingle;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpKernel\KernelInterface;
 use TableNode\Extension\NestedTableNode;
@@ -489,20 +491,22 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @Given /^the "([^"]*)" property is an integer equalling "([^"]*)" of object in the database$/
+     * @Given /^the "([^"]*)" property is an integer equalling id of object in the "([^"]*)" database$/
      */
-    public function thePropertyIsAnIntegerInTheDatabase($property, $databaseProperty)
+    public function thePropertyIsAnIntegerEquallingIdOfObjectInTheDatabase($property, $repositoryName)
     {
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
-        $this->thePropertyIsAnInteger($property);
-        $expectedValue = $this->dbGet($payload, $databaseProperty);
 
-//        assertSame(
-//            $actualValue,
-//            (int) $expectedValue,
-//            "Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
-//        );
+        $this->thePropertyIsAnInteger($property);
+        $object = $this->dbGet($actualValue, $repositoryName);
+        $expectedValue = $object->getId();
+
+        assertSame(
+            $actualValue,
+            (int) $expectedValue,
+            "Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
+        );
     }
 
     public function resetScope()
@@ -570,6 +574,15 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         }
 
         return $arr;
+    }
+
+    private function dbGet($id, $repositoryName)
+    {
+        if (self::$commandBus === null) {
+            throw new \Exception("Test Application Context is not booted!");
+        }
+
+        return self::$commandBus->handle(new FetchSingle($id, $repositoryName));
     }
 
     /** @BeforeFeature */
