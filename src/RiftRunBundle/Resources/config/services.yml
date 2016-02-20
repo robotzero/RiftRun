@@ -1,7 +1,4 @@
 services:
-    tactitian.middleware.event_emmiter:
-        class: League\Tactician\CommandEvents\EventMiddleware
-
     pagerfanta_factory_library:
         class: Hateoas\Representation\Factory\PagerfantaFactory
 
