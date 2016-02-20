@@ -45,18 +45,3 @@ services:
     # QueryBuilder Specification
     all_posts_specification:
         class: RiftRunBundle\ORM\Specification\AllPostsSpecification
-
-    # Listeners
-    process_form_listener:
-        class: RiftRunBundle\CommandBus\Listeners\CreateFormListener
-        arguments:
-            - '@tactician.commandbus.default'
-        tags:
-            - { name: tactician.listener, event: hydrate.form, method: handle }
-
-    process_dto_listener:
-        class: RiftRunBundle\CommandBus\Listeners\ProcessDTOListener
-        arguments:
-            - '@tactician.commandbus.default'
-        tags:
-            - { name: tactician.listener, event: process.dto, method: handle }
