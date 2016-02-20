@@ -18,7 +18,7 @@ Scenario Outline: Wrong object
     Then I get a "400" response
     Examples:
         | object           | item               | value     |
-        | "player"         | "type"             | "missing" |
+#        | "player"         | "type"             | "missing" |
 #        | "player"         | "type"             | 1         |
 #        | "player"         | "type"             | "null"    |
 #        | "player"         | "type"             | "false"   |
@@ -119,7 +119,7 @@ Scenario Outline: Wrong object
 #        | "query"            | "game"             | "true"    |
 #        | "query"            | "game"             | ""        |
 #        | "query"            | "game"             | "  "      |
-#        | "game"             | "level"            | "missing" |
+        | "game"             | "level"            | "missing" |
 #        | "game"             | "level"            | "blabla"  |
 #        | "game"             | "level"            | 0         |
 #        | "game"             | "level"            | "-0"      |

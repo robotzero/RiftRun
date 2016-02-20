@@ -34,8 +34,6 @@ final class ProcessFormCommandHandler implements CommandHandler
             throw new BadRequestHttpException('Invalid form ' . (string) $iterator);
         }
 
-        $this->eventDispatcher->dispatch('hydrate.form', new PostFormEvent($form->getData()));
-
-        return $form->getData();
+        return $this->eventDispatcher->dispatch('hydrate.form', new PostFormEvent($form->getData()));
     }
 }

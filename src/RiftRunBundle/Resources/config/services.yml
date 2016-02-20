@@ -41,6 +41,8 @@ services:
 
     transform_dto_to_model_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\TransformDTOModelCommandHandler
+        arguments:
+            - '@default_event_dispatcher'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\DTOAdapter }
 
@@ -55,3 +57,10 @@ services:
             - '@tactician.commandbus.default'
         tags:
             - { name: tactician.listener, event: hydrate.form, method: handle }
+
+    process_dto_listener:
+        class: RiftRunBundle\CommandBus\Listeners\ProcessDTOListener
+        arguments:
+            - '@tactician.commandbus.default'
+        tags:
+            - { name: tactician.listener, event: process.dto, method: handle }

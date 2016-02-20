@@ -3,7 +3,6 @@
 namespace spec\RiftRunBundle\CommandBus\Handlers;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use RiftRunBundle\CommandBus\Commands\DTOAdapter;
 use RiftRunBundle\DTO\CharacterDTO;
 use RiftRunBundle\DTO\CharacterTypeDTO;
@@ -41,6 +40,7 @@ class TransformDTOModelCommandHandlerSpec extends ObjectBehavior
         $searchQueryDTO->characterType = $characterTypes;
 
         $characterDTO->type = 'wizard';
+        $characterDTO->paragonPoints = 123;
         $characterDTO->region = 'EU';
         $characterDTO->battleTag = '#2000';
         $characterDTO->seasonal = 1;
@@ -51,8 +51,6 @@ class TransformDTOModelCommandHandlerSpec extends ObjectBehavior
 
         $adapter = new DTOAdapter($postDTO);
 
-        $result = $this->handle($adapter)->shouldReturn(Argument::type('RiftRunBundle\Model\Post'));
-
-        print_r($result);
+        $this->handle($adapter)->shouldReturnAnInstanceOf('RiftRunBundle\Model\Post');
     }
 }

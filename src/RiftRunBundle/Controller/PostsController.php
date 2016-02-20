@@ -56,15 +56,14 @@ class PostsController extends FOSRestController
     {
         $commandBus = $this->container->get('tactician.commandbus.default');
 
-        $createdResource = $commandBus->handle(new ProcessPostForm(
+        $commandBus->handle(new ProcessPostForm(
             $request,
             'RiftRunBundle\Forms\PostType',
             $request->getMethod(),
             $request->request->all()
         ));
-
-        return [];
-        return new Response(json_encode(['id' => $createdResource->getId()]), 201);
+        //@TODO return proper id of created object.
+        return new Response(json_encode(['id' => 0]), 201);
     }
 
     /**
