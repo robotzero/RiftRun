@@ -22,15 +22,6 @@ class GriftType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\DTO\GriftDTO',
-//            'empty_data' => function (FormInterface $form) {
-//                $griftDTO = new GriftDTO();
-//                $griftDTO->level = $form->get('level')->getData();
-//
-//                return $griftDTO;
-//                return new Grift(
-//                    $form->get('level')->getData()
-//                );
-//            },
             'csrf_protection' => false,
         ));
     }

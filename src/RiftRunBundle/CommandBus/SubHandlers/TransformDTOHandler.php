@@ -1,28 +1,20 @@
 <?php
 
-namespace RiftRunBundle\CommandBus\Handlers;
+namespace RiftRunBundle\CommandBus\SubHandlers;
 
-use RiftRunBundle\CommandBus\Commands\Adapter;
-use RiftRunBundle\CommandBus\Events\PostDTOEvent;
+use RiftRunBundle\CommandBus\Handlers\CommandHandler;
+use RiftRunBundle\DTO\DTO;
 use RiftRunBundle\Model\Character;
 use RiftRunBundle\Model\CharacterType;
 use RiftRunBundle\Model\Grift;
 use RiftRunBundle\Model\Post;
 use RiftRunBundle\Model\SearchQuery;
 
-final class TransformDTOModelCommandHandler implements CommandHandler
+final class TransformDTOHandler implements CommandHandler
 {
-    private $eventDispatcher;
-
-    public function __construct($eventDispatcher)
-    {
-        $this->eventDispatcher = $eventDispatcher;
-    }
-
-    public function handle(Adapter $adapter)
+    public function handle(DTO $dto)
     {
         $currentDate = new \DateTime('now');
-        $dto = $adapter->getDTO();
 
         $searchQueryDTO = $dto->query;
         $gameTypeDTO = $searchQueryDTO->game;
@@ -44,8 +36,6 @@ final class TransformDTOModelCommandHandler implements CommandHandler
             $currentDate
         );
 
-        $post = new Post($player, $searchQuery, $currentDate);
-
-        $this->eventDispatcher->dispatch('process.dto', new PostDTOEvent($post));
+        return new Post($player, $searchQuery, $currentDate);
     }
 }

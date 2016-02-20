@@ -12,6 +12,8 @@ services:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
             - '@doctrine.orm.entity_manager'
+            - '@process_form_subhandler'
+            - '@transform_dto_subhandler'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 
@@ -23,14 +25,6 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate }
 
-    process_form_command_handler:
-        class: RiftRunBundle\CommandBus\Handlers\ProcessFormCommandHandler
-        arguments:
-            - '@form.factory'
-            - '@default_event_dispatcher'
-        tags:
-            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\ProcessPostForm }
-
     fetch_single_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\FetchSingleCommandHandler
         arguments:
@@ -39,12 +33,14 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\FetchSingle }
 
-    transform_dto_to_model_command_handler:
-        class: RiftRunBundle\CommandBus\Handlers\TransformDTOModelCommandHandler
+    # Subhandlers
+    process_form_subhandler:
+        class: RiftRunBundle\CommandBus\SubHandlers\ProcessFormHandler
         arguments:
-            - '@default_event_dispatcher'
-        tags:
-            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\DTOAdapter }
+            - '@form.factory'
+
+    transform_dto_subhandler:
+        class: RiftRunBundle\CommandBus\SubHandlers\TransformDTOHandler
 
     # QueryBuilder Specification
     all_posts_specification:

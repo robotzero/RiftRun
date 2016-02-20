@@ -7,6 +7,7 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
+use RiftRunBundle\CommandBus\Commands\CreatePost;
 use RiftRunBundle\CommandBus\Commands\FetchSingle;
 use RiftRunBundle\CommandBus\Commands\PagerfantaPaginate;
 use RiftRunBundle\CommandBus\Commands\ProcessPostForm;
@@ -56,14 +57,13 @@ class PostsController extends FOSRestController
     {
         $commandBus = $this->container->get('tactician.commandbus.default');
 
-        $commandBus->handle(new ProcessPostForm(
-            $request,
+        $post = $commandBus->handle(new CreatePost(
             'RiftRunBundle\Forms\PostType',
             $request->getMethod(),
             $request->request->all()
         ));
-        //@TODO return proper id of created object.
-        return new Response(json_encode(['id' => 0]), 201);
+
+        return new Response(json_encode(['postId' => $post->getId(), 'searchQueryId' => $post->getQuery()->getId()]), 201);
     }
 
     /**

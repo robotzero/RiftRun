@@ -488,6 +488,23 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         assertTrue($oldCreatedAt < $createdAt);
     }
 
+    /**
+     * @Given /^the "([^"]*)" property is an integer equalling "([^"]*)" of object in the database$/
+     */
+    public function thePropertyIsAnIntegerInTheDatabase($property, $databaseProperty)
+    {
+        $payload = $this->getScopePayload();
+        $actualValue = $this->arrayGet($payload, $property);
+        $this->thePropertyIsAnInteger($property);
+        $expectedValue = $this->dbGet($payload, $databaseProperty);
+
+//        assertSame(
+//            $actualValue,
+//            (int) $expectedValue,
+//            "Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
+//        );
+    }
+
     public function resetScope()
     {
         $this->scope = null;
