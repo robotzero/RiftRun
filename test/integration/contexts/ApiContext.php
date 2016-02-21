@@ -491,16 +491,22 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @Given /^the "([^"]*)" property is an integer equalling id of object in the "([^"]*)" database$/
+     * @Given /^the "([^"]*)" property has "([^"]*)" property with "([^"]*)" getter equalling id of object in the "([^"]*)" database$/
      */
-    public function thePropertyIsAnIntegerEquallingIdOfObjectInTheDatabase($property, $repositoryName)
+    public function thePropertyHasPropertyWithGetterEquallingIdOfObjectInTheDatabase($property, $searchProperty, $getter, $repositoryName)
     {
         $payload = $this->getScopePayload();
-        $actualValue = $this->arrayGet($payload, $property);
+        $parentValue = $this->arrayGet($payload, $property);
+
+        $actualValue = $this->arrayGet($payload, $searchProperty);
 
         $this->thePropertyIsAnInteger($property);
-        $object = $this->dbGet($actualValue, $repositoryName);
-        $expectedValue = $object->getId();
+        $this->thePropertyIsAnInteger($searchProperty);
+
+        $object = $this->dbGet($parentValue, $repositoryName);
+
+        $searchedObject = $object->$getter();
+        $expectedValue = $searchedObject->getId();
 
         assertSame(
             $actualValue,
