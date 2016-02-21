@@ -87,6 +87,8 @@ fos_rest:
         include_format: false
     serializer:
         serialize_null: true
+    exception:
+        enabled: true
 
 jms_serializer:
     metadata:

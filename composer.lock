@@ -590,12 +590,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504"
+                "reference": "e1c618b2333fb6fe8b0a1f6ba905b6bfad7c83d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
-                "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/e1c618b2333fb6fe8b0a1f6ba905b6bfad7c83d1",
+                "reference": "e1c618b2333fb6fe8b0a1f6ba905b6bfad7c83d1",
                 "shasum": ""
             },
             "require": {
@@ -670,7 +670,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2016-01-26 17:28:51"
+            "time": "2016-02-17 16:49:03"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -910,12 +910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "788143dc0313c7522820ebf6057f73881e7190a3"
+                "reference": "aef8f63dd027e61ef5fb41d337e51229f68cb371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/788143dc0313c7522820ebf6057f73881e7190a3",
-                "reference": "788143dc0313c7522820ebf6057f73881e7190a3",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/aef8f63dd027e61ef5fb41d337e51229f68cb371",
+                "reference": "aef8f63dd027e61ef5fb41d337e51229f68cb371",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +981,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-01-26 22:00:55"
+            "time": "2016-02-19 11:38:00"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -989,12 +989,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "89edb3309e39348a7ddc8dfca1f9d62529430b83"
+                "reference": "3364f440c068028f766e8707ed911f16371b4cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/89edb3309e39348a7ddc8dfca1f9d62529430b83",
-                "reference": "89edb3309e39348a7ddc8dfca1f9d62529430b83",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/3364f440c068028f766e8707ed911f16371b4cfd",
+                "reference": "3364f440c068028f766e8707ed911f16371b4cfd",
                 "shasum": ""
             },
             "require": {
@@ -1065,7 +1065,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2016-02-05 16:31:52"
+            "time": "2016-02-14 13:32:34"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1073,12 +1073,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "08be3017f45cea64d6f10ec1c67c39c96f1e8ac3"
+                "reference": "86acd5f4dc6fc0548dec78b0863906daa372098a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/08be3017f45cea64d6f10ec1c67c39c96f1e8ac3",
-                "reference": "08be3017f45cea64d6f10ec1c67c39c96f1e8ac3",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/86acd5f4dc6fc0548dec78b0863906daa372098a",
+                "reference": "86acd5f4dc6fc0548dec78b0863906daa372098a",
                 "shasum": ""
             },
             "require": {
@@ -1144,7 +1144,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2016-02-03 08:59:26"
+            "time": "2016-02-18 11:35:35"
         },
         {
             "name": "hautelook/templated-uri-bundle",
@@ -1713,16 +1713,16 @@
         },
         {
             "name": "league/tactician",
-            "version": "1.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/tactician.git",
-                "reference": "041299a7b49f45632c87e9cb335f93cd06a52703"
+                "reference": "1f3aaad497f07a8bef147a37c7e3f2f7c23fcd21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/041299a7b49f45632c87e9cb335f93cd06a52703",
-                "reference": "041299a7b49f45632c87e9cb335f93cd06a52703",
+                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/1f3aaad497f07a8bef147a37c7e3f2f7c23fcd21",
+                "reference": "1f3aaad497f07a8bef147a37c7e3f2f7c23fcd21",
                 "shasum": ""
             },
             "require": {
@@ -1760,7 +1760,7 @@
                 "command bus",
                 "service layer"
             ],
-            "time": "2015-12-31 11:41:09"
+            "time": "2016-02-20 11:14:36"
         },
         {
             "name": "league/tactician-bundle",
@@ -2019,12 +2019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "5d9c47bbad2e064340cabfd3f96f5057a80773c4"
+                "reference": "07545629aa99441cfec1c18619050a346ea273f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/5d9c47bbad2e064340cabfd3f96f5057a80773c4",
-                "reference": "5d9c47bbad2e064340cabfd3f96f5057a80773c4",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/07545629aa99441cfec1c18619050a346ea273f9",
+                "reference": "07545629aa99441cfec1c18619050a346ea273f9",
                 "shasum": ""
             },
             "require": {
@@ -2094,7 +2094,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2016-01-08 12:33:10"
+            "time": "2016-02-14 16:45:10"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2355,12 +2355,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "2c167426fc24f9de116345195bc1697a748ee847"
+                "reference": "c4c5caff48a2f3b17e3cc988e2b9d7a785779f39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/2c167426fc24f9de116345195bc1697a748ee847",
-                "reference": "2c167426fc24f9de116345195bc1697a748ee847",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/c4c5caff48a2f3b17e3cc988e2b9d7a785779f39",
+                "reference": "c4c5caff48a2f3b17e3cc988e2b9d7a785779f39",
                 "shasum": ""
             },
             "require": {
@@ -2399,7 +2399,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-02-12 16:21:30"
+            "time": "2016-02-16 07:20:15"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3593,12 +3593,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "f2ea352a55bbc28f2a205a6c3c20420ffb81ba63"
+                "reference": "e080d0be50fdeb00ee8df23fb585577ca031a628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/f2ea352a55bbc28f2a205a6c3c20420ffb81ba63",
-                "reference": "f2ea352a55bbc28f2a205a6c3c20420ffb81ba63",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/e080d0be50fdeb00ee8df23fb585577ca031a628",
+                "reference": "e080d0be50fdeb00ee8df23fb585577ca031a628",
                 "shasum": ""
             },
             "require": {
@@ -3665,7 +3665,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2016-02-14 07:22:16"
+            "time": "2016-02-15 08:04:47"
         },
         {
             "name": "behat/gherkin",
@@ -3845,12 +3845,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkExtension.git",
-                "reference": "296445cec02e36836a6298452631be8e00b1e13a"
+                "reference": "5b4bda64ff456104564317e212c823e45cad9d59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/296445cec02e36836a6298452631be8e00b1e13a",
-                "reference": "296445cec02e36836a6298452631be8e00b1e13a",
+                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/5b4bda64ff456104564317e212c823e45cad9d59",
+                "reference": "5b4bda64ff456104564317e212c823e45cad9d59",
                 "shasum": ""
             },
             "require": {
@@ -3896,7 +3896,7 @@
                 "test",
                 "web"
             ],
-            "time": "2015-12-21 11:03:47"
+            "time": "2016-02-15 07:55:18"
         },
         {
             "name": "behat/symfony2-extension",
@@ -4497,12 +4497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "3d81c37c996f80822da08f50d9058f7ed7bc4b3b"
+                "reference": "48e85b7f97f6a14c71e7a3eabfa819fee9e87139"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/3d81c37c996f80822da08f50d9058f7ed7bc4b3b",
-                "reference": "3d81c37c996f80822da08f50d9058f7ed7bc4b3b",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/48e85b7f97f6a14c71e7a3eabfa819fee9e87139",
+                "reference": "48e85b7f97f6a14c71e7a3eabfa819fee9e87139",
                 "shasum": ""
             },
             "require": {
@@ -4567,7 +4567,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2016-02-13 19:24:32"
+            "time": "2016-02-20 06:50:43"
         },
         {
             "name": "phpspec/prophecy",
@@ -4575,12 +4575,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "e55e3e32a870bd4f05425fa4f717b52bd40e5659"
+                "reference": "ce91d434b3dc443a3294c4535747765e84d11094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e55e3e32a870bd4f05425fa4f717b52bd40e5659",
-                "reference": "e55e3e32a870bd4f05425fa4f717b52bd40e5659",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/ce91d434b3dc443a3294c4535747765e84d11094",
+                "reference": "ce91d434b3dc443a3294c4535747765e84d11094",
                 "shasum": ""
             },
             "require": {
@@ -4596,7 +4596,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -4629,27 +4629,27 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-12-28 13:26:33"
+            "time": "2016-02-15 13:39:12"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "85f5db2d0a0da79ad6a256eb54148ba383059ad9"
+                "reference": "a58f95ae76fe201b571fad3e8370a50c4368678c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/85f5db2d0a0da79ad6a256eb54148ba383059ad9",
-                "reference": "85f5db2d0a0da79ad6a256eb54148ba383059ad9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/a58f95ae76fe201b571fad3e8370a50c4368678c",
+                "reference": "a58f95ae76fe201b571fad3e8370a50c4368678c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6",
+                "php": "^5.6 || ^7.0",
                 "phpunit/php-file-iterator": "~1.3",
                 "phpunit/php-text-template": "~1.2",
-                "phpunit/php-token-stream": "~1.3",
+                "phpunit/php-token-stream": "^1.4.2",
                 "sebastian/code-unit-reverse-lookup": "~1.0",
                 "sebastian/environment": "^1.3.2",
                 "sebastian/version": "~1.0|~2.0"
@@ -4692,7 +4692,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-13 06:47:56"
+            "time": "2016-02-18 07:31:12"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4878,12 +4878,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fb92b101c2dc5ecb6800d82c72c79b0e956831e8"
+                "reference": "b5f314f4c43b22ccdeb68890ec4213b8b3465eb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fb92b101c2dc5ecb6800d82c72c79b0e956831e8",
-                "reference": "fb92b101c2dc5ecb6800d82c72c79b0e956831e8",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b5f314f4c43b22ccdeb68890ec4213b8b3465eb9",
+                "reference": "b5f314f4c43b22ccdeb68890ec4213b8b3465eb9",
                 "shasum": ""
             },
             "require": {
@@ -4893,9 +4893,9 @@
                 "ext-reflection": "*",
                 "ext-spl": "*",
                 "myclabs/deep-copy": "~1.3",
-                "php": ">=5.6",
+                "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "~3.2",
+                "phpunit/php-code-coverage": "^3.2.1",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": ">=1.0.6",
@@ -4945,7 +4945,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-13 06:58:43"
+            "time": "2016-02-19 14:46:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
