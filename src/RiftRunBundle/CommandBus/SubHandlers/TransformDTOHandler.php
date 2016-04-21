@@ -22,7 +22,7 @@ final class TransformDTOHandler implements CommandHandler
         $searchQuery = new SearchQuery($searchQueryDTO->minParagon, new Grift($gameTypeDTO->level), $currentDate);
         $characterTypeDTOS = $searchQueryDTO->characterType;
         foreach ($characterTypeDTOS as $characterTypeDTO) {
-            $characterType = new CharacterType($characterTypeDTO->type);
+            $characterType = new CharacterType($searchQuery, $characterTypeDTO->type);
             $searchQuery->addCharacterType($characterType);
         }
 

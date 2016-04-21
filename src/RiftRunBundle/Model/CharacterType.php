@@ -13,7 +13,7 @@ class CharacterType
     private $id;
 
     /**
-     * @var RiftRunBundle\CommandBus\Commands\SearchQuery;
+     * @var SearchQuery
      */
     private $searchQuery;
 
@@ -22,8 +22,9 @@ class CharacterType
      */
     private $type;
 
-    public function __construct(string $type)
+    public function __construct(SearchQuery $searchQuery, string $type)
     {
+        $this->searchQuery = $searchQuery;
         $this->type = $type;
     }
 
