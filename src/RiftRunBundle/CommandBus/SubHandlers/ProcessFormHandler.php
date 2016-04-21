@@ -4,11 +4,19 @@ namespace RiftRunBundle\CommandBus\SubHandlers;
 
 use RiftRunBundle\CommandBus\Commands\CreatePost;
 use RiftRunBundle\CommandBus\Handlers\CommandHandler;
+use RiftRunBundle\DTO\PostDTO;
+use RiftRunBundle\Helpers\FormErrors;
+use Symfony\Component\Form\Exception\AlreadySubmittedException;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 
 final class ProcessFormHandler implements CommandHandler
 {
+    /**
+     * @var FormFactoryInterface
+     */
     private $formFactory;
 
     public function __construct(FormFactoryInterface $formFactory)
@@ -16,7 +24,14 @@ final class ProcessFormHandler implements CommandHandler
         $this->formFactory = $formFactory;
     }
 
-    public function handle(CreatePost $createPost)
+    /**
+     * @param CreatePost $createPost
+     * @throws InvalidOptionsException
+     * @throws AlreadySubmittedException
+     * @throws BadRequestHttpException
+     * @return PostDTO
+     */
+    public function handle(CreatePost $createPost):PostDTO
     {
         $form = $this->formFactory->create(
             $createPost->getFormType(),
@@ -27,18 +42,16 @@ final class ProcessFormHandler implements CommandHandler
         $form->submit($createPost->getRequestData(), true);
 
         if ($form->isValid() === false) {
-            $iterator = $form->getErrors(true, true);
+            $formHelper = new FormErrors();
+            print_r($formHelper->getAllErrors($form));
 
-            $errors = $this->getAllFormErrors($form);
-
-            dump($errors);
             throw new BadRequestHttpException('Invalid form ' . (string) $iterator->__toString());
         }
 
         return $form->getData();
     }
 
-    private function getAllFormErrors($form)
+    private function getAllFormErrors(FormInterface $form)
     {
         $results = [];
 
