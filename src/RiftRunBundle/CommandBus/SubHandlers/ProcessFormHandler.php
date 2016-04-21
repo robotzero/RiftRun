@@ -31,7 +31,7 @@ final class ProcessFormHandler implements CommandHandler
 
             $errors = $this->getAllFormErrors($form);
 
-            print_r($errors);
+            dump($errors);
             throw new BadRequestHttpException('Invalid form ' . (string) $iterator->__toString());
         }
 

@@ -6,10 +6,10 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
 RUN apt-get update
-RUN add-apt-repository ppa:ondrej/php-7.0 -y
+RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y 
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install php-cli php php-fpm php-curl php-json php-mysql php-opcache php-pgsql php-sqlite3 php7.0-dev wget
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install php-cli php php-fpm php-curl php-json php-mysql php7.0-opcache php-pgsql php-sqlite3 php7.0-dev wget
 ADD php.ini /etc/php/7.0/fpm/
  
 ADD php-fpm.conf /etc/php/7.0/fpm/
