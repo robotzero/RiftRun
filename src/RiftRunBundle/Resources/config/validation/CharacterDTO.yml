@@ -5,6 +5,7 @@ RiftRunBundle\DTO\CharacterDTO:
             - NotNull: ~
             - Choice:
                 choices: ["demon hunter", "monk", "wizard", "witch doctor", "barbarian"]
+                message: "Wrong value"
         paragonPoints:
             - NotBlank: ~
             - NotNull: ~

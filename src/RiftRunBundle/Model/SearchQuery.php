@@ -46,7 +46,7 @@ class SearchQuery
     /**
      * Get id
      *
-     * @return integer
+     * @return string
      */
     public function getId()
     {

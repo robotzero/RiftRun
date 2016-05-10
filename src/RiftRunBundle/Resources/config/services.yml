@@ -34,6 +34,7 @@ services:
         class: RiftRunBundle\CommandBus\SubHandlers\ProcessFormHandler
         arguments:
             - '@form.factory'
+            - '@form_errors_helper'
 
     transform_dto_subhandler:
         class: RiftRunBundle\CommandBus\SubHandlers\TransformDTOHandler
@@ -41,3 +42,7 @@ services:
     # QueryBuilder Specification
     all_posts_specification:
         class: RiftRunBundle\ORM\Specification\AllPostsSpecification
+
+    # Helper
+    form_errors_helper:
+        class: RiftRunBundle\Helpers\FormErrors

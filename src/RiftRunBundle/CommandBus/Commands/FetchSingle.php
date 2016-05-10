@@ -14,7 +14,7 @@ class FetchSingle implements Fetch
         $this->repositoryName = $repositoryName;
     }
 
-    public function getResourceId():int
+    public function getResourceId():string
     {
         return $this->resourceId;
     }

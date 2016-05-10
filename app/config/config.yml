@@ -43,6 +43,8 @@ twig:
 doctrine:
     dbal:
         default_connection: riftrun
+        types:
+            uuid: 'Ramsey\Uuid\Doctrine\UuidType'
         connections:
             riftrun:
                 driver:   pdo_sqlite

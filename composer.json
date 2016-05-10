@@ -36,7 +36,8 @@
 	    "simple-bus/symfony-bridge": "dev-master",
 	    "simple-bus/doctrine-orm-bridge": "dev-master",
         "league/tactician-bundle": "^0.4.0",
-        "league/tactician-command-events": "^0.6.0"
+        "league/tactician-command-events": "^0.6.0",
+        "ramsey/uuid-doctrine": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",

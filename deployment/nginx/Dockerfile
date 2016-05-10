@@ -4,7 +4,7 @@ RUN yum clean all
 
 # Add nginx repo
 RUN yum install -y -q install \
-    http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm \
+    http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm \
     nginx-release
 
 RUN rpm --import /etc/pki/rpm-gpg/*

@@ -11,9 +11,11 @@ RiftRunBundle\Model\GameType:
         grift: Grift
     cascade: [ persist ]
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
+            id:
+                type: uuid
+                id: true
+                generator:
+                    strategy: CUSTOM
+                customIdGenerator:
+                    class: Ramsey\Uuid\Doctrine\UuidGenerator
     lifecycleCallbacks: {  }

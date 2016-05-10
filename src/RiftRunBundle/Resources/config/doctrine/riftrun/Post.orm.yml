@@ -20,11 +20,13 @@ RiftRunBundle\Model\Post:
             fetch: LAZY
             cascade: [ persist ]
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
+            id:
+                type: uuid
+                id: true
+                generator:
+                    strategy: CUSTOM
+                customIdGenerator:
+                    class: Ramsey\Uuid\Doctrine\UuidGenerator
     fields:
         createdAt:
             type: datetimetz

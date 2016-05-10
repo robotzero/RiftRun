@@ -19,9 +19,15 @@ final class ProcessFormHandler implements CommandHandler
      */
     private $formFactory;
 
-    public function __construct(FormFactoryInterface $formFactory)
+    /**
+     * @var FormErrors
+     */
+    private $formErrorsHelper;
+
+    public function __construct(FormFactoryInterface $formFactory, FormErrors $formErrorsHelper)
     {
         $this->formFactory = $formFactory;
+        $this->formErrorsHelper = $formErrorsHelper;
     }
 
     /**
@@ -42,27 +48,9 @@ final class ProcessFormHandler implements CommandHandler
         $form->submit($createPost->getRequestData(), true);
 
         if ($form->isValid() === false) {
-            $formHelper = new FormErrors();
-            print_r($formHelper->getAllErrors($form));
-
-            throw new BadRequestHttpException('Invalid form ' . (string) $iterator->__toString());
+            throw new BadRequestHttpException('Invalid form');
         }
 
         return $form->getData();
-    }
-
-    private function getAllFormErrors(FormInterface $form)
-    {
-        $results = [];
-
-        foreach ($form->getErrors() as $error) {
-            $results[] = $error->getMessage();
-        }
-
-        foreach ($form->all() as $name => $child) {
-            $results[$name] = $this->getAllFormErrors($child);
-        }
-
-        return $results;
     }
 }

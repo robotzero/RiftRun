@@ -17,11 +17,13 @@ RiftRunBundle\Model\SearchQuery:
             cascade: [ persist ]
     repositoryClass: RiftRunBundle\ORM\Repository\SearchQueryRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
+            id:
+                type: uuid
+                id: true
+                generator:
+                    strategy: CUSTOM
+                customIdGenerator:
+                    class: Ramsey\Uuid\Doctrine\UuidGenerator
     fields:
         minParagon:
             type: integer

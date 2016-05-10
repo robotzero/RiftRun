@@ -499,9 +499,9 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $parentValue = $this->arrayGet($payload, $property);
 
         $actualValue = $this->arrayGet($payload, $searchProperty);
-
-        $this->thePropertyIsAnInteger($property);
-        $this->thePropertyIsAnInteger($searchProperty);
+        
+        $this->thePropertyIsAString($property);
+        $this->thePropertyIsAString($searchProperty);
 
         $object = $this->dbGet($parentValue, $repositoryName);
 
