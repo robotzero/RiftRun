@@ -13,8 +13,8 @@
         }
     },
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "3.0.1",
+        "php": ">=7.0",
+        "symfony/symfony": "3.0.6",
         "doctrine/orm": "dev-master",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "dev-master",
