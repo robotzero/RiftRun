@@ -23,4 +23,5 @@ fa/app/directives/**/*.map
 *.log
 fa/app/components/*.js
 fa/bower_components
+fa.bak/
 var
