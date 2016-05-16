@@ -1,4 +1,6 @@
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     function status(response) {
         if (response.status >= 200 && response.status < 300) {
             return Promise.resolve(response);

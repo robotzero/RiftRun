@@ -1,4 +1,6 @@
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var GameType;
     return {
         setters:[],
@@ -9,7 +11,7 @@ System.register([], function(exports_1) {
                     this.type = type;
                 }
                 return GameType;
-            })();
+            }());
             exports_1("GameType", GameType);
         }
     }

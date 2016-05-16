@@ -1,8 +1,8 @@
-import {Injectable} from "angular2/core";
-import {Http} from "angular2/http";
-import {Headers} from "angular2/http";
-import {Response} from "angular2/http";
-import {RequestOptions} from "angular2/http";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {Headers} from '@angular/http';
+import {Response} from '@angular/http';
+import {RequestOptions} from '@angular/http';
 
 @Injectable()
 export class APIPostService

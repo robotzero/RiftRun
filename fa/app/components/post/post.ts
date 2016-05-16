@@ -1,17 +1,12 @@
 import {APIGetService} from '../../services/apigetservice';
-import {PostQuery} from "../../models/postquery";
-import {Player} from "../../models/player";
-import {Query} from "../../models/query";
-import {GameType} from "../../models/gametype";
-import {CharacterType} from "../../models/charactertype";
-import {APIPostService} from "../../services/apipostservice";
-import {Component} from "angular2/core";
-import {FormBuilder} from "angular2/common";
-import {CORE_DIRECTIVES} from "angular2/common";
-import {FORM_DIRECTIVES} from "angular2/common";
-import {NgFor} from "angular2/common";
-import {NgIf} from "angular2/common";
-import {ControlGroup} from "angular2/common";
+import {PostQuery} from '../../models/postquery';
+import {Player} from '../../models/player';
+import {Query} from '../../models/query';
+import {GameType} from '../../models/gametype';
+import {CharacterType} from '../../models/charactertype';
+import {APIPostService} from '../../services/apipostservice';
+import {Component} from '@angular/core';
+import {FORM_DIRECTIVES, CORE_DIRECTIVES, NgFor, NgIf, FormBuilder, ControlGroup} from '@angular/common';
 
 @Component({
     selector: 'post',
