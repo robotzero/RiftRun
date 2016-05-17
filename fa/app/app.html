@@ -1,8 +1,13 @@
+<md-toolbar>
+    <i class="material-icons demo-toolbar-icon">menu</i>
+    <span>Rift Run</span> &nbsp;
+    <div>
+        <a [routerLink]="['/']">Posts</a>
+    </div>
+
+    <span class="demo-fill-remaining"></span>
+</md-toolbar>
+
 <div class="container">
-    <a [routerLink]="['/']">Posts</a>
-    <nav>
-             <ul>
-            </ul>
-         </nav>
-         <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

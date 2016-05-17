@@ -8,11 +8,13 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {Post} from "./components/post/post";
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, Routes} from '@angular/router';
 import {HTTP_PROVIDERS} from '@angular/http';
+import {MdToolbar} from '@angular2-material/toolbar';
 
 // Annotation section
 @Component({
     selector: 'my-app',
     templateUrl: './app/app.html',
+    styleUrls: ['./app/app.css'],
     // template: `
     //     <div class="container">
     //         <nav>
@@ -22,7 +24,7 @@ import {HTTP_PROVIDERS} from '@angular/http';
     //         <router-outlet></router-outlet>
     //     </div>
     // `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, MdToolbar]
 })
 
 @Routes([

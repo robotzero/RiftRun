@@ -37,6 +37,7 @@
     "@angular2-material/input": "^2.0.0-alpha.4",
     "@angular2-material/progress-circle": "^2.0.0-alpha.4",
     "@angular2-material/toolbar": "^2.0.0-alpha.4",
+    "@angular2-material/card": "^2.0.0-alpha.4",
     "@angular/upgrade":  "2.0.0-rc.1",
     "angular2-jwt": "^0.1.15",
     "cors": "2.7.1",

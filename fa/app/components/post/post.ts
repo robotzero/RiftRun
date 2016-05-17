@@ -8,13 +8,16 @@ import {CharacterType} from '../../models/charactertype';
 import {APIPostService} from '../../services/apipostservice';
 import {Component} from '@angular/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES, NgFor, NgIf, FormBuilder, ControlGroup} from '@angular/common';
+import { MdCard } from '@angular2-material/card';
+import { MdInput } from '@angular2-material/input';
+import { MdButton } from '@angular2-material/button';
 
 @Component({
     selector: 'post',
     providers:[APIGetService, APIPostService],
     viewBindings: [FormBuilder],
     templateUrl: './app/components/post/post.html',
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgFor, NgIf]
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, MdCard, MdInput, MdButton, NgFor, NgIf]
 })
 
 export class Post {
@@ -42,33 +45,33 @@ export class Post {
             queryCharacterType: ['demon hunter']
         });
 
-        getService.get('http://riftrun.local/v1/posts')
-                  .map((posts: any) => {
-                      let result:Array<PostQuery> = [];
-                      let characterTypes:Array<CharacterType> = [];
-                      posts._embedded.items.forEach((post) => {
-                          characterTypes.push(post.query.characterType.concat());
-                          result.push(new PostQuery(
-                              new Player(
-                                  post.player.id,
-                                  post.player.type,
-                                  post.player.paragonPoints,
-                                  post.player.battleTag,
-                                  post.player.region,
-                                  post.player.seasonal,
-                                  post.player.gametype
-                              ),
-                              new Query(
-                                  post.query.id,
-                                  post.query.minParagon,
-                                  new GameType(post.query.game.level, post.query.game.type),
-                                  characterTypes
-                              )
-                          ));
-                      });
-                      return result;
-                  })
-                  .subscribe(response => this.posts = response);
+        // getService.get('http://riftrun.local/v1/posts')
+        //           .map((posts: any) => {
+        //               let result:Array<PostQuery> = [];
+        //               let characterTypes:Array<CharacterType> = [];
+        //               posts._embedded.items.forEach((post) => {
+        //                   characterTypes.push(post.query.characterType.concat());
+        //                   result.push(new PostQuery(
+        //                       new Player(
+        //                           post.player.id,
+        //                           post.player.type,
+        //                           post.player.paragonPoints,
+        //                           post.player.battleTag,
+        //                           post.player.region,
+        //                           post.player.seasonal,
+        //                           post.player.gametype
+        //                       ),
+        //                       new Query(
+        //                           post.query.id,
+        //                           post.query.minParagon,
+        //                           new GameType(post.query.game.level, post.query.game.type),
+        //                           characterTypes
+        //                       )
+        //                   ));
+        //               });
+        //               return result;
+        //           })
+        //           .subscribe(response => this.posts = response);
     }
 
     postContent(item:any) {
