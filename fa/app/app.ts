@@ -1,3 +1,5 @@
+///<reference path="../typings/browser.d.ts"/>
+
 import {Component, bind} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 
