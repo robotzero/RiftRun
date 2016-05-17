@@ -4,15 +4,6 @@
     <title>Rift Run</title>
     <base href="/">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-    <!--script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script-->
-    <!--script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script>
-    <script src="node_modules/angular2/bundles/http.dev.js"></script-->
-    <script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
 
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
 
@@ -22,7 +13,8 @@
 
     <script src="systemjs.config.js"></script>
     <script>
-        System.import('app').catch(function(err){ console.error(err); });
+        //System.import('app/app').catch(function(err){ console.error(err); });
+        System.import('app/app').then(null, console.error.bind(console));
     </script>
     <!--script>
         //configure system loader
@@ -41,12 +33,8 @@
                 }
             }
         });
-        System.import('app/app').then(null, console.error.bind(console));
-    </script-->
-    <!--script src="https://code.angularjs.org/2.0.0-alpha.52/angular2.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.52/router.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.52/http.dev.js"></script-->
-    <!--script src="https://jspm.io/system@0.16.js"></script-->
+
+</script-->
 </head>
 <body class = "container">
 <!-- The app component created in app.ts -->

@@ -3,7 +3,7 @@
         <div class = "form-group">
             <select class="c-select" [ngFormControl]="postForm.controls['playerType']" #class="ngForm">
                 <option selected>Select your class</option>
-                <option *ngFor="#p of playerTypes" [value] = "p">{{p}}</option>
+                <option *ngFor="let p of playerTypes" [value] = "p">{{p}}</option>
             </select>
         </div>
         <br>
@@ -20,7 +20,7 @@
         <div class = "form-group">
             <select class="c-select" [ngFormControl]="postForm.controls['playerRegion']" #region="ngForm">
                 <option selected>Select your region</option>
-                <option *ngFor="#r of playerRegions" [value] = "r">{{r}}</option>
+                <option *ngFor="let r of playerRegions" [value] = "r">{{r}}</option>
             </select>
         </div>
         <button class="btn btn-primary" type="submit">Add Post</button>
@@ -31,7 +31,7 @@
     Player Id
     Player Paragon
 </div>
-<div *ngFor="#post of posts">
+<div *ngFor="let post of posts">
     {{post.query.minParagon}}
     {{post.player.type}}
     {{post.player.battleTag}}

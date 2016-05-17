@@ -1,3 +1,4 @@
+///<reference path="../../../typings/browser.d.ts"/>
 import {APIGetService} from '../../services/apigetservice';
 import {PostQuery} from '../../models/postquery';
 import {Player} from '../../models/player';
