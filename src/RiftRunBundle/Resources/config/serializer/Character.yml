@@ -1,5 +1,7 @@
 RiftRunBundle\Model\Character:
     properties:
+        id:
+            type: string
         battleTag:
             serialized_name: battleTag
         paragonPoints:

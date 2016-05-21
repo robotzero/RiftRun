@@ -1,0 +1,4 @@
+RiftRunBundle\Model\Grift:
+    properties:
+        id:
+            type: string

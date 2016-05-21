@@ -1,0 +1,9 @@
+RiftRunBundle\Model\CharacterType:
+    exclusion_policy: ALL
+    properties:
+        id:
+            type: string
+            exclude: false
+        type:
+            serialized_name: type
+            exclude: false

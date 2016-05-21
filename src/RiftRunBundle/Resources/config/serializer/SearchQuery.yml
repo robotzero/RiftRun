@@ -1,8 +1,14 @@
 RiftRunBundle\Model\SearchQuery:
     properties:
+        id:
+            type: string
         minParagon:
             serialized_name: minParagon
         createdAt:
             serialized_name: createdAt
         characterType:
+            type: ArrayCollection<RiftRunBundle\Model\CharacterType>
+            accessor:
+                getter: getCharacterType
             serialized_name: characterType
+
