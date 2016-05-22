@@ -30,7 +30,6 @@ final class CreatePostCommandHandler implements CommandHandler
     {
         $dto = $this->processForm->handle($createPost);
         $post = $this->transformDTO->handle($dto);
-
         try {
             $this->entityManager->persist($post);
             $this->entityManager->flush();
