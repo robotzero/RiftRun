@@ -45,33 +45,33 @@ export class Post {
             queryCharacterType: ['demon hunter']
         });
 
-        // getService.get('http://riftrun.local/v1/posts')
-        //           .map((posts: any) => {
-        //               let result:Array<PostQuery> = [];
-        //               let characterTypes:Array<CharacterType> = [];
-        //               posts._embedded.items.forEach((post) => {
-        //                   characterTypes.push(post.query.characterType.concat());
-        //                   result.push(new PostQuery(
-        //                       new Player(
-        //                           post.player.id,
-        //                           post.player.type,
-        //                           post.player.paragonPoints,
-        //                           post.player.battleTag,
-        //                           post.player.region,
-        //                           post.player.seasonal,
-        //                           post.player.gametype
-        //                       ),
-        //                       new Query(
-        //                           post.query.id,
-        //                           post.query.minParagon,
-        //                           new GameType(post.query.game.level, post.query.game.type),
-        //                           characterTypes
-        //                       )
-        //                   ));
-        //               });
-        //               return result;
-        //           })
-        //           .subscribe(response => this.posts = response);
+        getService.get('http://riftrun.local/v1/posts')
+                  .map((posts: any) => {
+                      let result:Array<PostQuery> = [];
+                      let characterTypes:Array<CharacterType> = [];
+                      posts._embedded.items.forEach((post) => {
+                          characterTypes.push(post.query.characterType.concat());
+                          result.push(new PostQuery(
+                              new Player(
+                                  post.player.id,
+                                  post.player.type,
+                                  post.player.paragonPoints,
+                                  post.player.battleTag,
+                                  post.player.region,
+                                  post.player.seasonal,
+                                  post.player.gametype
+                              ),
+                              new Query(
+                                  post.query.id,
+                                  post.query.minParagon,
+                                  new GameType(post.query.game.level, post.query.game.type),
+                                  characterTypes
+                              )
+                          ));
+                      });
+                      return result;
+                  })
+                  .subscribe(response => this.posts = response);
     }
 
     postContent(item:any) {
