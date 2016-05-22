@@ -9,6 +9,7 @@ import {RequestOptions} from '@angular/http';
 export class APIPostService
 {
     http:Http;
+    errorMessage: string;
 
     constructor(http : Http) {
         this.http = http;
@@ -33,14 +34,13 @@ export class APIPostService
               "characterType": [{"type":"Demon Hunter"}]
           }
         };
-        //console.log(postObject);
+
         let headers = new Headers();
         let response = null;
         let requestOptions = new RequestOptions({method:'POST', headers:headers});
         headers.append('Content-Type', 'application/json');
-        headers.append('Access-Control-Allow-Origin', '*');
 
-        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions).map((res: Response) => res.json()).map(res => console.log(res)).subscribe((res:any) => response = res);
+        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions).map((res: Response) => res.json()).map(res => console.log(res)).subscribe((res:any) => response = res, error => this.errorMessage = <any>error);
     }
 }
 

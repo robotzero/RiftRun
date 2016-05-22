@@ -15,15 +15,6 @@ import {MdToolbar} from '@angular2-material/toolbar';
     selector: 'my-app',
     templateUrl: './app/app.html',
     styleUrls: ['./app/app.css'],
-    // template: `
-    //     <div class="container">
-    //         <nav>
-    //             <ul>
-    //             </ul>
-    //         </nav>
-    //         <router-outlet></router-outlet>
-    //     </div>
-    // `,
     directives: [ROUTER_DIRECTIVES, MdToolbar]
 })
 

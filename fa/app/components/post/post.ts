@@ -1,4 +1,5 @@
 ///<reference path="../../../typings/browser.d.ts"/>
+///<reference path="../../../typings/browser/ambient/es6-shim/index.d.ts" />
 import {APIGetService} from '../../services/apigetservice';
 import {PostQuery} from '../../models/postquery';
 import {Player} from '../../models/player';
@@ -34,10 +35,10 @@ export class Post {
     constructor(getService:APIGetService, postService:APIPostService, formBuilder: FormBuilder) {
         this.postService = postService;
         this.postForm = formBuilder.group({
-            playerType: [''],
+            playerType: ['Demon Hunter'],
             playerParagonPoints: [''],
             playerBattleTag: [''],
-            playerRegion: [''],
+            playerRegion: ['EU'],
             playerGameType: ['seasonal'],
             queryMinParagon: ['15'],
             queryGameLevel: ['40+'],

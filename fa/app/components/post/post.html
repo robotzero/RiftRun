@@ -5,11 +5,20 @@
             <div>
                 <md-input required placeholder="Your paragon points" [ngFormControl]="postForm.controls['playerParagonPoints']"></md-input>
             </div>
+            <div>
+                <md-input required placeholder="Your battle.net tag" [ngFormControl]="postForm.controls['playerBattleTag']"></md-input>
+            </div>
+            <div>
+                <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryMinParagon']"></md-input>
+            </div>
+            <div>
+                <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryGameLevel']"></md-input>
+            </div>
             <button md-raised-button color="primary" type="submit">Add Post</button>
         </form>
     </md-card-content>
 </md-card>
-
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
     <!--div class = "form-group">
         <select class="c-select" [ngFormControl]="postForm.controls['playerType']" #class="ngForm">
             <option selected>Select your class</option>
@@ -34,12 +43,13 @@
     Player Id
     Player Paragon
 </div-->
-<div *ngFor="let post of posts">
-    {{post.query.minParagon}}
-    {{post.player.type}}
-    {{post.player.battleTag}}
-    {{post.player.region}}
-    {{post.player.seasonal}}
-    {{post.player.gameType}}
-</div>
+
+<md-list>
+    <md-list-item *ngFor="let post of posts">
+        <h3 md-line> {{post.player.type}} </h3>
+        <p md-line> {{post.player.battleTag}} </p>
+        <p md-line class="demo-2"> {{post.player.gameType}} </p>
+    </md-list-item>
+</md-list>
+
 
