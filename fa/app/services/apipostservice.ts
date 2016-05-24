@@ -40,7 +40,7 @@ export class APIPostService
         let requestOptions = new RequestOptions({method:'POST', headers:headers});
         headers.append('Content-Type', 'application/json');
 
-        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions).map((res: Response) => res.json()).map(res => console.log(res)).subscribe((res:any) => response = res, error => this.errorMessage = <any>error);
+        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions).map((res: Response) => res.json()).map(res => console.log(res)).subscribe((res:any) => response = res);
     }
 }
 
