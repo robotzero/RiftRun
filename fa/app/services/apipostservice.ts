@@ -17,30 +17,45 @@ export class APIPostService
 
     postContent(json:Object) : void {
         let postObject = {
-          "player": {
-              "type":json['playerType'],
-              "paragonPoints":json['playerParagonPoints'],
-              "battleTag": "#" + json['playerBattleTag'],
-              "region": json['playerRegion'],
-              "seasonal": true,
-              "gameType": "hardcore"
-          },
-          "query": {
-              "minParagon": json['queryMinParagon'],
-              "game": {
-                  "type": json['queryGameType'],
-                  "level": json['queryGameLevel']
-              },
-              "characterType": [{"type":"Demon Hunter"}]
-          }
+            "player": {
+                "type": json['playerType'],
+                "paragonPoints": json['playerParagonPoints'],
+                "battleTag": "#" + json['playerBattleTag'],
+                "region": json['playerRegion'],
+                "seasonal": true,
+                "gameType": "hardcore"
+            },
+            "query": {
+                "minParagon": json['queryMinParagon'],
+                "game": {
+                    "type": json['queryGameType'],
+                    "level": json['queryGameLevel']
+                },
+                "characterType": [{"type": "Demon Hunter"}]
+            }
         };
 
         let headers = new Headers();
         let response = null;
-        let requestOptions = new RequestOptions({method:'POST', headers:headers});
+        let requestOptions = new RequestOptions({method: 'POST', headers: headers});
         headers.append('Content-Type', 'application/json');
 
-        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions).map((res: Response) => res.json()).map(res => console.log(res)).subscribe((res:any) => response = res);
+        //this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions).map((res:Response) => res.json()).map(res => console.log(res)).subscribe((res:any) => response = res);
+        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions)
+            .map((res:Response) => res.json())
+            .subscribe(
+                //data => this.saveJwt(data.id_token),
+                err => this.logError(err),
+                () => console.log('Post done.')
+            );
+    }
+
+    logError(err) {
+        console.log("MY ERROR" + err.toString());
+    }
+
+    saveJwt(token) {
+        console.log("Token" + token);
     }
 }
 
