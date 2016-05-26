@@ -11,9 +11,9 @@ import {EventEmitter} from "@angular/core";
 
 export class ModelSelector implements OnInit {
     @Output() select = new EventEmitter();
-    @Input() model;
+    @Input() models;
     
     ngOnInit():any {
-        this.select.emit(this.model[0]);
+        this.select.emit(this.models[0]);
     }
 }
