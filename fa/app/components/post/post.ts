@@ -9,13 +9,14 @@ import { MdCard } from '@angular2-material/card';
 import { MdInput } from '@angular2-material/input';
 import { MdButton } from '@angular2-material/button';
 import {PostFactory} from "../../utils/postFactory";
+import {ModelSelector} from "../../directives/modelselector";
 
 @Component({
     selector: 'post',
     providers:[APIGetService, APIPostService, PostFactory],
     viewBindings: [FormBuilder],
     templateUrl: './app/components/post/post.html',
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, MdCard, MdInput, MdButton, NgFor, NgIf]
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, ModelSelector, MdCard, MdInput, MdButton, NgFor, NgIf]
 })
 
 export class Post implements OnInit {
@@ -29,12 +30,12 @@ export class Post implements OnInit {
     response: any;
     playerTypes: Array<string> = ['Demon Hunter', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader'];
     playerRegions: Array<string> = ['EU', 'US', 'ASIA'];
-    queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+'];
+    queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+', '90+', '100+'];
     queryGameTypes: Array<string> = ['Rift', 'Grift', 'PowerGrift', 'Bounties', 'Keywardens', 'Ubers'];
 
     ngOnInit():void {
         this.postForm = this.formBuilder.group({
-            playerType: ['Demon Hunter'],
+            playerType: [''],
             playerParagonPoints: [''],
             playerBattleTag: [''],
             playerRegion: ['EU'],
@@ -60,6 +61,10 @@ export class Post implements OnInit {
     }
 
     postContent(item:any) {
+        console.log(item);
         this.postService.postContent(item);
+    }
+    onSelect(element) {
+        console.log(element);
     }
 }

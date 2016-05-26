@@ -1,0 +1,7 @@
+<div>
+    <select #sel (change)="select.emit(sel.value)">
+        <option *ngFor="let model of models">
+            {{model}}
+        </option>
+    </select>
+</div>
