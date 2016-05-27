@@ -3,6 +3,7 @@
 
 import {Component, Output, OnInit, Input} from "@angular/core";
 import {EventEmitter} from "@angular/core";
+import {ControlGroup} from "@angular/common";
 
 @Component({
     selector: 'model-selector',
@@ -12,6 +13,7 @@ import {EventEmitter} from "@angular/core";
 export class ModelSelector implements OnInit {
     @Output() select = new EventEmitter();
     @Input() models;
+    @Input() form:ControlGroup;
     
     ngOnInit():any {
         this.select.emit(this.models[0]);

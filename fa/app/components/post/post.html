@@ -9,7 +9,7 @@
                 <md-input required placeholder="Your battle.net tag" [ngFormControl]="postForm.controls['playerBattleTag']"></md-input>
             </div>
             <div>
-                <model-selector [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])"></model-selector>
+                <model-selector [form]="postForm" [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])"></model-selector>
             </div>
             <div>
                 <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryMinParagon']"></md-input>

@@ -1,5 +1,5 @@
-<div>
-    <select #sel (change)="select.emit(sel.value)">
+<div [ngFormModel]="form">
+    <select #sel (change)="select.emit(sel.value)" [ngFormControl]="form.controls['playerType']">
         <option *ngFor="let model of models">
             {{model}}
         </option>
