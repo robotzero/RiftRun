@@ -1,7 +1,9 @@
-<div [ngFormModel]="form">
-    <select #sel (change)="select.emit(sel.value)" [ngFormControl]="form.controls['playerType']">
+<div class="demo">
+<div [ngFormModel]="form" class="mdl-selectfield">
+    <select #sel (change)="select.emit(sel.value)" [ngFormControl]="form.controls[formKey]" class="browser-default">
         <option *ngFor="let model of models">
             {{model}}
         </option>
     </select>
+</div>
 </div>

@@ -38,7 +38,7 @@ export class Post implements OnInit {
             playerType: [''],
             playerParagonPoints: [''],
             playerBattleTag: [''],
-            playerRegion: ['EU'],
+            playerRegion: [''],
             playerGameType: ['seasonal'],
             queryMinParagon: ['15'],
             queryGameLevel: ['40+'],

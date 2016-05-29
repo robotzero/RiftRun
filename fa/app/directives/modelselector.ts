@@ -8,12 +8,14 @@ import {ControlGroup} from "@angular/common";
 @Component({
     selector: 'model-selector',
     templateUrl: './app/directives/modelselector.html',
+    styleUrls: ['./app/directives/modelselector.css'],
 })
 
 export class ModelSelector implements OnInit {
     @Output() select = new EventEmitter();
     @Input() models;
     @Input() form:ControlGroup;
+    @Input() formKey:string = 'playerType';
     
     ngOnInit():any {
         this.select.emit(this.models[0]);
