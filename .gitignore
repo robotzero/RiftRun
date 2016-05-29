@@ -20,6 +20,8 @@ fa/app/models/**/*.map
 fa/app/*.map
 fa/app/directives/**/*.js
 fa/app/directives/**/*.map
+fa/app/utils/**/*.js
+fa/app/utils/**/*.map
 *.log
 fa/app/components/*.js
 fa/bower_components
