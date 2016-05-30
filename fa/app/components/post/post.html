@@ -8,14 +8,21 @@
             <div>
                 <md-input required placeholder="Your battle.net tag" [ngFormControl]="postForm.controls['playerBattleTag']"></md-input>
             </div>
-            <div class="demo">
+            <!--div class="demo"-->
                 <div class="mdl-selectfield">
-                    <model-selector [form]="postForm" [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])" [formKey]="playerType"></model-selector>
+                    Your character type.
+                    <model-selector [form]="postForm" [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])" [formKey]="'playerType'"></model-selector>
                 </div>
                 <div class="mdl-selectfield">
-                    <model-selector [form]="postForm" [models]="playerRegions" (select)="onSelect([$event, 'playerRegions'])" [formKey]="playerRegion"></model-selector>
+                    <model-selector [form]="postForm" [models]="playerRegions" (select)="onSelect([$event, 'playerRegions'])" [formKey]="'playerRegion'"></model-selector>
                 </div>
+            <div class="mdl-selectfield">
+                <model-selector [form]="postForm" [models]="queryGameLevels" (select)="onSelect([$event, 'queryGameLevels'])" [formKey]="'queryGameLevel'"></model-selector>
             </div>
+            <!--div class="mdl-selectfield">
+                <model-selector [form]="postForm" [models]="queryGameTypes" (select)="onSelect([$event, 'queryGameTypes'])" [formKey]="'queryGameType'"></model-selector>
+            </div-->
+            <!--/div-->
             <div>
                 <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryMinParagon']"></md-input>
             </div>

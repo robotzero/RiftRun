@@ -61,7 +61,7 @@ body {
     margin: 0 auto;
     top: 50%;
     margin-top: -2em;
-    position: absolute;
+    position: relative;
     right: 0;
     left: 0;
 }

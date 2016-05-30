@@ -35,14 +35,14 @@ export class Post implements OnInit {
 
     ngOnInit():void {
         this.postForm = this.formBuilder.group({
-            playerType: [''],
+            playerType: ['Demon Hunter'],
             playerParagonPoints: [''],
             playerBattleTag: [''],
-            playerRegion: [''],
+            playerRegion: ['EU'],
             playerGameType: ['seasonal'],
             queryMinParagon: ['15'],
             queryGameLevel: ['40+'],
-            queryGameType: ['grift'],
+            queryGameType: ['grift'], 
             queryCharacterType: ['demon hunter']
         });
 
