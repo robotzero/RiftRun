@@ -4,10 +4,13 @@ namespace RiftRunBundle\CommandBus\SubHandlers;
 
 use RiftRunBundle\CommandBus\Handlers\CommandHandler;
 use RiftRunBundle\DTO\DTO;
+use RiftRunBundle\DTO\GriftDTO;
+use RiftRunBundle\DTO\RiftDTO;
 use RiftRunBundle\Model\Character;
 use RiftRunBundle\Model\CharacterType;
 use RiftRunBundle\Model\Grift;
 use RiftRunBundle\Model\Post;
+use RiftRunBundle\Model\Rift;
 use RiftRunBundle\Model\SearchQuery;
 
 final class TransformDTOHandler implements CommandHandler
@@ -19,7 +22,17 @@ final class TransformDTOHandler implements CommandHandler
         $searchQueryDTO = $dto->query;
         $gameTypeDTO = $searchQueryDTO->game;
         $characterDTO = $dto->player;
-        $searchQuery = new SearchQuery($searchQueryDTO->minParagon, new Grift($gameTypeDTO->level), $currentDate);
+        $gameType = null;
+
+        if ($gameTypeDTO instanceof RiftDTO) {
+            $gameType = new Rift($gameTypeDTO->torment);
+        }
+
+        if ($gameTypeDTO instanceof GriftDTO) {
+            $gameType = new Grift($gameTypeDTO->level);
+        }
+        
+        $searchQuery = new SearchQuery($searchQueryDTO->minParagon, $gameType, $currentDate);
         $characterTypeDTOS = $searchQueryDTO->characterType;
         foreach ($characterTypeDTOS as $characterTypeDTO) {
             $characterType = new CharacterType($searchQuery, $characterTypeDTO->type);

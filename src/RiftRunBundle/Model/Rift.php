@@ -3,23 +3,23 @@
 namespace RiftRunBundle\Model;
 
 /**
- * Grift
+ * Rift
  */
-class Grift extends GameType
+class Rift extends GameType
 {
     /**
      * @var integer
      */
     private $id;
-    
-    /**
-     * @var string
-     */
-    private $level;
 
-    public function __construct(string $level)
+    /**
+     * @var int
+     */
+    private $torment;
+
+    public function __construct(int $torment)
     {
-        $this->level = $level;
+        $this->torment = $torment;
     }
 
     /**
@@ -33,12 +33,13 @@ class Grift extends GameType
     }
 
     /**
-     * Get level
+     * Get torment
      *
-     * @return string
+     * @return int
      */
-    public function getLevel()
+    public function getTorment()
     {
-        return $this->level;
+        return $this->torment;
     }
 }
+

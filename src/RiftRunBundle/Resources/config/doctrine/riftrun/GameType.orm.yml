@@ -9,6 +9,7 @@ RiftRunBundle\Model\GameType:
     discriminatorMap:
         gametype: GameType
         grift: Grift
+        rift: Rift
     cascade: [ persist ]
     id:
             id:

@@ -13,15 +13,25 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PostType extends AbstractType
 {
+    /**
+     * @var array
+     */
+    private $typesMap = [
+        'rift' => RiftType::class,
+        'grift' => GriftType::class
+    ];
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
             $data = $event->getData();
             $form = $event->getForm();
 
-            if (isset($data['query']['game']['type']) && $data['query']['game']['type'] === 'grift') {
+            //@Todo verify that type is set to allowed types.
+            if (array_key_exists('type', $data['query']['game'])) {
+            //if (isset($data['query']['game']['type'])) {
                 $searchquery = $form->get('query');
-                $searchquery->add('game', GriftType::class, ['required' => true]);
+                $searchquery->add('game', $this->typesMap[$data['query']['game']['type']], ['required' => true]);
             }
         });
 
