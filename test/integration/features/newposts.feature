@@ -15,6 +15,16 @@ Scenario: I can create new post
     Then I get a "201" response
     And the "postId" property has "searchQueryId" property with "getQuery" getter equalling id of object in the "Post" database
 
+Scenario Outline: Diffrent game type
+    When payload properties <properties> equals <values>
+    And remove <rproperties> from payload
+    And  I request "POST v1/posts" with payload
+    Then I get a "201" response
+    Examples:
+        | properties                          | values           | rproperties      |
+        | query.game.type,query.game.torment  | rift,1           | query.game.level |
+        | query.game.type,query.game.level    | grift,40+        |                  |
+
 Scenario Outline: Wrong object
     When the obj <object> has set <item> to <value>
     And  I request "POST v1/posts" with payload

@@ -269,7 +269,6 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         if ($statusCode === "200") {
             assertTrue($this->response->isOk());
         }
-
         assertEquals($statusCode, $this->response->getStatusCode());
         assertEquals($contentType, 'application/json');
     }
@@ -506,13 +505,49 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $object = $this->dbGet($parentValue, $repositoryName);
 
         $searchedObject = $object->$getter();
-        $expectedValue = $searchedObject->getId();
+        $expectedValue = $searchedObject->getId()->__toString();
 
         assertSame(
             $actualValue,
-            (int) $expectedValue,
-            "Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
+            (string) $expectedValue,
+            "Asserting the [$property] property in current scope [{$this->scope}] is an string equalling [$expectedValue]."
         );
+    }
+
+    /**
+     * @When /^payload properties (.*) equals (.*)$/
+     */
+    public function payloadPropertyEquals($properties, $values)
+    {
+        $propertiesArray = explode(",", $properties);
+        $valuesArray     = explode(",", $values);
+        if (count($propertiesArray) !== count($valuesArray)) {
+            throw new \Exception("Properties number does not match values");
+        }
+
+        if ($this->postPayload === null) {
+            throw new \Exception("Post payload is not set.");
+        }
+
+        foreach ($propertiesArray as $key => $property) {
+            list($one, $two, $three) =  explode('.', $property);
+            $this->postPayload[$one][$two][$three] = $valuesArray[$key];
+        }
+    }
+
+    /**
+     * @Given /^remove (.*) from payload$/
+     */
+    public function removeFromPayload($rproperties)
+    {
+        if ($rproperties === '') {
+            return;
+        }
+        $propertiesArray = explode(',', $rproperties);
+        foreach ($propertiesArray as $property) {
+            list($one, $two, $three) =  explode('.', $property);
+            unset($this->postPayload[$one][$two][$three]);
+        }
     }
 
     public function resetScope()
