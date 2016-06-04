@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1167d01bcc92fbccfa9370e04c9dac32",
-    "content-hash": "aa43fe71a521540bd9ae2a2410f90c60",
+    "hash": "d70dbea9dca76e3c3a19e87418091791",
+    "content-hash": "6292f4f9555bc4c21cc0b446f5412567",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3405,16 +3405,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.0.6",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "a821ed51b87f5ceda834140e5f0c06e9547a86d4"
+                "reference": "979d7323716fec847508eac3e62d59b117612a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/a821ed51b87f5ceda834140e5f0c06e9547a86d4",
-                "reference": "a821ed51b87f5ceda834140e5f0c06e9547a86d4",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/979d7323716fec847508eac3e62d59b117612a6e",
+                "reference": "979d7323716fec847508eac3e62d59b117612a6e",
                 "shasum": ""
             },
             "require": {
@@ -3484,9 +3484,8 @@
                 "doctrine/orm": "~2.4,>=2.4.5",
                 "egulias/email-validator": "~1.2",
                 "monolog/monolog": "~1.11",
-                "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
+                "ocramius/proxy-manager": "~0.4|~1.0",
                 "phpdocumentor/reflection": "^1.0.7",
-                "symfony/polyfill-apcu": "~1.1",
                 "symfony/security-acl": "~2.8|~3.0"
             },
             "type": "library",
@@ -3531,7 +3530,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-05-09 22:13:31"
+            "time": "2015-12-26 16:49:48"
         },
         {
             "name": "twig/twig",
@@ -4876,12 +4875,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "02448a3f767240a24e498e4b86802ed35738f462"
+                "reference": "2f2f1b9535083e039fb38afcf11cfeb35f52d190"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/02448a3f767240a24e498e4b86802ed35738f462",
-                "reference": "02448a3f767240a24e498e4b86802ed35738f462",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f2f1b9535083e039fb38afcf11cfeb35f52d190",
+                "reference": "2f2f1b9535083e039fb38afcf11cfeb35f52d190",
                 "shasum": ""
             },
             "require": {
@@ -4943,7 +4942,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-04 13:12:06"
+            "time": "2016-06-04 15:29:17"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
