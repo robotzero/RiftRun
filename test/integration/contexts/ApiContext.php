@@ -528,10 +528,30 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         if ($this->postPayload === null) {
             throw new \Exception("Post payload is not set.");
         }
-
+        $builders = [];
         foreach ($propertiesArray as $key => $property) {
-            list($one, $two, $three) =  explode('.', $property);
-            $this->postPayload[$one][$two][$three] = $valuesArray[$key];
+            $data = explode('.', $property);
+            $builder = '$this->postPayload';
+            $valueToUnset = $data[count($data) - 2];
+            $unsetBuilder = null;
+            foreach ($data as $value) {
+                $builder .= '["'.$value.'"]';
+                if ($value === $valueToUnset) {
+                    $unsetBuilder = $builder . ' = null;';
+                }
+            }
+            if (is_numeric($valuesArray[$key])) {
+                $builder .= ' = ' . $valuesArray[$key] .';';
+            } else {
+                $builder .= ' = "' . $valuesArray[$key] .'";';
+            }
+            if ($unsetBuilder !== null) {
+                eval($unsetBuilder);
+            }
+            $builders[] = $builder;
+        }
+        foreach ($builders as $builder) {
+            eval($builder);
         }
     }
 
