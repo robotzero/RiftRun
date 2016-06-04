@@ -46,7 +46,7 @@ final class ProcessFormHandler implements CommandHandler
         );
 
         $form->submit($createPost->getRequestData(), true);
-
+        
         if ($form->isValid() === false) {
             throw new BadRequestHttpException('Invalid form');
         }
