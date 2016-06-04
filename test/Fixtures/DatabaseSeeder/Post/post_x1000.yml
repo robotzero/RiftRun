@@ -9,11 +9,6 @@ RiftRunBundle\Model\Character:
     monks{1..1000} (extends character):
         __construct: ['monk', <{paragonPoints}>, <{battleTag}>, <{region}>, <{seasonal}>, <{gameType}>, <{createdAt}>]
 
-RiftRunBundle\Model\CharacterType:
-    charactertypes{1..1000} (extends charactertype):
-        __construct: [<{type}>]
-        searchQuery: '@searchqueries<current()>'
-
 RiftRunBundle\Model\Grift:
     grifts{1..1000} (extends grift):
         __construct: [<{level}>]
@@ -21,6 +16,10 @@ RiftRunBundle\Model\Grift:
 RiftRunBundle\Model\SearchQuery:
     searchqueries{1..1000} (extends searchquery):
         __construct: [<{minParagon}>, '@grifts<current()>', <{createdAt}>]
+
+RiftRunBundle\Model\CharacterType:
+    charactertypes{1..1000} (extends charactertype):
+        __construct: ['@searchqueries<current()>', <{type}>]
 
 RiftRunBundle\Model\Post:
     posts{1..1000} (extends post):

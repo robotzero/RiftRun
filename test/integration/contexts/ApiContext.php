@@ -92,20 +92,19 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @Given /^I have (\d+) posts missing "([^"]*)" object starting from (\d+)$/
+     * @Given /^I have (\d+) posts missing "([^"]*)" object$/
      */
-    public function iHavePostsMissingObject($broken, $obj, $id)
+    public function iHavePostsMissingObject($broken, $obj)
     {
         $connection = $this->doctrine->getManager()->getConnection();
-        $ids = '';
-        for($i = $id; $i < $id+10; $i++) {
-            if ($i == ($id + 10) - 1) {
-                $ids .= $i;
-                break;
-            }
-            $ids .=$i . ', ';
-        }
+        $records = $connection->executeQuery('SELECT id FROM ' . $obj . ' limit ' . $broken)->fetchAll();
 
+        $ids = array_reduce($records, function ($carry, $item) {
+            $carry .= '"' . $item['id'] . '",';
+            return $carry;
+        }, '');
+
+        $ids = rtrim($ids, ',');
         $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
     }
 
@@ -665,8 +664,9 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $background = $scope->getFeature()->getBackground();
         $title = $background->getTitle();
 
-        $record = explode(' ', $title)[1];
-        $number = explode(' ', $title)[0];
+        list($number, $record) = explode(' ', $title);
+//        $record = explode(' ', $title)[1];
+//        $number = explode(' ', $title)[0];
 
         $fileLocations = [
             'test/Fixtures/DatabaseSeeder/' .
@@ -674,6 +674,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
             '_x' . $number . '.yml'
         ];
 
+        print_r($fileLocations);
         self::$commandBus->handle(new LoadFixtures($fileLocations));
     }
 
