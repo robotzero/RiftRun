@@ -32,6 +32,8 @@ require_once __DIR__.'/../../../app/AppKernel.php';
  */
 class ApiContext extends MinkContext implements KernelAwareContext, Context, SnippetAcceptingContext
 {
+    private static $singleRandomId;
+
     protected $kernel;
 
     private $crawler = null;
@@ -49,6 +51,8 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     private static $mykernel = null;
 
     private static $commandBus = null;
+    
+    private static $connection;
 
     private $postPayload = null;
 
@@ -264,7 +268,6 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iGetAResponse($statusCode)
     {
         $contentType = $this->response->headers->get('content-type');
-
         if ($statusCode === "200") {
             assertTrue($this->response->isOk());
         }
@@ -667,15 +670,16 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         list($number, $record) = explode(' ', $title);
 //        $record = explode(' ', $title)[1];
 //        $number = explode(' ', $title)[0];
-
         $fileLocations = [
             'test/Fixtures/DatabaseSeeder/' .
             ucfirst($record) . '/' . $record .
             '_x' . $number . '.yml'
         ];
 
-        print_r($fileLocations);
         self::$commandBus->handle(new LoadFixtures($fileLocations));
+        $connection = self::$entityManager->getConnection();
+        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
+        self::$singleRandomId = $result[5];
     }
 
     /** @AfterFeature */
@@ -688,5 +692,15 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function resetPayload(AfterScenarioScope $scope)
     {
         $this->postPayload = null;
+    }
+
+    /**
+     * @When /^I request single "([^"]*)"(.*)$/
+     */
+    public function iRequest2($link, $id)
+    {
+        $resource = $link . self::$singleRandomId['id'];
+        $this->crawler = $this->client->request('GET', $resource);
+        $this->response = $this->client->getResponse();
     }
 }

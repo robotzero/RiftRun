@@ -62,8 +62,8 @@ Scenario Outline: Returning default paginated collection of posts
         | "?page=15&limit=5" | "15"   | "200"   | 5     | "http://localhost/v1/posts?page=15&limit=5"    | "http://localhost/v1/posts?page=1&limit=5"    |  "http://localhost/v1/posts?page=16&limit=5"    |
         | "?page=10"         | "10"   | "50"    | 20    | "http://localhost/v1/posts?page=10&limit=20"   | "http://localhost/v1/posts?page=1&limit=20"   |  "http://localhost/v1/posts?page=11&limit=20"  |
 
-Scenario: Returning a single post
-    When I request "GET /v1/posts/1"
+Scenario Outline: Returning a single post
+    When I request single "/v1/posts/"<id>
     Then I get a "200" response
     And the properties exist:
              """
@@ -95,32 +95,35 @@ Scenario: Returning a single post
     And scope into the "_links.self" property
         And the "href" property exists
         #And the "href" property is a string equalling "http://localhost/v1/posts/1"
+    Examples:
+        | id    |
+        | "abc" |
 
-Scenario: Do not show posts older than a 30 days.
+  Scenario: Do not show posts older than a 30 days.
     Given I have at least 10 posts older than a month
     When I request "GET /v1/posts?limit=500&page=2"
     Then I get a "200" response
     And the "page" property exists
     And the "page" property is a integer equalling "2"
     And the "total" property is a integer equalling "1000"
-
-Scenario Outline: When object is missing for the given post do not display this post.
-    Given I have <numberMissing> posts missing <object> object
-    When I request "GET /v1/posts?limit=500&page=2"
-    Then I get a "200" response
-    And the "page" property exists
-    And the "page" property is a integer equalling "2"
-    And the "total" property is a integer equalling <result>
-    And scope into the "_embedded" property
-        And the "items" property contains <items> items
-
-    Examples:
-        | numberMissing   | object          |  result   | items |
-        | 10              | "searchquery"   |  "990"   |  490  |
-        | 10              | "characters"    | "980"   |  480  |
-        | 10              | "gametype"      | "970"   |  470  |
-        | 10              | "charactertype" | "960"   |  460  |
-
+#
+#Scenario Outline: When object is missing for the given post do not display this post.
+#    Given I have <numberMissing> posts missing <object> object
+#    When I request "GET /v1/posts?limit=500&page=2"
+#    Then I get a "200" response
+#    And the "page" property exists
+#    And the "page" property is a integer equalling "2"
+#    And the "total" property is a integer equalling <result>
+#    And scope into the "_embedded" property
+#        And the "items" property contains <items> items
+#
+#    Examples:
+#        | numberMissing   | object          |  result   | items |
+#        | 10              | "searchquery"   |  "990"   |  490  |
+#        | 10              | "characters"    | "980"   |  480  |
+#        | 10              | "gametype"      | "970"   |  470  |
+#        | 10              | "charactertype" | "960"   |  460  |
+#
 Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have "10" posts in the database with created date 29 days old
     When I request "GET /v1/posts?limit=20"
