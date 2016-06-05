@@ -13,13 +13,16 @@ services:
         arguments:
             - '@form.factory'
 
+    transform_dto_pipeline:
+        class: RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe
+
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
             - '@doctrine.orm.entity_manager'
-            - '@transform_dto_subhandler'
             - '@pipeline'
             - '@process_form_pipeline'
+            - '@transform_dto_pipeline'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 
