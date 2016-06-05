@@ -5,12 +5,21 @@ services:
     pagerfanta_factory:
         class: RiftRunBundle\Factories\PagerfantaFactory
 
+    pipeline:
+        class: League\Pipeline\Pipeline
+
+    process_form_pipeline:
+        class: RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe
+        arguments:
+            - '@form.factory'
+
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
             - '@doctrine.orm.entity_manager'
-            - '@process_form_subhandler'
             - '@transform_dto_subhandler'
+            - '@pipeline'
+            - '@process_form_pipeline'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 

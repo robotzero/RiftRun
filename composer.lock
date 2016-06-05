@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d70dbea9dca76e3c3a19e87418091791",
-    "content-hash": "6292f4f9555bc4c21cc0b446f5412567",
+    "hash": "2771180c9dd6e33770c27026586e0aad",
+    "content-hash": "74a356e248df209dfe3eeaa27884727d",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1715,6 +1715,53 @@
                 "listener"
             ],
             "time": "2015-05-21 12:24:47"
+        },
+        {
+            "name": "league/pipeline",
+            "version": "0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/pipeline.git",
+                "reference": "c79ce70462364cb98ecae4d9b74554483a82d706"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/pipeline/zipball/c79ce70462364cb98ecae4d9b74554483a82d706",
+                "reference": "c79ce70462364cb98ecae4d9b74554483a82d706",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Pipeline\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "A plug and play pipeline implementation.",
+            "keywords": [
+                "composition",
+                "design pattern",
+                "pattern",
+                "pipeline",
+                "sequential"
+            ],
+            "time": "2016-03-23 13:41:04"
         },
         {
             "name": "league/tactician",
