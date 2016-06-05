@@ -1,30 +1,30 @@
-#Feature: Create new Posts
-#
-#Background: Correct payload
-#    Given I have default payload:
-#        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1           | char2      | char3 | char4 | char5        |
-#        | demon hunter| 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | demon hunter    | barbarian  | wizard| monk  | witch doctor |
-#
-#Scenario: I can create new post
-#    When I request "POST v1/posts" with payload
-#    And the properties exist:
-#        """
-#        postId
-#        searchQueryId
-#        """
-#    Then I get a "201" response
-#    And the "postId" property has "searchQueryId" property with "getQuery" getter equalling id of object in the "Post" database
-#
-#Scenario Outline: Diffrent game type
-#    When payload properties <properties> equals <values>
-#    And remove <rproperties> from payload
-#    And  I request "POST v1/posts" with payload
-#    Then I get a "201" response
-#    Examples:
-#        | properties                          | values           | rproperties      |
-#        | query.game.type,query.game.torment  | rift,1           | query.game.level |
-#        | query.game.type,query.game.level    | grift,40+        |                  |
-#
+Feature: Create new Posts
+
+Background: Correct payload
+    Given I have default payload:
+        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1           | char2      | char3 | char4 | char5        |
+        | demon hunter| 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | demon hunter    | barbarian  | wizard| monk  | witch doctor |
+
+Scenario: I can create new post
+    When I request "POST v1/posts" with payload
+    And the properties exist:
+        """
+        postId
+        searchQueryId
+        """
+    Then I get a "201" response
+    And the "postId" property has "searchQueryId" property with "getQuery" getter equalling id of object in the "Post" database
+
+Scenario Outline: Diffrent game type
+    When payload properties <properties> equals <values>
+    And remove <rproperties> from payload
+    And  I request "POST v1/posts" with payload
+    Then I get a "201" response
+    Examples:
+        | properties                          | values           | rproperties      |
+        | query.game.type,query.game.torment  | rift,1           | query.game.level |
+        | query.game.type,query.game.level    | grift,40+        |                  |
+
 #Scenario Outline: Wrong object
 #    When the obj <object> has set <item> to <value>
 #    And  I request "POST v1/posts" with payload

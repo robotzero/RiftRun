@@ -106,24 +106,24 @@ Scenario Outline: Returning a single post
     And the "page" property exists
     And the "page" property is a integer equalling "2"
     And the "total" property is a integer equalling "1000"
-#
-#Scenario Outline: When object is missing for the given post do not display this post.
-#    Given I have <numberMissing> posts missing <object> object
-#    When I request "GET /v1/posts?limit=500&page=2"
-#    Then I get a "200" response
-#    And the "page" property exists
-#    And the "page" property is a integer equalling "2"
-#    And the "total" property is a integer equalling <result>
-#    And scope into the "_embedded" property
-#        And the "items" property contains <items> items
-#
-#    Examples:
-#        | numberMissing   | object          |  result   | items |
-#        | 10              | "searchquery"   |  "990"   |  490  |
-#        | 10              | "characters"    | "980"   |  480  |
-#        | 10              | "gametype"      | "970"   |  470  |
-#        | 10              | "charactertype" | "960"   |  460  |
-#
+
+Scenario Outline: When object is missing for the given post do not display this post.
+    Given I have <numberMissing> posts missing <object> object
+    When I request "GET /v1/posts?limit=500&page=2"
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "2"
+    And the "total" property is a integer equalling <result>
+    And scope into the "_embedded" property
+        And the "items" property contains <items> items
+
+    Examples:
+        | numberMissing   | object          |  result   | items |
+        | 10              | "searchquery"   |  "990"   |  490  |
+        | 10              | "characters"    | "980"   |  480  |
+        | 10              | "gametype"      | "970"   |  470  |
+        | 10              | "charactertype" | "960"   |  460  |
+
 Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have "10" posts in the database with created date 29 days old
     When I request "GET /v1/posts?limit=20"
