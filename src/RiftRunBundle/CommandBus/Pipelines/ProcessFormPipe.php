@@ -17,6 +17,10 @@ class ProcessFormPipe
 
     /**
      * @param mixed $payloadData
+     * @return mixed
+     * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     * @throws \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function __invoke($payloadData)
     {

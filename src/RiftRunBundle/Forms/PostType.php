@@ -28,8 +28,7 @@ class PostType extends AbstractType
             $form = $event->getForm();
 
             //@Todo verify that type is set to allowed types.
-            if (array_key_exists('type', $data['query']['game'])) {
-            //if (isset($data['query']['game']['type'])) {
+            if (isset($data['query']['game']['type'])) {
                 $searchquery = $form->get('query');
                 $searchquery->add('game', $this->typesMap[$data['query']['game']['type']], ['required' => true]);
             }

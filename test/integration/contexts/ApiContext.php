@@ -9,6 +9,7 @@ use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeFeatureScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
+use Behat\Gherkin\Node\ScenarioInterface;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
@@ -83,7 +84,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @Given /^I have at least (\d+) "([^"]*)" in the database$/
+     * @Given /^I have at exactly (\d+) "([^"]*)" in the database$/
      */
     public function iHaveInTheDatabase($number, $record)
     {
@@ -92,7 +93,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $record = (string) $record;
         $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record);
 
-        assertTrue($result[0]['count'] >= $number);
+        assertTrue($result[0]['count'] === $number);
     }
 
     /**
@@ -109,6 +110,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         }, '');
 
         $ids = rtrim($ids, ',');
+
         $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
     }
 
@@ -118,7 +120,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function iHaveAtLeastPostsOlderThanAMonth($oldPostsNumber)
     {
         $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/Post/posts_old_x10.yml'
+            'test/Fixtures/DatabaseSeeder/Post/posts_old_x' . $oldPostsNumber . '.yml'
         ];
 
         static::$commandBus->handle(new LoadFixtures($fileLocations));
@@ -692,6 +694,13 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     public function resetPayload(AfterScenarioScope $scope)
     {
         $this->postPayload = null;
+    }
+
+    /** @AfterScenario @cleanFixtures */
+    public function deleteFixtures(AfterScenarioScope $scope)
+    {
+        $connection = $this->doctrine->getManager()->getConnection();
+        $connection->executeQuery("DELETE FROM posts WHERE createdAt < date('now', '-1 month')");
     }
 
     /**

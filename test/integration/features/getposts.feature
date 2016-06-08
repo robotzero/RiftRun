@@ -1,7 +1,7 @@
 Feature: Get Posts
 
 Background: 1000 post
-    Given I have at least 1000 "posts" in the database
+    Given I have at exactly 1000 "posts" in the database
 
 Scenario: Returning a collection of posts from a first page
     When I request "GET /v1/posts"
@@ -99,6 +99,7 @@ Scenario Outline: Returning a single post
         | id    |
         | "abc" |
 
+  @cleanFixtures
   Scenario: Do not show posts older than a 30 days.
     Given I have at least 10 posts older than a month
     When I request "GET /v1/posts?limit=500&page=2"
