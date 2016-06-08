@@ -699,7 +699,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     /** @AfterScenario @cleanFixtures */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
-        $connection = $this->doctrine->getManager()->getConnection();
+        $connection = $this->doctrine->getManager()->getConnection();;
         $connection->executeQuery("DELETE FROM posts WHERE createdAt < date('now', '-1 month')");
     }
 
@@ -711,5 +711,23 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $resource = $link . self::$singleRandomId['id'];
         $this->crawler = $this->client->request('GET', $resource);
         $this->response = $this->client->getResponse();
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a string equalling payload id$/
+     */
+    public function thePropertyIsAStringEquallingPayloadId($property)
+    {
+        $payload = $this->getScopePayload();
+        $this->thePropertyIsAString($property);
+        $actualValue = $this->arrayGet($payload, $property);
+
+        $arr = explode('/', $payload->href);
+        $uuid = 'http://localhost/v1/posts/' . end($arr);
+        assertSame(
+            $actualValue,
+            $uuid,
+            "Asserting the [$property] property in current scope [{$this->scope}] is a string equalling [$uuid]."
+        );
     }
 }
