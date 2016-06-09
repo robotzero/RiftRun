@@ -9,6 +9,11 @@ services:
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
 
+    execute_query_command_handler:
+        class: DevHelperBundle\Command\Handlers\ExecuteQueryCommandHandler
+        tags:
+            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ExecuteQuery }
+
     clear_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\DatabaseClearCommandHandler
         arguments:

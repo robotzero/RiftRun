@@ -12,7 +12,7 @@ final class ClearDatabase implements ClearDatabaseInterface
     public function getORMExecutor(
         EntityManagerInterface $entityManager,
         PurgerInterface $ormPurger
-    ) {
+    ):ORMExecutor {
         $ormPurger->setPurgeMode(ORMPurger::PURGE_MODE_TRUNCATE);
         return new ORMExecutor($entityManager, $ormPurger);
     }

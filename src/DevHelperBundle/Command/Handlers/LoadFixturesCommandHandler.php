@@ -12,12 +12,7 @@ final class LoadFixturesCommandHandler
     /**
      * @var LoaderFactory
      */
-    private $loaderFactory = null;
-
-    /**
-     * @var null
-     */
-    private $fixtures = null;
+    private $loaderFactory;
 
     public function __construct(LoaderFactory $loaderFactory)
     {
@@ -34,8 +29,7 @@ final class LoadFixturesCommandHandler
         $fixtures = $loadFixtures->fixtures();
 
         $fixturesLoader = $this->loaderFactory->getLoader();
-        $objects = $fixturesLoader->loadFiles($fixtures);
 
-        return $objects;
+        return $fixturesLoader->loadFiles($fixtures);
     }
 }
