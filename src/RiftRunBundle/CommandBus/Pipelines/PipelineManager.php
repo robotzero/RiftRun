@@ -4,6 +4,7 @@ namespace RiftRunBundle\CommandBus\Pipelines;
 
 use InvalidArgumentException;
 use League\Pipeline\PipelineBuilder;
+use Symfony\Component\Form\FormFactoryInterface;
 use Throwable;
 
 class PipelineManager implements PipelineManagerInterface
@@ -27,13 +28,18 @@ class PipelineManager implements PipelineManagerInterface
             return $this->pipelineBuilder->build();
         }
         $pipelines = [];
-        foreach ($buildCriteria as $criteria) {
+
+        foreach ($buildCriteria as $criteria => $dependency) {
             if (array_key_exists($criteria, $this->mappedCriteria)) {
                 try {
-                    $pipeline = new $this->mappedCriteria[$criteria];
+                    if ($dependency !== null) {
+                        $pipeline = new $this->mappedCriteria[$criteria](new $dependency);
+                    } else {
+                        $pipeline = new $this->mappedCriteria[$criteria];
+                    }
                     $pipelines[] = $pipeline;
                 } catch (Throwable $e) {
-                    throw new InvalidArgumentException('Invalid pipeline.');
+                    throw new InvalidArgumentException('Unable to instantiate pipeline: ' . $e->getMessage());
                 }
             }
         }

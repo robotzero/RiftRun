@@ -1,3 +1,8 @@
+parameters:
+    configured_pipelines:
+        processFormPipe: RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe
+        transformDTOPipe: RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe
+
 services:
     pagerfanta_factory_library:
         class: Hateoas\Representation\Factory\PagerfantaFactory
@@ -5,24 +10,20 @@ services:
     pagerfanta_factory:
         class: RiftRunBundle\Factories\PagerfantaFactory
 
-    pipeline:
-        class: League\Pipeline\Pipeline
+    league_pipeline_builder:
+        class: League\Pipeline\PipelineBuilder
 
-    process_form_pipeline:
-        class: RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe
+    pipeline_manager:
+        class: RiftRunBundle\CommandBus\Pipelines\PipelineManager
         arguments:
-            - '@form.factory'
-
-    transform_dto_pipeline:
-        class: RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe
+            - '@league_pipeline_builder'
+            - '%configured_pipelines%'
 
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
             - '@doctrine.orm.entity_manager'
-            - '@pipeline'
-            - '@process_form_pipeline'
-            - '@transform_dto_pipeline'
+            - '@pipeline_manager'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 

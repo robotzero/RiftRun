@@ -4,40 +4,30 @@ namespace RiftRunBundle\CommandBus\Handlers;
 
 use Doctrine\ORM\EntityManagerInterface;
 use League\Pipeline\Pipeline;
-use League\Pipeline\PipelineInterface;
 use RiftRunBundle\CommandBus\Commands\Create;
-use RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe;
-use RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe;
+use RiftRunBundle\CommandBus\Pipelines\PipelineManagerInterface;
+use Symfony\Component\Form\FormFactory;
 
 final class CreatePostCommandHandler implements CommandHandler
 {
     /** @var EntityManagerInterface */
     private $entityManager;
 
-    /** @var PipelineInterface */
-    private $pipeline;
-
-    /** @var ProcessFormPipe */
-    private $processFormPipe;
-
-    /** @var TransformDTOPipe */
-    private $transformDTOPipe;
+    /** @var  PipelineManagerInterface */
+    private $pipelineManager;
 
     public function __construct(
         EntityManagerInterface $entityManager,
-        PipelineInterface $pipeline,
-        ProcessFormPipe $processFormPipe,
-        TransformDTOPipe $transformDTOPipe
+        PipelineManagerInterface $pipelineManager
     ) {
         $this->entityManager = $entityManager;
-        $this->pipeline = $pipeline;
-        $this->processFormPipe = $processFormPipe;
-        $this->transformDTOPipe = $transformDTOPipe;
+        $this->pipelineManager = $pipelineManager;
     }
 
     public function handle(Create $createPost)
     {
-        $pipeline = $this->pipeline->pipe($this->processFormPipe)->pipe($this->transformDTOPipe);
+        /** @var Pipeline $pipeline */
+        $pipeline = $this->pipelineManager->build(['processFormPipe' => FormFactory::class, 'transformDTOPipe']);
         $post = $pipeline->process($createPost);
 
         try {
