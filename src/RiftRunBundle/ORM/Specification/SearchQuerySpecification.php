@@ -2,7 +2,6 @@
 
 namespace RiftRunBundle\ORM\Specification;
 
-use Doctrine\Common\Util\Debug;
 use Doctrine\ORM\QueryBuilder;
 
 final class SearchQuerySpecification implements Specification
@@ -29,5 +28,4 @@ final class SearchQuerySpecification implements Specification
 
         return $queryBuilder;
     }
-
 }
