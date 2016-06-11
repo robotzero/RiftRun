@@ -27,7 +27,7 @@ final class CreatePostCommandHandler implements CommandHandler
     public function handle(Create $createPost)
     {
         /** @var Pipeline $pipeline */
-        $pipeline = $this->pipelineManager->build(['processFormPipe' => FormFactory::class, 'transformDTOPipe']);
+        $pipeline = $this->pipelineManager->build(['processFormPipe' => 'form.factory', 'transformDTOPipe' => null]);
         $post = $pipeline->process($createPost);
 
         try {
