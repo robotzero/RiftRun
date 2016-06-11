@@ -11,6 +11,8 @@ services:
 
     execute_query_command_handler:
         class: DevHelperBundle\Command\Handlers\ExecuteQueryCommandHandler
+        arguments:
+            - '@doctrine'
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ExecuteQuery }
 

@@ -9,21 +9,23 @@ use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeFeatureScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\ScenarioInterface;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
-use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Behat\WebApiExtension\Context\WebApiContext;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\CreateSchema;
-use DevHelperBundle\Command\Commands\GetValueFromDatabase;
+use DevHelperBundle\Command\Commands\ExecuteQuery;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
+use Doctrine\Bundle\DoctrineBundle\Registry;
+use Doctrine\DBAL\Driver\Connection;
+use Doctrine\ORM\QueryBuilder;
+use League\Tactician\CommandBus;
 use RiftRunBundle\CommandBus\Commands\FetchSingle;
-use SimpleBus\Message\Bus\MessageBus;
+use RiftRunBundle\ORM\Specification\OldPostsSpecification;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
-use TableNode\Extension\NestedTableNode;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 require_once __DIR__.'/../../../app/AppKernel.php';
@@ -33,29 +35,30 @@ require_once __DIR__.'/../../../app/AppKernel.php';
  */
 class ApiContext extends MinkContext implements KernelAwareContext, Context, SnippetAcceptingContext
 {
+    /** @var  string */
     private static $singleRandomId;
 
+    /** @var  Kernel */
     protected $kernel;
 
-    private $crawler = null;
+    private $crawler;
 
-    private $client = null;
+    private $client;
 
-    private $response = null;
+    private $response;
 
     private $scope = null;
 
-    private $doctrine = null;
+    private $doctrine;
 
-    private static $entityManager = null;
+    private static $entityManager;
 
-    private static $mykernel = null;
+    private static $mykernel;
 
-    private static $commandBus = null;
-    
-    private static $connection;
+    /* @var CommandBus */
+    private static $commandBus;
 
-    private $postPayload = null;
+    private $postPayload;
 
     /**
      * Initializes context.
@@ -63,14 +66,18 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      * Every scenario gets its own context instance.
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
+     * @param Registry $doctrine
      */
     public function __construct(
-        \Doctrine\Bundle\DoctrineBundle\Registry $doctrine
+        Registry $doctrine
     ) {
         $this->doctrine   = $doctrine;
     }
 
-    /** @BeforeScenario */
+    /**
+     * @param BeforeScenarioScope $scope
+     * @BeforeScenario
+     */
     public function before(BeforeScenarioScope $scope)
     {
         $this->client = $this->kernel->getContainer()->get('test.client');
@@ -78,6 +85,9 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $this->resetScope();
     }
 
+    /**
+     * @param KernelInterface $kernelInterface
+     */
     public function setKernel(KernelInterface $kernelInterface)
     {
         $this->kernel = $kernelInterface;
@@ -85,9 +95,11 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
 
     /**
      * @Given /^I have at exactly (\d+) "([^"]*)" in the database$/
+     * @throws \InvalidArgumentException
      */
     public function iHaveInTheDatabase($number, $record)
     {
+        /** @var Connection $connection */
         $connection = $this->doctrine->getManager()->getConnection();
 
         $record = (string) $record;
@@ -670,8 +682,6 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $title = $background->getTitle();
 
         list($number, $record) = explode(' ', $title);
-//        $record = explode(' ', $title)[1];
-//        $number = explode(' ', $title)[0];
         $fileLocations = [
             'test/Fixtures/DatabaseSeeder/' .
             ucfirst($record) . '/' . $record .
@@ -696,17 +706,19 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         $this->postPayload = null;
     }
 
-    /** @AfterScenario @cleanFixtures */
+    /**
+     * @AfterScenario @cleanFixtures
+     * @throws \InvalidArgumentException
+     */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
-        $connection = $this->doctrine->getManager()->getConnection();;
-        $connection->executeQuery("DELETE FROM posts WHERE createdAt < date('now', '-1 month')");
+        self::$commandBus->handle(new ExecuteQuery(new OldPostsSpecification()));
     }
 
     /**
      * @When /^I request single "([^"]*)"(.*)$/
      */
-    public function iRequest2($link, $id)
+    public function iRequest2($link)
     {
         $resource = $link . self::$singleRandomId['id'];
         $this->crawler = $this->client->request('GET', $resource);
