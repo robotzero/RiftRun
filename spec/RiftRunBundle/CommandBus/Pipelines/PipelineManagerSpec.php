@@ -18,6 +18,7 @@ class PipelineManagerSpec extends ObjectBehavior
             'testPipelineA' => TestPipelineA::class,
             'testPipelineB' => TestPipelineB::class,
             'testPipelineC' => TestPipelineC::class,
+            'testPipelineD' => TestPipelineD::class,
             'nonExistingClass' => Test::class
         ];
 
@@ -90,11 +91,17 @@ class PipelineManagerSpec extends ObjectBehavior
 
     function it_throws_an_exception_when_pipeline_dependency_cant_be_instantiated()
     {
-        //@TODO
+        $this->shouldThrow(new InvalidArgumentException('Unable to instantiate pipeline: Class \'spec\RiftRunBundle\CommandBus\Pipelines\NonExistingDependency\' not found'))->during(
+            'build',
+            [
+                ['testPipelineA' => null, 'testPipelineC' => Dependency::class, 'testPipelineD' => NonExistingDependency::class]
+            ]
+        );
     }
 }
 
 class TestPipelineA { public function __invoke() {}}
 class TestPipelineB { public function __invoke() {}}
 class TestPipelineC { public function __construct(Dependency $dependency) {} public function __invoke() {}}
+class TestPipelineD { public function __construct(Dependency $dependency) {} public function __invoke() {}}
 class Dependency {};
