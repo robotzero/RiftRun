@@ -6,7 +6,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use League\Pipeline\Pipeline;
 use RiftRunBundle\CommandBus\Commands\Create;
 use RiftRunBundle\CommandBus\Pipelines\PipelineManagerInterface;
-use Symfony\Component\Form\FormFactory;
 
 final class CreatePostCommandHandler implements CommandHandler
 {
@@ -29,7 +28,6 @@ final class CreatePostCommandHandler implements CommandHandler
         /** @var Pipeline $pipeline */
         $pipeline = $this->pipelineManager->build(['processFormPipe' => 'form.factory', 'transformDTOPipe' => null]);
         $post = $pipeline->process($createPost);
-
         try {
             $this->entityManager->persist($post);
             $this->entityManager->flush();
@@ -37,6 +35,7 @@ final class CreatePostCommandHandler implements CommandHandler
             echo $e->getMessage();
         }
 
+        /** @TODO change return value to event dispatch */
         return $post;
     }
 }
