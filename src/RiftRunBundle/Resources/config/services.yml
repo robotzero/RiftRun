@@ -2,6 +2,7 @@ parameters:
     configured_pipelines:
           processFormPipe: 'RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe'
           transformDTOPipe: 'RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe'
+          fetchPipeline:  'RiftRunBundle\Services\Pipelines\FetchPipeline'
 
 services:
     pagerfanta_factory_library:
@@ -47,6 +48,13 @@ services:
     # QueryBuilder Specification
     all_posts_specification:
         class: RiftRunBundle\ORM\Specification\AllPostsSpecification
+
+    # Query Services
+    fetch_posts_service:
+        class: RiftRunBundle\Services\PostsQueryService
+        arguments:
+            - '@pipeline_manager'
+            - '@doctrine'
 
     # Helper
     form_errors_helper:

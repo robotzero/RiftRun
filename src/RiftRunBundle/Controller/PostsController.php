@@ -24,6 +24,8 @@ class PostsController extends FOSRestController
      */
     public function getPostsAction(Request $request)
     {
+        $queryService = $this->container->get('fetch_posts_service');
+        $queryService->query();
         $commandBus = $this->container->get('tactician.commandbus.default');
         $collection = $commandBus->handle(new PagerfantaPaginate(
                 new AllPostsSpecification(),

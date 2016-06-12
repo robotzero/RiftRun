@@ -3,14 +3,16 @@
 namespace RiftRunBundle\ORM\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * PostRepository
  *
  */
-class PostRepository extends EntityRepository
+class PostRepository extends EntityRepository implements Repository
 {
-    public function match(Callable $criteria, $searchCriteria)
+    /** @inheritdoc */
+    public function match(Callable $criteria, $searchCriteria):QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('posts');
 
