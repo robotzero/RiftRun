@@ -3,22 +3,22 @@
 namespace RiftRunBundle\Services\Pipelines;
 
 use RiftRunBundle\Services\Criteria\Criteria;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class FetchPipeline implements  ServicePipeline
 {
-    /** @var  Criteria */
-    private $criteria;
+    /** @var RegistryInterface */
+    private $doctrine;
 
-    public function __construct(Criteria $criteria)
+    public function __construct(RegistryInterface $doctrine)
     {
-        $this->criteria = $criteria;
+        $this->doctrine = $doctrine;
     }
 
-    public function __invoke()
+    public function __invoke(Criteria $criteria)
     {
-        $repositoryName = $this->criteria->getRepositoryName();
-        $doctrine = $this->criteria->getDoctrine();
-        $repository = $doctrine->getRepository($repositoryName);
-        return $repository->match($this->criteria->getSpecification(), null);
+        $repositoryName = $criteria->getRepositoryName();
+        $repository = $this->doctrine->getRepository($repositoryName);
+        return $repository->match($criteria->getSpecification(), null);
     }
 }

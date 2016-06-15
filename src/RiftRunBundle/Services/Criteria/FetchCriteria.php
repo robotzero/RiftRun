@@ -13,14 +13,10 @@ class FetchCriteria implements Criteria
     /** @var Specification */
     private $specification;
 
-    /** @var RegistryInterface */
-    private $doctrine;
-
-    public function __construct(Specification $specification, string $repositoryName, $doctrine)
+    public function __construct(Specification $specification, string $repositoryName)
     {
         $this->specification = $specification;
         $this->repositoryName = $repositoryName;
-        $this->doctrine = $doctrine;
     }
 
     public function getRepositoryName():string
@@ -32,10 +28,4 @@ class FetchCriteria implements Criteria
     {
         return $this->specification;
     }
-
-    public function getDoctrine()
-    {
-        return $this->doctrine;
-    }
-
 }

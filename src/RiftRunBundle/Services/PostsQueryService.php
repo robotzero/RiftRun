@@ -16,6 +16,7 @@ class PostsQueryService implements QueryService
 
     /** @var RegistryInterface  */
     private $doctrine;
+
     public function __construct(PipelineManagerInterface $pipelineManager, RegistryInterface $doctrine)
     {
         $this->pipelineManager = $pipelineManager;
@@ -25,8 +26,8 @@ class PostsQueryService implements QueryService
     public function query()
     {
         $pipelineBuilder = (new PipelineBuilder)
-            ->add(new FetchPipeline(new FetchCriteria(new AllPostsSpecification(), 'RiftRunBundle:Posts', $this->doctrine)));
+            ->add(new FetchPipeline($this->doctrine));
         $pipeline = $pipelineBuilder->build();
-
+        $queryBuilder = $pipeline->process(new FetchCriteria(new AllPostsSpecification(), 'RiftRunners:Post'));
     }
 }
