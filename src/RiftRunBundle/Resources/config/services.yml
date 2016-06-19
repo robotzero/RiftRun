@@ -56,7 +56,12 @@ services:
             - '@pipeline_manager'
             - '@doctrine'
             - '@jms_serializer'
+            - '@pager_fanta_factory'
 
     # Helper
     form_errors_helper:
         class: RiftRunBundle\Helpers\FormErrors
+
+    # External libs
+    pager_fanta_factory:
+        class: Hateoas\Representation\Factory\PagerfantaFactory

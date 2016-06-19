@@ -14,21 +14,21 @@ class PaginatePipeline
     private $pageNumber;
     private $limit;
     private $route;
+    private $factory;
 
-    public function __construct(int $pageNumber, int $limit, Route $route)
+    public function __construct(int $pageNumber, int $limit, Route $route, PagerfantaFactory $factory)
     {
         $this->pageNumber = $pageNumber;
         $this->limit = $limit;
         $this->route = $route;
+        $this->factory = $factory;
     }
 
-    public function __invoke(QueryBuilder $queryBuilder):PaginatedRepresentation
+    public function __invoke(Pagerfanta $pagerfanta):PaginatedRepresentation
     {
-        $pagerFanta = new Pagerfanta(new DoctrineORMAdapter($queryBuilder));
-        $pagerFanta->setCurrentPage($this->pageNumber);
-        $pagerFanta->setMaxPerPage($this->limit);
-        $pagerFantaFactory = new PagerfantaFactory();
+        $pagerfanta->setCurrentPage($this->pageNumber);
+        $pagerfanta->setMaxPerPage($this->limit);
 
-        return $pagerFantaFactory->createRepresentation($pagerFanta, $this->route);
+        return $this->factory->createRepresentation($pagerfanta, $this->route);
     }
 }

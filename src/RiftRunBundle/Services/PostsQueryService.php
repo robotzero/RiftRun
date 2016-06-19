@@ -2,6 +2,7 @@
 
 namespace RiftRunBundle\Services;
 
+use Hateoas\Representation\Factory\PagerfantaFactory;
 use JMS\Serializer\SerializerInterface;
 use League\Pipeline\PipelineBuilder;
 use Hateoas\Configuration\Route;
@@ -25,11 +26,19 @@ class PostsQueryService implements QueryService
     /** @var SerializerInterface */
     private $serializer;
 
-    public function __construct(PipelineManagerInterface $pipelineManager, RegistryInterface $doctrine, SerializerInterface $serializer)
-    {
+    /** @var PagerfantaFactory */
+    private $pagerfantaFactory;
+
+    public function __construct(
+        PipelineManagerInterface $pipelineManager,
+        RegistryInterface $doctrine,
+        SerializerInterface $serializer,
+        PagerfantaFactory $pagerfantaFactory
+    ) {
         $this->pipelineManager = $pipelineManager;
         $this->doctrine = $doctrine;
         $this->serializer = $serializer;
+        $this->pagerfantaFactory = $pagerfantaFactory;
     }
 
     /**
@@ -42,7 +51,7 @@ class PostsQueryService implements QueryService
     {
         $pipelineBuilder = (new PipelineBuilder)
             ->add(new FetchPipeline($this->doctrine))
-            ->add(new PaginatePipeline($page, $limit, new Route($route, [], true)))
+            ->add(new PaginatePipeline($page, $limit, new Route($route, [], true), $this->pagerfantaFactory))
             ->add(new SerializePipeline($this->serializer));
 
         $pipeline = $pipelineBuilder->build();

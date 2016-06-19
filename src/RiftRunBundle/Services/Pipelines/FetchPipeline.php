@@ -2,7 +2,8 @@
 
 namespace RiftRunBundle\Services\Pipelines;
 
-use Doctrine\ORM\QueryBuilder;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 use RiftRunBundle\Services\Criteria\Criteria;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -16,10 +17,11 @@ class FetchPipeline implements  ServicePipeline
         $this->doctrine = $doctrine;
     }
 
-    public function __invoke(Criteria $criteria):QueryBuilder
+    public function __invoke(Criteria $criteria):Pagerfanta
     {
         $repositoryName = $criteria->getRepositoryName();
         $repository = $this->doctrine->getRepository($repositoryName);
-        return $repository->match($criteria->getSpecification(), null);
+        $queryBuilder = $repository->match($criteria->getSpecification(), null);
+        return new Pagerfanta(new DoctrineORMAdapter($queryBuilder));
     }
 }
