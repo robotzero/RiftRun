@@ -44,6 +44,11 @@ services:
             - '@jms_serializer'
             - '@pager_fanta_factory'
 
+    fetch_post_service:
+        class: RiftRunBundle\Services\PostQueryService
+        arguments:
+            - '@doctrine'
+
     # Helper
     form_errors_helper:
         class: RiftRunBundle\Helpers\FormErrors

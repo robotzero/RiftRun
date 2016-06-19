@@ -1,0 +1,30 @@
+<?php
+
+namespace RiftRunBundle\Services;
+
+use RiftRunBundle\Model\Post;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+class PostQueryService implements QueryService
+{
+    /** @var  RegistryInterface */
+    private $doctrine;
+
+    public function __construct(RegistryInterface $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
+    /**
+     * @param string $repositoryName
+     * @param string $id
+     * @return Post
+     * @TODO change to DTO object instead model.
+     * @TODO return Not Found when post is not found.
+     */
+    public function query(string $repositoryName, string $id):Post
+    {
+        $repository = $this->doctrine->getRepository('RiftRunners:' . $repositoryName);
+        return $repository->findOneBy(['id' => $id]);
+    }
+}
