@@ -3,7 +3,6 @@
 namespace RiftRunBundle\Services\Criteria;
 
 use RiftRunBundle\ORM\Specification\Specification;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class FetchCriteria implements Criteria
 {

@@ -18,25 +18,17 @@ use Symfony\Component\HttpFoundation\Response;
 class PostsController extends FOSRestController
 {
     /**
+     * @param Request $request
      * @return array
+     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
+     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      * @View()
      * @Get("/posts")
      */
     public function getPostsAction(Request $request)
     {
         $queryService = $this->container->get('fetch_posts_service');
-        $queryService->query();
-        $commandBus = $this->container->get('tactician.commandbus.default');
-        $collection = $commandBus->handle(new PagerfantaPaginate(
-                new AllPostsSpecification(),
-                null,
-                $request->get('page', 1),
-                $request->get('limit', 20),
-                'Post',
-                $request->get('_route'))
-        );
-
-        return new Response($this->container->get('serializer')->serialize($collection, 'json'));
+        return $queryService->query($request->get('page', 1), $request->get('limit', 20), $request->get('_route'));
     }
 
     /**

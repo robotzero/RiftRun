@@ -13,9 +13,9 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class FetchPipelineSpec extends ObjectBehavior
 {
-    function let(FetchCriteria $criteria)
+    function let(RegistryInterface $doctrine)
     {
-        $this->beConstructedWith($criteria);
+        $this->beConstructedWith($doctrine);
     }
     function it_is_initializable()
     {
@@ -35,10 +35,9 @@ class FetchPipelineSpec extends ObjectBehavior
     ) {
         $criteria->getRepositoryName()->willReturn('NameSpace:RepoName');
         $criteria->getSpecification()->willReturn($specification);
-        $criteria->getDoctrine()->willReturn($doctrine);
         $doctrine->getRepository('NameSpace:RepoName')->shouldBeCalledTimes(1)->willReturn($repository);
         $repository->match($specification, null)->shouldBeCalledTimes(1);
-        $this->__invoke();
+        $this->__invoke($criteria);
     }
 
     function it_delegates_to_repository_to_get_the_query_builder(
@@ -50,10 +49,9 @@ class FetchPipelineSpec extends ObjectBehavior
     ) {
         $criteria->getRepositoryName()->shouldBeCalledTimes(1);
         $criteria->getSpecification()->willReturn($specification);
-        $criteria->getDoctrine()->willReturn($doctrine);
         $doctrine->getRepository('')->willReturn($repository);
         $repository->match($specification, null)->willReturn($queryBuilder);
-        $this->__invoke()->shouldReturnAnInstanceOf('Doctrine\ORM\QueryBuilder');
+        $this->__invoke($criteria)->shouldReturnAnInstanceOf('Doctrine\ORM\QueryBuilder');
     }
 }
 

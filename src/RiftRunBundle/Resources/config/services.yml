@@ -55,6 +55,7 @@ services:
         arguments:
             - '@pipeline_manager'
             - '@doctrine'
+            - '@jms_serializer'
 
     # Helper
     form_errors_helper:
