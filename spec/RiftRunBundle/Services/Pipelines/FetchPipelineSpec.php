@@ -51,7 +51,7 @@ class FetchPipelineSpec extends ObjectBehavior
         $criteria->getSpecification()->willReturn($specification);
         $doctrine->getRepository('')->willReturn($repository);
         $repository->match($specification, null)->willReturn($queryBuilder);
-        $this->__invoke($criteria)->shouldReturnAnInstanceOf('Doctrine\ORM\QueryBuilder');
+        $this->__invoke($criteria)->shouldReturnAnInstanceOf('Pagerfanta\Pagerfanta');
     }
 }
 
