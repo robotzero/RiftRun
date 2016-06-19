@@ -5,12 +5,6 @@ parameters:
           fetchPipeline:  'RiftRunBundle\Services\Pipelines\FetchPipeline'
 
 services:
-    pagerfanta_factory_library:
-        class: Hateoas\Representation\Factory\PagerfantaFactory
-
-    pagerfanta_factory:
-        class: RiftRunBundle\Factories\PagerfantaFactory
-
     league_pipeline_builder:
         class: League\Pipeline\PipelineBuilder
 
@@ -29,14 +23,6 @@ services:
             - '@pipeline_manager'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
-
-    paginate_posts_command_handler:
-        class: RiftRunBundle\CommandBus\Handlers\PaginatePostsCommandHandler
-        arguments:
-            - '@doctrine'
-            - '@pagerfanta_factory'
-        tags:
-            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\PagerfantaPaginate }
 
     fetch_single_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\FetchSingleCommandHandler
