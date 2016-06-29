@@ -665,7 +665,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     /** @BeforeFeature */
     public static function loadTheFixtures(BeforeFeatureScope $scope)
     {
-        self::$mykernel = new \AppKernel('test', false);
+        self::$mykernel = new \AppKernel('test', true);
         self::$mykernel->boot();
 
         self::$entityManager = self::$mykernel->getContainer()->get('doctrine')->getManager();
