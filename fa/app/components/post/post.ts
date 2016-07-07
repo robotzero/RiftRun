@@ -4,19 +4,20 @@ import {APIGetService} from '../../services/apigetservice';
 import {PostQuery} from '../../models/postquery';
 import {APIPostService} from '../../services/apipostservice';
 import {Component, OnInit} from '@angular/core';
-import {FORM_DIRECTIVES, CORE_DIRECTIVES, NgFor, NgIf, FormBuilder, ControlGroup} from '@angular/common';
+import {CORE_DIRECTIVES, NgFor, NgIf} from '@angular/common';
 import { MdCard } from '@angular2-material/card';
 import { MdInput } from '@angular2-material/input';
 import { MdButton } from '@angular2-material/button';
 import {PostFactory} from "../../utils/postFactory";
 import {ModelSelector} from "../../directives/modelselector";
+import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
     selector: 'post',
     providers:[APIGetService, APIPostService, PostFactory],
-    viewBindings: [FormBuilder],
+    viewProviders: [FormBuilder],
     templateUrl: './app/components/post/post.html',
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, ModelSelector, MdCard, MdInput, MdButton, NgFor, NgIf]
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, ModelSelector, MdCard, MdInput, MdButton, NgFor, NgIf]
 })
 
 export class Post implements OnInit {
@@ -25,7 +26,7 @@ export class Post implements OnInit {
     postService: APIPostService;
     getService: APIGetService;
     postFactory: PostFactory;
-    postForm: ControlGroup;
+    postForm: FormGroup;
     formBuilder: FormBuilder;
     response: any;
     playerTypes: Array<string> = ['Demon Hunter', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader'];
