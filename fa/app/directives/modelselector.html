@@ -1,10 +1,9 @@
 <div class="demo">
-<!--div [ngFormModel]="form" class="mdl-selectfield"-->
-<!--div #form = "ngForm" class="mdl-selectfield">
-    <select #sel (change)="select.emit(sel.value)" [ngFormControl]="form.controls[formKey]" class="browser-default">
+<div [formGroup]="form" class="mdl-selectfield">
+    <select #sel (change)="select.emit(sel.value)" [formControl]="form.controls[formKey]" class="browser-default">
         <option *ngFor="let model of models">
             {{model}}
         </option>
     </select>
-</div-->
+</div>
 </div>

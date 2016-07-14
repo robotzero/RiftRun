@@ -11,7 +11,6 @@ import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from 
 import {MdCard} from "@angular2-material/card/card";
 import {MdInput} from "@angular2-material/input/input";
 import {MdButton} from "@angular2-material/button/button";
-import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'post',

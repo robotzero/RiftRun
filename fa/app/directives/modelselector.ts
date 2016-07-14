@@ -4,12 +4,13 @@
 import {Component, Output, OnInit, Input} from "@angular/core";
 import {EventEmitter} from "@angular/core";
 import {ControlGroup} from "@angular/common";
-import { NgForm }    from '@angular/forms';
+import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
 
 @Component({
     selector: 'model-selector',
     templateUrl: './app/directives/modelselector.html',
     styleUrls: ['./app/directives/modelselector.css'],
+    directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 
 export class ModelSelector implements OnInit {

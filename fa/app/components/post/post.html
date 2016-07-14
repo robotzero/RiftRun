@@ -1,14 +1,13 @@
 <md-card>
     <md-card-content>
-        <!--form [ngFormModel]="postForm" (ngSubmit) = "postContent(postForm.value)"-->
-        <form #postForm = "ngForm" (ngSubmit) = "postContent(postForm.value)">
+        <form [formGroup]="postForm" (ngSubmit) = "postContent(postForm.value)">
             <div>
-                <md-input required placeholder="Your paragon points" [ngFormControl]="postForm.controls['playerParagonPoints']"></md-input>
+                <md-input required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"></md-input>
             </div>
             <div>
-                <md-input required placeholder="Your battle.net tag" [ngFormControl]="postForm.controls['playerBattleTag']"></md-input>
+                <md-input required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"></md-input>
             </div>
-                <!--div class="mdl-selectfield">
+                <div class="mdl-selectfield">
                     Your character type.
                     <model-selector [form]="postForm" [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])" [formKey]="'playerType'"></model-selector>
                 </div>
@@ -17,12 +16,12 @@
                 </div>
             <div class="mdl-selectfield">
                 <model-selector [form]="postForm" [models]="queryGameLevels" (select)="onSelect([$event, 'queryGameLevels'])" [formKey]="'queryGameLevel'"></model-selector>
-            </div-->
-            <div>
-                <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryMinParagon']"></md-input>
             </div>
             <div>
-                <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryGameLevel']"></md-input>
+                <md-input required placeholder="Minimum paragon points" [formControl]="postForm.controls['queryMinParagon']"></md-input>
+            </div>
+            <div>
+                <md-input required placeholder="Minimum paragon points" [formControl]="postForm.controls['queryGameLevel']"></md-input>
             </div>
             <button md-raised-button color="primary" type="submit">Add Post</button>
         </form>
