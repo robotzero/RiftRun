@@ -7,14 +7,14 @@ import {Component, OnInit} from '@angular/core';
 import {CORE_DIRECTIVES, NgFor, NgIf} from '@angular/common';
 import {PostFactory} from "../../utils/postFactory";
 import {ModelSelector} from "../../directives/modelselector";
-// import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
+import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
     selector: 'post',
     providers:[APIGetService, APIPostService, PostFactory],
     // viewProviders: [FormBuilder],
     templateUrl: './app/components/post/post_new.html',
-    directives: [CORE_DIRECTIVES, ModelSelector, NgFor, NgIf]
+    directives: [CORE_DIRECTIVES, ModelSelector, NgFor, NgIf, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
     //directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, ModelSelector, MdCard, MdInput, MdButton, NgFor, NgIf]
 })
 

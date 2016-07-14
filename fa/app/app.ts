@@ -8,7 +8,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {HTTP_PROVIDERS} from '@angular/http';
 // import {MdToolbar} from '@angular2-material/toolbar';
 import {APP_ROUTER_PROVIDER} from "./routes";
-//import {provideForms, disableDeprecatedForms} from "@angular/forms";
+import {provideForms, disableDeprecatedForms} from '@angular/forms';
 
 // Annotation section
 @Component({
@@ -25,6 +25,5 @@ class MyAppComponent {
 }
 
 bootstrap(MyAppComponent, [
-    //HTTP_PROVIDERS, APP_ROUTER_PROVIDER, disableDeprecatedForms(), provideForms(), bind(LocationStrategy).toClass(HashLocationStrategy)
-    HTTP_PROVIDERS, APP_ROUTER_PROVIDER, bind(LocationStrategy).toClass(HashLocationStrategy)
+    HTTP_PROVIDERS, APP_ROUTER_PROVIDER, disableDeprecatedForms(), provideForms(), bind(LocationStrategy).toClass(HashLocationStrategy)
 ]);
