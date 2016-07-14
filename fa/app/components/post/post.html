@@ -1,15 +1,14 @@
-
 <md-card>
     <md-card-content>
-        <form [ngFormModel]="postForm" (ngSubmit) = "postContent(postForm.value)">
+        <!--form [ngFormModel]="postForm" (ngSubmit) = "postContent(postForm.value)"-->
+        <form #postForm = "ngForm" (ngSubmit) = "postContent(postForm.value)">
             <div>
                 <md-input required placeholder="Your paragon points" [ngFormControl]="postForm.controls['playerParagonPoints']"></md-input>
             </div>
             <div>
                 <md-input required placeholder="Your battle.net tag" [ngFormControl]="postForm.controls['playerBattleTag']"></md-input>
             </div>
-            <!--div class="demo"-->
-                <div class="mdl-selectfield">
+                <!--div class="mdl-selectfield">
                     Your character type.
                     <model-selector [form]="postForm" [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])" [formKey]="'playerType'"></model-selector>
                 </div>
@@ -18,11 +17,7 @@
                 </div>
             <div class="mdl-selectfield">
                 <model-selector [form]="postForm" [models]="queryGameLevels" (select)="onSelect([$event, 'queryGameLevels'])" [formKey]="'queryGameLevel'"></model-selector>
-            </div>
-            <!--div class="mdl-selectfield">
-                <model-selector [form]="postForm" [models]="queryGameTypes" (select)="onSelect([$event, 'queryGameTypes'])" [formKey]="'queryGameType'"></model-selector>
             </div-->
-            <!--/div-->
             <div>
                 <md-input required placeholder="Minimum paragon points" [ngFormControl]="postForm.controls['queryMinParagon']"></md-input>
             </div>
@@ -34,30 +29,6 @@
     </md-card-content>
 </md-card>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-    <!--div class = "form-group">
-        <select class="c-select" [ngFormControl]="postForm.controls['playerType']" #class="ngForm">
-            <option selected>Select your class</option>
-            <option *ngFor="let p of playerTypes" [value] = "p">{{p}}</option>
-        </select>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon2">#</span>
-        <input type="text" [ngFormControl]="postForm.controls['playerBattleTag']" class="form-control" placeholder="Battle Tag" aria-describedby="sizing-addon2">
-    </div>
-    <br>
-    <div class = "form-group">
-        <select class="c-select" [ngFormControl]="postForm.controls['playerRegion']" #region="ngForm">
-            <option selected>Select your region</option>
-            <option *ngFor="let r of playerRegions" [value] = "r">{{r}}</option>
-        </select>
-    </div-->
-
-
-<!--div>
-    Player Id
-    Player Paragon
-</div-->
 
 <md-list>
     <md-list-item *ngFor="let post of posts">

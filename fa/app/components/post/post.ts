@@ -8,14 +8,17 @@ import {CORE_DIRECTIVES, NgFor, NgIf} from '@angular/common';
 import {PostFactory} from "../../utils/postFactory";
 import {ModelSelector} from "../../directives/modelselector";
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
+import {MdCard} from "@angular2-material/card/card";
+import {MdInput} from "@angular2-material/input/input";
+import {MdButton} from "@angular2-material/button/button";
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'post',
     providers:[APIGetService, APIPostService, PostFactory],
-    // viewProviders: [FormBuilder],
-    templateUrl: './app/components/post/post_new.html',
-    directives: [CORE_DIRECTIVES, ModelSelector, NgFor, NgIf, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
-    //directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, ModelSelector, MdCard, MdInput, MdButton, NgFor, NgIf]
+    viewProviders: [FormBuilder],
+    templateUrl: './app/components/post/post.html',
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, ModelSelector, MdCard, MdInput, MdButton, NgFor, NgIf]
 })
 
 export class Post implements OnInit {
@@ -24,8 +27,8 @@ export class Post implements OnInit {
     postService: APIPostService;
     getService: APIGetService;
     postFactory: PostFactory;
-    // postForm: FormGroup;
-    // formBuilder: FormBuilder;
+    postForm: FormGroup;
+    formBuilder: FormBuilder;
     response: any;
     playerTypes: Array<string> = ['Demon Hunter', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader'];
     playerRegions: Array<string> = ['EU', 'US', 'ASIA'];
@@ -33,17 +36,17 @@ export class Post implements OnInit {
     queryGameTypes: Array<string> = ['Rift', 'Grift', 'PowerGrift', 'Bounties', 'Keywardens', 'Ubers'];
 
     ngOnInit():void {
-    //     this.postForm = this.formBuilder.group({
-    //         playerType: ['Demon Hunter'],
-    //         playerParagonPoints: [''],
-    //         playerBattleTag: [''],
-    //         playerRegion: ['EU'],
-    //         playerGameType: ['seasonal'],
-    //         queryMinParagon: ['15'],
-    //         queryGameLevel: ['40+'],
-    //         queryGameType: ['grift'],
-    //         queryCharacterType: ['demon hunter']
-    //     });
+        this.postForm = this.formBuilder.group({
+            playerType: ['Demon Hunter'],
+            playerParagonPoints: [''],
+            playerBattleTag: [''],
+            playerRegion: ['EU'],
+            playerGameType: ['seasonal'],
+            queryMinParagon: ['15'],
+            queryGameLevel: ['40+'],
+            queryGameType: ['grift'],
+            queryCharacterType: ['demon hunter']
+        });
 
         this.getService.get('http://riftrun.local/v1/posts')
             .map((posts: any) => {
@@ -52,12 +55,11 @@ export class Post implements OnInit {
             .subscribe(response => this.posts = response);
     }
 
-    // constructor(getService:APIGetService, postService:APIPostService, formBuilder: FormBuilder, postFactory: PostFactory) {
-    constructor(getService:APIGetService, postService:APIPostService, postFactory: PostFactory) {
+    constructor(getService:APIGetService, postService:APIPostService, formBuilder: FormBuilder, postFactory: PostFactory) {
         this.getService = getService;
         this.postService = postService;
         this.postFactory = postFactory;
-        //this.formBuilder = formBuilder;
+        this.formBuilder = formBuilder;
     }
 
     postContent(item:any) {

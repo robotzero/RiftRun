@@ -2,7 +2,6 @@
 
   // map tells the System loader where to look for things
   var map = {
-    'angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt.js',
     '@angular2-material/core': 'node_modules/@angular2-material/core',
     '@angular2-material/checkbox': 'node_modules/@angular2-material/checkbox',
     '@angular2-material/button': 'node_modules/@angular2-material/button',

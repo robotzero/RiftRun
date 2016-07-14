@@ -4,6 +4,7 @@
 import {Component, Output, OnInit, Input} from "@angular/core";
 import {EventEmitter} from "@angular/core";
 import {ControlGroup} from "@angular/common";
+import { NgForm }    from '@angular/forms';
 
 @Component({
     selector: 'model-selector',
