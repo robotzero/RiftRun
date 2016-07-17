@@ -12,6 +12,10 @@ class FetchPipeline implements  ServicePipeline
     /** @var RegistryInterface */
     private $doctrine;
 
+    /**
+     * FetchPipeline constructor.
+     * @param RegistryInterface $doctrine
+     */
     public function __construct(RegistryInterface $doctrine)
     {
         $this->doctrine = $doctrine;

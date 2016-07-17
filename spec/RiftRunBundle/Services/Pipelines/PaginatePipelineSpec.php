@@ -8,7 +8,6 @@ use Hateoas\Representation\PaginatedRepresentation;
 use Pagerfanta\Pagerfanta;
 use RiftRunBundle\Services\Pipelines\PaginatePipeline;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class PaginatePipelineSpec extends ObjectBehavior
 {

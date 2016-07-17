@@ -6,7 +6,6 @@ use Hateoas\Representation\PaginatedRepresentation;
 use JMS\Serializer\SerializerInterface;
 use RiftRunBundle\Services\Pipelines\SerializePipeline;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class SerializePipelineSpec extends ObjectBehavior
 {

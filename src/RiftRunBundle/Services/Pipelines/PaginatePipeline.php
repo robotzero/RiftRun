@@ -5,15 +5,29 @@ namespace RiftRunBundle\Services\Pipelines;
 use Doctrine\ORM\QueryBuilder;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Hateoas\Configuration\Route;
 
 class PaginatePipeline
 {
+    /**
+     * @var int
+     */
     private $pageNumber;
+
+    /**
+     * @var int
+     */
     private $limit;
+
+    /**
+     * @var Route
+     */
     private $route;
+
+    /**
+     * @var PagerfantaFactory
+     */
     private $factory;
 
     public function __construct(int $pageNumber, int $limit, Route $route, PagerfantaFactory $factory)
@@ -24,11 +38,22 @@ class PaginatePipeline
         $this->factory = $factory;
     }
 
+    /**
+     * @param Pagerfanta $pagerfanta
+     * @return PaginatedRepresentation
+     * @throws \Pagerfanta\Exception\OutOfRangeCurrentPageException
+     * @throws \Pagerfanta\Exception\NotIntegerMaxPerPageException
+     * @throws \Pagerfanta\Exception\NotIntegerCurrentPageException
+     * @throws \Pagerfanta\Exception\LessThan1MaxPerPageException
+     * @throws \Pagerfanta\Exception\LessThan1CurrentPageException
+     */
     public function __invoke(Pagerfanta $pagerfanta):PaginatedRepresentation
     {
         $pagerfanta->setCurrentPage($this->pageNumber);
         $pagerfanta->setMaxPerPage($this->limit);
-
+        $transformer = new TransformEntityCollection();
+        $arr = $transformer->transform($pagerfanta);
         return $this->factory->createRepresentation($pagerfanta, $this->route);
+        //return $this->factory->createRepresentation($pagerfanta, $this->route, $arr);
     }
 }

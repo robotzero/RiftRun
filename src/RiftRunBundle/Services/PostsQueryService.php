@@ -3,6 +3,7 @@
 namespace RiftRunBundle\Services;
 
 use Hateoas\Representation\Factory\PagerfantaFactory;
+use Hateoas\Representation\PaginatedRepresentation;
 use JMS\Serializer\SerializerInterface;
 use League\Pipeline\PipelineBuilder;
 use Hateoas\Configuration\Route;
@@ -55,6 +56,6 @@ class PostsQueryService implements QueryService
             ->add(new SerializePipeline($this->serializer));
 
         $pipeline = $pipelineBuilder->build();
-        return $pipeline->process(new FetchCriteria(new AllPostsSpecification(), 'RiftRunners:Post'));
+        return $pipeline->process(new FetchCriteria(new AllPostsSpecification(), 'RiftRunners:Post', $page, $limit));
     }
 }
