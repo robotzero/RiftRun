@@ -3,6 +3,7 @@
 namespace RiftRunBundle\Services\Pipelines;
 
 use ArrayIterator;
+use Hateoas\Representation\CollectionRepresentation;
 use Pagerfanta\Pagerfanta;
 use RiftRunBundle\DTO\CharacterDTO;
 use RiftRunBundle\DTO\CharacterTypeDTO;
@@ -22,15 +23,16 @@ class TransformEntityCollection
 {
     /**
      * @param Pagerfanta $pagerfanta
-     * @return array
+     * @return CollectionRepresentation
      */
-    public function transform(Pagerfanta $pagerfanta):array
+    public function transform(Pagerfanta $pagerfanta):CollectionRepresentation
     {
         /** @var ArrayIterator $results */
         $results = $pagerfanta->getCurrentPageResults();
-        $r = array_map(function (Post $post) {
+
+        $dtosCollection = array_map(function (Post $post) {
             $postCreatedAt = $post->getCreatedAt();
-            $postId = $post->getId();
+            $postId = $post->getId()->__toString();
             $player = $post->getPlayer();
             $query = $post->getQuery();
 
@@ -85,10 +87,11 @@ class TransformEntityCollection
             $postDTO->createdAt = $postCreatedAt;
             $postDTO->player = $playerDTO;
             $postDTO->query = $searchQueryDTO;
+            $postDTO->id = $postId;
 
             return $postDTO;
         }, $results->getArrayCopy());
 
-        return $r;
+        return new CollectionRepresentation($dtosCollection);
     }
 }

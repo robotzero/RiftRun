@@ -2,7 +2,6 @@
 
 namespace RiftRunBundle\Services\Pipelines;
 
-use Doctrine\ORM\QueryBuilder;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;
 use Pagerfanta\Pagerfanta;
@@ -52,8 +51,8 @@ class PaginatePipeline
         $pagerfanta->setCurrentPage($this->pageNumber);
         $pagerfanta->setMaxPerPage($this->limit);
         $transformer = new TransformEntityCollection();
-        $arr = $transformer->transform($pagerfanta);
-        return $this->factory->createRepresentation($pagerfanta, $this->route);
-        //return $this->factory->createRepresentation($pagerfanta, $this->route, $arr);
+        $collectionArray = $transformer->transform($pagerfanta);
+        //return $this->factory->createRepresentation($pagerfanta, $this->route);
+        return $this->factory->createRepresentation($pagerfanta, $this->route, $collectionArray);
     }
 }

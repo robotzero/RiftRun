@@ -5,6 +5,11 @@ namespace RiftRunBundle\DTO;
 class PostDTO implements DTO
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var \DateTime
      */
     public $createdAt;
