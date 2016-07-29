@@ -101,7 +101,9 @@ jms_serializer:
         auto_detection: true
         directories:
             RiftRunBundle:
-                namespace_prefix: "RiftRunBundle\\Model"
+#                namespace_prefix: "RiftRunBundle\\Model"
+#                path: "@RiftRunBundle/Resources/config/serializer/"
+                namespace_prefix: "RiftRunBundle\\DTO"
                 path: "@RiftRunBundle/Resources/config/serializer/"
 
 bazinga_hateoas:

@@ -33,4 +33,14 @@ class PostDTO implements DTO
     {
         return $this->id;
     }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
 }

@@ -7,6 +7,11 @@ class CharacterDTO implements DTO
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**

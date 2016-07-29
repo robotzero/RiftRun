@@ -1,0 +1,4 @@
+RiftRunBundle\DTO\GameTypeDTO:
+    properties:
+        id:
+            type: string

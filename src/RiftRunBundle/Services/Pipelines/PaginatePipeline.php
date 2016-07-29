@@ -52,7 +52,6 @@ class PaginatePipeline
         $pagerfanta->setMaxPerPage($this->limit);
         $transformer = new TransformEntityCollection();
         $collectionArray = $transformer->transform($pagerfanta);
-        //return $this->factory->createRepresentation($pagerfanta, $this->route);
         return $this->factory->createRepresentation($pagerfanta, $this->route, $collectionArray);
     }
 }

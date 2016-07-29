@@ -3,6 +3,7 @@
 namespace RiftRunBundle\Services\Pipelines;
 
 use ArrayIterator;
+use Doctrine\Common\Collections\ArrayCollection;
 use Hateoas\Representation\CollectionRepresentation;
 use Pagerfanta\Pagerfanta;
 use RiftRunBundle\DTO\CharacterDTO;
@@ -32,7 +33,7 @@ class TransformEntityCollection
 
         $dtosCollection = array_map(function (Post $post) {
             $postCreatedAt = $post->getCreatedAt();
-            $postId = $post->getId()->__toString();
+            $postId = $post->getId();
             $player = $post->getPlayer();
             $query = $post->getQuery();
 
@@ -51,30 +52,35 @@ class TransformEntityCollection
             $playerSeasonal = $player->getSeasonal();
             $playerType = $player->getType();
 
-            $characters = [];
+            $characters = new ArrayCollection();
             foreach ($queryCharacterTypes->getValues() as $character) {
                 $characterTypeDTO = new CharacterTypeDTO();
+                $characterTypeDTO->id = $character->getId();
                 $characterTypeDTO->type = $character->getType();
-                $characters[] = $characterTypeDTO;
+                $characters->add($characterTypeDTO);
             }
             $searchQueryDTO = new SearchQueryDTO();
+            $searchQueryDTO->id = $queryId;
             $searchQueryDTO->characterType = $characters;
             $searchQueryDTO->createdAt = $queryCreatedAt;
             $searchQueryDTO->minParagon = $queryMinParagon;
             $gameTypeDTO = null;
             if ($queryGame instanceof Rift) {
                 $gameTypeDTO = new RiftDTO();
+                $gameTypeDTO->id = $queryGame->getId();
                 $gameTypeDTO->torment = $queryGame->getTorment();
             }
 
             if ($queryGame instanceof Grift) {
                 $gameTypeDTO = new GriftDTO();
+                $gameTypeDTO->id = $queryGame->getId();
                 $gameTypeDTO->level = $queryGame->getLevel();
             }
             $searchQueryDTO->game = $gameTypeDTO;
             $searchQueryDTO->createdAt = $queryCreatedAt;
 
             $playerDTO = new CharacterDTO();
+            $playerDTO->id = $playerId;
             $playerDTO->createdAt = $playerCreatedAt;
             $playerDTO->type = $playerType;
             $playerDTO->battleTag = $playerBattleTag;

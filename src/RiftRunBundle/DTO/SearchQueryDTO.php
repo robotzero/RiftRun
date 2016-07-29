@@ -5,6 +5,11 @@ namespace RiftRunBundle\DTO;
 class SearchQueryDTO implements DTO
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var integer
      */
     public $minParagon;

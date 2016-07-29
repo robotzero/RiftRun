@@ -1,0 +1,11 @@
+RiftRunBundle\DTO\SearchQueryDTO:
+    properties:
+        id:
+            type: string
+        minParagon:
+            serialized_name: minParagon
+        createdAt:
+            serialized_name: createdAt
+        characterType:
+            type: ArrayCollection<RiftRunBundle\DTO\CharacterTypeDTO>
+            serialized_name: characterType
