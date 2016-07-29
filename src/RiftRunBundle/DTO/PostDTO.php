@@ -23,4 +23,14 @@ class PostDTO implements DTO
      * @var \RiftRunBundle\Model\SearchQuery
      */
     public $query;
+
+    /**
+     * Get id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }

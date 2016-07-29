@@ -10,5 +10,5 @@ RiftRunBundle\DTO\PostDTO:
             href:
                 route: get_post
                 parameters:
-                    id: expr(object.id)
+                    id: expr(object.getId())
                 absolute: true

@@ -92,6 +92,6 @@ class TransformEntityCollection
             return $postDTO;
         }, $results->getArrayCopy());
 
-        return new CollectionRepresentation($dtosCollection);
+        return new CollectionRepresentation(new ArrayIterator($dtosCollection));
     }
 }
