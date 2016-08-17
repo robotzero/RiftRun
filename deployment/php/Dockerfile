@@ -1,7 +1,6 @@
 # use the latest Ubuntu base image
-FROM ubuntu:16.04
+FROM ubuntu:16.10
 
-RUN echo "CACHE BUST"
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
