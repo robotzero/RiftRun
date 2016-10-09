@@ -1,34 +1,23 @@
-FROM       centos:centos7
-# RUN yum install -y yum-utils
-RUN yum clean all
-
-# Add nginx repo
-RUN yum install -y -q install \
-    http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm \
-    nginx-release
-
-RUN rpm --import /etc/pki/rpm-gpg/*
-
-# Install packages
-RUN yum -y -q install \
-    nginx \
-    git
+FROM nginx:latest
 
 # configure nginx
 RUN mkdir -p /etc/ssl/certs/
 RUN mkdir -p /etc/ssl/private/
 RUN mkdir -p /var/www/html/riftrun/web/
 RUN mkdir -p /var/www/fa/
+RUN mkdir -p /etc/nginx/logs/
+RUN chmod -R a+rwx /etc/nginx/logs
 RUN chmod -R a+rwx /etc/ssl
 ADD myssl.crt  /etc/ssl/certs/
 ADD myssl.key  /etc/ssl/private/
+RUN apt-get -y update && apt-get -y install git
 RUN git clone https://github.com/h5bp/server-configs-nginx
 RUN cp server-configs-nginx/nginx.conf /etc/nginx/
 RUN cp -r server-configs-nginx/h5bp /etc/nginx/
 RUN chmod -R a+rwx /etc/ssl/
 RUN cp -r server-configs-nginx/sites-available /etc/nginx
 RUN cp -r server-configs-nginx/sites-enabled /etc/nginx
-RUN echo "cache buster"
+
 ADD riftrun.conf /etc/nginx/sites-available/
 ADD  fa.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/riftrun.conf /etc/nginx/sites-enabled/riftrun.conf
