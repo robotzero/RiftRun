@@ -2,6 +2,8 @@
 
 namespace RiftRunBundle\Services;
 
+use RiftRunBundle\DTO\PostDTO;
+use RiftRunBundle\Services\Pipelines\TransformEntity;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class PostQueryService implements QueryService
@@ -21,13 +23,14 @@ class PostQueryService implements QueryService
     /**
      * @param string $repositoryName
      * @param string $id
-     * @return Object
-     * @TODO change to DTO object instead model.
+     * @return PostDTO
      * @TODO return Not Found when post is not found.
      */
-    public function query(string $repositoryName, string $id):Object
+    public function query(string $repositoryName, string $id):PostDTO
     {
         $repository = $this->doctrine->getRepository('RiftRunners:' . $repositoryName);
-        return $repository->findOneBy(['id' => $id]);
+        $post = $repository->findOneBy(['id' => $id]);
+        $transform = new TransformEntity();
+        return $transform->transform($post);
     }
 }
