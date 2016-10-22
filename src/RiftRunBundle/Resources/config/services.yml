@@ -24,13 +24,6 @@ services:
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 
-    fetch_single_command_handler:
-        class: RiftRunBundle\CommandBus\Handlers\FetchSingleCommandHandler
-        arguments:
-            - '@doctrine'
-        tags:
-            - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\FetchSingle }
-
     # QueryBuilder Specification
     all_posts_specification:
         class: RiftRunBundle\ORM\Specification\AllPostsSpecification
@@ -39,7 +32,6 @@ services:
     fetch_posts_service:
         class: RiftRunBundle\Services\PostsQueryService
         arguments:
-            - '@pipeline_manager'
             - '@doctrine'
             - '@jms_serializer'
             - '@pager_fanta_factory'

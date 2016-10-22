@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new League\Tactician\Bundle\TacticianBundle(),
             new \Nelmio\CorsBundle\NelmioCorsBundle(),
-            new AppBundle\AppBundle(),
             new RiftRunBundle\RiftRunBundle(),
             new DevHelperBundle\DevHelperBundle(),
         );
