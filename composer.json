@@ -39,12 +39,13 @@
         "league/tactician-command-events": "^0.6.0",
         "ramsey/uuid-doctrine": "^1.2",
         "nelmio/cors-bundle": "^1.4",
-        "league/pipeline": "^0.2.2"
+        "league/pipeline": "^0.2.2",
+        "twig/twig": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",
 	    "sebastian/resource-operations": "dev-master",
-	    "phpunit/phpunit": "dev-master",
+        "phpunit/phpunit": "dev-master",
 	    "behat/behat": "dev-master",
         "phpspec/phpspec": "dev-master",
 	    "phpspec/prophecy": "dev-master",
@@ -54,6 +55,7 @@
         "behat/mink": "dev-master",
         "fzaninotto/faker": "^1.4",
         "hautelook/alice-bundle": "dev-master",
+        "nelmio/alice": "dev-master",
 	    "phpunit/phpunit-mock-objects": "dev-master",
 	    "ralfmaxxx/behat_multidimensional_extension": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
