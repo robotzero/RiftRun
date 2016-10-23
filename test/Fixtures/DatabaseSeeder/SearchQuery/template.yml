@@ -4,4 +4,4 @@ parameters:
 
 RiftRunBundle\Model\SearchQuery:
     searchquery (template):
-        __construct: false
+        __construct: ['<numberBetween(70, 1000)>', '@grifts<current()>', '<dateTime("now")>']

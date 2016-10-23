@@ -1,11 +1,12 @@
 parameters:
-    paragonPoints: <numberBetween($min = 70, $max = 1000)>
+#    paragonPoints: '<numberBetween(70, 1000)>'
     battleTag: "#11111"
     region: "EU"
     type: "demon hunter"
     seasonal: false
     gameType: "softcore"
-    createdAt: <dateTime($max = 'now')>
+#    createdAt: <dateTime($max = 'now')>
+    #createdAt: <dateTimeBetween("-200 days", "now")>
 RiftRunBundle\Model\Character:
     character (template):
-        __construct: false
+        __construct: ['monk', '<numberBetween(70, 1000)>', "#11111", "EU", false, "softcore", '<dateTimeBetween("-200 days", "now")>']

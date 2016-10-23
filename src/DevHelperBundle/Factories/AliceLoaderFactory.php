@@ -2,8 +2,7 @@
 namespace DevHelperBundle\Factories;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Nelmio\Alice\Fixtures;
-use Nelmio\Alice\Persister\Doctrine;
+use Nelmio\Alice\Loader\NativeLoader;
 
 final class AliceLoaderFactory implements LoaderFactory
 {
@@ -18,10 +17,16 @@ final class AliceLoaderFactory implements LoaderFactory
     }
 
     /**
-     * @return \Nelmio\Alice\Fixtures
+     * @return NativeLoader
      */
-    public function getLoader()
+    public function getLoader():NativeLoader
     {
-        return new Fixtures(new Doctrine($this->entityManager));
+        return new NativeLoader();
+        // return new Fixtures(new Doctrine($this->entityManager));
+    }
+
+    public function getEntityManager():ObjectManager
+    {
+        return $this->entityManager;
     }
 }

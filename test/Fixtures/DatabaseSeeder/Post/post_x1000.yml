@@ -6,16 +6,16 @@ include:
     - ../SearchQuery/template.yml
 
 RiftRunBundle\Model\Character:
-    monks{1..1000} (extends character):
-        __construct: ['monk', <{paragonPoints}>, <{battleTag}>, <{region}>, <{seasonal}>, <{gameType}>, <{createdAt}>]
+    monks{1..1000} (extends character): []
+#        __construct: ['monk', <{paragonPoints}>, <{battleTag}>, <{region}>, <{seasonal}>, <{gameType}>, <{createdAt}>]
 
 RiftRunBundle\Model\Grift:
     grifts{1..1000} (extends grift):
         __construct: [<{level}>]
 
 RiftRunBundle\Model\SearchQuery:
-    searchqueries{1..1000} (extends searchquery):
-        __construct: [<{minParagon}>, '@grifts<current()>', <{createdAt}>]
+    searchqueries{1..1000} (extends searchquery): []
+#        __construct: [<{minParagon}>, '@grifts<current()>', <{createdAt}>]
 
 RiftRunBundle\Model\CharacterType:
     charactertypes{1..1000} (extends charactertype):
