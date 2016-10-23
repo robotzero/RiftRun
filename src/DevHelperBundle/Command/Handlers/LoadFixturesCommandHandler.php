@@ -27,14 +27,11 @@ final class LoadFixturesCommandHandler
     public function handle(LoadFixturesInterface $loadFixtures)
     {
         $fixtures = $loadFixtures->fixtures();
-        $fixturesLoader = $this->loaderFactory->getLoader();
-        $objectSet = $fixturesLoader->loadFile($fixtures[0]);
 
         /** @var ObjectManager */
-        $entityManager = $this->loaderFactory->getEntityManager();
+        $loader = $this->loaderFactory->getLoader();
         try {
-            $entityManager->persist($objectSet);
-            $entityManager->flush();
+            $objectSet = $loader->load($fixtures);
         } catch (\Exception $e) {
             echo $e->getMessage();
             die("Error during persisting");

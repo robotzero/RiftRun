@@ -3,5 +3,4 @@ parameters:
     createdAt: <dateTime($max = 'now')>
 
 RiftRunBundle\Model\SearchQuery:
-    searchquery (template):
-        __construct: ['<numberBetween(70, 1000)>', '@grifts<current()>', '<dateTime("now")>']
+    searchquery (template): []

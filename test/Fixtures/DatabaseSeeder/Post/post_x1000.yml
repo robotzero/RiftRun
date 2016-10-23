@@ -14,7 +14,8 @@ RiftRunBundle\Model\Grift:
         __construct: [<{level}>]
 
 RiftRunBundle\Model\SearchQuery:
-    searchqueries{1..1000} (extends searchquery): []
+    searchqueries{1..1000} (extends searchquery):
+        __construct: ['<numberBetween(70, 1000)>', '@grifts<current()>', '<dateTime("now")>']
 #        __construct: [<{minParagon}>, '@grifts<current()>', <{createdAt}>]
 
 RiftRunBundle\Model\CharacterType:

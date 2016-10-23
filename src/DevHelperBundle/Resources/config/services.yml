@@ -48,4 +48,4 @@ services:
     nelmio_loader_factory:
         class: DevHelperBundle\Factories\AliceLoaderFactory
         arguments:
-            - '@doctrine.orm.entity_manager'
+            - '@fidry_alice_data_fixtures.doctrine.persister_loader'

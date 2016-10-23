@@ -1,32 +1,22 @@
 <?php
 namespace DevHelperBundle\Factories;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Nelmio\Alice\Loader\NativeLoader;
+use Fidry\AliceDataFixtures\LoaderInterface;
 
 final class AliceLoaderFactory implements LoaderFactory
 {
     /**
-     * @var ObjectManager
+     * @var LoaderInterface
      */
-    private $entityManager;
+    private $loader;
 
-    public function __construct(ObjectManager $entityManager)
+    public function __construct(LoaderInterface $loader)
     {
-        $this->entityManager = $entityManager;
+        $this->loader = $loader;
     }
 
-    /**
-     * @return NativeLoader
-     */
-    public function getLoader():NativeLoader
+    public function getLoader():LoaderInterface
     {
-        return new NativeLoader();
-        // return new Fixtures(new Doctrine($this->entityManager));
-    }
-
-    public function getEntityManager():ObjectManager
-    {
-        return $this->entityManager;
+        return $this->loader;
     }
 }
