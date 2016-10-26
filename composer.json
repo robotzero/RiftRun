@@ -28,7 +28,6 @@
         "incenteev/composer-parameter-handler": "~2.0",
 	    "friendsofsymfony/rest-bundle": "dev-master",
 	    "jms/serializer": "dev-master",
-	    "nelmio/api-doc-bundle": "dev-master",
 	    "willdurand/hateoas-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
         "hautelook/templated-uri-bundle": "dev-master",
@@ -39,8 +38,7 @@
         "league/tactician-command-events": "^0.6.0",
         "ramsey/uuid-doctrine": "^1.2",
         "nelmio/cors-bundle": "^1.4",
-        "league/pipeline": "^0.2.2",
-        "twig/twig": "dev-master"
+        "league/pipeline": "^0.2.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",

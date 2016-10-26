@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ac131f408acfa1c7403c07260164864",
-    "content-hash": "3bd89da40e12d43d1baae6dfaaff2cf8",
+    "hash": "70f2c9646c51c7120d69d6f7b164aab4",
+    "content-hash": "dc6e9ffb1e10a900b8871a412ed7ad3a",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -104,35 +104,35 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.7",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
+                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
-                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
+                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
-                "php": ">=5.3.2"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "^5.6.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Annotations\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -168,7 +168,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2015-08-31 12:32:49"
+            "time": "2016-10-24 11:45:47"
         },
         {
             "name": "doctrine/cache",
@@ -596,12 +596,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "e60f3a537f54adb47c6c19342cd45a463e1d4a80"
+                "reference": "1fcb2884b8a62cd26716f1147911dfe29406faea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/e60f3a537f54adb47c6c19342cd45a463e1d4a80",
-                "reference": "e60f3a537f54adb47c6c19342cd45a463e1d4a80",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/1fcb2884b8a62cd26716f1147911dfe29406faea",
+                "reference": "1fcb2884b8a62cd26716f1147911dfe29406faea",
                 "shasum": ""
             },
             "require": {
@@ -676,7 +676,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2016-08-25 13:25:19"
+            "time": "2016-10-26 10:48:17"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -916,12 +916,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c"
+                "reference": "26cf90e1c513305e1cc6529e4496130a7f0c6dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c",
-                "reference": "d6eddab94fd71f18ee80b9d7f2a26fd4b32b246c",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/26cf90e1c513305e1cc6529e4496130a7f0c6dcf",
+                "reference": "26cf90e1c513305e1cc6529e4496130a7f0c6dcf",
                 "shasum": ""
             },
             "require": {
@@ -987,7 +987,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-10-18 17:00:10"
+            "time": "2016-10-25 03:56:54"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1946,57 +1946,6 @@
             "time": "2015-12-31 13:38:20"
         },
         {
-            "name": "michelf/php-markdown",
-            "version": "1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/michelf/php-markdown.git",
-                "reference": "156e56ee036505ec637d761ee62dc425d807183c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/156e56ee036505ec637d761ee62dc425d807183c",
-                "reference": "156e56ee036505ec637d761ee62dc425d807183c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-lib": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Michelf": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michel Fortin",
-                    "email": "michel.fortin@michelf.ca",
-                    "homepage": "https://michelf.ca/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "John Gruber",
-                    "homepage": "https://daringfireball.net/"
-                }
-            ],
-            "description": "PHP Markdown",
-            "homepage": "https://michelf.ca/projects/php-markdown/",
-            "keywords": [
-                "markdown"
-            ],
-            "time": "2015-12-24 01:37:31"
-        },
-        {
             "name": "monolog/monolog",
             "version": "1.21.0",
             "source": {
@@ -2073,91 +2022,6 @@
                 "psr-3"
             ],
             "time": "2016-07-29 03:23:52"
-        },
-        {
-            "name": "nelmio/api-doc-bundle",
-            "version": "dev-master",
-            "target-dir": "Nelmio/ApiDocBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "958e697981ca958a8bf9dc2be890cf23d316367c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/958e697981ca958a8bf9dc2be890cf23d316367c",
-                "reference": "958e697981ca958a8bf9dc2be890cf23d316367c",
-                "shasum": ""
-            },
-            "require": {
-                "michelf/php-markdown": "~1.4",
-                "php": ">=5.3",
-                "symfony/console": "~2.3|~3.0",
-                "symfony/framework-bundle": "~2.3|~3.0",
-                "symfony/twig-bundle": "~2.3|~3.0"
-            },
-            "conflict": {
-                "jms/serializer": "<0.12",
-                "jms/serializer-bundle": "<0.11",
-                "symfony/symfony": "~2.7.8",
-                "twig/twig": "<1.12"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "~1.5",
-                "doctrine/orm": "~2.3",
-                "dunglas/api-bundle": "~1.0@dev",
-                "friendsofsymfony/rest-bundle": "~1.0|~2.0",
-                "jms/serializer-bundle": ">=0.11",
-                "sensio/framework-extra-bundle": "~3.0",
-                "symfony/browser-kit": "~2.3|~3.0",
-                "symfony/css-selector": "~2.3|~3.0",
-                "symfony/finder": "~2.3|~3.0",
-                "symfony/form": "~2.3|~3.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0",
-                "symfony/serializer": "~2.7|~3.0",
-                "symfony/validator": "~2.3|~3.0",
-                "symfony/yaml": "~2.3|~3.0"
-            },
-            "suggest": {
-                "dunglas/api-bundle": "For making use of resources definitions of DunglasApiBundle.",
-                "friendsofsymfony/rest-bundle": "For making use of REST information in the doc.",
-                "jms/serializer": "For making use of serializer information in the doc.",
-                "symfony/form": "For using form definitions as input.",
-                "symfony/validator": "For making use of validator information in the doc."
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.13-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Nelmio\\ApiDocBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nelmio",
-                    "homepage": "http://nelm.io"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/nelmio/NelmioApiDocBundle/contributors"
-                }
-            ],
-            "description": "Generates documentation for your REST API from annotations",
-            "keywords": [
-                "api",
-                "doc",
-                "documentation",
-                "rest"
-            ],
-            "time": "2016-10-03 19:10:35"
         },
         {
             "name": "nelmio/cors-bundle",
@@ -3516,12 +3380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "728034c44dfea4b3af4c20cb8af34033f435d2cc"
+                "reference": "f2768dc247b60e7cc3f3992b6086da048577f20e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/728034c44dfea4b3af4c20cb8af34033f435d2cc",
-                "reference": "728034c44dfea4b3af4c20cb8af34033f435d2cc",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f2768dc247b60e7cc3f3992b6086da048577f20e",
+                "reference": "f2768dc247b60e7cc3f3992b6086da048577f20e",
                 "shasum": ""
             },
             "require": {
@@ -3650,25 +3514,24 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-10-23 01:13:47"
+            "time": "2016-10-25 18:41:00"
         },
         {
             "name": "twig/twig",
-            "version": "dev-master",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "02c0cb59f3abd7b70a752d7481d89e11fa2ed2db"
+                "reference": "3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/02c0cb59f3abd7b70a752d7481d89e11fa2ed2db",
-                "reference": "02c0cb59f3abd7b70a752d7481d89e11fa2ed2db",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97",
+                "reference": "3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
-                "symfony/polyfill-mbstring": "~1.0"
+                "php": ">=5.2.7"
             },
             "require-dev": {
                 "symfony/debug": "~2.7",
@@ -3677,7 +3540,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "1.27-dev"
                 }
             },
             "autoload": {
@@ -3712,7 +3575,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-10-22 03:25:38"
+            "time": "2016-10-25 19:17:17"
         },
         {
             "name": "willdurand/hateoas",
@@ -4395,12 +4258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "f191175bf12278d66be91623fa4d1879a1bfea8c"
+                "reference": "8e3ef7771ebf0a13e2015180939e8ce89d1d0137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/f191175bf12278d66be91623fa4d1879a1bfea8c",
-                "reference": "f191175bf12278d66be91623fa4d1879a1bfea8c",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/8e3ef7771ebf0a13e2015180939e8ce89d1d0137",
+                "reference": "8e3ef7771ebf0a13e2015180939e8ce89d1d0137",
                 "shasum": ""
             },
             "require": {
@@ -4454,7 +4317,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2016-10-15 13:31:52"
+            "time": "2016-10-23 16:53:52"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -4646,12 +4509,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "b7dde5f5bf4aa79ec18f00c91f59bf2d81ff80da"
+                "reference": "780f86c3064b6e93d3e837044de0a6352ffa9311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/b7dde5f5bf4aa79ec18f00c91f59bf2d81ff80da",
-                "reference": "b7dde5f5bf4aa79ec18f00c91f59bf2d81ff80da",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/780f86c3064b6e93d3e837044de0a6352ffa9311",
+                "reference": "780f86c3064b6e93d3e837044de0a6352ffa9311",
                 "shasum": ""
             },
             "require": {
@@ -4720,7 +4583,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2016-10-16 17:08:17"
+            "time": "2016-10-23 15:24:26"
         },
         {
             "name": "phpspec/prophecy",
@@ -5035,12 +4898,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c4d334af83710a48d3c39728d515c99413598034"
+                "reference": "b0c4a96b3eca878a7fe1537d1b6fd1175dccd434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c4d334af83710a48d3c39728d515c99413598034",
-                "reference": "c4d334af83710a48d3c39728d515c99413598034",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b0c4a96b3eca878a7fe1537d1b6fd1175dccd434",
+                "reference": "b0c4a96b3eca878a7fe1537d1b6fd1175dccd434",
                 "shasum": ""
             },
             "require": {
@@ -5109,7 +4972,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-10-09 13:28:23"
+            "time": "2016-10-25 07:41:28"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5730,12 +5593,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "b9be7f1b3b2e8bcfc1debefc901b71da923a5e5c"
+                "reference": "da1a69e7c95b1d2636f3ecb8daff9a10eac7292e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/b9be7f1b3b2e8bcfc1debefc901b71da923a5e5c",
-                "reference": "b9be7f1b3b2e8bcfc1debefc901b71da923a5e5c",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/da1a69e7c95b1d2636f3ecb8daff9a10eac7292e",
+                "reference": "da1a69e7c95b1d2636f3ecb8daff9a10eac7292e",
                 "shasum": ""
             },
             "require": {
@@ -5774,7 +5637,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2016-10-10 14:17:42"
+            "time": "2016-10-25 18:50:43"
         },
         {
             "name": "theofidry/alice-data-fixtures",
@@ -5782,12 +5645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "8508ad5f3ec7b9c67b620d745d78e605b5968033"
+                "reference": "e2012b5851a45c732aba7d04fdf66f401e7c26b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/8508ad5f3ec7b9c67b620d745d78e605b5968033",
-                "reference": "8508ad5f3ec7b9c67b620d745d78e605b5968033",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/e2012b5851a45c732aba7d04fdf66f401e7c26b4",
+                "reference": "e2012b5851a45c732aba7d04fdf66f401e7c26b4",
                 "shasum": ""
             },
             "require": {
@@ -5835,7 +5698,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2016-10-02 17:17:55"
+            "time": "2016-10-23 16:44:56"
         },
         {
             "name": "webmozart/assert",
@@ -5903,14 +5766,12 @@
         "sensio/distribution-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
         "jms/serializer": 20,
-        "nelmio/api-doc-bundle": 20,
         "willdurand/hateoas-bundle": 20,
         "jms/serializer-bundle": 20,
         "hautelook/templated-uri-bundle": 20,
         "pagerfanta/pagerfanta": 20,
         "simple-bus/symfony-bridge": 20,
         "simple-bus/doctrine-orm-bridge": 20,
-        "twig/twig": 20,
         "sensio/generator-bundle": 20,
         "sebastian/resource-operations": 20,
         "phpunit/phpunit": 20,

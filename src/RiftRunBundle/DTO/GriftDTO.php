@@ -13,4 +13,9 @@ class GriftDTO implements DTO
      * @var string
      */
     public $level;
+
+    /**
+     * @var string
+     */
+    public $type;
 }

@@ -39,13 +39,16 @@ class TransformEntity
             $riftDTO = new RiftDTO();
             $riftDTO->id = $post->getQuery()->getGame()->getId();
             $riftDTO->torment = $post->getQuery()->getGame()->getTorment();
+            $riftDTO->type = 'Rift';
             $searchQueryDTO->game = $riftDTO;
         }
+
         if ($post->getQuery()->getGame() instanceof Grift) {
-            $giftDTO = new GriftDTO();
-            $giftDTO->id = $post->getQuery()->getGame()->getId();
-            $giftDTO->level = $post->getQuery()->getGame()->getLevel();
-            $searchQueryDTO->game = $giftDTO;
+            $griftDTO = new GriftDTO();
+            $griftDTO->id = $post->getQuery()->getGame()->getId();
+            $griftDTO->level = $post->getQuery()->getGame()->getLevel();
+            $griftDTO->type = 'Grift';
+            $searchQueryDTO->game = $griftDTO;
         }
 
         $characterDTO->type = $post->getPlayer()->getType();

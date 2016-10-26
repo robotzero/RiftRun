@@ -3,18 +3,9 @@
 namespace RiftRunBundle\Services\Pipelines;
 
 use ArrayIterator;
-use Doctrine\Common\Collections\ArrayCollection;
 use Hateoas\Representation\CollectionRepresentation;
 use Pagerfanta\Pagerfanta;
-use RiftRunBundle\DTO\CharacterDTO;
-use RiftRunBundle\DTO\CharacterTypeDTO;
-use RiftRunBundle\DTO\GriftDTO;
-use RiftRunBundle\DTO\PostDTO;
-use RiftRunBundle\DTO\RiftDTO;
-use RiftRunBundle\DTO\SearchQueryDTO;
-use RiftRunBundle\Model\Grift;
 use RiftRunBundle\Model\Post;
-use RiftRunBundle\Model\Rift;
 
 /**
  * Class TransformEntityCollection
@@ -30,72 +21,10 @@ class TransformEntityCollection
     {
         /** @var ArrayIterator $results */
         $results = $pagerfanta->getCurrentPageResults();
+        $singleEntityTransoform = new TransformEntity();
 
-        $dtosCollection = array_map(function (Post $post) {
-            $postCreatedAt = $post->getCreatedAt();
-            $postId = $post->getId();
-            $player = $post->getPlayer();
-            $query = $post->getQuery();
-
-            $queryId = $query->getId();
-            $queryCreatedAt = $query->getCreatedAt();
-            $queryCharacterTypes = $query->getCharacterType();
-            $queryGame = $query->getGame();
-            $queryMinParagon = $query->getMinParagon();
-
-            $playerId = $player->getId();
-            $playerCreatedAt = $player->getCreatedAt();
-            $playerBattleTag = $player->getBattleTag();
-            $playerGameType = $player->getGameType();
-            $playerParagonPoints = $player->getParagonPoints();
-            $playerRegion = $player->getRegion();
-            $playerSeasonal = $player->getSeasonal();
-            $playerType = $player->getType();
-
-            $characters = new ArrayCollection();
-            foreach ($queryCharacterTypes->getValues() as $character) {
-                $characterTypeDTO = new CharacterTypeDTO();
-                $characterTypeDTO->id = $character->getId();
-                $characterTypeDTO->type = $character->getType();
-                $characters->add($characterTypeDTO);
-            }
-            $searchQueryDTO = new SearchQueryDTO();
-            $searchQueryDTO->id = $queryId;
-            $searchQueryDTO->characterType = $characters;
-            $searchQueryDTO->createdAt = $queryCreatedAt;
-            $searchQueryDTO->minParagon = $queryMinParagon;
-            $gameTypeDTO = null;
-            if ($queryGame instanceof Rift) {
-                $gameTypeDTO = new RiftDTO();
-                $gameTypeDTO->id = $queryGame->getId();
-                $gameTypeDTO->torment = $queryGame->getTorment();
-            }
-
-            if ($queryGame instanceof Grift) {
-                $gameTypeDTO = new GriftDTO();
-                $gameTypeDTO->id = $queryGame->getId();
-                $gameTypeDTO->level = $queryGame->getLevel();
-            }
-            $searchQueryDTO->game = $gameTypeDTO;
-            $searchQueryDTO->createdAt = $queryCreatedAt;
-
-            $playerDTO = new CharacterDTO();
-            $playerDTO->id = $playerId;
-            $playerDTO->createdAt = $playerCreatedAt;
-            $playerDTO->type = $playerType;
-            $playerDTO->battleTag = $playerBattleTag;
-            $playerDTO->gameType = $playerGameType;
-            $playerDTO->paragonPoints = $playerParagonPoints;
-            $playerDTO->region = $playerRegion;
-            $playerDTO->seasonal = $playerSeasonal;
-
-            $postDTO = new PostDTO();
-            $postDTO->createdAt = $postCreatedAt;
-            $postDTO->player = $playerDTO;
-            $postDTO->query = $searchQueryDTO;
-            $postDTO->id = $postId;
-
-            return $postDTO;
+        $dtosCollection = array_map(function (Post $post) use ($singleEntityTransoform) {
+            return $singleEntityTransoform->transform($post);
         }, $results->getArrayCopy());
 
         return new CollectionRepresentation(new ArrayIterator($dtosCollection));
