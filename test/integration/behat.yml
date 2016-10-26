@@ -11,6 +11,7 @@ default:
             contexts:
                 - Test\Integration\Context\ApiContext:
                     doctrine: '@doctrine'
+                    commandBus: '@tactician.commandbus.default'
                 # - Test\Integration\Context\CreateContext:
                 #     container: @service_container
         # get:
