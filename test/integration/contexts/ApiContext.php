@@ -33,7 +33,7 @@ require_once __DIR__.'/../../../app/AppKernel.php';
 /**
  * Defines application features from the specific context.
  */
-class ApiContext extends MinkContext implements KernelAwareContext, Context, SnippetAcceptingContext
+class ApiContext extends MinkContext implements KernelAwareContext, Context
 {
     /** @var  string */
     private static $singleRandomId;
@@ -51,14 +51,11 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
 
     private $doctrine;
 
-    private static $entityManager;
-
-    private static $mykernel;
-
-    /* @var CommandBus */
-    private static $commandBus;
-
     private $postPayload;
+
+    private $commandBus;
+
+    private $currentFixtureNumber;
 
     /**
      * Initializes context.
@@ -67,11 +64,14 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
      * @param Registry $doctrine
+     * @param $commandBus
      */
     public function __construct(
-        Registry $doctrine
+        Registry $doctrine,
+        $commandBus
     ) {
         $this->doctrine   = $doctrine;
+        $this->commandBus = $commandBus;
     }
 
     /**
@@ -94,18 +94,51 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
     }
 
     /**
-     * @Given /^I have at exactly (\d+) "([^"]*)" in the database$/
-     * @throws \InvalidArgumentException
+     * @BeforeScenario
      */
-    public function iHaveInTheDatabase($number, $record)
+    public function loadFixtures(BeforeScenarioScope $scope)
     {
+        /** @TODO check if we need to clear cache. */
+        if ($this->currentFixtureNumber > 0) {
+            return;
+        }
+
         /** @var Connection $connection */
         $connection = $this->doctrine->getManager()->getConnection();
 
-        $record = (string) $record;
-        $result = $connection->fetchAll('SELECT count() AS count FROM ' . $record);
+        if ($scope->getFeature()->hasBackground() === false || $scope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
+            return;
+        }
 
-        assertTrue($result[0]['count'] === $number);
+        $background = $scope->getFeature()->getBackground();
+        $title = $background->getTitle();
+
+        [$number, $record] = explode(' ', $title);
+        $fileLocations = [
+            'test/Fixtures/DatabaseSeeder/' .
+            ucfirst($record) . '/' . $record .
+            '_x' . $number . '.yml'
+        ];
+
+        $record = (string) $record;
+
+        $this->commandBus->handle(new CreateSchema($this->doctrine->getManager()));
+        $this->commandBus->handle(new UpdateSchema($this->doctrine->getManager()));
+        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's')[0]['count'];
+        $this->commandBus->handle(new LoadFixtures($fileLocations));
+
+        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
+        self::$singleRandomId = $result[5];
+    }
+
+    /**
+     * @Given /^I have at exactly (\d+) "([^"]*)" in the database$/
+     * @loadFixtures
+     * @throws \InvalidArgumentException
+     */
+    public function iHaveInTheDatabase(int $number, string $record)
+    {
+//        assertTrue($this->currentFixtureNumber === $number);
     }
 
     /**
@@ -662,42 +695,10 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
         return self::$commandBus->handle(new FetchSingle($id, $repositoryName));
     }
 
-    /** @BeforeFeature */
-    public static function loadTheFixtures(BeforeFeatureScope $scope)
-    {
-        self::$mykernel = new \AppKernel('test', true);
-        self::$mykernel->boot();
-
-        self::$entityManager = self::$mykernel->getContainer()->get('doctrine')->getManager();
-        self::$commandBus = self::$mykernel->getContainer()->get('tactician.commandbus.default');
-        self::$commandBus->handle(new CreateSchema(self::$entityManager));
-        self::$commandBus->handle(new UpdateSchema(self::$entityManager));
-
-        if ($scope->getFeature()->hasBackground() === false || $scope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
-            return;
-            //throw new \Exception('Do not know how to load fixtures.');
-        }
-
-        $background = $scope->getFeature()->getBackground();
-        $title = $background->getTitle();
-
-        list($number, $record) = explode(' ', $title);
-        $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/' .
-            ucfirst($record) . '/' . $record .
-            '_x' . $number . '.yml'
-        ];
-
-        self::$commandBus->handle(new LoadFixtures($fileLocations));
-        $connection = self::$entityManager->getConnection();
-        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
-        self::$singleRandomId = $result[5];
-    }
-
     /** @AfterFeature */
     public static function cleanTheFixtures(AfterFeatureScope $scope)
     {
-        self::$commandBus->handle(new ClearDatabase());
+//        $this->commandBus->handle(new ClearDatabase());
     }
 
     /** @AfterScenario */
@@ -712,7 +713,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context, Sni
      */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
-        self::$commandBus->handle(new ExecuteQuery(new OldPostsSpecification()));
+//        self::$commandBus->handle(new ExecuteQuery(new OldPostsSpecification()));
     }
 
     /**
