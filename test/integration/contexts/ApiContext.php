@@ -3,7 +3,6 @@
 namespace Test\Integration\Context;
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Hook\Scope\AfterFeatureScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeFeatureScope;
@@ -12,7 +11,6 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
-use Behat\WebApiExtension\Context\WebApiContext;
 use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\CreateSchema;
 use DevHelperBundle\Command\Commands\ExecuteQuery;
@@ -56,6 +54,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
     private $commandBus;
 
     private $currentFixtureNumber;
+    private $scenarioScope;
 
     /**
      * Initializes context.
@@ -81,6 +80,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
     public function before(BeforeScenarioScope $scope)
     {
         $this->client = $this->kernel->getContainer()->get('test.client');
+        $this->scenarioScope = $scope;
         $this->client->setServerParameters([]);
         $this->resetScope();
     }
@@ -94,9 +94,10 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
     }
 
     /**
-     * @BeforeScenario
+     * @Given /^I have exactly (\d+) "([^"]*)" in the database$/
+     * @throws \InvalidArgumentException
      */
-    public function loadFixtures(BeforeScenarioScope $scope)
+    public function iHaveInTheDatabase(int $number, string $record)
     {
         /** @TODO check if we need to clear cache. */
         if ($this->currentFixtureNumber > 0) {
@@ -106,11 +107,11 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
         /** @var Connection $connection */
         $connection = $this->doctrine->getManager()->getConnection();
 
-        if ($scope->getFeature()->hasBackground() === false || $scope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
+        if ($this->scenarioScope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
             return;
         }
 
-        $background = $scope->getFeature()->getBackground();
+        $background = $this->scenarioScope->getFeature()->getBackground();
         $title = $background->getTitle();
 
         [$number, $record] = explode(' ', $title);
@@ -129,15 +130,6 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
 
         $result = $connection->fetchAll('SELECT id FROM posts limit 10');
         self::$singleRandomId = $result[5];
-    }
-
-    /**
-     * @Given /^I have at exactly (\d+) "([^"]*)" in the database$/
-     * @loadFixtures
-     * @throws \InvalidArgumentException
-     */
-    public function iHaveInTheDatabase(int $number, string $record)
-    {
 //        assertTrue($this->currentFixtureNumber === $number);
     }
 

@@ -3,10 +3,10 @@ parameters:
     battleTag: "#11111"
     region: "EU"
     type: "demon hunter"
-    seasonal: false
+    seasonal: "false"
     gameType: "softcore"
 #    createdAt: <dateTime($max = 'now')>
     #createdAt: <dateTimeBetween("-200 days", "now")>
 RiftRunBundle\Model\Character:
     character (template):
-        __construct: ['monk', '<numberBetween(70, 1000)>', "#11111", "EU", false, "softcore", '<dateTimeBetween("-200 days", "now")>']
+        __construct: ['monk', '<numberBetween(70, 1000)>', "#11111", "EU", "false", "softcore", '<dateTimeBetween("-200 days", "now")>']
