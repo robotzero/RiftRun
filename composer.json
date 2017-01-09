@@ -51,13 +51,11 @@
         "behat/mink-extension": "dev-master",
         "behat/mink-browserkit-driver": "dev-master",
         "behat/mink": "dev-master",
-        "fzaninotto/faker": "^1.4",
+        "fzaninotto/faker": "dev-master",
         "nelmio/alice": "dev-master",
-	    "phpunit/phpunit-mock-objects": "dev-master",
 	    "ralfmaxxx/behat_multidimensional_extension": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sebastian/object-enumerator": "dev-master",
-        "phpunit/php-code-coverage": "dev-master",
         "theofidry/alice-data-fixtures": "dev-master"
     },
     "scripts": {
