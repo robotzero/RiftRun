@@ -1,24 +1,26 @@
-webserver:
-  build: nginx
-  hostname: riftrun.local
-  links:
-    - phpfpm
-  expose:
-    - "80"
-    - "443"
-  ports:
-    - "80:80"
-    - "443:443"
-  volumes:
-    - ../.:/var/www/html/riftrun
-    - ../fa:/var/www/html/fa
-phpfpm:
-  build: php
-  volumes:
-    - ../.:/var/www/html/riftrun
-  environment:
-    XDEBUG_CONFIG: remote_host=172.17.42.1
-  ports:
-    - "9001:9001"
-  expose:
-    - "9001"
+version: '2'
+services:
+  webserver:
+    build: nginx
+    hostname: riftrun.local
+    container_name: riftweb
+    links:
+      - phpfpm
+    expose:
+      - "80"
+      - "443"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ../.:/var/www/html/riftrun
+      - ../fa:/var/www/html/fa
+  phpfpm:
+    build: php
+    container_name: riftfpm
+    volumes:
+      - ../.:/var/www/html/riftrun
+    environment:
+      XDEBUG_CONFIG: remote_host=172.17.42.1
+    expose:
+      - "9001"
