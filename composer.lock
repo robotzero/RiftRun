@@ -1465,12 +1465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "8a29560eee83ac5465a5dbba68e05dba82f8dc48"
+                "reference": "f0e07ebe648e37dcb7cc289e23aab675fb7f7e87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/8a29560eee83ac5465a5dbba68e05dba82f8dc48",
-                "reference": "8a29560eee83ac5465a5dbba68e05dba82f8dc48",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/f0e07ebe648e37dcb7cc289e23aab675fb7f7e87",
+                "reference": "f0e07ebe648e37dcb7cc289e23aab675fb7f7e87",
                 "shasum": ""
             },
             "require": {
@@ -1532,7 +1532,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2016-12-30 16:19:42"
+            "time": "2017-01-11 12:04:28"
         },
         {
             "name": "jms/serializer-bundle",
@@ -2540,12 +2540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "c256b132d3e35873ba2ad6b082b00dbd8e6ea4e2"
+                "reference": "17846680901003d26d823c2e3ac9228702837916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/c256b132d3e35873ba2ad6b082b00dbd8e6ea4e2",
-                "reference": "c256b132d3e35873ba2ad6b082b00dbd8e6ea4e2",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/17846680901003d26d823c2e3ac9228702837916",
+                "reference": "17846680901003d26d823c2e3ac9228702837916",
                 "shasum": ""
             },
             "require": {
@@ -2584,20 +2584,20 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2017-01-04 14:06:21"
+            "time": "2017-01-10 14:58:45"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.18",
+            "version": "v3.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "c38bc608e12e81089d5d9dfbf72775ed553c61af"
+                "reference": "d57c2f297d17ee82baf8cae0b16dae34a9378784"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/c38bc608e12e81089d5d9dfbf72775ed553c61af",
-                "reference": "c38bc608e12e81089d5d9dfbf72775ed553c61af",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/d57c2f297d17ee82baf8cae0b16dae34a9378784",
+                "reference": "d57c2f297d17ee82baf8cae0b16dae34a9378784",
                 "shasum": ""
             },
             "require": {
@@ -2652,7 +2652,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2016-12-14 08:30:06"
+            "time": "2017-01-10 19:42:56"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -3004,12 +3004,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "804425dfceec0097bf3e5dea3a73d91e055686be"
+                "reference": "ebce76a39a65495a66c34eb1574cc4b9e35a4e64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/804425dfceec0097bf3e5dea3a73d91e055686be",
-                "reference": "804425dfceec0097bf3e5dea3a73d91e055686be",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/ebce76a39a65495a66c34eb1574cc4b9e35a4e64",
+                "reference": "ebce76a39a65495a66c34eb1574cc4b9e35a4e64",
                 "shasum": ""
             },
             "require": {
@@ -3056,7 +3056,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2017-01-03 12:32:45"
+            "time": "2017-01-10 20:01:51"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -3407,12 +3407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "9e6d6ba3a9f98d6235f8ee24619a95ca2518c229"
+                "reference": "7aeb31e78d436fa9c728010c6220c8b8071d8892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/9e6d6ba3a9f98d6235f8ee24619a95ca2518c229",
-                "reference": "9e6d6ba3a9f98d6235f8ee24619a95ca2518c229",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/7aeb31e78d436fa9c728010c6220c8b8071d8892",
+                "reference": "7aeb31e78d436fa9c728010c6220c8b8071d8892",
                 "shasum": ""
             },
             "require": {
@@ -3542,20 +3542,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-01-09 20:26:05"
+            "time": "2017-01-11 21:31:22"
         },
         {
             "name": "twig/twig",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "2a86dde1288d7270169083d0e078dc7ebe0f48b6"
+                "reference": "9062992538bc5855a683c6737257bfa18d25a4b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/2a86dde1288d7270169083d0e078dc7ebe0f48b6",
-                "reference": "2a86dde1288d7270169083d0e078dc7ebe0f48b6",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9062992538bc5855a683c6737257bfa18d25a4b8",
+                "reference": "9062992538bc5855a683c6737257bfa18d25a4b8",
                 "shasum": ""
             },
             "require": {
@@ -3569,7 +3569,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -3604,7 +3604,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-01-05 17:12:02"
+            "time": "2017-01-11 19:39:01"
         },
         {
             "name": "willdurand/hateoas",
@@ -5707,12 +5707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "3cc2ea7acfa869b0c9e2c746fe7a72973533bf19"
+                "reference": "92d798e0e0c06670aa99edfcb8e410e9ef0b1897"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/3cc2ea7acfa869b0c9e2c746fe7a72973533bf19",
-                "reference": "3cc2ea7acfa869b0c9e2c746fe7a72973533bf19",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/92d798e0e0c06670aa99edfcb8e410e9ef0b1897",
+                "reference": "92d798e0e0c06670aa99edfcb8e410e9ef0b1897",
                 "shasum": ""
             },
             "require": {
@@ -5763,7 +5763,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2016-12-16 23:35:38"
+            "time": "2017-01-11 21:38:18"
         },
         {
             "name": "webmozart/assert",

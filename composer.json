@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.0",
         "symfony/symfony": "dev-master",
         "doctrine/orm": "2.5.5",
         "doctrine/doctrine-bundle": "dev-master",
