@@ -15,7 +15,7 @@
     "require": {
         "php": ">=7.0",
         "symfony/symfony": "dev-master",
-        "doctrine/orm": "2.5.5",
+        "doctrine/orm": "dev-master",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
