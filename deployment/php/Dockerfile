@@ -14,4 +14,7 @@ ADD php.ini /usr/local/etc/php/
 ADD www.conf  /usr/local/etc/php-fpm.d/
 ADD zz-docker.conf /usr/local/etc/php-fpm.d/
 WORKDIR /var/www/html/riftrun/
+
+RUN echo "opcache.validate_permission = 1" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
+RUN echo "opcache.validate_root = 1" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 # CMD bash -c "/usr/sbin/php-fpm7.1 --fpm-config /etc/php/7.1/fpm/php-fpm.conf && tail -F /var/log/php7-fpm.log"
