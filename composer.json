@@ -41,8 +41,7 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",
-	    "sebastian/resource-operations": "dev-master",
-        "phpunit/phpunit": "dev-master",
+        "phpunit/phpunit": "6.0.8",
 	    "behat/behat": "dev-master",
         "phpspec/phpspec": "dev-master",
 	    "phpspec/prophecy": "dev-master",
@@ -54,7 +53,6 @@
         "nelmio/alice": "dev-master",
 	    "ralfmaxxx/behat_multidimensional_extension": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "sebastian/object-enumerator": "dev-master",
         "theofidry/alice-data-fixtures": "dev-master"
     },
     "scripts": {
