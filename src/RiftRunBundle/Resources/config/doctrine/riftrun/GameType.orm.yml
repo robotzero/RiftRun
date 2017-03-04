@@ -5,12 +5,12 @@ RiftRunBundle\Model\GameType:
     discriminatorColumn:
         name: type
         type: string
-        cascade: [ persist ]
+        cascade: [ persist, remove ]
     discriminatorMap:
         gametype: GameType
         grift: Grift
         rift: Rift
-    cascade: [ persist ]
+    cascade: [ persist, remove ]
     id:
             id:
                 type: uuid

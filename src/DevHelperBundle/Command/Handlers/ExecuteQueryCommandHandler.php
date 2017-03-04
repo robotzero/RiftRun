@@ -4,6 +4,7 @@ namespace DevHelperBundle\Command\Handlers;
 
 use DevHelperBundle\Command\Commands\ExecuteQueryInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use RiftRunBundle\Model\Post;
 
 final class ExecuteQueryCommandHandler
 {
@@ -25,11 +26,13 @@ final class ExecuteQueryCommandHandler
 
         $queryBuilder = $repository->match($specification, null);
         $results = $queryBuilder->getQuery()->execute();
-        $manager = $this->doctrine->getManagerForClass('RiftRunBundle\Model\Post');
-        foreach ($results as $result) {
-            $manager->merge($result);
-            $manager->refresh($result);
-            $manager->remove($result);
+        $manager = $this->doctrine->getManagerForClass(Post::class);
+        if (is_array($results)) {
+            foreach ($results as $result) {
+                $manager->merge($result);
+                $manager->refresh($result);
+                $manager->remove($result);
+            }
         }
         $manager->flush();
     }

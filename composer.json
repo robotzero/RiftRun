@@ -9,7 +9,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\Integration\\Context\\" : "test/integration/contexts/"
+            "Test\\Integration\\Context\\" : "test/integration/contexts/",
+            "Test\\Integration\\Specification\\" : "test/integration/specification/"
         }
     },
     "repositories": [

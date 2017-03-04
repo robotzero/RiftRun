@@ -10,12 +10,13 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+use Test\Integration\Specification\DeleteAllPostsSpecification;
 use DevHelperBundle\Command\Commands\CreateSchema;
+use DevHelperBundle\Command\Commands\ExecuteQuery;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\DBAL\Driver\Connection;
-use RiftRunBundle\CommandBus\Commands\FetchSingle;
 use RiftRunBundle\Services\PostQueryService;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -94,13 +95,17 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
      */
     public function iHaveInTheDatabase(int $number, string $record)
     {
+        /** @var Connection $connection */
+        $connection = $this->doctrine->getManager()->getConnection();
+        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record)[0]['count'];
         /** @TODO check if we need to clear cache. */
-        if ($this->currentFixtureNumber > 0) {
+        if ($this->currentFixtureNumber === $number) {
             return;
         }
 
-        /** @var Connection $connection */
-        $connection = $this->doctrine->getManager()->getConnection();
+        if ($this->currentFixtureNumber > 0) {
+
+        }
 
         if ($this->scenarioScope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
             return;
@@ -116,11 +121,8 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
             '_x' . $number . '.yml'
         ];
 
-        $record = (string) $record;
-
         $this->commandBus->handle(new CreateSchema($this->doctrine->getManager()));
         $this->commandBus->handle(new UpdateSchema($this->doctrine->getManager()));
-        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's')[0]['count'];
         $this->commandBus->handle(new LoadFixtures($fileLocations));
 
         $result = $connection->fetchAll('SELECT id FROM posts limit 10');
@@ -155,14 +157,13 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
             'test/Fixtures/DatabaseSeeder/Post/posts_old_x' . $oldPostsNumber . '.yml'
         ];
 
-        static::$commandBus->handle(new LoadFixtures($fileLocations));
+        $this->commandBus->handle(new LoadFixtures($fileLocations));
 
         $connection = $this->doctrine->getManager()->getConnection();
 
         $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt < date('now', '-1 month')");
 
         assertTrue((int)$result[0]['count'] === 10);
-
     }
 
     /**
@@ -698,7 +699,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
      */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
-//        self::$commandBus->handle(new ExecuteQuery(new OldPostsSpecification()));
+        $this->commandBus->handle(new ExecuteQuery(new DeleteAllPostsSpecification()));
     }
 
     /**
