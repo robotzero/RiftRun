@@ -12,6 +12,12 @@
             "Test\\Integration\\Context\\" : "test/integration/contexts/"
         }
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/tyx/tactician-bundle"
+        }
+    ],
     "require": {
         "php": ">=7.0",
         "symfony/symfony": "dev-master",

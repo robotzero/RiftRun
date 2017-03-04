@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ce981c461943d891742809a2e1a11328",
-    "content-hash": "0b71103749b4a3b666497b232cc8c574",
+    "hash": "59214ec07dafc5df6f2df9e72a2a8fbe",
+    "content-hash": "2ad53757f83f24e9abb43b92ba7baa74",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1841,22 +1841,16 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thephpleague/tactician-bundle.git",
-                "reference": "63cc6ec6233c7dea169087dac25e6ce56e8929e3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/tactician-bundle/zipball/63cc6ec6233c7dea169087dac25e6ce56e8929e3",
-                "reference": "63cc6ec6233c7dea169087dac25e6ce56e8929e3",
-                "shasum": ""
+                "url": "https://github.com/tyx/tactician-bundle",
+                "reference": "db454e490693b94350817dfdbaa9eb2a3fedd099"
             },
             "require": {
                 "league/tactician": "^1.0",
                 "php": ">=5.5",
-                "symfony/config": "^2.8|^3.0",
-                "symfony/dependency-injection": "^2.8|^3.0",
-                "symfony/http-kernel": "^2.8|^3.0",
-                "symfony/yaml": "^2.8|^3.0"
+                "symfony/config": "^2.3|^3.0",
+                "symfony/dependency-injection": "^2.3|^3.0",
+                "symfony/http-kernel": "^2.3|^3.0",
+                "symfony/yaml": "^2.3|^3.0"
             },
             "require-dev": {
                 "league/tactician-doctrine": "^1.0",
@@ -1864,12 +1858,10 @@
                 "matthiasnoback/symfony-dependency-injection-test": "^0.7",
                 "mockery/mockery": "~0.9.4",
                 "phpunit/phpunit": "~4.5",
-                "symfony/security": "^2.8|^3.1",
-                "symfony/validator": "^2.8|^3.0"
+                "symfony/validator": "^2.3|^3.0"
             },
             "suggest": {
                 "league/tactician-doctrine": "For doctrine transaction middleware",
-                "symfony/security": "For command security middleware",
                 "symfony/validator": "For command validator middleware"
             },
             "type": "symfony-bundle",
@@ -1883,7 +1875,6 @@
                     "League\\Tactician\\Bundle\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1893,12 +1884,12 @@
                     "homepage": "http://doh.ms"
                 },
                 {
-                    "name": "Xander Smalbil",
-                    "email": "xander@videofunk.nl"
-                },
-                {
                     "name": "Richard Tuin",
                     "homepage": "http://www.rtuin.nl/"
+                },
+                {
+                    "name": "Xander Smalbil",
+                    "email": "xander@videofunk.nl"
                 },
                 {
                     "name": "Ross Tuck",
@@ -1911,7 +1902,7 @@
                 "symfony",
                 "tactician"
             ],
-            "time": "2017-01-25 16:19:24"
+            "time": "2016-01-22 10:33:20"
         },
         {
             "name": "league/tactician-command-events",
