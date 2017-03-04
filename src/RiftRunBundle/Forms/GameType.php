@@ -4,6 +4,7 @@ namespace RiftRunBundle\Forms;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 abstract class GameType extends AbstractType
 {
@@ -12,6 +13,7 @@ abstract class GameType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\DTO\GameTypeDTO',
             'csrf_protection' => false,
+            'constraints' => new Valid(),
         ));
     }
 

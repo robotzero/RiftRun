@@ -16,6 +16,7 @@ class PostsController extends FOSRestController
     /**
      * @param Request $request
      * @return Response
+     * @throws \InvalidArgumentException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      * @View()

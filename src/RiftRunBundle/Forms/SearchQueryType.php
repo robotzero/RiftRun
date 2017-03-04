@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class SearchQueryType extends AbstractType
 {
@@ -33,7 +34,7 @@ class SearchQueryType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'RiftRunBundle\DTO\SearchQueryDTO',
             'csrf_protection' => false,
-            'cascade_validation' => true
+            'constraints' => new Valid(),
         ));
     }
 

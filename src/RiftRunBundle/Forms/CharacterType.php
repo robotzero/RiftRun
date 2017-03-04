@@ -7,6 +7,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use RiftRunBundle\DTO\CharacterDTO;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class CharacterType extends AbstractType
 {
@@ -23,7 +25,8 @@ class CharacterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\DTO\CharacterDTO',
+            'data_class' => CharacterDTO::class,
+            'constraints' => new Valid(),
             'csrf_protection' => false,
         ));
     }

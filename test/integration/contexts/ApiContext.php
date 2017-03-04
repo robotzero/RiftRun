@@ -5,23 +5,18 @@ namespace Test\Integration\Context;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterFeatureScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use Behat\Behat\Hook\Scope\BeforeFeatureScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
-use DevHelperBundle\Command\Commands\ClearDatabase;
 use DevHelperBundle\Command\Commands\CreateSchema;
-use DevHelperBundle\Command\Commands\ExecuteQuery;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\DBAL\Driver\Connection;
-use Doctrine\ORM\QueryBuilder;
-use League\Tactician\CommandBus;
 use RiftRunBundle\CommandBus\Commands\FetchSingle;
-use RiftRunBundle\ORM\Specification\OldPostsSpecification;
+use RiftRunBundle\Services\PostQueryService;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -545,8 +540,8 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
 
         $object = $this->dbGet($parentValue, $repositoryName);
 
-        $searchedObject = $object->$getter();
-        $expectedValue = $searchedObject->getId()->__toString();
+        $searchedObject = $object->$getter;
+        $expectedValue = $searchedObject->id->__toString();
 
         assertSame(
             $actualValue,
@@ -680,11 +675,9 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
 
     private function dbGet($id, $repositoryName)
     {
-        if (self::$commandBus === null) {
-            throw new \Exception("Test Application Context is not booted!");
-        }
-
-        return self::$commandBus->handle(new FetchSingle($id, $repositoryName));
+        /** @var  $postQueryService */
+        $postQueryService = new PostQueryService($this->doctrine);
+        return $postQueryService->query($repositoryName, $id);
     }
 
     /** @AfterFeature */

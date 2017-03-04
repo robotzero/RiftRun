@@ -7,6 +7,8 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
+use RiftRunBundle\DTO\RiftDTO;
 
 class RiftType extends AbstractType
 {
@@ -19,7 +21,8 @@ class RiftType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\DTO\RiftDTO',
+            'data_class' => RiftDTO::class,
+            'constraints' => new Valid(),
             'csrf_protection' => false,
         ));
     }

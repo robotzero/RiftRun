@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "59214ec07dafc5df6f2df9e72a2a8fbe",
-    "content-hash": "2ad53757f83f24e9abb43b92ba7baa74",
+    "hash": "0fe6c9b9f5b87cbe855e27a3c3cea104",
+    "content-hash": "1a95c5ebdfdd065da1ceac4c634c5c44",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3505,12 +3505,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "ecd1ba3ef12612a91651afb99e34ec10c3353504"
+                "reference": "5abb41608b5d4777ba4166644b613a7d0eea1581"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/ecd1ba3ef12612a91651afb99e34ec10c3353504",
-                "reference": "ecd1ba3ef12612a91651afb99e34ec10c3353504",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/5abb41608b5d4777ba4166644b613a7d0eea1581",
+                "reference": "5abb41608b5d4777ba4166644b613a7d0eea1581",
                 "shasum": ""
             },
             "require": {
@@ -3647,7 +3647,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-04 12:27:15"
+            "time": "2017-03-04 15:39:44"
         },
         {
             "name": "twig/twig",
@@ -5972,7 +5972,8 @@
         "fzaninotto/faker": 20,
         "nelmio/alice": 20,
         "ralfmaxxx/behat_multidimensional_extension": 20,
-        "theofidry/alice-data-fixtures": 20
+        "theofidry/alice-data-fixtures": 20,
+        "symfony/var-dumper": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

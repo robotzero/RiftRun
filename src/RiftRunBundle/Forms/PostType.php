@@ -3,13 +3,12 @@
 namespace RiftRunBundle\Forms;
 
 use RiftRunBundle\DTO\PostDTO;
-use RiftRunBundle\Model\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class PostType extends AbstractType
 {
@@ -41,9 +40,9 @@ class PostType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\DTO\PostDTO',
+            'data_class' => PostDTO::class,
             'csrf_protection' => false,
-            'cascade_validation' => true
+            'constraints' => new Valid(),
         ));
     }
 

@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use RiftRunBundle\Model\CharacterType as ModelCharacterType;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class CharacterTypeType extends AbstractType
 {
@@ -20,7 +21,7 @@ class CharacterTypeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RiftRunBundle\DTO\CharacterTypeDTO',
+            'data_class' => CharacterTypeDTO::class,
 //            'empty_data' => function (FormInterface $form) {
 //                $characterTypeDTO = new CharacterTypeDTO();
 //                $characterTypeDTO->type = $form->get('type')->getData();
@@ -30,6 +31,7 @@ class CharacterTypeType extends AbstractType
 //                );
 //            },
             'csrf_protection' => false,
+            'constraints' => new Valid(),
         ));
     }
 

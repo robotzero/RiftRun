@@ -30,7 +30,7 @@ class ProcessFormPipe
             ['method' => $payloadData->getRequestMethod()]
         );
 
-        $form->submit($payloadData->getRequestData(), true);
+        $form = $form->submit($payloadData->getRequestData(), true);
 
         if ($form->isValid() === false) {
             throw new BadRequestHttpException('Invalid form');

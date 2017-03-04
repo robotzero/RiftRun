@@ -13,7 +13,7 @@ Scenario: I can create new post
         searchQueryId
         """
     Then I get a "201" response
-    And the "postId" property has "searchQueryId" property with "getQuery" getter equalling id of object in the "Post" database
+    And the "postId" property has "searchQueryId" property with "query" getter equalling id of object in the "Post" database
 
 Scenario Outline: Diffrent game type
     When payload properties <properties> equals <values>
