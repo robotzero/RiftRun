@@ -96,7 +96,7 @@ Scenario: Returning a single post
         And the "href" property is a string equalling payload id
 
 Scenario Outline: When object is missing for the given post do not display this post.
-    Given I have <numberMissing> posts missing <object> object
+    Given I have <numberMissing> posts missing <object> object starting from <offset>
     When I request "GET /v1/posts?limit=500&page=2"
     Then I get a "200" response
     And the "page" property exists
@@ -106,11 +106,11 @@ Scenario Outline: When object is missing for the given post do not display this 
         And the "items" property contains <items> items
 
     Examples:
-        | numberMissing   | object          |  result   | items |
-        | 10              | "searchquery"   |  "990"    |  490  |
-        | 10              | "characters"    |  "980"    |  480  |
-        | 10              | "gametype"      |  "970"    |  470  |
-        | 10              | "charactertype" |  "960"    |  460  |
+        | numberMissing   | object          |  result   | items | offset |
+        | 10              | "searchquery"   |  "990"    |  490  | 10     |
+#        | 10              | "characters"    |  "980"    |  480  |  20    |
+#        | 10              | "gametype"      |  "970"    |  470  | 30    |
+#        | 10              | "charactertype" |  "960"    |  460  | 40    |
 
 Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have "10" posts in the database with created date 29 days old
@@ -120,7 +120,6 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
     When I request "GET /v1/posts?limit=20&page=40"
     And 20 old posts are displayed at the last page
 
-@cleanFixtures
 Scenario: Do not show posts older than a 30 days.
     Given I have at least 10 posts older than a month
     When I request "GET /v1/posts?limit=500&page=2"

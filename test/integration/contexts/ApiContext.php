@@ -2,7 +2,6 @@
 
 namespace Test\Integration\Context;
 
-use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterFeatureScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -10,9 +9,10 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
-use Test\Integration\Specification\DeleteAllPostsSpecification;
+use Psr\Container\ContainerInterface;
+use RiftRunBundle\Model\Post;
+use Test\Integration\Helpers\DoctrineHelperTrait;
 use DevHelperBundle\Command\Commands\CreateSchema;
-use DevHelperBundle\Command\Commands\ExecuteQuery;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
 use Doctrine\Bundle\DoctrineBundle\Registry;
@@ -27,8 +27,10 @@ require_once __DIR__.'/../../../app/AppKernel.php';
 /**
  * Defines application features from the specific context.
  */
-class ApiContext extends MinkContext implements KernelAwareContext, Context
+class ApiContext extends MinkContext implements KernelAwareContext
 {
+    use DoctrineHelperTrait;
+
     /** @var  string */
     private static $singleRandomId;
 
@@ -41,7 +43,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
 
     private $response;
 
-    private $scope = null;
+    private $scope;
 
     private $doctrine;
 
@@ -67,6 +69,10 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
     ) {
         $this->doctrine   = $doctrine;
         $this->commandBus = $commandBus;
+    }
+
+    public function getContainer() : ContainerInterface {
+        return $this->kernel->getContainer();
     }
 
     /**
@@ -98,13 +104,12 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
         /** @var Connection $connection */
         $connection = $this->doctrine->getManager()->getConnection();
         $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record)[0]['count'];
-        /** @TODO check if we need to clear cache. */
         if ($this->currentFixtureNumber === $number) {
             return;
         }
 
         if ($this->currentFixtureNumber > 0) {
-            $this->commandBus->handle(new ExecuteQuery(new DeleteAllPostsSpecification()));
+            $this->cleanupDatabase();
         }
 
         if ($this->scenarioScope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
@@ -123,28 +128,47 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
 
         $this->commandBus->handle(new CreateSchema($this->doctrine->getManager()));
         $this->commandBus->handle(new UpdateSchema($this->doctrine->getManager()));
-        $this->commandBus->handle(new LoadFixtures($fileLocations));
+        $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
 
-        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
-        self::$singleRandomId = $result[5];
-        assertTrue($this->currentFixtureNumber === $number);
+//        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
+//        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's')[0]['count'];
+        self::$singleRandomId = $this->inMemoryFixtures[0]->getId();
+//        assertTrue($this->currentFixtureNumber === $number);
     }
 
     /**
-     * @Given /^I have (\d+) posts missing "([^"]*)" object$/
+     * @Given /^I have (\d+) posts missing "([^"]*)" object starting from (\d+)$/
      */
-    public function iHavePostsMissingObject($broken, $obj)
+    public function iHavePostsMissingObject($broken, $obj, $offset)
     {
-        $connection = $this->doctrine->getManager()->getConnection();
-        $records = $connection->executeQuery('SELECT id FROM ' . $obj . ' limit ' . $broken)->fetchAll();
+        $getter = null;
+        switch($obj) {
+            case 'searchquery';
+                $getter = 'getQuery';
+                break;
+            case 'characters';
+                $getter = 'getPlayer';
+                break;
+        }
 
-        $ids = array_reduce($records, function ($carry, $item) {
-            $carry .= '"' . $item['id'] . '",';
+        $postObjects = array_map(function ($item) {
+            if ($item instanceof Post) {
+                return $item;
+            }
+        }, $this->inMemoryFixtures);
+
+        $objectsToDelete = array_slice($postObjects, $offset);
+
+        $ids = array_reduce($objectsToDelete,  function ($carry, $item) use ($getter, $broken) {
+            if ($item !== null && count(explode(',', $carry)) <= $broken) {
+                $carry .= '"' . $item->$getter()->getId() . '",';
+                return $carry;
+            }
             return $carry;
         }, '');
 
+        $connection = $this->doctrine->getManager()->getConnection();
         $ids = rtrim($ids, ',');
-
         $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
     }
 
@@ -699,7 +723,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
      */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
-        $this->commandBus->handle(new ExecuteQuery(new DeleteAllPostsSpecification()));
+        $this->cleanupDatabase();
     }
 
     /**
