@@ -7,7 +7,11 @@ final class DeleteAllPostsSpecification implements Specification
 {
     public function __invoke(QueryBuilder $queryBuilder)
     {
-        $queryBuilder->delete('RiftRunners:Post', 'p');
+        $queryBuilder->select('posts')
+                     ->innerJoin('posts.query', 'q')
+                     ->innerJoin('posts.player', 'pl')
+                     ->innerJoin('q.game', 'g')
+                     ->innerJoin('q.characterType', 'ct');
         return $queryBuilder;
     }
 }

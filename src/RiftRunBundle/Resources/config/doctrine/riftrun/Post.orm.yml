@@ -11,7 +11,8 @@ RiftRunBundle\Model\Post:
                 nullable: true
                 onDelete: CASCADE
             fetch: LAZY
-            cascade: [ persist]
+            cascade: [ persist, remove]
+            orphanRemoval: true
         query:
             targetEntity: SearchQuery
             joinColumn:
@@ -20,7 +21,8 @@ RiftRunBundle\Model\Post:
                 nullable: true
                 onDelete: CASCADE
             fetch: LAZY
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
+            orphanRemoval: true
     id:
             id:
                 type: uuid

@@ -34,6 +34,7 @@ final class LoadFixturesCommandHandler
             $objectSet = $loader->load($fixtures);
         } catch (\Exception $e) {
             echo $e->getMessage();
+            echo "MAKUMBA";
             die("Error during persisting");
         }
         return $objectSet;

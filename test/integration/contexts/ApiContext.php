@@ -104,7 +104,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
         }
 
         if ($this->currentFixtureNumber > 0) {
-
+            $this->commandBus->handle(new ExecuteQuery(new DeleteAllPostsSpecification()));
         }
 
         if ($this->scenarioScope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
@@ -127,7 +127,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
 
         $result = $connection->fetchAll('SELECT id FROM posts limit 10');
         self::$singleRandomId = $result[5];
-//        assertTrue($this->currentFixtureNumber === $number);
+        assertTrue($this->currentFixtureNumber === $number);
     }
 
     /**
@@ -684,7 +684,7 @@ class ApiContext extends MinkContext implements KernelAwareContext, Context
     /** @AfterFeature */
     public static function cleanTheFixtures(AfterFeatureScope $scope)
     {
-//        $this->commandBus->handle(new ClearDatabase());
+//        $connection = self::$doctrine->getManager()->getConnection();
     }
 
     /** @AfterScenario */

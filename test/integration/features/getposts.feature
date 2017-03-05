@@ -1,7 +1,7 @@
 Feature: Get Posts
 
 Background: 1000 post
-    Given I have at exactly 1000 "posts" in the database
+    Given I have exactly 1000 "posts" in the database
 
 Scenario: Returning a collection of posts from a first page
     When I request "GET /v1/posts"
@@ -38,7 +38,6 @@ Scenario: Returning a collection of posts from a first page
             And the "href" property is a string equalling "http://localhost/v1/posts?page=1&limit=20"
 
 Scenario Outline: Returning default paginated collection of posts
-
      When I request "GET /v1/posts" with parameters <params>
      Then I get a "200" response
      And the "page" property exists
@@ -96,15 +95,6 @@ Scenario: Returning a single post
         And the "href" property exists
         And the "href" property is a string equalling payload id
 
-  @cleanFixtures
-  Scenario: Do not show posts older than a 30 days.
-    Given I have at least 10 posts older than a month
-    When I request "GET /v1/posts?limit=500&page=2"
-    Then I get a "200" response
-    And the "page" property exists
-    And the "page" property is a integer equalling "2"
-    And the "total" property is a integer equalling "1000"
-
 Scenario Outline: When object is missing for the given post do not display this post.
     Given I have <numberMissing> posts missing <object> object
     When I request "GET /v1/posts?limit=500&page=2"
@@ -117,10 +107,10 @@ Scenario Outline: When object is missing for the given post do not display this 
 
     Examples:
         | numberMissing   | object          |  result   | items |
-        | 10              | "searchquery"   |  "990"   |  490  |
-        | 10              | "characters"    | "980"   |  480  |
-        | 10              | "gametype"      | "970"   |  470  |
-        | 10              | "charactertype" | "960"   |  460  |
+        | 10              | "searchquery"   |  "990"    |  490  |
+        | 10              | "characters"    |  "980"    |  480  |
+        | 10              | "gametype"      |  "970"    |  470  |
+        | 10              | "charactertype" |  "960"    |  460  |
 
 Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have "10" posts in the database with created date 29 days old
@@ -129,3 +119,12 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
     And newest posts are displayed at the top
     When I request "GET /v1/posts?limit=20&page=40"
     And 20 old posts are displayed at the last page
+
+@cleanFixtures
+Scenario: Do not show posts older than a 30 days.
+    Given I have at least 10 posts older than a month
+    When I request "GET /v1/posts?limit=500&page=2"
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "2"
+    And the "total" property is a integer equalling "1000"
