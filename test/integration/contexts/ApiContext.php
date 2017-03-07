@@ -10,7 +10,6 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Psr\Container\ContainerInterface;
-use RiftRunBundle\Model\Post;
 use Test\Integration\Helpers\DoctrineHelperTrait;
 use DevHelperBundle\Command\Commands\CreateSchema;
 use DevHelperBundle\Command\Commands\LoadFixtures;
@@ -53,6 +52,16 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     private $currentFixtureNumber;
     private $scenarioScope;
+    private $inMemoryFixtures = [];
+
+    /**
+     * @return array
+     */
+    public function getInMemoryFixtures() : array
+    {
+        return $this->inMemoryFixtures;
+    }
+
 
     /**
      * Initializes context.
@@ -132,44 +141,8 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
 //        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
 //        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's')[0]['count'];
-        self::$singleRandomId = $this->inMemoryFixtures[0]->getId();
+//        self::$singleRandomId = $this->inMemoryFixtures[0]->getId();
 //        assertTrue($this->currentFixtureNumber === $number);
-    }
-
-    /**
-     * @Given /^I have (\d+) posts missing "([^"]*)" object starting from (\d+)$/
-     */
-    public function iHavePostsMissingObject($broken, $obj, $offset)
-    {
-        $getter = null;
-        switch($obj) {
-            case 'searchquery';
-                $getter = 'getQuery';
-                break;
-            case 'characters';
-                $getter = 'getPlayer';
-                break;
-        }
-
-        $postObjects = array_map(function ($item) {
-            if ($item instanceof Post) {
-                return $item;
-            }
-        }, $this->inMemoryFixtures);
-
-        $objectsToDelete = array_slice($postObjects, $offset);
-
-        $ids = array_reduce($objectsToDelete,  function ($carry, $item) use ($getter, $broken) {
-            if ($item !== null && count(explode(',', $carry)) <= $broken) {
-                $carry .= '"' . $item->$getter()->getId() . '",';
-                return $carry;
-            }
-            return $carry;
-        }, '');
-
-        $connection = $this->doctrine->getManager()->getConnection();
-        $ids = rtrim($ids, ',');
-        $connection->executeQuery('DELETE FROM  ' . $obj . ' where id in(' . $ids  . ')');
     }
 
     /**

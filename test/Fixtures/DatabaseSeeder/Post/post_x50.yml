@@ -1,0 +1,25 @@
+include:
+    - template.yml
+    - ../Character/template.yml
+    - ../CharacterType/template.yml
+    - ../GameType/grift_template.yml
+    - ../SearchQuery/template.yml
+
+RiftRunBundle\Model\Character:
+    monks{1..50} (extends character): []
+
+RiftRunBundle\Model\Grift:
+    grifts{1..50} (extends grift):
+        __construct: [<{level}>]
+
+RiftRunBundle\Model\SearchQuery:
+    searchqueries{1..50} (extends searchquery):
+        __construct: ['<numberBetween(70, 1000)>', '@grifts<current()>', '<dateTime("now")>']
+
+RiftRunBundle\Model\CharacterType:
+    charactertypes{1..50} (extends charactertype):
+        __construct: ['@searchqueries<current()>', <{type}>]
+
+RiftRunBundle\Model\Post:
+    posts{1..50} (extends post):
+        __construct: ['@monks<current()>', '@searchqueries<current()>', "<dateTimeBetween('-26 days', 'now')>"]

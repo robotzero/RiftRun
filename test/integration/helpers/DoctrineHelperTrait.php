@@ -15,8 +15,6 @@ trait DoctrineHelperTrait {
 
     protected static $needToReload = false;
 
-    protected $inMemoryFixtures = [];
-
     /**
      * @return ContainerInterface
      */
@@ -85,6 +83,15 @@ trait DoctrineHelperTrait {
             );
         }
         self::$schemaIsReady = true;
+    }
+
+    /**
+     * @AfterScenario
+     */
+    public function cleanAfterScenario()
+    {
+        self::$needToReload = true;
+        $this->reloadChanges();
     }
 
     /**
