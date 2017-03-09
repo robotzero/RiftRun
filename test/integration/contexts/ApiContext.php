@@ -110,17 +110,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function iHaveInTheDatabase(int $number, string $record)
     {
-        /** @var Connection $connection */
-        $connection = $this->doctrine->getManager()->getConnection();
-        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record)[0]['count'];
-        if ($this->currentFixtureNumber === $number) {
-            return;
-        }
-
-        if ($this->currentFixtureNumber > 0) {
-            $this->cleanupDatabase();
-        }
-
         if ($this->scenarioScope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
             return;
         }

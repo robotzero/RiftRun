@@ -72,21 +72,21 @@ Scenario: Returning a single post
         And the "href" property is a string equalling payload id
 
 Scenario Outline: When object is missing for the given post do not display this post.
-    Given I have <numberMissing> posts missing <object> object in table <name>
-    When I request "GET /v1/posts?limit=500&page=2"
+    Given I have <numberMissing> posts missing <object> in table <name> accessible via <method>
+    When I request "GET /v1/posts?limit=500&page=1"
     Then I get a "200" response
     And the "page" property exists
-    And the "page" property is a integer equalling "2"
+    And the "page" property is a integer equalling "1"
     And the "total" property is a integer equalling <result>
     And scope into the "_embedded" property
         And the "items" property contains <items> items
 
     Examples:
-        | numberMissing   | object          |  result   | items | name |
-        | 10              | getQuery     |  "990"    |  490  |  "searchquery"    |
-        | 10              | getPlayer       |  "980"    |  480  |  "characters"     |
-#        | 10              | "gametype"      |  "970"    |  470  | 30    |
-#        | 10              | "charactertype" |  "960"    |  460  | 40    |
+        | numberMissing   | object      | method          |  result  | items | name              |
+        | 10              | Post        | getQuery        |  "40"    |  40   |  "searchquery"    |
+        | 10              | Post        | getPlayer       |  "40"    |  40   |  "characters"     |
+#        | 10              | SearchQuery |  getGame        |  "40"    |  40   |  "grift"          |
+#        | 10              | SearchQuery | getCharacterType |  "960"    |  460  | "charactertype" |
 
 Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have "10" posts in the database with created date 29 days old

@@ -5,6 +5,8 @@ namespace Test\Integration\Context;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\PersistentCollection;
 use RiftRunBundle\Model\Post;
 use RiftRunBundle\Model\SearchQuery;
 
@@ -31,21 +33,32 @@ class ChaosMonkeyContext implements Context {
     }
 
     /**
-     * @Given /^I have (\d+) posts missing (.*) object in table (.*)$/
+     * @Given /^I have (\d+) posts missing (.*) in table (.*) accessible via (.*)$/
      */
-    public function iHavePostsMissingObject($broken, $obj, $name)
+    public function iHavePostsMissingObject($broken, $obj, $name, $method)
     {
         $this->inMemoryFixtures = $this->apiContext->getInMemoryFixtures();
 
-        $postObjects = array_map(function ($item) use ($obj) {
-            if ($item instanceof Post) {
+        $inst = sprintf('RiftRunBundle\\Model\\%s', $obj );
+
+        $postObjects = array_map(function ($item) use ($inst) {
+            if ($item instanceof $inst) {
                 return $item;
             }
         }, $this->inMemoryFixtures);
 
-        $ids = array_reduce($postObjects,  function ($carry, $item) use ($broken, $obj) {
+        $ids = array_reduce($postObjects,  function ($carry, $item) use ($broken, $obj, $method) {
             if ($item !== null && count(explode(',', $carry)) <= $broken) {
-                $carry .= '"' . $item->$obj()->getId() . '",';
+                if ($item->$method() instanceof PersistentCollection) {
+                    /** @var array $arr */
+                    $arr = $item->$method()->toArray();
+                    foreach($arr as $key => $value) {
+                        $carry .= '"' . $value->getId() . '",';
+                        return $carry;
+                    }
+                } else {
+                    $carry .= '"' . $item->$method()->getId() . '",';
+                }
                 return $carry;
             }
             return $carry;

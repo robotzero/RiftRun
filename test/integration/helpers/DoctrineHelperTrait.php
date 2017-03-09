@@ -61,6 +61,7 @@ trait DoctrineHelperTrait {
         foreach (self::$truncateTablesSQL as $sql) {
             $connection->exec($sql);
         }
+        self::$truncateTablesSQL = null;
     }
 
     private function createSchemaFromScratch()
@@ -85,13 +86,25 @@ trait DoctrineHelperTrait {
         self::$schemaIsReady = true;
     }
 
-    /**
-     * @AfterScenario
-     */
     public function cleanAfterScenario()
     {
         self::$needToReload = true;
         $this->reloadChanges();
+    }
+
+    /**
+     * @AfterScenario
+     */
+    public function deleteAll()
+    {
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        foreach ($em->getConnection()->getSchemaManager()->listTableNames() as $tableName) {
+            self::$truncateTablesSQL[] = sprintf(
+                'delete from %s;',
+                $tableName
+            );
+        }
+        $this->truncateTables();
     }
 
     /**
@@ -111,6 +124,9 @@ trait DoctrineHelperTrait {
                 'delete from %s;',
                 $tableName
             );
+        }
+        foreach (self::$truncateTablesSQL as $sql) {
+            $connection->exec($sql);
         }
     }
 }
