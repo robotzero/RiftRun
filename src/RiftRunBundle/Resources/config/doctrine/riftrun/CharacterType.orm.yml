@@ -1,7 +1,6 @@
 RiftRunBundle\Model\CharacterType:
     type: entity
     table: charactertype
-    repositoryClass: RiftRunBundle\ORM\Repository\CharacterTypeRepository
     manyToOne:
         searchQuery:
             targetEntity: SearchQuery
