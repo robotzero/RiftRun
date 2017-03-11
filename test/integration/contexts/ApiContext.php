@@ -2,7 +2,6 @@
 
 namespace Test\Integration\Context;
 
-use Behat\Behat\Hook\Scope\AfterFeatureScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
@@ -15,7 +14,6 @@ use DevHelperBundle\Command\Commands\CreateSchema;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use Doctrine\DBAL\Driver\Connection;
 use RiftRunBundle\Services\PostQueryService;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -50,7 +48,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     private $commandBus;
 
-    private $currentFixtureNumber;
     private $scenarioScope;
     private $inMemoryFixtures = [];
 
@@ -106,7 +103,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^I have exactly (\d+) "([^"]*)" in the database$/
-     * @throws \InvalidArgumentException
      */
     public function iHaveInTheDatabase(int $number, string $record)
     {
@@ -127,29 +123,10 @@ class ApiContext extends MinkContext implements KernelAwareContext
         $this->commandBus->handle(new CreateSchema($this->doctrine->getManager()));
         $this->commandBus->handle(new UpdateSchema($this->doctrine->getManager()));
         $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
+        self::$singleRandomId = $this->inMemoryFixtures['posts1']->getId()->__toString();
 
-//        $result = $connection->fetchAll('SELECT id FROM posts limit 10');
-//        $this->currentFixtureNumber = (int) $connection->fetchAll('SELECT count() AS count FROM ' . $record . 's')[0]['count'];
-//        self::$singleRandomId = $this->inMemoryFixtures[0]->getId();
-//        assertTrue($this->currentFixtureNumber === $number);
-    }
-
-    /**
-     * @Given /^I have at least (\d+) posts older than a month$/
-     */
-    public function iHaveAtLeastPostsOlderThanAMonth($oldPostsNumber)
-    {
-        $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/Post/posts_old_x' . $oldPostsNumber . '.yml'
-        ];
-
-        $this->commandBus->handle(new LoadFixtures($fileLocations));
-
-        $connection = $this->doctrine->getManager()->getConnection();
-
-        $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt < date('now', '-1 month')");
-
-        assertTrue((int)$result[0]['count'] === 10);
+        $currentFixtureNumber = $this->getCurrentPostCount();
+        assertTrue($currentFixtureNumber === ((int) $number));
     }
 
     /**
@@ -439,7 +416,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
         if (! in_array($expectedValue, ['true', 'false'])) {
-            throw new \InvalidArgumentException("Testing for booleans must be represented by [true] or [false].");
+            throw new InvalidArgumentException("Testing for booleans must be represented by [true] or [false].");
         }
         $this->thePropertyIsABoolean($property);
         assertSame(
@@ -477,39 +454,16 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
-     * @Given I have :arg1 posts in the database with created date :arg2 days old
+     * @Then /^(\d+) days old posts are displayed at bottom$/
      */
-    public function iHavePostsInTheDatabaseWithCreatedDateDaysOld($arg1, $arg2)
-    {
-        $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/Post/posts_29_old_x10.yml'
-        ];
-
-        static::$commandBus->handle(new LoadFixtures($fileLocations));
-
-        $connection = $this->doctrine->getManager()->getConnection();
-
-        $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt <= date('now', '-27 days') AND createdAt >= date('now', '-29 days')");
-
-        assertTrue((int)$result[0]['count'] >= 5);
-    }
-
-    /**
-     * @When :arg1 old posts are displayed at the last page
-     */
-    public function oldPostsAreDisplayedAtTheLastPage($arg1)
+    public function oldPostsAreDisplayedAtTheLastPage(int $numberOfOldPosts)
     {
         $scope = $this->getScopePayload();
 
-        $oldCreatedAt = $scope->_embedded->items[0]->createdAt;
-
-        $this->crawler = $this->client->request("GET", "/v1/posts");
-        $this->response = $this->client->getResponse();
-
-        $scope = $this->getScopePayload();
-        $createdAt = $scope->_embedded->items[0]->createdAt;
+        $firstItemCreatedAt = $scope->_embedded->items[0]->createdAt;
+        $lastItemCreatedAt = array_pop($scope->_embedded->items)->createdAt;
         $this->resetScope();
-        assertTrue($oldCreatedAt < $createdAt);
+        assertTrue($lastItemCreatedAt < $firstItemCreatedAt);
     }
 
     /**
@@ -667,12 +621,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
         return $postQueryService->query($repositoryName, $id);
     }
 
-    /** @AfterFeature */
-    public static function cleanTheFixtures(AfterFeatureScope $scope)
-    {
-//        $connection = self::$doctrine->getManager()->getConnection();
-    }
-
     /** @AfterScenario */
     public function resetPayload(AfterScenarioScope $scope)
     {
@@ -681,7 +629,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @AfterScenario @cleanFixtures
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
@@ -693,7 +641,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function iRequest2($link)
     {
-        $resource = $link . self::$singleRandomId['id'];
+        $resource = $link . self::$singleRandomId;
         $this->crawler = $this->client->request('GET', $resource);
         $this->response = $this->client->getResponse();
     }

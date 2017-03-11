@@ -7,7 +7,6 @@ include:
 
 RiftRunBundle\Model\Character:
     monks{1..10} (extends character): []
-#        __construct: ['monk', <{paragonPoints}>, <{battleTag}>, <{region}>, <{seasonal}>, <{gameType}>, <{createdAt}>]
 
 RiftRunBundle\Model\Grift:
     grifts{1..10} (extends grift):
@@ -16,7 +15,6 @@ RiftRunBundle\Model\Grift:
 RiftRunBundle\Model\SearchQuery:
     searchqueries{1..10} (extends searchquery):
         __construct: ['<numberBetween(70, 1000)>', '@grifts<current()>', '<dateTime("now")>']
-#        __construct: [<{minParagon}>, '@grifts<current()>', <{createdAt}>]
 
 RiftRunBundle\Model\CharacterType:
     charactertypes{1..10} (extends charactertype):

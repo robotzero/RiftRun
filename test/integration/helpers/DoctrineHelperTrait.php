@@ -54,6 +54,13 @@ trait DoctrineHelperTrait {
         }
     }
 
+    public function getCurrentPostCount():int
+    {
+        $enityManager = $this->doctrine->getManager();
+        $allEntities = $enityManager->getRepository('RiftRunners:Post')->findAll();
+        return count($allEntities);
+    }
+
     private function truncateTables()
     {
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');

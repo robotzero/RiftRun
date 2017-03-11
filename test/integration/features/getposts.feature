@@ -84,22 +84,21 @@ Scenario Outline: When object is missing for the given post do not display this 
     Examples:
         | numberMissing   | object        | result | items |
         | 10              | SearchQuery   |  "40"  |  40   |
-        | 10              | Character     |  "40"    |  40 |
-        | 10              | Grift         |  "40"    |  40 |
-        | 10              | CharacterType |  "40"    |  40 |
+        | 10              | Character     |  "40"  |  40   |
+        | 10              | Grift         |  "40"  |  40   |
+        | 10              | CharacterType |  "40"  |  40   |
 
 Scenario: By default posts should be sorted by created date. Newest at the top.
-    Given I have "10" posts in the database with created date 29 days old
-    When I request "GET /v1/posts?limit=20"
+    Given I have 10 posts in the database older than 29 days
+    When I request "GET /v1/posts?limit=100"
     Then I get a "200" response
     And newest posts are displayed at the top
-    When I request "GET /v1/posts?limit=20&page=40"
-    And 20 old posts are displayed at the last page
+    And 10 days old posts are displayed at bottom
 
-Scenario: Do not show posts older than a 30 days.
+Scenario: Do not show posts older than 30 days.
     Given I have at least 10 posts older than a month
-    When I request "GET /v1/posts?limit=500&page=2"
+    When I request "GET /v1/posts?limit=25&page=2"
     Then I get a "200" response
     And the "page" property exists
     And the "page" property is a integer equalling "2"
-    And the "total" property is a integer equalling "1000"
+    And the "total" property is a integer equalling "50"
