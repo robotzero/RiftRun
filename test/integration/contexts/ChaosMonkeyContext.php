@@ -6,7 +6,6 @@ use Behat\Behat\Context\Context;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use League\Tactician\CommandBus;
-use RiftRunBundle\Model\Post;
 
 class ChaosMonkeyContext implements Context {
 
@@ -47,32 +46,16 @@ class ChaosMonkeyContext implements Context {
     public function iHavePostsInTheDatabaseOlderThan($oldRecordAmount, $olderThanDays)
     {
         $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/Post/posts_29_old_x10.yml'
+            'test/Fixtures/DatabaseSeeder/Post/posts_' . $oldRecordAmount . '_old_x10.yml'
         ];
 
         $this->commandBus->handle(new LoadFixtures($fileLocations));
         $connection = $this->doctrine->getManager()->getConnection();
 
-        $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt <= date('now', '-27 days') AND createdAt >= date('now', '-29 days')");
+        $negativeOlderThanDays = ($olderThanDays * -1) . ' days';
+        $numberOfDaysForDbQuery = sprintf("SELECT count() AS count FROM posts WHERE createdAt < date(%s, %s)", "'now'", "'$negativeOlderThanDays'");
 
-        assertTrue((int)$result[0]['count'] >= 5);
-    }
-
-    /**
-     * @Given /^I have at least (\d+) posts older than a month$/
-     */
-    public function iHaveAtLeastPostsOlderThanAMonth($oldPostsNumber)
-    {
-        $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/Post/posts_old_x' . $oldPostsNumber . '.yml'
-        ];
-
-        $this->commandBus->handle(new LoadFixtures($fileLocations));
-
-        $connection = $this->doctrine->getManager()->getConnection();
-
-        $result = $connection->fetchAll("SELECT count() AS count FROM posts WHERE createdAt < date('now', '-1 month')");
-
-        assertTrue((int)$result[0]['count'] === 10);
+        $result = $connection->fetchAll($numberOfDaysForDbQuery);
+        assertTrue(((int)$result[0]['count']) === ((int)$oldRecordAmount));
     }
 }

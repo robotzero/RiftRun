@@ -95,8 +95,8 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
     And newest posts are displayed at the top
     And 10 days old posts are displayed at bottom
 
-Scenario: Do not show posts older than 30 days.
-    Given I have at least 10 posts older than a month
+Scenario: Do not show posts older than month.
+    Given I have 10 posts in the database older than 30 days
     When I request "GET /v1/posts?limit=25&page=2"
     Then I get a "200" response
     And the "page" property exists

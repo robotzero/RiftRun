@@ -629,7 +629,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @AfterScenario @cleanFixtures
-     * @throws InvalidArgumentException
      */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
