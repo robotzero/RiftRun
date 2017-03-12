@@ -9,12 +9,13 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+use League\Tactician\CommandBus;
 use Psr\Container\ContainerInterface;
+use RiftRunBundle\Model\Post;
 use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Component\DomCrawler\Crawler;
 use Test\Integration\Helpers\DoctrineHelperTrait;
-use DevHelperBundle\Command\Commands\CreateSchema;
 use DevHelperBundle\Command\Commands\LoadFixtures;
-use DevHelperBundle\Command\Commands\UpdateSchema;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -29,12 +30,15 @@ class ApiContext extends MinkContext implements KernelAwareContext
 {
     use DoctrineHelperTrait;
 
+    private const FIXTURES_LOCATION = 'test/Fixtures/DatabaseSeeder/';
+
     /** @var  string */
     private $singleRandomId;
 
     /** @var  Kernel */
     protected $kernel;
 
+    /** @var  Crawler */
     private $crawler;
 
     /** @var Client */
@@ -50,6 +54,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     private $postPayload;
 
+    /** @var  CommandBus */
     private $commandBus;
 
     /** @var ScenarioScope */
@@ -66,7 +71,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
         return $this->inMemoryFixtures;
     }
 
-
     /**
      * Initializes context.
      *
@@ -78,7 +82,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function __construct(
         Registry $doctrine,
-        $commandBus
+        CommandBus $commandBus
     ) {
         $this->doctrine   = $doctrine;
         $this->commandBus = $commandBus;
@@ -110,23 +114,20 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^I have exactly (\d+) "([^"]*)" in the database$/
+     * @param int $number
+     * @param string $record
      */
-    public function iHaveInTheDatabase(int $number, string $record)
+    public function iHaveInTheDatabase(int $number, string $record) : void
     {
-        $background = $this->scenarioScope->getFeature()->getBackground();
-        $title = $background->getTitle();
-
-        [$number, $record] = explode(' ', $title);
+        $record = rtrim($record, 's');
         $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/' .
+            self::FIXTURES_LOCATION .
             ucfirst($record) . '/' . $record .
             '_x' . $number . '.yml'
         ];
 
-        $this->commandBus->handle(new CreateSchema($this->doctrine->getManager()));
-        $this->commandBus->handle(new UpdateSchema($this->doctrine->getManager()));
+        $this->createSchema();
         $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
-        $this->singleRandomId = $this->inMemoryFixtures['posts1']->getId()->__toString();
 
         $currentFixtureNumber = $this->getCurrentPostCount();
         assertTrue($currentFixtureNumber === ((int) $number));
@@ -134,8 +135,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given I have default payload:
+     * @param TableNode $table
      */
-    public function iHaveDefaultPayload(TableNode $table)
+    public function iHaveDefaultPayload(TableNode $table) : void
     {
         $this->postPayload = $table->getNestedHash()[0];
         $pattern = '/^char[1-5]/';
@@ -566,6 +568,51 @@ class ApiContext extends MinkContext implements KernelAwareContext
         }
     }
 
+    /**
+     * @Given /^I know single random id of a resource$/
+     */
+    public function iKnowSingleRandomIdOfAResource()
+    {
+        assertArrayHasKey('posts1', $this->inMemoryFixtures);
+        $numberOfPostsObjectsInMemory = count(array_filter($this->inMemoryFixtures, function($object) {
+            if ($object instanceof Post) {
+                return $object;
+            }
+            return null;
+        }));
+
+        $this->singleRandomId = $this->inMemoryFixtures['posts' . random_int(1, $numberOfPostsObjectsInMemory)]->getId()->__toString();
+        assertTrue($this->singleRandomId !== null);
+    }
+
+    /**
+     * @When /^I request single resource "([^"]*)"(.*)$/
+     */
+    public function iRequestSingleResource($link)
+    {
+        $resource = $link . $this->singleRandomId;
+        $this->crawler = $this->client->request('GET', $resource);
+        $this->response = $this->client->getResponse();
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property is a string equalling payload id$/
+     */
+    public function thePropertyIsAStringEquallingPayloadId($property)
+    {
+        $payload = $this->getScopePayload();
+        $this->thePropertyIsAString($property);
+        $actualValue = $this->arrayGet($payload, $property);
+
+        $arr = explode('/', $payload->href);
+        $uuid = 'http://localhost/v1/posts/' . end($arr);
+        assertSame(
+            $actualValue,
+            $uuid,
+            "Asserting the [$property] property in current scope [{$this->scope}] is a string equalling [$uuid]."
+        );
+    }
+
     public function resetScope()
     {
         $this->scope = null;
@@ -638,42 +685,5 @@ class ApiContext extends MinkContext implements KernelAwareContext
     public function resetPayload(AfterScenarioScope $scope)
     {
         $this->postPayload = null;
-    }
-
-    /**
-     * @AfterScenario @cleanFixtures
-     * @param AfterScenarioScope $scope
-     */
-    public function deleteFixtures(AfterScenarioScope $scope)
-    {
-        $this->cleanupDatabase();
-    }
-
-    /**
-     * @When /^I request single "([^"]*)"(.*)$/
-     */
-    public function iRequestSingleResource($link)
-    {
-        $resource = $link . $this->singleRandomId;
-        $this->crawler = $this->client->request('GET', $resource);
-        $this->response = $this->client->getResponse();
-    }
-
-    /**
-     * @Given /^the "([^"]*)" property is a string equalling payload id$/
-     */
-    public function thePropertyIsAStringEquallingPayloadId($property)
-    {
-        $payload = $this->getScopePayload();
-        $this->thePropertyIsAString($property);
-        $actualValue = $this->arrayGet($payload, $property);
-
-        $arr = explode('/', $payload->href);
-        $uuid = 'http://localhost/v1/posts/' . end($arr);
-        assertSame(
-            $actualValue,
-            $uuid,
-            "Asserting the [$property] property in current scope [{$this->scope}] is a string equalling [$uuid]."
-        );
     }
 }

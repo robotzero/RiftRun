@@ -3,6 +3,7 @@
 namespace Test\Integration\Helpers;
 
 use AppKernel;
+use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 use RiftRunBundle\Services\PostQueryService;
@@ -44,6 +45,13 @@ trait DoctrineHelperTrait {
     public function flushChanges()
     {
         $this->getContainer()->get('doctrine.orm.entity_manager')->flush();
+    }
+
+    public function createSchema() : void{
+        if (self::$schemaIsReady) {
+            return;
+        }
+        $this->createSchemaFromScratch();
     }
 
     public function cleanupDatabase()
@@ -120,6 +128,15 @@ trait DoctrineHelperTrait {
         /** @var  $postQueryService */
         $postQueryService = new PostQueryService($this->doctrine);
         return $postQueryService->query($repositoryName, $id);
+    }
+
+    /**
+     * @AfterScenario @cleanFixtures
+     * @param AfterScenarioScope $scope
+     */
+    public function deleteFixtures(AfterScenarioScope $scope)
+    {
+        $this->cleanupDatabase();
     }
 
     /**

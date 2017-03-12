@@ -38,7 +38,8 @@ Scenario: Returning a collection of posts from a first page
             And the "href" property is a string equalling "http://localhost/v1/posts?page=1&limit=20"
 
 Scenario: Returning a single post
-    When I request single "/v1/posts/"
+    Given I know single random id of a resource
+    When I request single resource "/v1/posts/"
     Then I get a "200" response
     And the properties exist:
              """
