@@ -4,17 +4,18 @@ namespace Test\Integration\Context;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Behat\Hook\Scope\ScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Psr\Container\ContainerInterface;
+use Symfony\Bundle\FrameworkBundle\Client;
 use Test\Integration\Helpers\DoctrineHelperTrait;
 use DevHelperBundle\Command\Commands\CreateSchema;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use DevHelperBundle\Command\Commands\UpdateSchema;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use RiftRunBundle\Services\PostQueryService;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -29,26 +30,32 @@ class ApiContext extends MinkContext implements KernelAwareContext
     use DoctrineHelperTrait;
 
     /** @var  string */
-    private static $singleRandomId;
+    private $singleRandomId;
 
     /** @var  Kernel */
     protected $kernel;
 
     private $crawler;
 
+    /** @var Client */
     private $client;
 
     private $response;
 
+    /** @var  BeforeScenarioScope */
     private $scope;
 
+    /** @var Registry */
     private $doctrine;
 
     private $postPayload;
 
     private $commandBus;
 
+    /** @var ScenarioScope */
     private $scenarioScope;
+
+    /** @var array  */
     private $inMemoryFixtures = [];
 
     /**
@@ -106,10 +113,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function iHaveInTheDatabase(int $number, string $record)
     {
-        if ($this->scenarioScope->getFeature()->getBackground()->getTitle() === 'Correct payload') {
-            return;
-        }
-
         $background = $this->scenarioScope->getFeature()->getBackground();
         $title = $background->getTitle();
 
@@ -123,7 +126,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
         $this->commandBus->handle(new CreateSchema($this->doctrine->getManager()));
         $this->commandBus->handle(new UpdateSchema($this->doctrine->getManager()));
         $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
-        self::$singleRandomId = $this->inMemoryFixtures['posts1']->getId()->__toString();
+        $this->singleRandomId = $this->inMemoryFixtures['posts1']->getId()->__toString();
 
         $currentFixtureNumber = $this->getCurrentPostCount();
         assertTrue($currentFixtureNumber === ((int) $number));
@@ -151,8 +154,10 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
+     * @param string $httpMethod
+     * @param string $resource
      */
-    public function iRequest($httpMethod, $resource)
+    public function iRequest(string $httpMethod, string $resource)
     {
         $this->crawler = $this->client->request($httpMethod, $resource);
         $this->response = $this->client->getResponse();
@@ -160,8 +165,11 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)" with parameters "([^"]*)"$/
+     * @param string $httpMethod
+     * @param string $resource
+     * @param string $params
      */
-    public function iRequestsWithParameters($httpMethod, $resource, $params)
+    public function iRequestsWithParameters(string $httpMethod, string $resource, string $params)
     {
         $this->crawler = $this->client->request($httpMethod, $resource . $params);
         $this->response = $this->client->getResponse();
@@ -169,8 +177,10 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)" with payload$/
+     * @param string $httpMethod
+     * @param string $resource
      */
-    public function IRequestsWithDefaultValues($httpMethod, $resource)
+    public function IRequestsWithDefaultValues(string $httpMethod, string $resource)
     {
         $table = $this->postPayload;
 
@@ -291,6 +301,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the properties exist:$/
+     * @param PyStringNode $propertiesString
      */
     public function thePropertiesExist(PyStringNode $propertiesString)
     {
@@ -301,16 +312,19 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property exists$/
+     * @param string $property
      */
-    public function thePropertyExists($property)
+    public function thePropertyExists(string $property)
     {
         assertObjectHasAttribute($property, $this->getScopePayload(), 'Missing attribute');
     }
 
     /**
      * @Given /^the "([^"]*)" property contains (\d+) items$/
+     * @param string $property
+     * @param int $count
      */
-    public function thePropertyContainsItems($property, $count)
+    public function thePropertyContainsItems(string $property, int $count)
     {
         $count = (int) $count;
         $payload = $this->getScopePayload();
@@ -324,14 +338,15 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is an integer$/
+     * @param string $property
      */
-    public function thePropertyIsAnInteger($property)
+    public function thePropertyIsAnInteger(string $property)
     {
         assertInternalType('int', $this->arrayGet(
             $this->getScopePayload(),
-            $property,
-            "Asserting the [$property] property in current scope [{$this->scope}] is an integer: "
-            )
+            $property
+            ),
+            "Asserting the [$property] property in current scope [{$this->scope}] is an integer."
         );
     }
 
@@ -361,16 +376,18 @@ class ApiContext extends MinkContext implements KernelAwareContext
             'string',
             $this->arrayGet(
                 $payload,
-                $property,
-                "Asserting the [$property] property in current scope [{$this->scope}] is a string: ".json_encode($payload)
-            )
+                $property
+            ),
+            "Asserting the [$property] property in current scope [{$this->scope}] is a string: ".json_encode($payload)
         );
     }
 
     /**
      * @Given /^the "([^"]*)" property is a string equalling "([^"]*)"$/
+     * @param string $property
+     * @param string $expectedValue
      */
-    public function thePropertyIsAStringEqualling($property, $expectedValue)
+    public function thePropertyIsAStringEqualling(string $property, string $expectedValue)
     {
         $payload = $this->getScopePayload();
         $this->thePropertyIsAString($property);
@@ -385,8 +402,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is an array$/
+     * @param string $property
      */
-    public function thePropertyIsAnArray($property)
+    public function thePropertyIsAnArray(string $property)
     {
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
@@ -398,6 +416,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is a boolean$/
+     * @param $property
      */
     public function thePropertyIsABoolean($property)
     {
@@ -415,13 +434,13 @@ class ApiContext extends MinkContext implements KernelAwareContext
     {
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
-        if (! in_array($expectedValue, ['true', 'false'])) {
-            throw new InvalidArgumentException("Testing for booleans must be represented by [true] or [false].");
+        if (! in_array($expectedValue, ['true', 'false'], true)) {
+            throw new \InvalidArgumentException('Testing for booleans must be represented by [true] or [false].');
         }
         $this->thePropertyIsABoolean($property);
         assertSame(
             $actualValue,
-            $expectedValue == 'true',
+            $expectedValue === 'true',
             "Asserting the [$property] property in current scope [{$this->scope}] is a boolean equalling [$expectedValue]."
         );
     }
@@ -440,7 +459,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
-     * @Then newest posts are displayed at the top
+     * @Then newest items are displayed at the top
      */
     public function newestPostsAreDisplayedAtTheTop()
     {
@@ -454,7 +473,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
-     * @Then /^(\d+) days old posts are displayed at bottom$/
+     * @Then /^(\d+) days old items are displayed at bottom$/
      */
     public function oldPostsAreDisplayedAtTheLastPage(int $numberOfOldPosts)
     {
@@ -496,10 +515,10 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function payloadPropertyEquals($properties, $values)
     {
-        $propertiesArray = explode(",", $properties);
-        $valuesArray     = explode(",", $values);
+        $propertiesArray = explode(',', $properties);
+        $valuesArray     = explode(',', $values);
         if (count($propertiesArray) !== count($valuesArray)) {
-            throw new \Exception("Properties number does not match values");
+            throw new \Exception('Properties number does not match values');
         }
 
         if ($this->postPayload === null) {
@@ -542,7 +561,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
         }
         $propertiesArray = explode(',', $rproperties);
         foreach ($propertiesArray as $property) {
-            list($one, $two, $three) =  explode('.', $property);
+            [$one, $two, $three] =  explode('.', $property);
             unset($this->postPayload[$one][$two][$three]);
         }
     }
@@ -575,12 +594,11 @@ class ApiContext extends MinkContext implements KernelAwareContext
      * @link        http://laravel.com/docs/helpers
      * @param       array   $array
      * @param       string  $key
-     * @param       mixed   $default
      * @return      mixed
      */
     protected function arrayGet($array, $key)
     {
-        if (is_null($key)) {
+        if (null === $key) {
             return $array;
         }
 
@@ -603,7 +621,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
     protected function setupCharacterType(string $value)
     {
         $arr = [];
-        if (is_null($value)) {
+        if (null === $value) {
             throw new \Exception();
         }
 
@@ -614,14 +632,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
         return $arr;
     }
 
-    private function dbGet($id, $repositoryName)
-    {
-        /** @var  $postQueryService */
-        $postQueryService = new PostQueryService($this->doctrine);
-        return $postQueryService->query($repositoryName, $id);
-    }
-
-    /** @AfterScenario */
+    /** @AfterScenario
+     * @param AfterScenarioScope $scope
+     */
     public function resetPayload(AfterScenarioScope $scope)
     {
         $this->postPayload = null;
@@ -629,6 +642,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @AfterScenario @cleanFixtures
+     * @param AfterScenarioScope $scope
      */
     public function deleteFixtures(AfterScenarioScope $scope)
     {
@@ -638,9 +652,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
     /**
      * @When /^I request single "([^"]*)"(.*)$/
      */
-    public function iRequest2($link)
+    public function iRequestSingleResource($link)
     {
-        $resource = $link . self::$singleRandomId;
+        $resource = $link . $this->singleRandomId;
         $this->crawler = $this->client->request('GET', $resource);
         $this->response = $this->client->getResponse();
     }

@@ -5,6 +5,7 @@ namespace Test\Integration\Helpers;
 use AppKernel;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
+use RiftRunBundle\Services\PostQueryService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 trait DoctrineHelperTrait {
@@ -112,6 +113,13 @@ trait DoctrineHelperTrait {
             );
         }
         $this->truncateTables();
+    }
+
+    protected function dbGet($id, $repositoryName)
+    {
+        /** @var  $postQueryService */
+        $postQueryService = new PostQueryService($this->doctrine);
+        return $postQueryService->query($repositoryName, $id);
     }
 
     /**

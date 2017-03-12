@@ -92,8 +92,8 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have 10 posts in the database older than 29 days
     When I request "GET /v1/posts?limit=100"
     Then I get a "200" response
-    And newest posts are displayed at the top
-    And 10 days old posts are displayed at bottom
+    And newest items are displayed at the top
+    And 10 days old items are displayed at bottom
 
 Scenario: Do not show posts older than month.
     Given I have 10 posts in the database older than 30 days
