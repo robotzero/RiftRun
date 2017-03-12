@@ -2,8 +2,8 @@ Feature: Create new Posts
 
 Background: Correct payload
     Given I have default payload:
-        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.game.type | query.game.level | char1           | char2      | char3 | char4 | char5        |
-        | demon hunter| 20                   | #1000            | EU            | 1               | hardcore        | 20               | grift           | 40+              | demon hunter    | barbarian  | wizard| monk  | witch doctor |
+        | player.type | player.paragonPoints | player.battleTag | player.region | player.seasonal | player.gameType | query.minParagon | query.characterType.type                        | query.game.type | query.game.level |
+        | demon hunter| 20                   | #1000            | EU            | 1               | hardcore        | 20               | demon hunter,barbarian,wizard,monk,witch doctor | grift           | 40+              |
 
 Scenario: I can create new post
     When I request "POST v1/posts" with payload

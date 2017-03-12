@@ -14,6 +14,7 @@ use Psr\Container\ContainerInterface;
 use RiftRunBundle\Model\Post;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DomCrawler\Crawler;
+use TableNode\Extension\NestedTableNode;
 use Test\Integration\Helpers\DoctrineHelperTrait;
 use DevHelperBundle\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
@@ -135,23 +136,15 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given I have default payload:
-     * @param TableNode $table
+     * @param array $transformedPayload
      */
-    public function iHaveDefaultPayload(TableNode $table) : void
+    public function iHaveDefaultPayload(array $transformedPayload) : void
     {
-        $this->postPayload = $table->getNestedHash()[0];
-        $pattern = '/^char[1-5]/';
-
-        if (isset($this->postPayload['query']) && is_array($this->postPayload['query'])) {
-            foreach ($this->postPayload as $key => $value) {
-                if (is_array($key) === false) {
-                    if (preg_match($pattern, $key) == true) {
-                        $this->postPayload['query']['characterType'][] = ['type' => $this->postPayload[$key]];
-                        unset($this->postPayload[$key]);
-                    }
-                }
-            }
+        if (isset($transformedPayload['query']['characterType'])) {
+            assertTrue(is_array($transformedPayload['query']['characterType']));
+            assertArrayHasKey('type', $transformedPayload['query']['characterType'][0]);
         }
+        $this->postPayload = $transformedPayload;
     }
 
     /**
@@ -685,5 +678,23 @@ class ApiContext extends MinkContext implements KernelAwareContext
     public function resetPayload(AfterScenarioScope $scope)
     {
         $this->postPayload = null;
+    }
+
+    /** @Transform table:player.type,player.paragonPoints,player.battleTag,player.region,player.seasonal,player.gameType,query.minParagon,query.characterType.type,query.game.type,query.game.level
+     *  @param TableNode|NestedTableNode $tableNode
+     *  @return array
+     */
+    public function transformPostRequestWithCharacterTypes(NestedTableNode $tableNode) : array
+    {
+        $tableArray = $tableNode->getNestedHash()[0];
+        if (isset($tableArray['query']['characterType'])) {
+            $typesArray = explode(',', $tableArray['query']['characterType']['type']);
+            unset($tableArray['query']['characterType']['type']);
+            foreach($typesArray as $value) {
+                $tableArray['query']['characterType'][] = ['type' => $value];
+            }
+            return $tableArray;
+        }
+        return null;
     }
 }
