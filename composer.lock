@@ -2756,16 +2756,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "f2ce0035fc512287978510ca1740cd111d60f89f"
+                "reference": "56bded66985e22f6eac2cf86735fd21c625bff2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/f2ce0035fc512287978510ca1740cd111d60f89f",
-                "reference": "f2ce0035fc512287978510ca1740cd111d60f89f",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/56bded66985e22f6eac2cf86735fd21c625bff2f",
+                "reference": "56bded66985e22f6eac2cf86735fd21c625bff2f",
                 "shasum": ""
             },
             "require": {
@@ -2796,7 +2796,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-02-18 17:53:25"
+            "time": "2017-03-09 17:33:20"
         },
         {
             "name": "simple-bus/doctrine-orm-bridge",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "fe995a3bc93ac759424453ce35716d58b3e699f8"
+                "reference": "dd7c72728a0223c376482a0fd8101ce3bc5220a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/fe995a3bc93ac759424453ce35716d58b3e699f8",
-                "reference": "fe995a3bc93ac759424453ce35716d58b3e699f8",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/dd7c72728a0223c376482a0fd8101ce3bc5220a3",
+                "reference": "dd7c72728a0223c376482a0fd8101ce3bc5220a3",
                 "shasum": ""
             },
             "require": {
@@ -3649,7 +3649,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-08 19:43:39"
+            "time": "2017-03-10 19:07:15"
         },
         {
             "name": "twig/twig",
@@ -4337,12 +4337,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "22a7cc3fa121aa6bf25c788fa9492bf7ac110687"
+                "reference": "470cf6f1d82143c93a15d456e9a5147ef3a29af8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/22a7cc3fa121aa6bf25c788fa9492bf7ac110687",
-                "reference": "22a7cc3fa121aa6bf25c788fa9492bf7ac110687",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/470cf6f1d82143c93a15d456e9a5147ef3a29af8",
+                "reference": "470cf6f1d82143c93a15d456e9a5147ef3a29af8",
                 "shasum": ""
             },
             "require": {
@@ -4379,7 +4379,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-06 08:47:54"
+            "time": "2017-03-10 16:14:39"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5587,16 +5587,16 @@
         },
         {
             "name": "sebastian/object-enumerator",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "de6e32f7192dfea2e4bedc892434f4830b5c5794"
+                "reference": "601be3b8ddc75cc8c4e44e8f368c718c8f2d2f38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/de6e32f7192dfea2e4bedc892434f4830b5c5794",
-                "reference": "de6e32f7192dfea2e4bedc892434f4830b5c5794",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/601be3b8ddc75cc8c4e44e8f368c718c8f2d2f38",
+                "reference": "601be3b8ddc75cc8c4e44e8f368c718c8f2d2f38",
                 "shasum": ""
             },
             "require": {
@@ -5629,7 +5629,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-03-03 06:21:01"
+            "time": "2017-03-12 07:44:50"
         },
         {
             "name": "sebastian/recursion-context",
