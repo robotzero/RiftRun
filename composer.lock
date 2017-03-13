@@ -917,12 +917,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "bd1efaf52847f5feb979244eb305af6019ab71e4"
+                "reference": "1aa02f9afcb374d7d3060f960fa8ce096bf71369"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bd1efaf52847f5feb979244eb305af6019ab71e4",
-                "reference": "bd1efaf52847f5feb979244eb305af6019ab71e4",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/1aa02f9afcb374d7d3060f960fa8ce096bf71369",
+                "reference": "1aa02f9afcb374d7d3060f960fa8ce096bf71369",
                 "shasum": ""
             },
             "require": {
@@ -988,7 +988,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-03-07 17:34:50"
+            "time": "2017-03-12 15:53:13"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1546,12 +1546,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "95c0258b74a71ed40981998a8aa8b3bc13f9760d"
+                "reference": "4c6af116ff93d071c6086963798ca1ff8c1384df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/95c0258b74a71ed40981998a8aa8b3bc13f9760d",
-                "reference": "95c0258b74a71ed40981998a8aa8b3bc13f9760d",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/4c6af116ff93d071c6086963798ca1ff8c1384df",
+                "reference": "4c6af116ff93d071c6086963798ca1ff8c1384df",
                 "shasum": ""
             },
             "require": {
@@ -1609,7 +1609,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-02-22 16:15:59"
+            "time": "2017-03-13 17:02:39"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1957,16 +1957,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.22.0",
+            "version": "1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "bad29cb8d18ab0315e6c477751418a82c850d558"
+                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bad29cb8d18ab0315e6c477751418a82c850d558",
-                "reference": "bad29cb8d18ab0315e6c477751418a82c850d558",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1e044bc4b34e91743943479f1be7a1d5eb93add0",
+                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0",
                 "shasum": ""
             },
             "require": {
@@ -2031,7 +2031,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-11-26 00:15:39"
+            "time": "2017-03-13 07:08:03"
         },
         {
             "name": "nelmio/cors-bundle",
@@ -2161,16 +2161,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.9",
+            "version": "v2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "6968531206671f94377b01dc7888d5d1b858a01b"
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/6968531206671f94377b01dc7888d5d1b858a01b",
-                "reference": "6968531206671f94377b01dc7888d5d1b858a01b",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
                 "shasum": ""
             },
             "require": {
@@ -2205,7 +2205,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-03 20:43:42"
+            "time": "2017-03-13 16:27:32"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "dd7c72728a0223c376482a0fd8101ce3bc5220a3"
+                "reference": "40d133c29a6abe39397ad89a08cd0c661e3e1767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/dd7c72728a0223c376482a0fd8101ce3bc5220a3",
-                "reference": "dd7c72728a0223c376482a0fd8101ce3bc5220a3",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/40d133c29a6abe39397ad89a08cd0c661e3e1767",
+                "reference": "40d133c29a6abe39397ad89a08cd0c661e3e1767",
                 "shasum": ""
             },
             "require": {
@@ -3649,7 +3649,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-10 19:07:15"
+            "time": "2017-03-12 16:08:03"
         },
         {
             "name": "twig/twig",
@@ -4337,12 +4337,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "470cf6f1d82143c93a15d456e9a5147ef3a29af8"
+                "reference": "83b309872529472b4b6c92ca67ca6edbadfabb36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/470cf6f1d82143c93a15d456e9a5147ef3a29af8",
-                "reference": "470cf6f1d82143c93a15d456e9a5147ef3a29af8",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/83b309872529472b4b6c92ca67ca6edbadfabb36",
+                "reference": "83b309872529472b4b6c92ca67ca6edbadfabb36",
                 "shasum": ""
             },
             "require": {
@@ -4379,7 +4379,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-10 16:14:39"
+            "time": "2017-03-13 13:37:38"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5587,20 +5587,21 @@
         },
         {
             "name": "sebastian/object-enumerator",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "601be3b8ddc75cc8c4e44e8f368c718c8f2d2f38"
+                "reference": "31dd3379d16446c5d86dec32ab1ad1f378581ad8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/601be3b8ddc75cc8c4e44e8f368c718c8f2d2f38",
-                "reference": "601be3b8ddc75cc8c4e44e8f368c718c8f2d2f38",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/31dd3379d16446c5d86dec32ab1ad1f378581ad8",
+                "reference": "31dd3379d16446c5d86dec32ab1ad1f378581ad8",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
+                "sebastian/object-reflector": "^1.0",
                 "sebastian/recursion-context": "^3.0"
             },
             "require-dev": {
@@ -5629,7 +5630,52 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-03-12 07:44:50"
+            "time": "2017-03-12 15:17:29"
+        },
+        {
+            "name": "sebastian/object-reflector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/object-reflector.git",
+                "reference": "2201553542d60d25db9c5b2c54330df776648008"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/2201553542d60d25db9c5b2c54330df776648008",
+                "reference": "2201553542d60d25db9c5b2c54330df776648008",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Allows reflection of object attributes, including inherited and non-public ones",
+            "homepage": "https://github.com/sebastianbergmann/object-reflector/",
+            "time": "2017-03-12 15:10:22"
         },
         {
             "name": "sebastian/recursion-context",

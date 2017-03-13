@@ -687,14 +687,11 @@ class ApiContext extends MinkContext implements KernelAwareContext
     public function transformPostRequestWithCharacterTypes(NestedTableNode $tableNode) : array
     {
         $tableArray = $tableNode->getNestedHash()[0];
-        if (isset($tableArray['query']['characterType'])) {
-            $typesArray = explode(',', $tableArray['query']['characterType']['type']);
-            unset($tableArray['query']['characterType']['type']);
-            foreach($typesArray as $value) {
-                $tableArray['query']['characterType'][] = ['type' => $value];
-            }
-            return $tableArray;
+        $typesArray = explode(',', $tableArray['query']['characterType']['type']);
+        unset($tableArray['query']['characterType']['type']);
+        foreach($typesArray as $value) {
+            $tableArray['query']['characterType'][] = ['type' => $value];
         }
-        return null;
+        return $tableArray;
     }
 }
