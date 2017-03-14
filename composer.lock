@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "beberlei/assert",
-            "version": "v2.7.3",
+            "version": "v2.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "5972776d6a9eedfd3c55216341434e19cb50418f"
+                "reference": "3ee3bc468a3ce4bbfc3d74f53c6cdb5242d39d1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/5972776d6a9eedfd3c55216341434e19cb50418f",
-                "reference": "5972776d6a9eedfd3c55216341434e19cb50418f",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/3ee3bc468a3ce4bbfc3d74f53c6cdb5242d39d1a",
+                "reference": "3ee3bc468a3ce4bbfc3d74f53c6cdb5242d39d1a",
                 "shasum": ""
             },
             "require": {
@@ -26,8 +26,8 @@
                 "php": ">=5.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "phpunit/phpunit": "@stable"
+                "friendsofphp/php-cs-fixer": "^2.1.1",
+                "phpunit/phpunit": "^4|^5"
             },
             "type": "library",
             "autoload": {
@@ -60,7 +60,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2017-01-24 15:14:39"
+            "time": "2017-03-14 18:06:52"
         },
         {
             "name": "behat/transliterator",
@@ -1546,12 +1546,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "4c6af116ff93d071c6086963798ca1ff8c1384df"
+                "reference": "d75fc5db672c9d2e1abc66c2c2e0709d519114ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/4c6af116ff93d071c6086963798ca1ff8c1384df",
-                "reference": "4c6af116ff93d071c6086963798ca1ff8c1384df",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/d75fc5db672c9d2e1abc66c2c2e0709d519114ee",
+                "reference": "d75fc5db672c9d2e1abc66c2c2e0709d519114ee",
                 "shasum": ""
             },
             "require": {
@@ -1609,7 +1609,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-03-13 17:02:39"
+            "time": "2017-03-14 15:29:22"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "40d133c29a6abe39397ad89a08cd0c661e3e1767"
+                "reference": "d1e591edd8ef2b1eb9d4c96a2f3bb40aa43e06a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/40d133c29a6abe39397ad89a08cd0c661e3e1767",
-                "reference": "40d133c29a6abe39397ad89a08cd0c661e3e1767",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d1e591edd8ef2b1eb9d4c96a2f3bb40aa43e06a8",
+                "reference": "d1e591edd8ef2b1eb9d4c96a2f3bb40aa43e06a8",
                 "shasum": ""
             },
             "require": {
@@ -3649,7 +3649,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-12 16:08:03"
+            "time": "2017-03-14 19:04:20"
         },
         {
             "name": "twig/twig",
