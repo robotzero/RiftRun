@@ -194,66 +194,48 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
-     * @When /^the obj "([^"]*)" has set "([^"]*)" to "([^"]*)"$/
+     * @When Object has set item to value
      */
-    public function theObjectHasSetItemToValue($obj, $item, $value)
+    public function theObjectHasSetItemToValue()
     {
-        if ($obj === 'query' && $item === 'characterTypes') {
-            if ($value === 'missing') {
+        if ($this->object === 'query' && $this->item === 'characterTypes') {
+            if ($this->value === 'missing') {
                 unset($this->postPayload['query']['characterType']);
                 return;
             }
 
-            $this->postPayload['query']['characterType'] = $this->setupCharacterType($value);
+            $this->postPayload['query']['characterType'] = $this->setupCharacterType($this->value);
 
-            if ($value === 'less') {
+            if ($this->value === 'less') {
                 $this->postPayload['query']['characterType'] = 'yahoo';
             }
             return;
         }
 
-        if ($obj === 'game') {
-            if ($value === 'missing') {
-                unset($this->postPayload['query']['game'][$item]);
+        if ($this->object === 'game') {
+            if ($this->value === 'missing') {
+                unset($this->postPayload['query']['game'][$this->item]);
                 return;
-            } elseif ($value === 'null') {
-                $this->postPayload['query']['game'][$item] = null;
-            } elseif ($value === 'false') {
-                $this->postPayload['query']['game'][$item] = false;
-            } elseif ($value === 'true') {
-                $this->postPayload['query']['game'][$item] = true;
             } else {
-                $this->postPayload['query']['game'][$item] = $value;
+                $this->postPayload['query']['game'][$this->item] = $this->value;
             }
             return;
         }
-        if ($obj === 'post') {
-            if ($value === 'missing') {
-                unset($this->postPayload[$item]);
+        if ($this->object === 'post') {
+            if ($this->value === 'missing') {
+                unset($this->postPayload[$this->item]);
                 return;
-            } elseif ($value === 'null') {
-                $this->postPayload[$item] = null;
-            } elseif ($value === 'false') {
-                $this->postPayload[$item] = false;
-            } elseif ($value === 'true') {
-                $this->postPayload[$item] = true;
             } else {
-                $this->postPayload[$item] = $value;
+                $this->postPayload[$this->item] = $this->value;
             }
             return;
         }
 
-        if ($value === 'missing') {
-            unset($this->postPayload[$obj][$item]);
+        if ($this->value === 'missing') {
+            unset($this->postPayload[$this->object][$this->item]);
             return;
-        } elseif ($value === 'null') {
-            $this->postPayload[$obj][$item] = null;
-        } elseif ($value === 'false') {
-            $this->postPayload[$obj][$item] = false;
-        } elseif ($value === 'true') {
-            $this->postPayload[$obj][$item] = true;
         } else {
-            $this->postPayload[$obj][$item] = $value;
+            $this->postPayload[$this->object][$this->item] = $this->value;
         }
     }
 
@@ -606,6 +588,16 @@ class ApiContext extends MinkContext implements KernelAwareContext
         );
     }
 
+    /**
+     * @Given /^I have the object "([^"]*)" item "([^"]*)" value "([^"]*)"$/
+     */
+    public function iHaveTheObjectItemValue($object, $item, $value)
+    {
+        $this->object = $object;
+        $this->item = $item;
+        $this->value = $value;
+    }
+
     public function resetScope()
     {
         $this->scope = null;
@@ -693,5 +685,23 @@ class ApiContext extends MinkContext implements KernelAwareContext
             $tableArray['query']['characterType'][] = ['type' => $value];
         }
         return $tableArray;
+    }
+
+    /**
+     * @Transform /^null/
+     */
+    public function transformNull($null)
+    {
+        return null;
+    }
+
+    /**
+     * @Transform /^false|^true/
+     * @param $bool
+     * @return bool
+     */
+    public function transformBool($bool)
+    {
+        return 'true' === $bool;
     }
 }

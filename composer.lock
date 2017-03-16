@@ -996,12 +996,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "ad69a67a31d5a7859427649161569011b5884bdf"
+                "reference": "66b66dd5f2589f4c4453a1734f0e765aa3502fc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/ad69a67a31d5a7859427649161569011b5884bdf",
-                "reference": "ad69a67a31d5a7859427649161569011b5884bdf",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/66b66dd5f2589f4c4453a1734f0e765aa3502fc0",
+                "reference": "66b66dd5f2589f4c4453a1734f0e765aa3502fc0",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-02-27 08:28:20"
+            "time": "2017-03-16 16:31:08"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1546,12 +1546,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "d75fc5db672c9d2e1abc66c2c2e0709d519114ee"
+                "reference": "790e1c9b474af522c5e3c4346b114ba16014b62b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/d75fc5db672c9d2e1abc66c2c2e0709d519114ee",
-                "reference": "d75fc5db672c9d2e1abc66c2c2e0709d519114ee",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/790e1c9b474af522c5e3c4346b114ba16014b62b",
+                "reference": "790e1c9b474af522c5e3c4346b114ba16014b62b",
                 "shasum": ""
             },
             "require": {
@@ -1609,7 +1609,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-03-14 15:29:22"
+            "time": "2017-03-15 10:38:06"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d1e591edd8ef2b1eb9d4c96a2f3bb40aa43e06a8"
+                "reference": "18bbf3741ae4c952e76a582dd4016af90f1d84e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d1e591edd8ef2b1eb9d4c96a2f3bb40aa43e06a8",
-                "reference": "d1e591edd8ef2b1eb9d4c96a2f3bb40aa43e06a8",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/18bbf3741ae4c952e76a582dd4016af90f1d84e5",
+                "reference": "18bbf3741ae4c952e76a582dd4016af90f1d84e5",
                 "shasum": ""
             },
             "require": {
@@ -3649,7 +3649,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-14 19:04:20"
+            "time": "2017-03-15 16:56:25"
         },
         {
             "name": "twig/twig",
@@ -4337,12 +4337,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "83b309872529472b4b6c92ca67ca6edbadfabb36"
+                "reference": "b8ab87fdfe0350e81804bde20ab5b9199d0bfc09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/83b309872529472b4b6c92ca67ca6edbadfabb36",
-                "reference": "83b309872529472b4b6c92ca67ca6edbadfabb36",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/b8ab87fdfe0350e81804bde20ab5b9199d0bfc09",
+                "reference": "b8ab87fdfe0350e81804bde20ab5b9199d0bfc09",
                 "shasum": ""
             },
             "require": {
@@ -4379,7 +4379,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-13 13:37:38"
+            "time": "2017-03-15 16:09:27"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5634,16 +5634,16 @@
         },
         {
             "name": "sebastian/object-reflector",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-reflector.git",
-                "reference": "2201553542d60d25db9c5b2c54330df776648008"
+                "reference": "afd5797e7af7c9f529879ad5e8e8abe126c89dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/2201553542d60d25db9c5b2c54330df776648008",
-                "reference": "2201553542d60d25db9c5b2c54330df776648008",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/afd5797e7af7c9f529879ad5e8e8abe126c89dab",
+                "reference": "afd5797e7af7c9f529879ad5e8e8abe126c89dab",
                 "shasum": ""
             },
             "require": {
@@ -5655,7 +5655,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -5675,7 +5675,7 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2017-03-12 15:10:22"
+            "time": "2017-03-16 14:05:21"
         },
         {
             "name": "sebastian/recursion-context",
@@ -5821,12 +5821,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "c76c7833ed5ffe0f5aeef15e13939ddb59a684eb"
+                "reference": "37f9f4e165b033fb76cc2320838321cc57140e65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/c76c7833ed5ffe0f5aeef15e13939ddb59a684eb",
-                "reference": "c76c7833ed5ffe0f5aeef15e13939ddb59a684eb",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/37f9f4e165b033fb76cc2320838321cc57140e65",
+                "reference": "37f9f4e165b033fb76cc2320838321cc57140e65",
                 "shasum": ""
             },
             "require": {
@@ -5838,7 +5838,9 @@
             },
             "require-dev": {
                 "doctrine/orm": "~2.4",
-                "symfony/doctrine-bridge": "~2.7|~3.0"
+                "symfony/doctrine-bridge": "~2.7|~3.0",
+                "symfony/filesystem": "~2.7|~3.0",
+                "symfony/phpunit-bridge": "^3.3"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -5865,7 +5867,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2017-03-03 15:22:50"
+            "time": "2017-03-15 01:02:10"
         },
         {
             "name": "theofidry/alice-data-fixtures",
