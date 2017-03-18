@@ -2497,21 +2497,21 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "3.5.2",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "5677cfe02397dd6b58c861870dfaa5d9007d3954"
+                "reference": "0b7bdfb180e72c8d76e75a649ced67e392201458"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/5677cfe02397dd6b58c861870dfaa5d9007d3954",
-                "reference": "5677cfe02397dd6b58c861870dfaa5d9007d3954",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/0b7bdfb180e72c8d76e75a649ced67e392201458",
+                "reference": "0b7bdfb180e72c8d76e75a649ced67e392201458",
                 "shasum": ""
             },
             "require": {
                 "paragonie/random_compat": "^1.0|^2.0",
-                "php": ">=5.4"
+                "php": "^5.4 || ^7.0"
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
@@ -2575,7 +2575,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2016-11-22 19:21:44"
+            "time": "2017-03-18 15:38:09"
         },
         {
             "name": "ramsey/uuid-doctrine",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "18bbf3741ae4c952e76a582dd4016af90f1d84e5"
+                "reference": "c12727deb862add6ef093ba59dd45acdd7d2c021"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/18bbf3741ae4c952e76a582dd4016af90f1d84e5",
-                "reference": "18bbf3741ae4c952e76a582dd4016af90f1d84e5",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/c12727deb862add6ef093ba59dd45acdd7d2c021",
+                "reference": "c12727deb862add6ef093ba59dd45acdd7d2c021",
                 "shasum": ""
             },
             "require": {
@@ -3591,7 +3591,7 @@
                 "symfony/yaml": "self.version"
             },
             "require-dev": {
-                "cache/integration-tests": "^0.15.0",
+                "cache/integration-tests": "dev-master",
                 "doctrine/cache": "~1.6",
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.4",
@@ -3649,7 +3649,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-15 16:56:25"
+            "time": "2017-03-17 19:27:05"
         },
         {
             "name": "twig/twig",
@@ -4337,12 +4337,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "b8ab87fdfe0350e81804bde20ab5b9199d0bfc09"
+                "reference": "c6d2e74fc23f5b8c004a74c011d297976ee41dc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/b8ab87fdfe0350e81804bde20ab5b9199d0bfc09",
-                "reference": "b8ab87fdfe0350e81804bde20ab5b9199d0bfc09",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/c6d2e74fc23f5b8c004a74c011d297976ee41dc5",
+                "reference": "c6d2e74fc23f5b8c004a74c011d297976ee41dc5",
                 "shasum": ""
             },
             "require": {
@@ -4379,7 +4379,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-15 16:09:27"
+            "time": "2017-03-17 17:56:19"
         },
         {
             "name": "myclabs/deep-copy",
@@ -4429,12 +4429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "4acd0d6827742db09124223a860379d0697825ab"
+                "reference": "707b0e43ddbe395bc1d0bdb6a4cabf62851f6e00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/4acd0d6827742db09124223a860379d0697825ab",
-                "reference": "4acd0d6827742db09124223a860379d0697825ab",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/707b0e43ddbe395bc1d0bdb6a4cabf62851f6e00",
+                "reference": "707b0e43ddbe395bc1d0bdb6a4cabf62851f6e00",
                 "shasum": ""
             },
             "require": {
@@ -4494,7 +4494,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-03-07 21:00:57"
+            "time": "2017-03-18 13:11:01"
         },
         {
             "name": "phpdocumentor/reflection-common",
