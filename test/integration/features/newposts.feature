@@ -126,7 +126,7 @@ Scenario Outline: Wrong object
         | query            | game               ||
         | game             | level              | missing |
         | game             | level              | blabla  |
-        | game             | level              | 0         |
+        | game             | level              | 0       |
         | game             | level              | -0      |
         | game             | level              | -100    |
         | game             | level              | null    |

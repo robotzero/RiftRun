@@ -219,8 +219,10 @@ class ApiContext extends MinkContext implements KernelAwareContext
                     unset($localValue[$this->itemPayload]);
                     return $localValue;
                 }
-                $localValue[$this->itemPayload] = $this->valuePayload;
-                return $localValue;
+                if ($this->objectPayload !== 'game') {
+                    $localValue[$this->itemPayload] = $this->valuePayload;
+                    return $localValue;
+                }
             }
 
             if ($this->objectPayload === 'post') {
@@ -233,6 +235,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
             return $localValue;
         }, $this->postPayload);
         $this->postPayload = $newPayload;
+
         if ($this->valuePayload === 'missing' && $this->objectPayload === 'post'){
             unset($this->postPayload[$this->itemPayload]);
         }
@@ -251,6 +254,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
         if ($this->valuePayload !== 'missing' && $this->valuePayload !== null && $this->objectPayload === 'game') {
             if ($this->postPayload['query']['game']['type'] === 'rift') {
                 unset($this->postPayload['query']['game']['level']);
+            }
+            if ($this->postPayload['query']['game']['type'] === 'grift') {
+                unset($this->postPayload['query']['game']['torment']);
             }
         }
     }
