@@ -206,11 +206,19 @@ class ApiContext extends MinkContext implements KernelAwareContext
     {
         $newPayload = array_map(function($localValue) {
             if (array_key_exists($this->objectPayload, $localValue) && is_array($localValue[$this->objectPayload])) {
+                if ($this->valuePayload === 'missing') {
+                    unset($localValue[$this->objectPayload][$this->itemPayload]);
+                    return $localValue;
+                }
                 $localValue[$this->objectPayload][$this->itemPayload] = $this->valuePayload;
                 return $localValue;
             }
 
             if (array_key_exists($this->itemPayload, $localValue)) {
+                if ($this->valuePayload === 'missing') {
+                    unset($localValue[$this->itemPayload]);
+                    return $localValue;
+                }
                 $localValue[$this->itemPayload] = $this->valuePayload;
                 return $localValue;
             }
@@ -225,44 +233,20 @@ class ApiContext extends MinkContext implements KernelAwareContext
             return $localValue;
         }, $this->postPayload);
         $this->postPayload = $newPayload;
-//        if ($this->objectPayload === 'query' && $this->itemPayload === 'characterTypes') {
-//            if ($this->valuePayload === 'missing') {
-//                unset($this->postPayload['query']['characterType']);
-//                return;
-//            }
-//            if ($this->valuePayload === 'less') {
-//                $this->postPayload['query']['characterType'] = 'yahoo';
-//                return;
-//            }
-//
-//            $this->postPayload['query']['characterType'] = $this->setupCharacterType($this->valuePayload);
-//        }
-//
-//        if ($this->objectPayload === 'game') {
-//            if ($this->valuePayload === 'missing') {
-//                unset($this->postPayload['query']['game'][$this->itemPayload]);
-//                return;
-//            } else {
-//                $this->postPayload['query']['game'][$this->itemPayload] = $this->valuePayload;
-//            }
-//            return;
-//        }
-//        if ($this->objectPayload === 'post') {
-//            if ($this->valuePayload === 'missing') {
-//                unset($this->postPayload[$this->itemPayload]);
-//                return;
-//            } else {
-//                $this->postPayload[$this->itemPayload] = $this->valuePayload;
-//            }
-//            return;
-//        }
-//
-//        if ($this->valuePayload === 'missing') {
-//            unset($this->postPayload[$this->objectPayload][$this->itemPayload]);
-//            return;
-//        } else {
-//            $this->postPayload[$this->objectPayload][$this->itemPayload] = $this->valuePayload;
-//        }
+        if ($this->valuePayload === 'missing' && $this->objectPayload === 'post'){
+            unset($this->postPayload[$this->itemPayload]);
+        }
+        if ($this->valuePayload === 'missing' && $this->itemPayload === 'characterTypes') {
+            unset($this->postPayload['query']['characterType']);
+        }
+
+        if ($this->valuePayload === null && $this->itemPayload === 'characterTypes') {
+            $this->postPayload['query']['characterType'] = null;
+        }
+
+        if ($this->valuePayload !== 'missing' && $this->valuePayload !== null && $this->itemPayload === 'characterTypes') {
+            $this->postPayload['query']['characterType'] = $this->setupCharacterType($this->valuePayload);
+        }
     }
 
     /**
@@ -682,9 +666,6 @@ class ApiContext extends MinkContext implements KernelAwareContext
     protected function setupCharacterType(string $value)
     {
         $arr = [];
-        if (null === $value) {
-            throw new \Exception();
-        }
 
         foreach (explode(',', $value) as $cclass) {
             $arr[] = ['type' => $cclass];

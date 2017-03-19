@@ -32,24 +32,22 @@ Scenario Outline: Wrong object
     Then I get a "400" response
     Examples:
         | object           | item               | value     |
-#        | player           | type               |  missing  |
+        | player           | type               |  missing  |
         | player           | type               | 1         |
         | player           | type               | null      |
         | player           | type               | false     |
         | player           | type               | true      |
         | player           | type               | 0         |
-#        | "player"         | "type"             | ""        |
-#        | "player"         | "type"             | "  "      |
-#        | "player"         | "paragonPoints"    | "missing" |
+        | player           | type               ||
+        | player           | paragonPoints      | missing |
         | player           | paragonPoints      | word       |
         | player           | paragonPoints      | 0         |
         | player           | paragonPoints      | -100    |
         | player           | paragonPoints      | null    |
         | player           | paragonPoints      | false   |
         | player           | paragonPoints      | true    |
-#        | "player"         | "paragonPoints"    | ""        |
-#        | "player"         | "paragonPoints"    | "  "      |
-#        | "player"         | "battleTag"        | "missing" |
+        | player           | paragonPoints      ||
+        | player           | battleTag          | missing |
         | player           | battleTag          | 1         |
         | player           | battleTag          | 1000      |
         | player           | battleTag          | -100    |
@@ -57,9 +55,8 @@ Scenario Outline: Wrong object
         | player           | battleTag          | null    |
         | player           | battleTag          | false   |
         | player           | battleTag          | true    |
-#        | "player"         | "battleTag"        | ""        |
-#        | "player"         | "battleTag"        | "  "      |
-#        | "player"         | "region"           | "missing" |
+        | player           | battleTag          ||
+        | player           | region             | missing |
         | player           | region             | abcde   |
         | player           | region             | eu      |
         | player           | region             | na      |
@@ -68,9 +65,8 @@ Scenario Outline: Wrong object
         | player           | region             | null    |
         | player           | region             | false   |
         | player           | region             | true    |
-#        | "player"         | "region"           | ""        |
-#        | "player"         | "region"           | "  "      |
-#        | "player"         | "seasonal"         | "missing" |
+        | player           | region             ||
+        | player           | seasonal           | missing |
         | player           | seasonal           | 000     |
         | player           | seasonal           | 000       |
         | player           | seasonal           | 3         |
@@ -78,9 +74,8 @@ Scenario Outline: Wrong object
         | player           | seasonal           | abcde   |
         | player           | seasonal           | null    |
         | player           | seasonal           | false   |
-#        | "player"         | "seasonal"         | ""        |
-#        | "player"         | "seasonal"         | "  "      |
-#        | "player"         | "gameType"         | "missing" |
+        | player           | seasonal           ||
+        | player           | gameType           | missing |
         | player           | gameType           | blabla  |
         | player           | gameType           | SOFTCORE|
         | player           | gameType           | HARDCORE|
@@ -91,9 +86,8 @@ Scenario Outline: Wrong object
         | player           | gameType           | null    |
         | player           | gameType           | false   |
         | player           | gameType           | true    |
-#        | "player"         | "gameType"         | ""        |
-#        | "player"         | "gameType"         | "  "      |
-#        | "post"           | "player"           | "missing" |
+        | player           | gameType           ||
+        | post             | player             | missing |
         | post             | player             | blabla  |
         | post             | player             | 0         |
         | post             | player             | -0      |
@@ -101,9 +95,8 @@ Scenario Outline: Wrong object
         | post             | player             | null    |
         | post             | player             | false   |
         | post             | player             | true    |
-#        | "post"           | "player"           | ""        |
-#        | "post"           | "player"           | "  "      |
-#        | "post"           | "query"            | "missing" |
+        | post             | player             ||
+        | post             | query             | missing |
         | post             | query              | blabla  |
         | post             | query              | 0         |
         | post             | query              | -0      |
@@ -111,9 +104,8 @@ Scenario Outline: Wrong object
         | post             | query              | null    |
         | post             | query              | false   |
         | post             | query              | true    |
-#        | "post"           | "query"            | ""        |
-#        | "post"             | "query"            | "  "      |
-#        | "query"            | "minParagon"       | "missing" |
+        | post             | query              ||
+        | query             | minParagon        | missing |
         | query            | minParagon         | blabla  |
         | query            | minParagon         | 0         |
         | query            | minParagon         | -0      |
@@ -121,9 +113,8 @@ Scenario Outline: Wrong object
         | query            | minParagon         | null    |
         | query            | minParagon         | false   |
         | query            | minParagon         | true    |
-#        | "query"            | "minParagon"       | ""        |
-#        | "query"            | "minParagon"       | "  "      |
-#        | "query"            | "game"             | "missing" |
+        | query            | minParagon         ||
+        | query            | game               | missing |
         | query            | game               | blabla  |
         | query            | game               | 0         |
         | query            | game               | -0      |
@@ -131,9 +122,8 @@ Scenario Outline: Wrong object
         | query            | game               | null    |
         | query            | game               | false   |
         | query            | game               | true    |
-#        | "query"            | "game"             | ""        |
-#        | query            | game             |   "   "      |
-#        | "game"             | "level"            | "missing" |
+        | query            | game               ||
+        | game              | level             | missing |
         | game             | level              | blabla  |
         | game             | level              | 0         |
         | game             | level              | -0      |
@@ -141,35 +131,32 @@ Scenario Outline: Wrong object
         | game             | level              | null    |
         | game             | level              | false   |
         | game             | level              | true    |
-#        | "game"             | "level"            | ""        |
-#        | "game"             | "level"            | "  "      |
-#        | "query"            | "characterTypes"      | "missing" |
-#        | "query"            | "characterTypes"      | "dh,barb,wiz" |
-#        | "query"            | "characterTypes"      | "demon hunter,barb,wiz" |
-#        | "query"            | "characterTypes"      | "demon hunter,barbarian,monk,witch" |
-#        | "query"            | "characterTypes"      | "demon hunter,barbarian,monk,witch doctor,wizard,and" |
-#        | "query"            | "characterTypes"      | "demon hunter,null" |
-#        | "query"            | "characterTypes"      | "null" |
-#        | "query"            | "characterTypes"      | "blabla"  |
-#        | "query"            | "characterTypes"      | 0         |
-#        | "query"            | "characterTypes"      | "-0"      |
-#        | "query"            | "characterTypes"      | "-100"    |
-#        | "query"            | "characterTypes"      | "false"   |
-#        | "query"            | "characterTypes"      | "true"    |
-#        | "query"            | "characterTypes"      | ""        |
-#        | "query"            | "characterTypes"      | "  "      |
-#        | "query"            | "characterTypes"      | "0,2,1"   |
-#        | "query"            | "characterTypes"      | "less "   |
-#        | "query"            | "characterType"      | "missing" |
-#        | "query"            | "characterType"      | "dh,barb,wiz" |
-#        | "query"            | "characterType"      | "demon hunter" |
-#        | "query"            | "characterType"      | "null" |
-#        | "query"            | "characterType"      | "blabla"  |
-#        | "query"            | "characterType"      | 0         |
-#        | "query"            | "characterType"      | "-0"      |
-#        | "query"            | "characterType"      | "-100"    |
-#        | "query"            | "characterType"      | "false"   |
-#        | "query"            | "characterType"      | "true"    |
-#        | "query"            | "characterType"      | ""        |
-#        | "query"            | "characterType"      | "  "      |
-#        | "query"            | "characterType"      | "0,2,1"   |
+        | game             | level              ||
+        | query            | characterTypes     | missing |
+        | query            | characterTypes     | dh,barb,wiz |
+        | query            | characterTypes     | demon hunter,barb,wiz |
+        | query            | characterTypes     | demon hunter,barbarian,monk,witch |
+        | query            | characterTypes     | demon hunter,barbarian,monk,witch doctor,wizard,and |
+        | query            | characterTypes     | demon hunter,null |
+        | query            | characterTypes     | null |
+        | query            | characterTypes     | blabla  |
+        | query            | characterTypes     | 0         |
+        | query            | characterTypes     | -0      |
+        | query            | characterTypes     | -100    |
+        | query            | characterTypes     | false   |
+        | query            | characterTypes     | true    |
+        | query            | characterTypes     ||
+        | query            | characterTypes     | 0,2,1   |
+        | query            | characterTypes     | less  |
+        | query            | characterType      | missing |
+        | query            | characterType      | dh,barb,wiz |
+        | query            | characterType      | demon hunter |
+        | query            | characterType      | null |
+        | query            | characterType      | blabla  |
+        | query            | characterType      | 0         |
+        | query            | characterType      | -0      |
+        | query            | characterType      | -100    |
+        | query            | characterType      | false   |
+        | query            | characterType      | true    |
+        | query            | characterType      ||
+        | query            | characterType      | 0,2,1   |
