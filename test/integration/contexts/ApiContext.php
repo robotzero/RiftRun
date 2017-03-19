@@ -64,6 +64,12 @@ class ApiContext extends MinkContext implements KernelAwareContext
     /** @var array  */
     private $inMemoryFixtures = [];
 
+    private $objectPayload;
+
+    private $itemPayload;
+
+    private $valuePayload;
+
     /**
      * @return array
      */
@@ -198,45 +204,65 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function theObjectHasSetItemToValue()
     {
-        if ($this->object === 'query' && $this->item === 'characterTypes') {
-            if ($this->value === 'missing') {
-                unset($this->postPayload['query']['characterType']);
-                return;
+        $newPayload = array_map(function($localValue) {
+            if (array_key_exists($this->objectPayload, $localValue) && is_array($localValue[$this->objectPayload])) {
+                $localValue[$this->objectPayload][$this->itemPayload] = $this->valuePayload;
+                return $localValue;
             }
 
-            $this->postPayload['query']['characterType'] = $this->setupCharacterType($this->value);
-
-            if ($this->value === 'less') {
-                $this->postPayload['query']['characterType'] = 'yahoo';
+            if (array_key_exists($this->itemPayload, $localValue)) {
+                $localValue[$this->itemPayload] = $this->valuePayload;
+                return $localValue;
             }
-            return;
-        }
 
-        if ($this->object === 'game') {
-            if ($this->value === 'missing') {
-                unset($this->postPayload['query']['game'][$this->item]);
-                return;
-            } else {
-                $this->postPayload['query']['game'][$this->item] = $this->value;
+            if ($this->objectPayload === 'post') {
+                if (array_key_exists('game', $localValue) && $this->itemPayload === 'query') {
+                    return $localValue[$this->itemPayload] = $this->valuePayload;
+                } elseif (array_key_exists('gameType', $localValue) && $this->itemPayload === 'player') {
+                    return $localValue[$this->itemPayload] = $this->valuePayload;
+                }
             }
-            return;
-        }
-        if ($this->object === 'post') {
-            if ($this->value === 'missing') {
-                unset($this->postPayload[$this->item]);
-                return;
-            } else {
-                $this->postPayload[$this->item] = $this->value;
-            }
-            return;
-        }
-
-        if ($this->value === 'missing') {
-            unset($this->postPayload[$this->object][$this->item]);
-            return;
-        } else {
-            $this->postPayload[$this->object][$this->item] = $this->value;
-        }
+            return $localValue;
+        }, $this->postPayload);
+        $this->postPayload = $newPayload;
+//        if ($this->objectPayload === 'query' && $this->itemPayload === 'characterTypes') {
+//            if ($this->valuePayload === 'missing') {
+//                unset($this->postPayload['query']['characterType']);
+//                return;
+//            }
+//            if ($this->valuePayload === 'less') {
+//                $this->postPayload['query']['characterType'] = 'yahoo';
+//                return;
+//            }
+//
+//            $this->postPayload['query']['characterType'] = $this->setupCharacterType($this->valuePayload);
+//        }
+//
+//        if ($this->objectPayload === 'game') {
+//            if ($this->valuePayload === 'missing') {
+//                unset($this->postPayload['query']['game'][$this->itemPayload]);
+//                return;
+//            } else {
+//                $this->postPayload['query']['game'][$this->itemPayload] = $this->valuePayload;
+//            }
+//            return;
+//        }
+//        if ($this->objectPayload === 'post') {
+//            if ($this->valuePayload === 'missing') {
+//                unset($this->postPayload[$this->itemPayload]);
+//                return;
+//            } else {
+//                $this->postPayload[$this->itemPayload] = $this->valuePayload;
+//            }
+//            return;
+//        }
+//
+//        if ($this->valuePayload === 'missing') {
+//            unset($this->postPayload[$this->objectPayload][$this->itemPayload]);
+//            return;
+//        } else {
+//            $this->postPayload[$this->objectPayload][$this->itemPayload] = $this->valuePayload;
+//        }
     }
 
     /**
@@ -590,12 +616,15 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^I have the object "([^"]*)" item "([^"]*)" value "([^"]*)"$/
+     * @param string $objectPayload
+     * @param string $itemPayload
+     * @param mixed $valuePayload
      */
-    public function iHaveTheObjectItemValue($object, $item, $value)
+    public function iHaveTheObjectItemValue($objectPayload, $itemPayload, $valuePayload)
     {
-        $this->object = $object;
-        $this->item = $item;
-        $this->value = $value;
+        $this->objectPayload = $objectPayload;
+        $this->itemPayload = $itemPayload;
+        $this->valuePayload = $valuePayload;
     }
 
     public function resetScope()
