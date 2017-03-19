@@ -14,6 +14,7 @@ use Psr\Container\ContainerInterface;
 use RiftRunBundle\Model\Post;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\HttpFoundation\Response;
 use TableNode\Extension\NestedTableNode;
 use Test\Integration\Helpers\DoctrineHelperTrait;
 use DevHelperBundle\Command\Commands\LoadFixtures;
@@ -45,6 +46,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
     /** @var Client */
     private $client;
 
+    /** @var Response */
     private $response;
 
     /** @var  BeforeScenarioScope */
@@ -262,20 +264,13 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
-     * @When /^the obj "([^"]*)" has set "([^"]*)" to (\d+)$/
-     */
-    public function theObjectHasSetItemToInteger($obj, $item, $value)
-    {
-        $this->postPayload[$obj][$item] = $value;
-    }
-
-    /**
      * @Then /^I get a "([^"]*)" response$/
+     * @param int $statusCode
      */
-    public function iGetAResponse($statusCode)
+    public function iGetAResponse(int $statusCode)
     {
         $contentType = $this->response->headers->get('content-type');
-        if ($statusCode === "200") {
+        if ($statusCode === 200) {
             assertTrue($this->response->isOk());
         }
         assertEquals($statusCode, $this->response->getStatusCode());
@@ -284,16 +279,18 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^scope into the first "([^"]*)" property$/
+     * @param string $scope
      */
-    public function scopeIntoTheFirstProperty($scope)
+    public function scopeIntoTheFirstProperty(string $scope)
     {
         $this->scope = "{$scope}.0";
     }
 
     /**
      * @Given /^scope into the "([^"]*)" property$/
+     * @param string $scope
      */
-    public function scopeIntoTheProperty($scope)
+    public function scopeIntoTheProperty(string $scope)
     {
         $this->scope = $scope;
     }
@@ -351,8 +348,10 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is a integer equalling "([^"]*)"$/
+     * @param string $property
+     * @param int $expectedValue
      */
-    public function thePropertyIsAIntegerEqualling($property, $expectedValue)
+    public function thePropertyIsAIntegerEqualling(string $property, int $expectedValue)
     {
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
@@ -366,8 +365,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is a string$/
+     * @param string $property
      */
-    public function thePropertyIsAString($property)
+    public function thePropertyIsAString(string $property)
     {
         $payload = $this->getScopePayload();
 
@@ -417,19 +417,21 @@ class ApiContext extends MinkContext implements KernelAwareContext
      * @Given /^the "([^"]*)" property is a boolean$/
      * @param $property
      */
-    public function thePropertyIsABoolean($property)
+    public function thePropertyIsABoolean(string $property)
     {
         $payload = $this->getScopePayload();
         assertTrue(
-            gettype($this->arrayGet($payload, $property)) == 'boolean',
+            is_bool($this->arrayGet($payload, $property)),
             "Asserting the [$property] property in current scope [{$this->scope}] is a boolean."
         );
     }
 
     /**
      * @Given /^the "([^"]*)" property is a boolean equalling "([^"]*)"$/
+     * @param string $property
+     * @param bool $expectedValue
      */
-    public function thePropertyIsABooleanEqualling($property, $expectedValue)
+    public function thePropertyIsABooleanEqualling(string $property, bool $expectedValue)
     {
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
@@ -446,8 +448,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is an object$/
+     * @param string $property
      */
-    public function thePropertyIsAnObject($property)
+    public function thePropertyIsAnObject(string $property)
     {
         $payload = $this->getScopePayload();
         $actualValue = $this->arrayGet($payload, $property);
@@ -464,7 +467,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
     {
         $createdAts = [];
         $scope = $this->getScopePayload();
-        foreach ($scope->_embedded->items as $item) {
+        /** @var array $items */
+        $items = $scope->_embedded->items;
+        foreach ($items as $item) {
             $createdAts[] = $item->createdAt;
         }
 
@@ -538,8 +543,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @When /^I request single resource "([^"]*)"(.*)$/
+     * @param string $link
      */
-    public function iRequestSingleResource($link)
+    public function iRequestSingleResource(string $link)
     {
         $resource = $link . $this->singleRandomId;
         $this->crawler = $this->client->request('GET', $resource);
@@ -548,8 +554,9 @@ class ApiContext extends MinkContext implements KernelAwareContext
 
     /**
      * @Given /^the "([^"]*)" property is a string equalling payload id$/
+     * @param string $property
      */
-    public function thePropertyIsAStringEquallingPayloadId($property)
+    public function thePropertyIsAStringEquallingPayloadId(string $property)
     {
         $payload = $this->getScopePayload();
         $this->thePropertyIsAString($property);
