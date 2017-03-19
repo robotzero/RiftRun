@@ -247,6 +247,12 @@ class ApiContext extends MinkContext implements KernelAwareContext
         if ($this->valuePayload !== 'missing' && $this->valuePayload !== null && $this->itemPayload === 'characterTypes') {
             $this->postPayload['query']['characterType'] = $this->setupCharacterType($this->valuePayload);
         }
+
+        if ($this->valuePayload !== 'missing' && $this->valuePayload !== null && $this->objectPayload === 'game') {
+            if ($this->postPayload['query']['game']['type'] === 'rift') {
+                unset($this->postPayload['query']['game']['level']);
+            }
+        }
     }
 
     /**
@@ -498,59 +504,13 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
-     * @When /^payload properties (.*) equals (.*)$/
+     * @Given /^Game "([^"]*)" is equal to "([^"]*)"$/
+     * @param string $gameModelItem
+     * @param string $gameModelValue
      */
-    public function payloadPropertyEquals($properties, $values)
+    public function gameIsEqualTo($gameModelItem, $gameModelValue)
     {
-        $propertiesArray = explode(',', $properties);
-        $valuesArray     = explode(',', $values);
-        if (count($propertiesArray) !== count($valuesArray)) {
-            throw new \Exception('Properties number does not match values');
-        }
-
-        if ($this->postPayload === null) {
-            throw new \Exception("Post payload is not set.");
-        }
-        $builders = [];
-        foreach ($propertiesArray as $key => $property) {
-            $data = explode('.', $property);
-            $builder = '$this->postPayload';
-            $valueToUnset = $data[count($data) - 2];
-            $unsetBuilder = null;
-            foreach ($data as $value) {
-                $builder .= '["'.$value.'"]';
-                if ($value === $valueToUnset) {
-                    $unsetBuilder = $builder . ' = null;';
-                }
-            }
-            if (is_numeric($valuesArray[$key])) {
-                $builder .= ' = ' . $valuesArray[$key] .';';
-            } else {
-                $builder .= ' = "' . $valuesArray[$key] .'";';
-            }
-            if ($unsetBuilder !== null) {
-                eval($unsetBuilder);
-            }
-            $builders[] = $builder;
-        }
-        foreach ($builders as $builder) {
-            eval($builder);
-        }
-    }
-
-    /**
-     * @Given /^remove (.*) from payload$/
-     */
-    public function removeFromPayload($rproperties)
-    {
-        if ($rproperties === '') {
-            return;
-        }
-        $propertiesArray = explode(',', $rproperties);
-        foreach ($propertiesArray as $property) {
-            [$one, $two, $three] =  explode('.', $property);
-            unset($this->postPayload[$one][$two][$three]);
-        }
+        $this->postPayload['query']['game'][$gameModelItem] = $gameModelValue;
     }
 
     /**
