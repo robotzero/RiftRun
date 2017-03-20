@@ -1,26 +1,13 @@
 parameters:
-    configured_pipelines:
-          processFormPipe: 'RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe'
-          transformDTOPipe: 'RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe'
-          fetchPipeline:  'RiftRunBundle\Services\Pipelines\FetchPipeline'
-
 services:
     league_pipeline_builder:
         class: League\Pipeline\PipelineBuilder
-
-    pipeline_manager:
-        class: RiftRunBundle\CommandBus\Pipelines\PipelineManager
-        arguments:
-            - '@league_pipeline_builder'
-            - '%configured_pipelines%'
-        calls:
-            - [ setContainer, [ '@service_container' ] ]
 
     create_post_command_handler:
         class: RiftRunBundle\CommandBus\Handlers\CreatePostCommandHandler
         arguments:
             - '@doctrine.orm.entity_manager'
-            - '@pipeline_manager'
+            - '@form.factory'
         tags:
             - { name: tactician.handler, command: RiftRunBundle\CommandBus\Commands\CreatePost }
 

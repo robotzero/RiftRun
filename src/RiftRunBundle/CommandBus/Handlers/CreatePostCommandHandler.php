@@ -4,29 +4,37 @@ namespace RiftRunBundle\CommandBus\Handlers;
 
 use Doctrine\ORM\EntityManagerInterface;
 use League\Pipeline\Pipeline;
+use League\Pipeline\PipelineBuilder;
 use RiftRunBundle\CommandBus\Commands\Create;
-use RiftRunBundle\CommandBus\Pipelines\PipelineManagerInterface;
+use RiftRunBundle\CommandBus\Pipelines\ProcessFormPipe;
+use RiftRunBundle\CommandBus\Pipelines\TransformDTOPipe;
+use Symfony\Component\Form\FormFactoryInterface;
 
 final class CreatePostCommandHandler implements CommandHandler
 {
     /** @var EntityManagerInterface */
     private $entityManager;
 
-    /** @var  PipelineManagerInterface */
-    private $pipelineManager;
+    /** @var FormFactoryInterface  */
+    private $formFactory;
 
     public function __construct(
         EntityManagerInterface $entityManager,
-        PipelineManagerInterface $pipelineManager
+        FormFactoryInterface $formFactory
     ) {
         $this->entityManager = $entityManager;
-        $this->pipelineManager = $pipelineManager;
+        $this->formFactory = $formFactory;
     }
 
     public function handle(Create $createPost)
     {
+        $pipelineBuilder = (new PipelineBuilder)
+            ->add(new ProcessFormPipe($this->formFactory))
+            ->add(new TransformDTOPipe());
+
         /** @var Pipeline $pipeline */
-        $pipeline = $this->pipelineManager->build(['processFormPipe' => 'form.factory', 'transformDTOPipe' => null]);
+        $pipeline = $pipelineBuilder->build();
+
         $post = $pipeline->process($createPost);
         try {
             $this->entityManager->persist($post);
