@@ -2096,12 +2096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "7481f6466cef6d31ee595a520f859db8285eda94"
+                "reference": "29aade64addfdfb12c05aabf160f09d1aea6b143"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/7481f6466cef6d31ee595a520f859db8285eda94",
-                "reference": "7481f6466cef6d31ee595a520f859db8285eda94",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/29aade64addfdfb12c05aabf160f09d1aea6b143",
+                "reference": "29aade64addfdfb12c05aabf160f09d1aea6b143",
                 "shasum": ""
             },
             "require": {
@@ -2157,7 +2157,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2017-03-07 08:31:49"
+            "time": "2017-03-20 13:46:15"
         },
         {
             "name": "paragonie/random_compat",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "c12727deb862add6ef093ba59dd45acdd7d2c021"
+                "reference": "88914a9b1bbbb2042e8fd692e75e57fcba42bb3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/c12727deb862add6ef093ba59dd45acdd7d2c021",
-                "reference": "c12727deb862add6ef093ba59dd45acdd7d2c021",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/88914a9b1bbbb2042e8fd692e75e57fcba42bb3f",
+                "reference": "88914a9b1bbbb2042e8fd692e75e57fcba42bb3f",
                 "shasum": ""
             },
             "require": {
@@ -3649,7 +3649,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-17 19:27:05"
+            "time": "2017-03-20 13:59:57"
         },
         {
             "name": "twig/twig",

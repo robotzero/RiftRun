@@ -9,13 +9,6 @@ services:
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
 
-    execute_query_command_handler:
-        class: DevHelperBundle\Command\Handlers\ExecuteQueryCommandHandler
-        arguments:
-            - '@doctrine'
-        tags:
-            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ExecuteQuery }
-
     clear_fixtures_command_handler:
         class: DevHelperBundle\Command\Handlers\DatabaseClearCommandHandler
         arguments:
@@ -23,16 +16,6 @@ services:
             - '@standard_orm_purger'
         tags:
             - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ClearDatabase }
-
-    create_schema_command_handler:
-        class: DevHelperBundle\Command\Handlers\CreateSchemaCommandHandler
-        tags:
-            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\CreateSchema }
-
-    update_schema_command_handler:
-        class: DevHelperBundle\Command\Handlers\UpdateSchemaCommandHandler
-        tags:
-            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\UpdateSchema }
 
     load_fixtures_cli:
         class: DevHelperBundle\Cli\DatabaseSeederCommand

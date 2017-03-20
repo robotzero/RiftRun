@@ -12,7 +12,7 @@ final class SearchQuerySpecification implements Specification
         $types = [];
 
         foreach($characterTypes as $characterType) {
-            array_push($types, $characterType->getType());
+            $types[] = $characterType->getType();
         }
 
         //@TODO get rid of this hack.
