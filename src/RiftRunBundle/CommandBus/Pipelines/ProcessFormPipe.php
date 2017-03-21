@@ -33,6 +33,8 @@ class ProcessFormPipe
         $form = $form->submit($payloadData->getRequestData(), true);
 
         if ($form->isValid() === false) {
+            $errorsIterator = $form->getErrors(true, false);
+            echo ($errorsIterator->__toString());
             throw new BadRequestHttpException('Invalid form');
         }
 

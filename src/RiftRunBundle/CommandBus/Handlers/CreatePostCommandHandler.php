@@ -36,12 +36,7 @@ final class CreatePostCommandHandler implements CommandHandler
         $pipeline = $pipelineBuilder->build();
 
         $post = $pipeline->process($createPost);
-        try {
-            $this->entityManager->persist($post);
-            $this->entityManager->flush();
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
+        $this->entityManager->persist($post);
 
         /** @TODO change return value to event dispatch */
         return $post;

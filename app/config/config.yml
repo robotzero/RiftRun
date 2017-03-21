@@ -100,8 +100,6 @@ jms_serializer:
         auto_detection: true
         directories:
             RiftRunBundle:
-#                namespace_prefix: "RiftRunBundle\\Model"
-#                path: "@RiftRunBundle/Resources/config/serializer/"
                 namespace_prefix: "RiftRunBundle\\DTO"
                 path: "@RiftRunBundle/Resources/config/serializer/"
 
@@ -118,6 +116,7 @@ tactician:
     commandbus:
         default:
             middleware:
+                - tactician.middleware.doctrine
                 - tactician.middleware.command_handler
 
 nelmio_cors:

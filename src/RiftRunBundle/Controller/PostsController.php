@@ -10,6 +10,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use RiftRunBundle\CommandBus\Commands\CreatePost;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use RiftRunBundle\Forms\PostType;
 
 class PostsController extends FOSRestController
 {
@@ -57,7 +58,7 @@ class PostsController extends FOSRestController
         $commandBus = $this->container->get('tactician.commandbus.default');
 
         $post = $commandBus->handle(new CreatePost(
-            'RiftRunBundle\Forms\PostType',
+            PostType::class,
             $request->getMethod(),
             $request->request->all()
         ));

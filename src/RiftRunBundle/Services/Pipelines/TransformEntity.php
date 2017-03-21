@@ -26,13 +26,14 @@ class TransformEntity
         $characterDTO = new CharacterDTO();
         $searchQueryDTO->id = $post->getQuery()->getId();
         $searchQueryDTO->minParagon = $post->getQuery()->getMinParagon();
+        $characterDTOCollection = new ArrayCollection();
+        $characterTypeDTOMaster = new CharacterTypeDTO();
         foreach ($post->getQuery()->getCharacterType() as $characterType) {
-            $collection = new ArrayCollection();
-            $characterTypeDTO = new CharacterTypeDTO();
+            $characterTypeDTO = clone $characterTypeDTOMaster;
             $characterTypeDTO->id = $characterType->getId();
             $characterTypeDTO->type = $characterType->getType();
-            $collection->add($characterTypeDTO);
-            $searchQueryDTO->characterType = $collection;
+            $characterDTOCollection->add($characterTypeDTO);
+            $searchQueryDTO->characterType = $characterDTOCollection;
         }
         $searchQueryDTO->createdAt = $post->getQuery()->getCreatedAt();
         if ($post->getQuery()->getGame() instanceof Rift) {
