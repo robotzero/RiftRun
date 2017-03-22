@@ -4,6 +4,7 @@ namespace RiftRunBundle\CommandBus\Pipelines;
 
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\Validator\ConstraintViolation;
 
 class ProcessFormPipe
 {
@@ -33,11 +34,19 @@ class ProcessFormPipe
         $form = $form->submit($payloadData->getRequestData(), true);
 
         if ($form->isValid() === false) {
-            $errorsIterator = $form->getErrors(true, false);
-            echo ($errorsIterator->__toString());
-            throw new BadRequestHttpException('Invalid form');
+            $errorsIterator = $form->getErrors(true, true);
+            do {
+                $formError = $errorsIterator->current();
+                /** @var ConstraintViolation $constraint */
+                $constraint = $formError->getCause();
+                $message[] =  $constraint->getMessageTemplate();
+                $property[] = $constraint->getPropertyPath();
+                $errorsIterator->next();
+            } while ($errorsIterator->current());
+            print_r($message);
+            print_r($property);
+            throw new BadRequestHttpException('Invalid form:');
         }
-
         return $form->getData();
     }
 }

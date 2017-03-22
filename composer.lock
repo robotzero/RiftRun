@@ -3157,12 +3157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "ebce76a39a65495a66c34eb1574cc4b9e35a4e64"
+                "reference": "1afc6ac72b7fa93bcda189160b54f6629a0c66f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/ebce76a39a65495a66c34eb1574cc4b9e35a4e64",
-                "reference": "ebce76a39a65495a66c34eb1574cc4b9e35a4e64",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/1afc6ac72b7fa93bcda189160b54f6629a0c66f2",
+                "reference": "1afc6ac72b7fa93bcda189160b54f6629a0c66f2",
                 "shasum": ""
             },
             "require": {
@@ -3209,7 +3209,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2017-01-10 20:01:51"
+            "time": "2017-03-22 15:56:53"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -3501,12 +3501,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "b59a70d03b948e29d070b6c4416b4a03af4748ec"
+                "reference": "788f092a88cd6a4879ea684b30323e1489496bc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/b59a70d03b948e29d070b6c4416b4a03af4748ec",
-                "reference": "b59a70d03b948e29d070b6c4416b4a03af4748ec",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/788f092a88cd6a4879ea684b30323e1489496bc6",
+                "reference": "788f092a88cd6a4879ea684b30323e1489496bc6",
                 "shasum": ""
             },
             "require": {
@@ -3519,7 +3519,7 @@
             "require-dev": {
                 "symfony/console": "~2.7|~3.0",
                 "symfony/framework-bundle": "~2.7|~3.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/phpunit-bridge": "~3.3@dev",
                 "symfony/yaml": "~2.7|~3.0"
             },
             "suggest": {
@@ -3552,7 +3552,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2017-03-02 16:47:57"
+            "time": "2017-03-21 22:18:39"
         },
         {
             "name": "symfony/symfony",
@@ -3560,12 +3560,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "a96a99723ab4d421cabe2251c8a81318dc099594"
+                "reference": "f99dfb02045ef50aeaa72072892ebd99e3b95e4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/a96a99723ab4d421cabe2251c8a81318dc099594",
-                "reference": "a96a99723ab4d421cabe2251c8a81318dc099594",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f99dfb02045ef50aeaa72072892ebd99e3b95e4c",
+                "reference": "f99dfb02045ef50aeaa72072892ebd99e3b95e4c",
                 "shasum": ""
             },
             "require": {
@@ -3617,6 +3617,7 @@
                 "symfony/inflector": "self.version",
                 "symfony/intl": "self.version",
                 "symfony/ldap": "self.version",
+                "symfony/lock": "self.version",
                 "symfony/monolog-bridge": "self.version",
                 "symfony/options-resolver": "self.version",
                 "symfony/process": "self.version",
@@ -3702,20 +3703,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-03-21 15:27:08"
+            "time": "2017-03-22 19:35:53"
         },
         {
             "name": "twig/twig",
-            "version": "v2.2.0",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "29bb02dde09ff56291d30f7687eb8696918023af"
+                "reference": "9718186a5df85a4f7917e78d3ffcabc204c75d25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/29bb02dde09ff56291d30f7687eb8696918023af",
-                "reference": "29bb02dde09ff56291d30f7687eb8696918023af",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9718186a5df85a4f7917e78d3ffcabc204c75d25",
+                "reference": "9718186a5df85a4f7917e78d3ffcabc204c75d25",
                 "shasum": ""
             },
             "require": {
@@ -3725,12 +3726,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.2"
+                "symfony/phpunit-bridge": "~3.3@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -3765,7 +3766,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-27 00:16:20"
+            "time": "2017-03-22 15:41:51"
         },
         {
             "name": "willdurand/hateoas",
@@ -4482,12 +4483,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "f4d75a8ada8bb9915b5e73ce118db05861d9a6b9"
+                "reference": "99ee20a2c52a9dbeaa143d3303fc7ba6e28af217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/f4d75a8ada8bb9915b5e73ce118db05861d9a6b9",
-                "reference": "f4d75a8ada8bb9915b5e73ce118db05861d9a6b9",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/99ee20a2c52a9dbeaa143d3303fc7ba6e28af217",
+                "reference": "99ee20a2c52a9dbeaa143d3303fc7ba6e28af217",
                 "shasum": ""
             },
             "require": {
@@ -4547,7 +4548,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-03-19 14:25:20"
+            "time": "2017-03-22 11:17:16"
         },
         {
             "name": "phpdocumentor/reflection-common",
