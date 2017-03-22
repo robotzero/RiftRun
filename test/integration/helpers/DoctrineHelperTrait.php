@@ -63,10 +63,10 @@ trait DoctrineHelperTrait {
         }
     }
 
-    public function getCurrentPostCount():int
+    public function getCurrentEntitiesCount(string $entityName):int
     {
         $enityManager = $this->doctrine->getManager();
-        $allEntities = $enityManager->getRepository('RiftRunners:Post')->findAll();
+        $allEntities = $enityManager->getRepository('RiftRunners:' . $entityName)->findAll();
         return count($allEntities);
     }
 

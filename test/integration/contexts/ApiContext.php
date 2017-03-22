@@ -264,6 +264,24 @@ class ApiContext extends MinkContext implements KernelAwareContext
     }
 
     /**
+     * @Then /^Database is in valid state$/
+     */
+    public function databaseIsInValidState()
+    {
+        $postCount = $this->getCurrentEntitiesCount('Post');
+        $playerCount = $this->getCurrentEntitiesCount('Character');
+        $searchCount = $this->getCurrentEntitiesCount('SearchQuery');
+        $characterTypeCount = $this->getCurrentEntitiesCount('CharacterType');
+        $gameTypeCount = $this->getCurrentEntitiesCount('GameType');
+
+        assertTrue($postCount === 0);
+        assertTrue($playerCount === 0);
+        assertTrue($searchCount === 0);
+        assertTrue($characterTypeCount === 0);
+        assertTrue($gameTypeCount === 0);
+    }
+
+    /**
      * @Then /^I get a "([^"]*)" response$/
      * @param int $statusCode
      */

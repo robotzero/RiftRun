@@ -26,7 +26,19 @@ Scenario Outline: Different game type
         | game   | type | rift  | torment    | 1           |
         | game   | type | grift | level      | 40+         |
 
-Scenario Outline: Wrong object
+Scenario Outline: Transaction rollback when part of the payload is incorrect
+    Given I have the object "<object>" item "<item>" value "<value>"
+    When Object has set item to value
+    And I request "POST v1/posts" with payload
+    Then Database is in valid state
+    Examples:
+        | object           | item               | value     |
+        | player           | type               | 1         |
+        | post             | player             | blabla    |
+        | query            | minParagon         | 0         |
+        | game             | level              | false     |
+
+Scenario Outline: Bad data in a request
     Given I have the object "<object>" item "<item>" value "<value>"
     When Object has set item to value
     And  I request "POST v1/posts" with payload
@@ -106,7 +118,7 @@ Scenario Outline: Wrong object
         | post             | query              | false   |
         | post             | query              | true    |
         | post             | query              ||
-        | query             | minParagon        | missing |
+        | query            | minParagon         | missing |
         | query            | minParagon         | blabla  |
         | query            | minParagon         | 0         |
         | query            | minParagon         | -0      |
