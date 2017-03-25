@@ -3,7 +3,7 @@
 namespace Test\Integration\Context;
 
 use Behat\Behat\Context\Context;
-use DevHelperBundle\Command\Commands\LoadFixtures;
+use App\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use League\Tactician\CommandBus;
 

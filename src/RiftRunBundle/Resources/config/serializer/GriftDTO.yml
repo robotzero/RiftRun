@@ -1,4 +1,0 @@
-RiftRunBundle\DTO\GriftDTO:
-    properties:
-        id:
-            type: string

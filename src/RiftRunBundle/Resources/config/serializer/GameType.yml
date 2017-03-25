@@ -1,4 +1,0 @@
-RiftRunBundle\Model\GameType:
-    properties:
-        id:
-            type: string

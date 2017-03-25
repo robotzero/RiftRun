@@ -4,15 +4,15 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/"},
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+        "psr-4": { "App\\": "src/"}
     },
     "autoload-dev": {
         "psr-4": {
             "Test\\Integration\\Context\\" : "test/integration/contexts/",
             "Test\\Integration\\Specification\\" : "test/integration/specification/",
             "Test\\Integration\\Helpers\\" : "test/integration/helpers"
-        }
+        },
+        "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
     },
     "repositories": [
         {
@@ -21,7 +21,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.0.0",
+        "roave/security-advisories": "dev-master",
         "symfony/symfony": "dev-master",
         "doctrine/orm": "dev-master",
         "doctrine/doctrine-bundle": "dev-master",
@@ -66,7 +67,7 @@
         "symfony/var-dumper": "dev-master"
     },
     "scripts": {
-        "post-install-cmd": [
+        "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -74,30 +75,31 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
         "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "@symfony-scripts"
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "7.0.0"
+        }
     },
     "extra": {
-        "symfony-app-dir": "app",
+        "symfony-app-dir": "conf",
         "symfony-web-dir": "web",
         "symfony-var-dir": "var",
         "symfony-bin-dir": "bin",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "conf/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "3.1-dev"
+            "dev-master": "3.3-dev"
         }
     }
 }

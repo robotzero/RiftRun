@@ -1,0 +1,36 @@
+App\Model\Character:
+    repositoryClass: App\ORM\Repository\CharacterRepository
+    type: entity
+    table: characters
+    id:
+        id:
+            type: uuid
+            id: true
+            generator:
+                strategy: CUSTOM
+            customIdGenerator:
+                class: Ramsey\Uuid\Doctrine\UuidGenerator
+    fields:
+        type:
+            type: string
+            length: 255
+            comment: "wizard, dh, wd, crusaider"
+        paragonPoints:
+            type: smallint
+            comment: "number of current paragon points"
+        battleTag:
+            type: string
+            length: 255
+            comment: "Blizzard battle tag #11111"
+        region:
+            type: string
+            length: '3'
+            comment: "EU, NA"
+        seasonal:
+            type: boolean
+            comment: "Is it seasonal or not"
+        gameType:
+            type: string
+            length: 255
+            comment: "hardcore, softcore"
+    lifecycleCallbacks: {  }

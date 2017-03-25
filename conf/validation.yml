@@ -1,0 +1,6 @@
+imports:
+    - { resource: 'validation/CharacterDTO.yml' }
+    - { resource: 'validation/CharacterTypeDTO.yml' }
+    - { resource: 'validation/GriftDTO.yml' }
+    - { resource: 'validation/PostDTO.yml' }
+    - { resource: 'validation/SearchQueryDTO.yml' }

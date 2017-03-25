@@ -1,0 +1,11 @@
+App\DTO\SearchQueryDTO:
+    properties:
+        id:
+            type: string
+        minParagon:
+            serialized_name: minParagon
+        createdAt:
+            serialized_name: createdAt
+        characterType:
+            type: ArrayCollection<App\DTO\CharacterTypeDTO>
+            serialized_name: characterType

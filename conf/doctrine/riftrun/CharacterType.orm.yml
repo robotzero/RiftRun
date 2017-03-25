@@ -1,0 +1,23 @@
+App\Model\CharacterType:
+    type: entity
+    table: charactertype
+    manyToOne:
+        searchQuery:
+            targetEntity: SearchQuery
+            inversedBy: characterType
+            joinColumn:
+                name: searchquery_id
+                referencedColumnName: id
+    id:
+        id:
+            type: uuid
+            id: true
+            generator:
+                strategy: CUSTOM
+            customIdGenerator:
+                class: Ramsey\Uuid\Doctrine\UuidGenerator
+    fields:
+        type:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,75 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    standard_orm_purger:
+        class: Doctrine\Common\DataFixtures\Purger\ORMPurger
+
+    load_fixtures_command_handler:
+        class: App\Command\Handlers\LoadFixturesCommandHandler
+        arguments:
+            - '@nelmio_loader_factory'
+        tags:
+            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
+
+    clear_fixtures_command_handler:
+        class: App\Command\Handlers\DatabaseClearCommandHandler
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@standard_orm_purger'
+        tags:
+            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ClearDatabase }
+
+    load_fixtures_cli:
+        class: App\Cli\DatabaseSeederCommand
+        tags:
+            -  { name: console.command }
+
+    clear_database_cli:
+        class: App\Cli\DatabaseClearCommand
+        tags:
+            -  { name: console.command }
+
+    # Factories
+    nelmio_loader_factory:
+        class: App\Factories\AliceLoaderFactory
+        arguments:
+            - '@fidry_alice_data_fixtures.doctrine.persister_loader'
+
+    league_pipeline_builder:
+        class: League\Pipeline\PipelineBuilder
+
+    create_post_command_handler:
+        class: App\CommandBus\Handlers\CreatePostCommandHandler
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@form.factory'
+        tags:
+            - { name: tactician.handler, command: App\CommandBus\Commands\CreatePost }
+
+    # QueryBuilder Specification
+    all_posts_specification:
+        class: App\ORM\Specification\AllPostsSpecification
+
+    # Query Services
+    fetch_posts_service:
+        class: App\Services\PostsQueryService
+        arguments:
+            - '@doctrine'
+            - '@jms_serializer'
+            - '@pager_fanta_factory'
+
+    fetch_post_service:
+        class: App\Services\PostQueryService
+        arguments:
+            - '@doctrine'
+
+    # Helper
+#    form_errors_helper:
+#        class: App\Helpers\FormErrors
+
+    # External libs
+    pager_fanta_factory:
+        class: Hateoas\Representation\Factory\PagerfantaFactory

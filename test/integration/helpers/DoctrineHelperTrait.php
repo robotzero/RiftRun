@@ -2,11 +2,11 @@
 
 namespace Test\Integration\Helpers;
 
-use AppKernel;
+use App\AppKernel;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
-use RiftRunBundle\Services\PostQueryService;
+use App\Services\PostQueryService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 trait DoctrineHelperTrait {

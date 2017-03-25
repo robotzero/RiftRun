@@ -1,3 +1,0 @@
-# dev_helper_homepage:
-#     path:     /hello/{name}
-#     defaults: { _controller: DevHelperBundle:Default:index }

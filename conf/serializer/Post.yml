@@ -1,0 +1,14 @@
+App\Model\Post:
+    properties:
+        id:
+            type: string
+        createdAt:
+            serialized_name: createdAt
+    relations:
+        -
+            rel: self
+            href:
+                route: get_post
+                parameters:
+                    id: expr(object.getId())
+                absolute: true

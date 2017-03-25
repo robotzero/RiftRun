@@ -1,0 +1,12 @@
+App\DTO\CharacterDTO:
+    properties:
+        id:
+            type: string
+        battleTag:
+            serialized_name: battleTag
+        paragonPoints:
+            serialized_name: paragonPoints
+        createdAt:
+            serialized_name: createdAt
+        gameType:
+            serialized_name: gameType

@@ -1,0 +1,14 @@
+App\Model\SearchQuery:
+    properties:
+        id:
+            type: string
+        minParagon:
+            serialized_name: minParagon
+        createdAt:
+            serialized_name: createdAt
+        characterType:
+            type: ArrayCollection<App\Model\CharacterType>
+            accessor:
+                getter: getCharacterType
+            serialized_name: characterType
+

@@ -1,6 +1,0 @@
-rift_run_posts:
-    type: rest
-    resource: RiftRunBundle\Controller\PostsController
-rift_run_search:
-    type: rest
-    resource: RiftRunBundle\Controller\SearchController

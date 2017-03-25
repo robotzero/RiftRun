@@ -1,10 +1,15 @@
 default:
     extensions:
-        Behat\Symfony2Extension: ~
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: 'conf/autoload.php'
+                path: '../../src/AppKernel.php'
+                class: 'App\AppKernel'
+                env: 'test'
         Behat\MinkExtension:
-          sessions:
-            default:
-              symfony2: ~
+            sessions:
+              default:
+                symfony2: ~
         TableNode\Extension\NestedTableNodeExtension: ~
     suites:
         default:

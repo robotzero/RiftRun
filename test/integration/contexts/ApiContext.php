@@ -11,19 +11,19 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use League\Tactician\CommandBus;
 use Psr\Container\ContainerInterface;
-use RiftRunBundle\Model\Post;
+use App\Model\Post;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Response;
 use TableNode\Extension\NestedTableNode;
 use Test\Integration\Helpers\DoctrineHelperTrait;
-use DevHelperBundle\Command\Commands\LoadFixtures;
+use App\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
-require_once __DIR__.'/../../../app/AppKernel.php';
+require_once __DIR__.'/../../../src/AppKernel.php';
 
 /**
  * Defines application features from the specific context.

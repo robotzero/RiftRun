@@ -1,0 +1,4 @@
+App\DTO\GriftDTO:
+    properties:
+        id:
+            type: string

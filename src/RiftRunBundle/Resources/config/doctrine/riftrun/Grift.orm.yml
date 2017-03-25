@@ -1,9 +1,0 @@
-RiftRunBundle\Model\Grift:
-    type: entity
-    table: grift
-    fields:
-        level:
-            type: string
-            length: 255
-            comment: "40+, 50+, 60+, 1%"
-    lifecycleCallbacks: {  }

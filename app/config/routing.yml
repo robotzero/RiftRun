@@ -1,7 +1,0 @@
-dev_helper:
-    resource: "@DevHelperBundle/Resources/config/routing.yml"
-    prefix:   /
-
-rift_run:
-    resource: "@RiftRunBundle/Resources/config/routing.yml"
-    prefix:   /v1
