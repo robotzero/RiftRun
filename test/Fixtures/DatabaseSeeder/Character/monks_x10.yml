@@ -1,6 +1,6 @@
 include:
     - template.yml
 
-RiftRunBundle\Model\Character:
+App\Model\Character:
     monks{1..10} (extends character):
         type: 'monk'

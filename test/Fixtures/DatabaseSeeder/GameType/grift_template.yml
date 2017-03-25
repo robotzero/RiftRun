@@ -1,6 +1,6 @@
 parameters:
     level: '40+'
 
-RiftRunBundle\Model\Grift:
+App\Model\Grift:
     grift (template):
         __construct: false

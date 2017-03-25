@@ -1,4 +1,4 @@
-RiftRunBundle\Model\Character:
+App\Model\Character:
     character (template):
         paragonPoints: <numberBetween($min = 70, $max = 1000)>
         battleTag: '#11111'

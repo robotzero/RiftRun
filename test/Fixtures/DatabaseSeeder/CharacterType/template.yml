@@ -1,6 +1,6 @@
 parameters:
     type: "demon hunter"
 
-RiftRunBundle\Model\CharacterType:
+App\Model\CharacterType:
     charactertype (template):
         __construct: false

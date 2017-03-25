@@ -12,7 +12,7 @@ services:
         arguments:
             - '@nelmio_loader_factory'
         tags:
-            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\LoadFixtures }
+            - { name: tactician.handler, command: App\Command\Commands\LoadFixtures }
 
     clear_fixtures_command_handler:
         class: App\Command\Handlers\DatabaseClearCommandHandler
@@ -20,7 +20,7 @@ services:
             - '@doctrine.orm.entity_manager'
             - '@standard_orm_purger'
         tags:
-            - { name: tactician.handler, command: DevHelperBundle\Command\Commands\ClearDatabase }
+            - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
 
     load_fixtures_cli:
         class: App\Cli\DatabaseSeederCommand

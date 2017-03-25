@@ -15,12 +15,12 @@ class PostDTO implements DTO
     public $createdAt;
 
     /**
-     * @var \RiftRunBundle\Model\Character
+     * @var \App\Model\Character
      */
     public $player;
 
     /**
-     * @var \RiftRunBundle\Model\SearchQuery
+     * @var \App\Model\SearchQuery
      */
     public $query;
 

@@ -2,6 +2,7 @@
 
 namespace App\Forms;
 
+use App\DTO\SearchQueryDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -30,7 +31,7 @@ class SearchQueryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\DTO\SearchQueryDTO',
+            'data_class' => SearchQueryDTO::class,
             'csrf_protection' => false,
             'constraints' => new Valid(),
         ));

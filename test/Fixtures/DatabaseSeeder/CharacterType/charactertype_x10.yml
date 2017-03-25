@@ -1,6 +1,5 @@
 include:
     - template.yml
 
-RiftRunBundle\Model\CharacterType:
+App\Model\CharacterType:
     charactertype{1..10} (extends charactertype): []
-        #searchQuery: @searchqueries1()>

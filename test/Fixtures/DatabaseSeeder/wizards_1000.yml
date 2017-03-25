@@ -1,6 +1,6 @@
 include:
     - template.yml
 
-RiftRunBundle\Model\Character:
+App\Model\Character:
     wizards{1..1000} (extends character):
         type: 'wizard'

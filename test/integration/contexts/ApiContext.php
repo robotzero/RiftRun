@@ -138,7 +138,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
         $this->createSchema();
         $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
 
-        $currentFixtureNumber = $this->getCurrentPostCount();
+        $currentFixtureNumber = $this->getCurrentEntitiesCount('Post');
         assertTrue($currentFixtureNumber === ((int) $number));
     }
 

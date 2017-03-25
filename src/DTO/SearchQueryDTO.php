@@ -20,7 +20,7 @@ class SearchQueryDTO implements DTO
     public $createdAt;
 
     /**
-     * @var \RiftRunBundle\Model\GameType
+     * @var \App\Model\GameType
      */
     public $game;
 
