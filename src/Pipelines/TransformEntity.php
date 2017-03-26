@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Pipelines;
+namespace App\Pipelines;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use App\DTO\CharacterDTO;

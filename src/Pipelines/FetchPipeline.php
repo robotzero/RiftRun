@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Pipelines;
+namespace App\Pipelines;
 
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;

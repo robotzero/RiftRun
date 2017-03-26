@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Pipelines;
+namespace App\Pipelines;
 
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;

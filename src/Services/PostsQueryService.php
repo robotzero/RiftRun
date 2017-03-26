@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
+use App\Pipelines\FetchPipeline;
+use App\Pipelines\PaginatePipeline;
+use App\Pipelines\SerializePipeline;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use JMS\Serializer\SerializerInterface;
 use League\Pipeline\PipelineBuilder;
 use Hateoas\Configuration\Route;
 use App\ORM\Specification\AllPostsSpecification;
-use App\Services\Pipelines\FetchPipeline;
-use App\Services\Pipelines\PaginatePipeline;
-use App\Services\Pipelines\SerializePipeline;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\HttpFoundation\Response;
 

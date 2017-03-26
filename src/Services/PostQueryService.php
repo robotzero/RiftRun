@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\DTO\PostDTO;
-use App\Services\Pipelines\TransformEntity;
+use App\Pipelines\TransformEntity;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class PostQueryService implements QueryService

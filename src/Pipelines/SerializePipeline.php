@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Pipelines;
+namespace App\Pipelines;
 
 use Hateoas\Representation\PaginatedRepresentation;
 use JMS\Serializer\SerializerInterface;

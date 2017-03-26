@@ -2,18 +2,35 @@
 
 namespace App\Controller;
 
+use App\Services\PostQueryService;
+use App\Services\PostsQueryService;
 use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
 use App\CommandBus\Commands\CreatePost;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Forms\PostType;
 
 class PostsController extends FOSRestController
 {
+    private $postsQueryService;
+    private $postQueryService;
+    private $commandBus;
+
+//    public function __construct(
+//        PostsQueryService $postsQueryService,
+//        PostQueryService $postQueryService,
+//        CommandBus $commandBus
+//    ) {
+//        $this->postsQueryService = $postsQueryService;
+//        $this->postQueryService = $postQueryService;
+//        $this->commandBus = $commandBus;
+//    }
+
     /**
      * @param Request $request
      * @return Response
@@ -25,7 +42,7 @@ class PostsController extends FOSRestController
      */
     public function getPostsAction(Request $request)
     {
-        $queryService = $this->container->get('fetch_posts_service');
+        $queryService = $this->container->get(PostsQueryService::class);
         return $queryService->query($request->get('page', 1), $request->get('limit', 20), $request->get('_route'));
     }
 
@@ -40,7 +57,7 @@ class PostsController extends FOSRestController
      */
     public function getPostAction($id)
     {
-        $queryService = $this->container->get('fetch_post_service');
+        $queryService = $this->container->get(PostQueryService::class);
         return new Response($this->container->get('serializer')->serialize($queryService->query('Post', $id), 'json'));
     }
 

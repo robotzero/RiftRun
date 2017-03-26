@@ -6,26 +6,29 @@ parameters:
 services:
     _defaults:
         public: false
+        autowire: true
+
+    _instanceof:
+        App\Services\QueryService:
+            public: true
+        App\CommandBus\Handlers\CreatePostCommandHandler:
+            public: true
+            tags:
+                - { name: tactician.handler, command: App\CommandBus\Commands\CreatePost }
+        App\Command\Handlers\LoadFixturesCommandHandler:
+            public: true
+            tags:
+                - { name: tactician.handler, command: App\Command\Commands\LoadFixtures }
+        App\Command\Handlers\DatabaseClearCommandHandler:
+            public: true
+            tags:
+                - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
+
+    App\:
+        resource: ../src/{Services,CommandBus/Handlers,Command/Handlers}
 
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
-
-    load_fixtures_command_handler:
-        class: App\Command\Handlers\LoadFixturesCommandHandler
-        arguments:
-            - '@nelmio_loader_factory'
-        tags:
-            - { name: tactician.handler, command: App\Command\Commands\LoadFixtures }
-        public: true
-
-    clear_fixtures_command_handler:
-        class: App\Command\Handlers\DatabaseClearCommandHandler
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - '@standard_orm_purger'
-        tags:
-            - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
-        public: true
 
     load_fixtures_cli:
         class: App\Cli\DatabaseSeederCommand
@@ -42,42 +45,3 @@ services:
         class: App\Factories\AliceLoaderFactory
         arguments:
             - '@fidry_alice_data_fixtures.doctrine.persister_loader'
-
-    league_pipeline_builder:
-        class: League\Pipeline\PipelineBuilder
-
-    create_post_command_handler:
-        class: App\CommandBus\Handlers\CreatePostCommandHandler
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - '@form.factory'
-        tags:
-            - { name: tactician.handler, command: App\CommandBus\Commands\CreatePost }
-        public: true
-
-    # QueryBuilder Specification
-    all_posts_specification:
-        class: App\ORM\Specification\AllPostsSpecification
-
-    # Query Services
-    fetch_posts_service:
-        class: App\Services\PostsQueryService
-        arguments:
-            - '@doctrine'
-            - '@jms_serializer'
-            - '@pager_fanta_factory'
-        public: true
-
-    fetch_post_service:
-        class: App\Services\PostQueryService
-        arguments:
-            - '@doctrine'
-        public: true
-
-    # Helper
-#    form_errors_helper:
-#        class: App\Helpers\FormErrors
-
-    # External libs
-    pager_fanta_factory:
-        class: Hateoas\Representation\Factory\PagerfantaFactory
