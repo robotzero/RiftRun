@@ -24,6 +24,12 @@ services:
             tags:
                 - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
 
+        Twig_ExtensionInterface:
+            tags: ['twig.extension']
+
+        Symfony\Component\EventDispatcher\EventSubscriberInterface:
+            tags: ['kernel.event_subscriber']
+
     App\:
         resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
     App\Controller\:

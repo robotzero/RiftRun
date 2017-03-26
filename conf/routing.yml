@@ -1,11 +1,8 @@
-#rift_run:
-#    resource: "@RiftRunBundle/Resources/config/routing.yml"
-#    prefix:   /v1
+#action:
+#    resource: "../src/Controller/"
+#    type: rest
+#    prefix: /v1
 rift_run_posts:
     prefix: /v1
     type: rest
     resource: App\Controller\PostsController
-rift_run_search:
-    type: rest
-    resource: App\Controller\SearchController
-    prefix: /v1

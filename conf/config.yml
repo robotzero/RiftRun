@@ -71,7 +71,15 @@ doctrine:
 # FOS Rest Configuration
 sensio_framework_extra:
     view:       { annotations: true }
-    router:     { annotations: true}
+    router:     { annotations: true }
+    psr_message: { enabled: true }
+
+#        router:      { annotations: true }
+#        request:     { converters: true, auto_convert: true }
+#        view:        { annotations: true }
+#        cache:       { annotations: true }
+#        security:    { annotations: true }
+#        psr_message: { enabled: false } # Defaults to true if
 
 fos_rest:
     param_fetcher_listener: force
