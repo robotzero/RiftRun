@@ -8,28 +8,31 @@ use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
-use FOS\RestBundle\Controller\FOSRestController;
 use App\CommandBus\Commands\CreatePost;
+use JMS\Serializer\SerializerInterface;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Forms\PostType;
 
-class PostsController extends FOSRestController
+class PostsController
 {
     private $postsQueryService;
     private $postQueryService;
     private $commandBus;
+    private $serializer;
 
-//    public function __construct(
-//        PostsQueryService $postsQueryService,
-//        PostQueryService $postQueryService,
-//        CommandBus $commandBus
-//    ) {
-//        $this->postsQueryService = $postsQueryService;
-//        $this->postQueryService = $postQueryService;
-//        $this->commandBus = $commandBus;
-//    }
+    public function __construct(
+        PostsQueryService $postsQueryService,
+        PostQueryService $postQueryService,
+        CommandBus $commandBus,
+        SerializerInterface $serializer
+    ) {
+        $this->postsQueryService = $postsQueryService;
+        $this->postQueryService = $postQueryService;
+        $this->commandBus = $commandBus;
+        $this->serializer = $serializer;
+    }
 
     /**
      * @param Request $request
@@ -42,8 +45,7 @@ class PostsController extends FOSRestController
      */
     public function getPostsAction(Request $request)
     {
-        $queryService = $this->container->get(PostsQueryService::class);
-        return $queryService->query($request->get('page', 1), $request->get('limit', 20), $request->get('_route'));
+        return $this->postsQueryService->query($request->get('page', 1), $request->get('limit', 20), $request->get('_route'));
     }
 
     /**
@@ -57,8 +59,7 @@ class PostsController extends FOSRestController
      */
     public function getPostAction($id)
     {
-        $queryService = $this->container->get(PostQueryService::class);
-        return new Response($this->container->get('serializer')->serialize($queryService->query('Post', $id), 'json'));
+        return new Response($this->serializer->serialize($this->postQueryService->query('Post', $id), 'json'));
     }
 
     /**
@@ -72,9 +73,7 @@ class PostsController extends FOSRestController
      */
     public function createPostAction(Request $request)
     {
-        $commandBus = $this->container->get('tactician.commandbus.default');
-
-        $post = $commandBus->handle(new CreatePost(
+        $post = $this->commandBus->handle(new CreatePost(
             PostType::class,
             $request->getMethod(),
             $request->request->all()

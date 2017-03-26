@@ -25,7 +25,10 @@ services:
                 - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
 
     App\:
-        resource: ../src/{Services,CommandBus/Handlers,Command/Handlers}
+        resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
+    App\Controller\:
+        resource: '../src/Controller'
+        public: true
 
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
