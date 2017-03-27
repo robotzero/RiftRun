@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\DTO\PostDTO;
-use App\Pipelines\TransformEntity;
+use App\Model\Post;
+use App\Transformers\EntityToDTOTransformer;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostQueryService implements QueryService
 {
@@ -21,16 +23,18 @@ class PostQueryService implements QueryService
     }
 
     /**
-     * @param string $repositoryName
      * @param string $id
      * @return PostDTO
-     * @TODO return Not Found when post is not found.
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
-    public function query(string $repositoryName, string $id):PostDTO
+    public function query(string $id):PostDTO
     {
-        $repository = $this->doctrine->getRepository('RiftRunners:' . $repositoryName);
+        $repository = $this->doctrine->getRepository('RiftRunners:Post');
         $post = $repository->findOneBy(['id' => $id]);
-        $transform = new TransformEntity();
-        return $transform->transform($post);
+        if ($post instanceof Post) {
+            $transformer = new EntityToDTOTransformer();
+            return $transformer->transform($post);
+        }
+        throw new NotFoundHttpException('Post not found.');
     }
 }

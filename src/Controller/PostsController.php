@@ -51,6 +51,7 @@ class PostsController
     /**
      * @param $id
      * @return Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      * @throws \InvalidArgumentException
@@ -59,7 +60,7 @@ class PostsController
      */
     public function getPostAction($id)
     {
-        return new Response($this->serializer->serialize($this->postQueryService->query('Post', $id), 'json'));
+        return new Response($this->serializer->serialize($this->postQueryService->query($id), 'json'));
     }
 
     /**

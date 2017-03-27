@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Pipelines;
+namespace App\Transformers;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use App\DTO\CharacterDTO;
@@ -13,7 +13,7 @@ use App\Model\Grift;
 use App\Model\Post;
 use App\Model\Rift;
 
-class TransformEntity
+class EntityToDTOTransformer implements Transformer
 {
     /**
      * @param Post $post

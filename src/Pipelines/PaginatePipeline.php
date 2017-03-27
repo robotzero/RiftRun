@@ -2,6 +2,8 @@
 
 namespace App\Pipelines;
 
+use App\Transformers\EntityCollectionToDTOTransformer;
+use App\Transformers\EntityToDTOTransformer;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;
 use Pagerfanta\Pagerfanta;
@@ -50,7 +52,7 @@ class PaginatePipeline
     {
         $pagerfanta->setCurrentPage($this->pageNumber);
         $pagerfanta->setMaxPerPage($this->limit);
-        $transformer = new TransformEntityCollection();
+        $transformer = new EntityCollectionToDTOTransformer(new EntityToDTOTransformer());
         $collectionArray = $transformer->transform($pagerfanta);
         return $this->factory->createRepresentation($pagerfanta, $this->route, $collectionArray);
     }

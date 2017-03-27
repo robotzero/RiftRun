@@ -5,6 +5,7 @@ namespace App\CommandBus\Pipelines;
 use App\DTO\DTO;
 use App\DTO\GriftDTO;
 use App\DTO\RiftDTO;
+use App\DTO\SearchQueryDTO;
 use App\Model\Character;
 use App\Model\CharacterType;
 use App\Model\Grift;
@@ -19,6 +20,7 @@ class TransformDTOPipe
     {
         $currentDate = new \DateTime('now');
 
+        /** @var SearchQueryDTO $searchQueryDTO */
         $searchQueryDTO = $dto->query;
         $gameTypeDTO = $searchQueryDTO->game;
         $characterDTO = $dto->player;

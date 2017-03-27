@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Pipelines;
+namespace App\Transformers;
 
 use ArrayIterator;
 use Hateoas\Representation\CollectionRepresentation;
@@ -11,8 +11,16 @@ use App\Model\Post;
  * Class TransformEntityCollection
  * @package RiftRunBundle\Services\Pipelines
  */
-class TransformEntityCollection
+class EntityCollectionToDTOTransformer implements Transformer
 {
+    /** @var  EntityToDTOTransformer */
+    private $singleEntityTransformer;
+
+    public function __construct(EntityToDTOTransformer $singleEntityTransformer)
+    {
+        $this->singleEntityTransformer = $singleEntityTransformer;
+    }
+
     /**
      * @param Pagerfanta $pagerfanta
      * @return CollectionRepresentation
@@ -21,10 +29,9 @@ class TransformEntityCollection
     {
         /** @var ArrayIterator $results */
         $results = $pagerfanta->getCurrentPageResults();
-        $singleEntityTransoform = new TransformEntity();
 
-        $dtosCollection = array_map(function (Post $post) use ($singleEntityTransoform) {
-            return $singleEntityTransoform->transform($post);
+        $dtosCollection = array_map(function (Post $post) {
+            return $this->singleEntityTransformer->transform($post);
         }, $results->getArrayCopy());
 
         return new CollectionRepresentation(new ArrayIterator($dtosCollection));

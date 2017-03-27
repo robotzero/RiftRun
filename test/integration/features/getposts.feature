@@ -72,6 +72,10 @@ Scenario: Returning a single post
         And the "href" property exists
         And the "href" property is a string equalling payload id
 
+Scenario: When single post is not found return 404.
+    When I request "GET /v1/posts/84136ccd-9ec1-48a7-8273-00a41a6f86b9"
+    Then I get a "404" response
+
 Scenario Outline: When object is missing for the given post do not display this post.
     Given I have <numberMissing> posts missing <object>
     When I request "GET /v1/posts?limit=500&page=1"
