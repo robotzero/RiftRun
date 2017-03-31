@@ -18,12 +18,12 @@ class Post
     private $createdAt;
 
     /**
-     * @var \RiftRunBundle\Model\Character
+     * @var \App\Model\Character
      */
     private $player;
 
     /**
-     * @var \RiftRunBundle\Model\SearchQuery
+     * @var \App\Model\SearchQuery
      */
     private $query;
 
@@ -57,7 +57,7 @@ class Post
     /**
      * Get player
      *
-     * @return \RiftRunBundle\Model\Character
+     * @return \App\Model\Character
      */
     public function getPlayer()
     {
@@ -67,7 +67,7 @@ class Post
     /**
      * Get query
      *
-     * @return \RiftRunBundle\Model\SearchQuery
+     * @return \App\Model\SearchQuery
      */
     public function getQuery()
     {

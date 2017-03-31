@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Model;
+use App\Model\CharacterType;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Ramsey\Uuid\Uuid;
 
 /**
  * SearchQuery
@@ -8,7 +12,7 @@ namespace App\Model;
 class SearchQuery
 {
     /**
-     * @var integer
+     * @var Uuid
      */
     private $id;
 
@@ -34,10 +38,13 @@ class SearchQuery
 
     /**
      * Constructor
+     * @param int $minParagon
+     * @param GameType $game
+     * @param \DateTime $createdAt
      */
     public function __construct(int $minParagon, GameType $game, \DateTime $createdAt)
     {
-        $this->characterType = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->characterType = new ArrayCollection();
         $this->game = $game;
         $this->minParagon = $minParagon;
         $this->createdAt = $createdAt;
@@ -46,9 +53,9 @@ class SearchQuery
     /**
      * Get id
      *
-     * @return string
+     * @return Uuid
      */
-    public function getId()
+    public function getId():Uuid
     {
         return $this->id;
     }
@@ -78,7 +85,7 @@ class SearchQuery
      *
      * @return \App\Model\GameType
      */
-    public function getGame()
+    public function getGame():GameType
     {
         return $this->game;
     }
@@ -86,11 +93,11 @@ class SearchQuery
     /**
      * Add characterType
      *
-     * @param \App\Model\CharacterType $characterType
+     * @param CharacterType $characterType
      *
      * @return SearchQuery
      */
-    public function addCharacterType(\App\Model\CharacterType $characterType)
+    public function addCharacterType(CharacterType $characterType)
     {
         $this->characterType->add($characterType);
 
@@ -100,9 +107,9 @@ class SearchQuery
     /**
      * Remove characterType
      *
-     * @param \App\Model\CharacterType $characterType
+     * @param CharacterType $characterType
      */
-    public function removeCharacterType(\App\Model\CharacterType $characterType)
+    public function removeCharacterType(CharacterType $characterType)
     {
         $this->characterType->removeElement($characterType);
     }
@@ -112,7 +119,7 @@ class SearchQuery
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCharacterType()
+    public function getCharacterType():Collection
     {
         return $this->characterType;
     }

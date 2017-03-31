@@ -36,6 +36,7 @@ class EntityToDTOTransformer implements Transformer
             $searchQueryDTO->characterType = $characterDTOCollection;
         }
         $searchQueryDTO->createdAt = $post->getQuery()->getCreatedAt();
+
         if ($post->getQuery()->getGame() instanceof Rift) {
             $riftDTO = new RiftDTO();
             $riftDTO->id = $post->getQuery()->getGame()->getId();
