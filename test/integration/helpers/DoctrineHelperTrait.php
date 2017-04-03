@@ -123,11 +123,11 @@ trait DoctrineHelperTrait {
         $this->truncateTables();
     }
 
-    protected function dbGet($id, $repositoryName)
+    protected function dbGet($id)
     {
         /** @var  $postQueryService */
         $postQueryService = new PostQueryService($this->doctrine);
-        return $postQueryService->query($repositoryName, $id);
+        return $postQueryService->query($id);
     }
 
     /**

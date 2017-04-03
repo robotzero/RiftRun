@@ -107,3 +107,14 @@ Scenario: Do not show posts older than month.
     And the "page" property exists
     And the "page" property is a integer equalling "2"
     And the "total" property is a integer equalling "50"
+
+Scenario Outline: Wrong parameters in the request.
+    When I request "GET /v1/posts" with parameters <params>
+    Then I get a "400" response
+
+    Examples:
+        | params             |
+        | "?page=abc"        |
+        | "?page=AB"         |
+        | "?page=1&limit='3" |
+        | "?limit=ABC"       |

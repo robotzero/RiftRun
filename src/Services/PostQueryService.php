@@ -31,6 +31,7 @@ class PostQueryService implements QueryService
     {
         $repository = $this->doctrine->getRepository('RiftRunners:Post');
         $post = $repository->findOneBy(['id' => $id]);
+
         if ($post instanceof Post) {
             $transformer = new EntityToDTOTransformer();
             return $transformer->transform($post);

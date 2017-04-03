@@ -8,7 +8,9 @@ use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
 use App\CommandBus\Commands\CreatePost;
+use FOS\RestBundle\Request\ParamFetcherInterface;
 use JMS\Serializer\SerializerInterface;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,16 +38,17 @@ class PostsController
 
     /**
      * @param Request $request
+     * @param ParamFetcherInterface $paramFetcher
      * @return Response
      * @throws \InvalidArgumentException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      * @View()
+     * @QueryParam(name="page", key="page", requirements="\d+", default=1, description="", strict=true, nullable=true)
+     * @QueryParam(name="limit", key="limit", requirements="\d+", default=20, description="", strict=true, nullable=true)
      * @Get("/posts")
      */
-    public function getPostsAction(Request $request)
+    public function getPostsAction(Request $request, ParamFetcherInterface $paramFetcher):Response
     {
-        return $this->postsQueryService->query($request->get('page', 1), $request->get('limit', 20), $request->get('_route'));
+        return $this->postsQueryService->query($paramFetcher->get('page', true), $paramFetcher->get('limit', true), $request->get('_route'));
     }
 
     /**

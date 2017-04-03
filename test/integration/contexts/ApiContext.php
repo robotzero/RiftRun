@@ -520,7 +520,7 @@ class ApiContext extends MinkContext implements KernelAwareContext
         $this->thePropertyIsAString($property);
         $this->thePropertyIsAString($searchProperty);
 
-        $object = $this->dbGet($parentValue, $repositoryName);
+        $object = $this->dbGet($parentValue);
 
         $searchedObject = $object->$getter;
         $expectedValue = $searchedObject->id->__toString();

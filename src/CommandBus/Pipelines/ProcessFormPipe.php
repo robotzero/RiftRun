@@ -43,8 +43,6 @@ class ProcessFormPipe
                 $property[] = $constraint->getPropertyPath();
                 $errorsIterator->next();
             } while ($errorsIterator->current());
-            print_r($message);
-            print_r($property);
             throw new BadRequestHttpException('Invalid form:');
         }
         return $form->getData();
