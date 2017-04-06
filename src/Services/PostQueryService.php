@@ -5,19 +5,19 @@ namespace App\Services;
 use App\DTO\PostDTO;
 use App\Model\Post;
 use App\Transformers\EntityToDTOTransformer;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostQueryService implements QueryService
 {
-    /** @var  RegistryInterface */
+    /** @var ManagerRegistry */
     private $doctrine;
 
     /**
      * PostQueryService constructor.
-     * @param RegistryInterface $doctrine
+     * @param ManagerRegistry $doctrine
      */
-    public function __construct(RegistryInterface $doctrine)
+    public function __construct(ManagerRegistry $doctrine)
     {
         $this->doctrine = $doctrine;
     }

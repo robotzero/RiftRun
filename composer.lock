@@ -1060,12 +1060,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "906e84d62883debfe7b9753afc06840d05a5a9b4"
+                "reference": "d62a6c0f4bc699f899865d7e7bc7a4186aef9a86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/906e84d62883debfe7b9753afc06840d05a5a9b4",
-                "reference": "906e84d62883debfe7b9753afc06840d05a5a9b4",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d62a6c0f4bc699f899865d7e7bc7a4186aef9a86",
+                "reference": "d62a6c0f4bc699f899865d7e7bc7a4186aef9a86",
                 "shasum": ""
             },
             "require": {
@@ -1153,7 +1153,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-03-24 21:19:50"
+            "time": "2017-04-06 12:55:03"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -3763,12 +3763,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "457174dad9d4c995dc549fe04c3db619f6336069"
+                "reference": "451c32a965a9847d4b225a8814ca35299b5e7403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/457174dad9d4c995dc549fe04c3db619f6336069",
-                "reference": "457174dad9d4c995dc549fe04c3db619f6336069",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/451c32a965a9847d4b225a8814ca35299b5e7403",
+                "reference": "451c32a965a9847d4b225a8814ca35299b5e7403",
                 "shasum": ""
             },
             "require": {
@@ -3906,7 +3906,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-05 18:14:26"
+            "time": "2017-04-06 17:45:03"
         },
         {
             "name": "twig/twig",
@@ -4189,12 +4189,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "919293abeea1df5b4d57b5c67a2d9e8d91999820"
+                "reference": "9f3b41a32693314e20e1ffd3161ed74de0cd5839"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/919293abeea1df5b4d57b5c67a2d9e8d91999820",
-                "reference": "919293abeea1df5b4d57b5c67a2d9e8d91999820",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/9f3b41a32693314e20e1ffd3161ed74de0cd5839",
+                "reference": "9f3b41a32693314e20e1ffd3161ed74de0cd5839",
                 "shasum": ""
             },
             "require": {
@@ -4263,7 +4263,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-02-24 15:14:28"
+            "time": "2017-04-06 19:05:31"
         },
         {
             "name": "behat/gherkin",
@@ -4594,12 +4594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "3366f1bcf7369e65fa2bf3d46bacf82ecc19d63f"
+                "reference": "f26b221a2b7e88ac7b34c5a2014ec94cafd6138c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/3366f1bcf7369e65fa2bf3d46bacf82ecc19d63f",
-                "reference": "3366f1bcf7369e65fa2bf3d46bacf82ecc19d63f",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f26b221a2b7e88ac7b34c5a2014ec94cafd6138c",
+                "reference": "f26b221a2b7e88ac7b34c5a2014ec94cafd6138c",
                 "shasum": ""
             },
             "require": {
@@ -4636,7 +4636,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-04-05 15:14:56"
+            "time": "2017-04-06 19:44:55"
         },
         {
             "name": "myclabs/deep-copy",

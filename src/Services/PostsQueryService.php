@@ -5,17 +5,17 @@ namespace App\Services;
 use App\Pipelines\FetchPipeline;
 use App\Pipelines\PaginatePipeline;
 use App\Pipelines\SerializePipeline;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use JMS\Serializer\SerializerInterface;
 use League\Pipeline\PipelineBuilder;
 use Hateoas\Configuration\Route;
 use App\ORM\Specification\AllPostsSpecification;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostsQueryService implements QueryService
 {
-    /** @var RegistryInterface  */
+    /** @var ManagerRegistry */
     private $doctrine;
 
     /** @var SerializerInterface */
@@ -25,7 +25,7 @@ class PostsQueryService implements QueryService
     private $pagerfantaFactory;
 
     public function __construct(
-        RegistryInterface $doctrine,
+        ManagerRegistry $doctrine,
         SerializerInterface $serializer,
         PagerfantaFactory $pagerfantaFactory
     ) {

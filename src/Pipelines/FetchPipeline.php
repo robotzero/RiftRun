@@ -2,14 +2,14 @@
 
 namespace App\Pipelines;
 
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use App\ORM\Specification\Specification;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class FetchPipeline implements ServicePipeline
 {
-    /** @var RegistryInterface */
+    /** @var ManagerRegistry */
     private $doctrine;
 
     /** @var Specification */
@@ -20,11 +20,11 @@ class FetchPipeline implements ServicePipeline
 
     /**
      * FetchPipeline constructor.
-     * @param RegistryInterface $doctrine
+     * @param ManagerRegistry $doctrine
      * @param Specification $specification
      * @param string $repositoryName
      */
-    public function __construct(RegistryInterface $doctrine, Specification $specification, string $repositoryName)
+    public function __construct(ManagerRegistry $doctrine, Specification $specification, string $repositoryName)
     {
         $this->doctrine = $doctrine;
         $this->specification = $specification;
