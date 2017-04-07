@@ -1,5 +1,5 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
+## Learn more about services, parameters and containers at
+## http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
 
@@ -30,6 +30,12 @@ services:
         Symfony\Component\EventDispatcher\EventSubscriberInterface:
             tags: ['kernel.event_subscriber']
 
+    JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
+    Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
+    Doctrine\Common\DataFixtures\Purger\PurgerInterface: '@standard_orm_purger'
+    App\Factories\LoaderFactory: '@nelmio_loader_factory'
+    League\Tactician\CommandBus: '@tactician.commandbus.default'
+
     App\:
         resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
     App\Controller\:
@@ -38,6 +44,9 @@ services:
 
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
+
+    pager_fanta_factory:
+        class: Hateoas\Representation\Factory\PagerfantaFactory
 
     load_fixtures_cli:
         class: App\Cli\DatabaseSeederCommand

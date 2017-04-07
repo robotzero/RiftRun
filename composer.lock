@@ -980,12 +980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "03b4397557549be8955e2211dd0b6a78aee2b1a2"
+                "reference": "2c5e76c96187b512b3b51c14b68ec64c8c2dd857"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/03b4397557549be8955e2211dd0b6a78aee2b1a2",
-                "reference": "03b4397557549be8955e2211dd0b6a78aee2b1a2",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2c5e76c96187b512b3b51c14b68ec64c8c2dd857",
+                "reference": "2c5e76c96187b512b3b51c14b68ec64c8c2dd857",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-04-01 04:49:33"
+            "time": "2017-04-07 12:33:41"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -3763,12 +3763,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "451c32a965a9847d4b225a8814ca35299b5e7403"
+                "reference": "7b8409ad373d7d1613ce313047272f495c80bda8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/451c32a965a9847d4b225a8814ca35299b5e7403",
-                "reference": "451c32a965a9847d4b225a8814ca35299b5e7403",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/7b8409ad373d7d1613ce313047272f495c80bda8",
+                "reference": "7b8409ad373d7d1613ce313047272f495c80bda8",
                 "shasum": ""
             },
             "require": {
@@ -3906,7 +3906,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-06 17:45:03"
+            "time": "2017-04-07 16:56:33"
         },
         {
             "name": "twig/twig",
@@ -4594,12 +4594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "f26b221a2b7e88ac7b34c5a2014ec94cafd6138c"
+                "reference": "bd5580a1ca86bd32a8f72f9b47f273aab3ef90f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f26b221a2b7e88ac7b34c5a2014ec94cafd6138c",
-                "reference": "f26b221a2b7e88ac7b34c5a2014ec94cafd6138c",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/bd5580a1ca86bd32a8f72f9b47f273aab3ef90f7",
+                "reference": "bd5580a1ca86bd32a8f72f9b47f273aab3ef90f7",
                 "shasum": ""
             },
             "require": {
@@ -4636,7 +4636,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-04-06 19:44:55"
+            "time": "2017-04-07 07:05:49"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5084,16 +5084,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.0.4",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "37bbf491e6b585267ef1e0cbb0056f5c00ebf91c"
+                "reference": "cff36444733ac6d3f153866f55898373ca184610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/37bbf491e6b585267ef1e0cbb0056f5c00ebf91c",
-                "reference": "37bbf491e6b585267ef1e0cbb0056f5c00ebf91c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cff36444733ac6d3f153866f55898373ca184610",
+                "reference": "cff36444733ac6d3f153866f55898373ca184610",
                 "shasum": ""
             },
             "require": {
@@ -5117,7 +5117,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0.x-dev"
+                    "dev-master": "5.1.x-dev"
                 }
             },
             "autoload": {
@@ -5143,7 +5143,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-02 07:46:32"
+            "time": "2017-04-07 04:39:58"
         },
         {
             "name": "phpunit/php-file-iterator",
