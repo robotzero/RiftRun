@@ -1,10 +1,10 @@
 <?php
 
-namespace Application\Request\Common;
+namespace App\Application\Request\Common;
 
 /**
  * Class Pagination
- * @package Application\Request\Common
+ * @package App\Application\Request\Common
  */
 class Pagination
 {

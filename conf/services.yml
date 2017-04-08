@@ -19,6 +19,10 @@ services:
             public: true
             tags:
                 - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
+        App\Application\UseCase\Post\FindPostHandler:
+            public: true
+            tags:
+                - { name: tactician.handler, command: App\Application\UseCase\Post\Find }
 
         Twig_ExtensionInterface:
             tags: ['twig.extension']
@@ -34,6 +38,8 @@ services:
 
     App\:
         resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
+    App\Application\UseCase\:
+        resource: '../src/Application/UseCase'
     App\UI\Rest\Controller\:
         resource: '../src/UI/Rest/Controller'
         public: true

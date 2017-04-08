@@ -1,7 +1,8 @@
 <?php
 
-namespace Infrastructure\Common\Pagination;
-use Application\Request\Common\Pagination;
+namespace App\Infrastructure\Common\Pagination;
+
+use App\Application\Request\Common\Pagination;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;
@@ -9,7 +10,7 @@ use Pagerfanta\Pagerfanta;
 
 /**
  * Class PaginationTrait
- * @package Infrastructure\Common\Pagination
+ * @package App\Infrastructure\Common\Pagination
  */
 trait PaginationTrait
 {
