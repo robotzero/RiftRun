@@ -5,4 +5,4 @@
 rift_run_posts:
     prefix: /v1
     type: rest
-    resource: App\Controller\PostsController
+    resource: App\UI\Rest\Controller\PostsController

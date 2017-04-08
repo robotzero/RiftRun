@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\UI\Rest\Controller;
 
 use App\Services\PostQueryService;
 use App\Services\PostsQueryService;
@@ -46,7 +46,7 @@ class PostsController
      * @QueryParam(name="limit", key="limit", requirements="\d+", default=20, description="", strict=true, nullable=true)
      * @Get("/posts")
      */
-    public function getPostsAction(Request $request, ParamFetcherInterface $paramFetcher):Response
+    public function getPostsAction(Request $request, ParamFetcherInterface $paramFetcher) : Response
     {
         return $this->postsQueryService->query($paramFetcher->get('page', true), $paramFetcher->get('limit', true), $request->get('_route'));
     }
@@ -61,7 +61,7 @@ class PostsController
      * @View()
      * @Get("/posts/{id}")
      */
-    public function getPostAction($id)
+    public function getPostAction(string $id) : Response
     {
         return new Response($this->serializer->serialize($this->postQueryService->query($id), 'json'));
     }
@@ -75,7 +75,7 @@ class PostsController
      * @View()
      * @Post("/posts")
      */
-    public function createPostAction(Request $request)
+    public function createPostAction(Request $request) : Response
     {
         $post = $this->commandBus->handle(new CreatePost(
             PostType::class,

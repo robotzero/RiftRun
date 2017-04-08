@@ -38,8 +38,8 @@ services:
 
     App\:
         resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
-    App\Controller\:
-        resource: '../src/Controller'
+    App\UI\Rest\Controller\:
+        resource: '../src/UI/Rest/Controller'
         public: true
 
     standard_orm_purger:

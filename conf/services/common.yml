@@ -1,0 +1,9 @@
+services:
+  riftrun.abstract.repository:
+    abstract: true
+    factory: ['@doctrine.orm.entity_manager', 'getRepository']
+    public: false
+
+  riftrun.abstract.form_factory:
+    abstract: true
+    arguments: ['@form.factory']
