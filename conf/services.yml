@@ -35,6 +35,7 @@ services:
     Doctrine\Common\DataFixtures\Purger\PurgerInterface: '@standard_orm_purger'
     App\Factories\LoaderFactory: '@nelmio_loader_factory'
     League\Tactician\CommandBus: '@tactician.commandbus.default'
+    App\Domain\Post\Repository\PostRepositoryInterface: '@post_repository'
 
     App\:
         resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
@@ -43,9 +44,16 @@ services:
     App\UI\Rest\Controller\:
         resource: '../src/UI/Rest/Controller'
         public: true
+    App\Infrastructure\Post\:
+        resource: '../src/Infrastructure/Post'
+        public: true
 
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
+
+    post_repository:
+        class: App\Infrastructure\Post\PostRepository
+        parent: riftrun.abstract.repository
 
     pager_fanta_factory:
         class: Hateoas\Representation\Factory\PagerfantaFactory
