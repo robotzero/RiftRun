@@ -35,11 +35,12 @@ trait PaginationTrait
         int $limit = Pagination::LIMIT,
         int $page = Pagination::PAGE) : PaginatedRepresentation
     {
+        //@TODO catch exceptions and recover from them.
         $pager
             ->setMaxPerPage($limit)
             ->setCurrentPage($page);
 
-        //Merge pagination parameters
+        // Merge pagination parameters
         $params = array_merge($params, [
             'limit' => $limit,
             'page' => $page

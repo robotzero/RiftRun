@@ -32,7 +32,7 @@ class FindPostHandler
      */
     public function handle(Pagination $request): Pagerfanta
     {
-        return null;
-//        return $this->repository->findAll();
+//        return null;
+        return $this->repository->findAll();
     }
 }

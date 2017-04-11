@@ -19,16 +19,20 @@ services:
             public: true
             tags:
                 - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
-        App\Application\UseCase\Post\FindPostHandler:
-            public: true
-            tags:
-                - { name: tactician.handler, command: App\Application\UseCase\Post\Find }
 
         Twig_ExtensionInterface:
             tags: ['twig.extension']
 
         Symfony\Component\EventDispatcher\EventSubscriberInterface:
             tags: ['kernel.event_subscriber']
+
+    findPostHandler:
+        class: App\Application\UseCase\Post\FindPostHandler
+        public: true
+        arguments:
+            - '@post_repository'
+        tags:
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Find }
 
     JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
     Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
@@ -39,8 +43,6 @@ services:
 
     App\:
         resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
-    App\Application\UseCase\:
-        resource: '../src/Application/UseCase'
     App\UI\Rest\Controller\:
         resource: '../src/UI/Rest/Controller'
         public: true
@@ -79,6 +81,7 @@ services:
         abstract: true
         factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
         public: false
+        arguments: ['RiftRunners:Post']
 
     riftrun.abstract.form_factory:
         abstract: true
