@@ -579,12 +579,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "bdb5af6b2b155173cc50c7804cb0422c37594e0e"
+                "reference": "7338c504a198af0ee2020c62d694ba080d2775f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/bdb5af6b2b155173cc50c7804cb0422c37594e0e",
-                "reference": "bdb5af6b2b155173cc50c7804cb0422c37594e0e",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/7338c504a198af0ee2020c62d694ba080d2775f5",
+                "reference": "7338c504a198af0ee2020c62d694ba080d2775f5",
                 "shasum": ""
             },
             "require": {
@@ -652,7 +652,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-03-26 16:00:39"
+            "time": "2017-04-13 11:13:40"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -980,12 +980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "2c5e76c96187b512b3b51c14b68ec64c8c2dd857"
+                "reference": "318e9a559661ee34dbe2a8b6d96c28f31d81b03d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2c5e76c96187b512b3b51c14b68ec64c8c2dd857",
-                "reference": "2c5e76c96187b512b3b51c14b68ec64c8c2dd857",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/318e9a559661ee34dbe2a8b6d96c28f31d81b03d",
+                "reference": "318e9a559661ee34dbe2a8b6d96c28f31d81b03d",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-04-07 12:33:41"
+            "time": "2017-04-15 00:23:56"
         },
         {
             "name": "fig/link-util",
@@ -1583,16 +1583,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.6.0",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "5e9008cbb0bac2986979d905a87ae48efcf578c4"
+                "reference": "b8683d206e7297f54034f67a877f966c14dc12ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/5e9008cbb0bac2986979d905a87ae48efcf578c4",
-                "reference": "5e9008cbb0bac2986979d905a87ae48efcf578c4",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/b8683d206e7297f54034f67a877f966c14dc12ea",
+                "reference": "b8683d206e7297f54034f67a877f966c14dc12ea",
                 "shasum": ""
             },
             "require": {
@@ -1658,7 +1658,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-03-24 13:11:23"
+            "time": "2017-04-17 15:27:46"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1667,12 +1667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "d118bbb75fd06e477be5721e1a25cba2682d4f10"
+                "reference": "8e4e23534ea0b66b081f97ec7f73275f0f270368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/d118bbb75fd06e477be5721e1a25cba2682d4f10",
-                "reference": "d118bbb75fd06e477be5721e1a25cba2682d4f10",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/8e4e23534ea0b66b081f97ec7f73275f0f270368",
+                "reference": "8e4e23534ea0b66b081f97ec7f73275f0f270368",
                 "shasum": ""
             },
             "require": {
@@ -1730,7 +1730,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-04-10 13:06:32"
+            "time": "2017-04-12 15:57:21"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1865,12 +1865,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/pipeline.git",
-                "reference": "27dc18166c30d6429c75d1320f41e8238c59c3d4"
+                "reference": "57835ee51b6c170bfa91c46821b162685362e55f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/pipeline/zipball/27dc18166c30d6429c75d1320f41e8238c59c3d4",
-                "reference": "27dc18166c30d6429c75d1320f41e8238c59c3d4",
+                "url": "https://api.github.com/repos/thephpleague/pipeline/zipball/57835ee51b6c170bfa91c46821b162685362e55f",
+                "reference": "57835ee51b6c170bfa91c46821b162685362e55f",
                 "shasum": ""
             },
             "require": {
@@ -1904,7 +1904,7 @@
                 "pipeline",
                 "sequential"
             ],
-            "time": "2016-10-13 20:53:39"
+            "time": "2017-04-13 09:32:45"
         },
         {
             "name": "league/tactician",
@@ -2806,22 +2806,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid-doctrine.git",
-                "reference": "a5aedb4edba79506417ec282735a4e83cd3efbd2"
+                "reference": "2b80966f4c09b1c39a07b30fecdd24869374c66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/a5aedb4edba79506417ec282735a4e83cd3efbd2",
-                "reference": "a5aedb4edba79506417ec282735a4e83cd3efbd2",
+                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/2b80966f4c09b1c39a07b30fecdd24869374c66e",
+                "reference": "2b80966f4c09b1c39a07b30fecdd24869374c66e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/orm": "^2.5",
-                "php": ">=5.4",
+                "php": "^5.4 || ^7.0",
                 "ramsey/uuid": "^3.0"
             },
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "^0.9.0",
-                "phpunit/phpunit": "^4.7|^5.0",
+                "phpunit/phpunit": "^4.7 || ^5.0",
                 "satooshi/php-coveralls": "^0.6.1",
                 "squizlabs/php_codesniffer": "^2.3"
             },
@@ -2854,7 +2854,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2017-02-27 23:08:02"
+            "time": "2017-04-13 16:09:49"
         },
         {
             "name": "roave/security-advisories",
@@ -3866,12 +3866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6491fd5854697f7b2feb8bebab4774088791a958"
+                "reference": "86dbbde66f12a86de892e60ddf5aa0a75a0140e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6491fd5854697f7b2feb8bebab4774088791a958",
-                "reference": "6491fd5854697f7b2feb8bebab4774088791a958",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/86dbbde66f12a86de892e60ddf5aa0a75a0140e0",
+                "reference": "86dbbde66f12a86de892e60ddf5aa0a75a0140e0",
                 "shasum": ""
             },
             "require": {
@@ -4012,7 +4012,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-11 18:40:10"
+            "time": "2017-04-18 15:41:42"
         },
         {
             "name": "twig/twig",
@@ -4746,16 +4746,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe"
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
                 "shasum": ""
             },
             "require": {
@@ -4784,7 +4784,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26 22:05:40"
+            "time": "2017-04-12 18:52:22"
         },
         {
             "name": "nelmio/alice",
@@ -4792,12 +4792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "4d47f9037124f7f2a7bf6c92c2a9b4eb009d85cb"
+                "reference": "056f173ce9911eda4561771de7ed73e62811439d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/4d47f9037124f7f2a7bf6c92c2a9b4eb009d85cb",
-                "reference": "4d47f9037124f7f2a7bf6c92c2a9b4eb009d85cb",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/056f173ce9911eda4561771de7ed73e62811439d",
+                "reference": "056f173ce9911eda4561771de7ed73e62811439d",
                 "shasum": ""
             },
             "require": {
@@ -4857,7 +4857,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-03-23 09:05:17"
+            "time": "2017-04-11 13:26:07"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -5049,12 +5049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "ac188150bd8f7bf3789254d8f66418a3fc1dc736"
+                "reference": "3f56f927ad86987fbddd483b4988462d862616bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/ac188150bd8f7bf3789254d8f66418a3fc1dc736",
-                "reference": "ac188150bd8f7bf3789254d8f66418a3fc1dc736",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/3f56f927ad86987fbddd483b4988462d862616bf",
+                "reference": "3f56f927ad86987fbddd483b4988462d862616bf",
                 "shasum": ""
             },
             "require": {
@@ -5123,7 +5123,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-03-07 14:47:30"
+            "time": "2017-04-13 15:27:18"
         },
         {
             "name": "phpspec/prophecy",
@@ -5190,16 +5190,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "cff36444733ac6d3f153866f55898373ca184610"
+                "reference": "bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cff36444733ac6d3f153866f55898373ca184610",
-                "reference": "cff36444733ac6d3f153866f55898373ca184610",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc",
+                "reference": "bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc",
                 "shasum": ""
             },
             "require": {
@@ -5249,7 +5249,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-07 04:39:58"
+            "time": "2017-04-12 07:59:32"
         },
         {
             "name": "phpunit/php-file-iterator",

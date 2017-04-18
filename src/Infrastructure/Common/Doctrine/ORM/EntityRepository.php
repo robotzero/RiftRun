@@ -1,6 +1,6 @@
 <?php
 
-namespace Infrastructure\Common\Doctrine\ORM;
+namespace App\Infrastructure\Common\Doctrine\ORM;
 
 use Doctrine\ORM\EntityRepository as BaseEntityRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -27,7 +27,7 @@ class EntityRepository extends BaseEntityRepository
      * @param array $objects
      * @return Pagerfanta
      */
-    protected function getArrayPaginator($objects): Pagerfanta
+    protected function getArrayPaginator($objects) : Pagerfanta
     {
         return new Pagerfanta(new ArrayAdapter($objects));
     }

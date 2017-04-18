@@ -26,7 +26,7 @@ services:
         Symfony\Component\EventDispatcher\EventSubscriberInterface:
             tags: ['kernel.event_subscriber']
 
-    findPostHandler:
+    find_post_handler:
         class: App\Application\UseCase\Post\FindPostHandler
         public: true
         arguments:
@@ -46,16 +46,14 @@ services:
     App\UI\Rest\Controller\:
         resource: '../src/UI/Rest/Controller'
         public: true
+        autowire: true
     App\Infrastructure\Post\:
         resource: '../src/Infrastructure/Post'
         public: true
+        autowire: false
 
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
-
-    post_repository:
-        class: App\Infrastructure\Post\PostRepository
-        parent: riftrun.abstract.repository
 
     pager_fanta_factory:
         class: Hateoas\Representation\Factory\PagerfantaFactory
@@ -81,7 +79,13 @@ services:
         abstract: true
         factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
         public: false
-        arguments: ['RiftRunners:Post']
+
+    post_repository:
+        class: App\Infrastructure\Post\PostRepository
+        autowire: false
+        arguments:
+          - 'App\Model\Post'
+        parent: riftrun.abstract.repository
 
     riftrun.abstract.form_factory:
         abstract: true

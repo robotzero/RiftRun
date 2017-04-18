@@ -1,7 +1,7 @@
 App\Model\Post:
     type: entity
     table: posts
-    repositoryClass: App\ORM\Repository\PostRepository
+    repositoryClass: App\Infrastructure\Post\PostRepository
     oneToOne:
         player:
             targetEntity: Character

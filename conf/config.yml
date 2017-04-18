@@ -67,6 +67,13 @@ doctrine:
                         dir:       '%kernel.root_dir%/../conf/doctrine/riftrun'
                         prefix:    'App\Model'
                         alias:     'RiftRunners'
+
+
+#                        Wallet:
+#                         53                 type: yml
+#                         54                 prefix: Leos\Domain\Wallet\Model
+#                         55                 dir: '%kernel.root_dir%/../src/Infrastructure/WalletBundle/Resources/config/persistence/Model'
+#                         56                 is_bundle: false
 # FOS Rest Configuration
 sensio_framework_extra:
     view:       { annotations: true }

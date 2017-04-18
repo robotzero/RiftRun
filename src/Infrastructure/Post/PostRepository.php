@@ -4,7 +4,7 @@ namespace App\Infrastructure\Post;
 
 use App\Domain\Post\Repository\PostRepositoryInterface;
 use Doctrine\DBAL\Types\Type;
-use Infrastructure\Common\Doctrine\ORM\EntityRepository;
+use App\Infrastructure\Common\Doctrine\ORM\EntityRepository;
 use Pagerfanta\Pagerfanta;
 
 /**
