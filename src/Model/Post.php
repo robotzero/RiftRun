@@ -2,8 +2,11 @@
 
 namespace App\Model;
 
+use Domain\Post\ValueObject\PostId;
+
 /**
- * Post
+ * Class Post
+ * @package App\Model
  */
 class Post
 {
@@ -29,6 +32,7 @@ class Post
 
     public function __construct(Character $player, SearchQuery $query, \DateTime $createdAt)
     {
+        $this->id = new PostId();
         $this->player = $player;
         $this->query = $query;
         $this->createdAt = $createdAt;
@@ -41,7 +45,7 @@ class Post
      */
     public function getId()
     {
-        return $this->id;
+        return $this->id->__toString();
     }
 
     /**

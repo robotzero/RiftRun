@@ -1,8 +1,13 @@
 App\Model\Post:
+    exclusion_policy: ALL
     properties:
         id:
-            type: string
+            expose: true
+            groups: [Basic]
+            type: App\Domain\Post\ValueObject\PostId
         createdAt:
+            expose: true
+            groups: [Basic]
             serialized_name: createdAt
     relations:
         -

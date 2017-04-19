@@ -49,8 +49,11 @@ doctrine:
         default_connection: riftrun
         types:
             uuid: 'Ramsey\Uuid\Doctrine\UuidType'
+            postId: App\Infrastructure\Post\Doctrine\Types\PostIdType
         connections:
             riftrun:
+                mapping_types:
+                    json: string
                 driver:   pdo_sqlite
                 path:     '%database_path%'
     orm:
@@ -67,13 +70,6 @@ doctrine:
                         dir:       '%kernel.root_dir%/../conf/doctrine/riftrun'
                         prefix:    'App\Model'
                         alias:     'RiftRunners'
-
-
-#                        Wallet:
-#                         53                 type: yml
-#                         54                 prefix: Leos\Domain\Wallet\Model
-#                         55                 dir: '%kernel.root_dir%/../src/Infrastructure/WalletBundle/Resources/config/persistence/Model'
-#                         56                 is_bundle: false
 # FOS Rest Configuration
 sensio_framework_extra:
     view:       { annotations: true }
@@ -110,12 +106,14 @@ jms_serializer:
         debug: '%kernel.debug%'
         file_cache:
             dir: '%kernel.cache_dir%/jms_serializer'
-        auto_detection: false
+        auto_detection: true
         directories:
-            RiftRun:
-                namespace_prefix: 'App\DTO'
+#            RiftRun:
+#                namespace_prefix: 'App\DTO'
+#                path: '%kernel.root_dir%/../conf/serializer'
+            Post:
+                namespace_prefix: 'App\Model'
                 path: '%kernel.root_dir%/../conf/serializer'
-
 bazinga_hateoas:
     metadata:
         cache:                file

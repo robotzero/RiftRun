@@ -81,7 +81,7 @@ services:
         public: false
 
     post_repository:
-        class: App\Infrastructure\Post\PostRepository
+        class: App\Infrastructure\Post\Repository\PostRepository
         autowire: false
         arguments:
           - 'App\Model\Post'
