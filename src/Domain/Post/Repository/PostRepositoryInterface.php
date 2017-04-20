@@ -2,6 +2,7 @@
 
 namespace App\Domain\Post\Repository;
 
+use App\Model\Post;
 use Pagerfanta\Pagerfanta;
 
 /**
@@ -11,4 +12,5 @@ use Pagerfanta\Pagerfanta;
 interface PostRepositoryInterface
 {
     public function findAll() : Pagerfanta;
+    public function save(Post $post): Post;
 }

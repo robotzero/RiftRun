@@ -15,6 +15,7 @@ use App\CommandBus\Commands\CreatePost;
 use FOS\RestBundle\Controller\ControllerTrait;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use Hateoas\Representation\PaginatedRepresentation;
+use Infrastructure\Common\Exception\Form\FormException;
 use JMS\Serializer\SerializerInterface;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
@@ -95,14 +96,28 @@ class PostsController extends AbstractBusController
      * @View()
      * @Post("/posts")
      */
-    public function createPostAction(Request $request) : Response
+    public function createPostAction(Request $request) : Post
     {
-        $post = $this->commandBus->handle(new CreatePost(
-            PostType::class,
-            $request->getMethod(),
-            $request->request->all()
-        ));
+        try {
+            $post = $this->handle(
+                new CreatePost(
+                    PostType::class,
+                    $request->getMethod(),
+                    $request->request->all()
+                )
+            );
+        } catch (FormException $exception) {
+            return $exception->getForm();
+        }
+        return $post;
+//        return $this->routeRedirectView('get_wallet', [ 'walletId' => $wallet->id() ]);
 
-        return new Response(json_encode(['postId' => $post->getId(), 'searchQueryId' => $post->getQuery()->getId()]), 201);
+//        $post = $this->commandBus->handle(new CreatePost(
+//            PostType::class,
+//            $request->getMethod(),
+//            $request->request->all()
+//        ));
+//
+//        return new Response(json_encode(['postId' => $post->getId(), 'searchQueryId' => $post->getQuery()->getId()]), 201);
     }
 }

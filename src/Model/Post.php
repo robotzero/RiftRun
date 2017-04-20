@@ -30,12 +30,20 @@ class Post
      */
     private $query;
 
-    public function __construct(Character $player, SearchQuery $query, \DateTime $createdAt)
+//    public function __construct(Character $player, SearchQuery $query, \DateTime $createdAt)
+//    {
+//        $this->id = new PostId();
+//        $this->player = $player;
+//        $this->query = $query;
+//        $this->createdAt = $createdAt;
+//    }
+    public function __construct($id)
     {
-        $this->id = new PostId();
-        $this->player = $player;
-        $this->query = $query;
-        $this->createdAt = $createdAt;
+        $this->id = $id;
+        $this->createdAt = new \DateTime('now');
+//        $this->player = $player;
+//        $this->query = $query;
+//        $this->createdAt = $createdAt;
     }
 
     /**

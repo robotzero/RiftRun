@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Post\Repository;
 
 use App\Domain\Post\Repository\PostRepositoryInterface;
+use App\Model\Post;
 use Doctrine\DBAL\Types\Type;
 use App\Infrastructure\Common\Doctrine\ORM\EntityRepository;
 use Pagerfanta\Pagerfanta;
@@ -25,5 +26,12 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
             ->setParameter('createdAt', new \DateTime('-1 month'), Type::DATETIME);
 
         return $this->getPaginator($queryBuilder);
+    }
+
+    public function save(Post $post): Post
+    {
+        $this->getEntityManager()->persist($post);
+        $this->getEntityManager()->flush();
+        return $post;
     }
 }
