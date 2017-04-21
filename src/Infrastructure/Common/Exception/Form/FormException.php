@@ -1,12 +1,12 @@
 <?php
 
-namespace Infrastructure\Common\Exception\Form;
+namespace App\Infrastructure\Common\Exception\Form;
 
 use Symfony\Component\Form\FormInterface;
 
 /**
  * Class FormException
- * @package Infrastructure\Common\Exception\Form
+ * @package App\Infrastructure\Common\Exception\Form
  */
 class FormException extends \Exception
 {
@@ -21,7 +21,7 @@ class FormException extends \Exception
      */
     public function __construct(FormInterface $form)
     {
-        parent::__construct("Form Error", 0);
+        parent::__construct('Form Error', 0);
 
         $this->form = $form;
     }

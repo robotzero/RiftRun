@@ -1,17 +1,17 @@
 <?php
 
-namespace Infrastructure\Common\Factory;
+namespace App\Infrastructure\Common\Factory;
 
-use Infrastructure\Common\Exception\Form\FormException;
-use Infrastructure\Common\Exception\Form\FormFactoryException;
+use App\Infrastructure\Common\Exception\Form\FormFactoryException;
+use App\Infrastructure\Common\Exception\Form\FormException;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormInterface;
 
 /**
  * Class AbstractFactory
- * @package Infrastructure\Common\Factory
+ * @package App\Infrastructure\Common\Factory
  */
-abstract class AbstractFactory
+abstract class AbstractFormFactory
 {
     const
         CREATE = 'POST',

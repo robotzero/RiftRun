@@ -2,7 +2,9 @@
 
 namespace App\UI\Rest\Controller;
 
-use App\Application\UseCase\Post\Find;
+use App\Application\UseCase\Post\Request\CreatePost;
+use App\Application\UseCase\Post\Request\FindPost;
+use App\Infrastructure\Common\Exception\Form\FormException;
 use App\Infrastructure\Common\Pagination\PaginationTrait;
 use App\Services\PostQueryService;
 use App\Services\PostsQueryService;
@@ -11,11 +13,9 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Options;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
-use App\CommandBus\Commands\CreatePost;
 use FOS\RestBundle\Controller\ControllerTrait;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use Hateoas\Representation\PaginatedRepresentation;
-use Infrastructure\Common\Exception\Form\FormException;
 use JMS\Serializer\SerializerInterface;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,7 +60,7 @@ class PostsController extends AbstractBusController
      */
     public function getPostsAction(Request $request, ParamFetcherInterface $paramFetcher) : PaginatedRepresentation
     {
-        $findRequest = new Find($paramFetcher->all());
+        $findRequest = new FindPost($paramFetcher->all());
         return $this->getPagination(
             $this->handle($findRequest),
             $request->get('_route'),
@@ -68,8 +68,6 @@ class PostsController extends AbstractBusController
             $findRequest->getLimit(),
             $findRequest->getPage()
         );
-//        return [];
-//        return $this->postsQueryService->query($paramFetcher->get('page', true), $paramFetcher->get('limit', true), $request->get('_route'));
     }
 
     /**
@@ -96,13 +94,11 @@ class PostsController extends AbstractBusController
      * @View()
      * @Post("/posts")
      */
-    public function createPostAction(Request $request) : Post
+    public function createPostAction(Request $request)
     {
         try {
             $post = $this->handle(
                 new CreatePost(
-                    PostType::class,
-                    $request->getMethod(),
                     $request->request->all()
                 )
             );
@@ -110,7 +106,7 @@ class PostsController extends AbstractBusController
             return $exception->getForm();
         }
         return $post;
-//        return $this->routeRedirectView('get_wallet', [ 'walletId' => $wallet->id() ]);
+//        return $this->routeRedirectView('get_post', [ 'postId' => $post->id() ]);
 
 //        $post = $this->commandBus->handle(new CreatePost(
 //            PostType::class,

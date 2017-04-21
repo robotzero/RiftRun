@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Common\Pagination;
 
-use App\Application\Request\Common\Pagination;
+use App\Application\Common\Request\Pagination;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Hateoas\Representation\PaginatedRepresentation;

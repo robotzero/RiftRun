@@ -7,10 +7,6 @@ services:
     _instanceof:
         App\Services\QueryService:
             public: true
-        App\CommandBus\Handlers\CreatePostCommandHandler:
-            public: true
-            tags:
-                - { name: tactician.handler, command: App\CommandBus\Commands\CreatePost }
         App\Command\Handlers\LoadFixturesCommandHandler:
             public: true
             tags:
@@ -32,7 +28,7 @@ services:
         arguments:
             - '@post_repository'
         tags:
-            - { name: tactician.handler, command: App\Application\UseCase\Post\Find }
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\FindPost }
 
     JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
     Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
@@ -87,7 +83,19 @@ services:
           - 'App\Model\Post'
         parent: riftrun.abstract.repository
 
+    riftrun.factory.post:
+        class: App\Infrastructure\Post\Factory\PostFormFactory
+        parent: riftrun.abstract.form_factory
+
     riftrun.abstract.form_factory:
         abstract: true
         arguments:
            - '@form.factory'
+
+    App\Application\UseCase\Post\CreatePostCommandHandler:
+         arguments:
+            - '@post_repository'
+            - '@riftrun.factory.post'
+         public: true
+         tags:
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\CreatePost }

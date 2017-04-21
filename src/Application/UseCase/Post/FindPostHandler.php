@@ -2,7 +2,7 @@
 
 namespace App\Application\UseCase\Post;
 
-use App\Application\Request\Common\Pagination;
+use App\Application\Common\Request\Pagination;
 use App\Domain\Post\Repository\PostRepositoryInterface;
 use Pagerfanta\Pagerfanta;
 
@@ -32,7 +32,6 @@ class FindPostHandler
      */
     public function handle(Pagination $request): Pagerfanta
     {
-//        return null;
         return $this->repository->findAll();
     }
 }

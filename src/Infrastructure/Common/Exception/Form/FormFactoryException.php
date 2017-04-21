@@ -1,10 +1,10 @@
 <?php
 
-namespace Infrastructure\Common\Exception\Form;
+namespace App\Infrastructure\Common\Exception\Form;
 
 /**
  * Class FormFactoryException
- * @package Infrastructure\Common\Exception\Form
+ * @package App\Infrastructure\Common\Exception\Form
  */
 class FormFactoryException extends \LogicException
 {
@@ -13,6 +13,6 @@ class FormFactoryException extends \LogicException
      */
     public function __construct()
     {
-        parent::__construct("form.factory.exception.form_class_required", 5005);
+        parent::__construct('form.factory.exception.form_class_required', 5005);
     }
 }
