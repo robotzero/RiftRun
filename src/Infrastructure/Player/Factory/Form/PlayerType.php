@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Player\Factory\Form;
 
 use App\Domain\Player\Model\Player;
+use App\Domain\Player\ValueObject\PlayerId;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,12 +24,12 @@ class PlayerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('type', TextType::class, ['required' => true]);
-        $builder->add('paragonPoints', IntegerType::class, ['required' => true]);
-        $builder->add('battleTag', TextType::class, ['required' => true]);
-        $builder->add('region', TextType::class, ['required' => true]);
-        $builder->add('seasonal', TextType::class, ['required' => true]);
-        $builder->add('gameType', TextType::class, ['required' => true]);
+        $builder->add('type', TextType::class, ['mapped' => false]);
+        $builder->add('paragonPoints', IntegerType::class, ['mapped' => false]);
+        $builder->add('battleTag', TextType::class, ['mapped' => false]);
+        $builder->add('region', TextType::class, ['mapped' => false]);
+        $builder->add('seasonal', TextType::class, ['mapped' => false]);
+        $builder->add('gameType', TextType::class, ['mapped' => false]);
     }
 
     /**
@@ -41,13 +42,18 @@ class PlayerType extends AbstractType
             'data_class' => Player::class,
 //            'constraints' => new Valid(),
             'csrf_protection' => false,
-//            'empty_data' => function (FormInterface $form) {
-//                return new Player(
-////                    $form->getData()->get('uuid') ?: new PostId()
-//                    new Player(),
-//
-//                );
-//            }
+            'empty_data' => function (FormInterface $form) {
+                return new Player(
+                    new PlayerId(),
+                    'demon hunter',
+                    1,
+                    'b',
+                    'c',
+                    'd',
+                    'e',
+                    new \DateTime()
+                );
+            }
         ));
     }
 

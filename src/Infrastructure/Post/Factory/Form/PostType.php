@@ -2,6 +2,8 @@
 
 namespace App\Infrastructure\Post\Factory\Form;
 
+use App\Domain\Player\Model\Player;
+use App\Domain\Player\ValueObject\PlayerId;
 use App\Domain\Post\Model\Post;
 use App\Domain\Post\ValueObject\PostId;
 use App\DTO\PostDTO;
@@ -38,10 +40,14 @@ class PostType extends AbstractType
 //        });
         $builder->add('uuid', null, ['mapped' => false]);
 //        $builder->add('query', SearchQueryType::class, ['required' => true]);
-        $builder->add('player', PlayerType::class, ['required' => true]);
+        $builder->add('player', PlayerType::class, ['mapped' => true]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    /**
+     * @param OptionsResolver $resolver
+     * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
+     */
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
             'data_class' => Post::class,
@@ -49,7 +55,17 @@ class PostType extends AbstractType
             'empty_data' => function (FormInterface $form) {
                 return new Post(
 //                    $form->getData()->get('uuid') ?: new PostId()
-                    new PostId()
+                    new PostId(),
+                    new Player(
+                        new PlayerId(),
+                        'demon hunter',
+                        1,
+                        'a',
+                        'b',
+                        'c',
+                        'd',
+                        new \DateTime()
+                    )
                 );
             }
 //            'constraints' => new Valid(),

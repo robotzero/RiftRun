@@ -49,6 +49,7 @@ class Player
     private $gameType;
 
     public function __construct(
+        $id,
         string $type,
         int $paragonPoints,
         string $battleTag,
@@ -57,6 +58,7 @@ class Player
         string $gameType,
         \DateTime $createdAt
     ) {
+        $this->id = $id;
         $this->type = $type;
         $this->paragonPoints = $paragonPoints;
         $this->battleTag = $battleTag;
