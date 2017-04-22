@@ -80,7 +80,7 @@ services:
         class: App\Infrastructure\Post\Repository\PostRepository
         autowire: false
         arguments:
-          - 'App\Model\Post'
+          - 'App\Domain\Post\Model\Post'
         parent: riftrun.abstract.repository
 
     riftrun.factory.post:

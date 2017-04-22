@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Infrastructure\Post\Doctrine\Types;
+namespace App\Infrastructure\PlayerCharacter\Doctrine\Types;
 
-use App\Domain\Post\ValueObject\PostId;
+use App\Domain\PlayerCharacter\ValueObject\PlayerCharacterId;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Ramsey\Uuid\Doctrine\UuidBinaryType;
 
-class PostIdType extends UuidBinaryType
+/**
+ * Class PlayerCharacterIdType
+ * @package App\Infrastructure\PlayerCharacter\Doctrine\Types
+ */
+class PlayerCharacterIdType extends UuidBinaryType
 {
-    const POST_ID = 'postId';
+    const PLAYERCHARACTER_ID = 'playerCharacterId';
 
     /**
      * @param null|string $value
@@ -17,11 +21,11 @@ class PostIdType extends UuidBinaryType
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return (null === $value) ? null : PostId::fromBytes($value);
+        return (null === $value) ? null : PlayerCharacterId::fromBytes($value);
     }
 
     /**
-     * @param PostId $value
+     * @param PlayerCharacterId $value
      * @param AbstractPlatform $platform
      * @return null
      */
@@ -32,6 +36,6 @@ class PostIdType extends UuidBinaryType
 
     public function getName(): string
     {
-        return self::POST_ID;
+        return self::PLAYERCHARACTER_ID;
     }
 }

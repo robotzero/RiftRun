@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Forms;
+namespace App\Infrastructure\Post\Factory\Form;
 
+use App\Domain\Post\Model\Post;
 use App\Domain\Post\ValueObject\PostId;
 use App\DTO\PostDTO;
-use App\Model\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -55,7 +55,7 @@ class PostType extends AbstractType
         ));
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'post';
     }

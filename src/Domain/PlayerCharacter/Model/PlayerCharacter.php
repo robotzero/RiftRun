@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Model;
+namespace App\Domain\PlayerCharacter\Model;
 
-/**
- * CharacterType
- */
-class CharacterType
+
+class PlayerCharacter
 {
     /**
      * @var integer
@@ -22,11 +20,11 @@ class CharacterType
      */
     private $type;
 
-    public function __construct(SearchQuery $searchQuery, string $type)
-    {
-        $this->searchQuery = $searchQuery;
-        $this->type = $type;
-    }
+//    public function __construct(SearchQuery $searchQuery, string $type)
+//    {
+//        $this->searchQuery = $searchQuery;
+//        $this->type = $type;
+//    }
 
     /**
      * Get id
@@ -43,7 +41,7 @@ class CharacterType
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }

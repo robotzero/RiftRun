@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Post\Factory;
 
-use App\Forms\PostType;
-use App\Model\Post;
+use App\Domain\Post\Model\Post;
+use App\Infrastructure\Post\Factory\Form\PostType;
 use App\Infrastructure\Common\Factory\AbstractFormFactory;
 use Symfony\Component\Form\FormFactory;
 

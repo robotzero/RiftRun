@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Model;
-
-use Domain\Post\ValueObject\PostId;
+namespace App\Domain\Post\Model;
 
 /**
  * Class Post
- * @package App\Model
+ * @package App\Domain\Post\Model
  */
 class Post
 {

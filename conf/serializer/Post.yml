@@ -1,4 +1,4 @@
-App\Model\Post:
+App\Domain\Post\Model\Post:
     exclusion_policy: ALL
     properties:
         id:

@@ -1,4 +1,4 @@
-App\Model\Post:
+App\Domain\Post\Model\Post:
     type: entity
     table: posts
     repositoryClass: App\Infrastructure\Post\Repository\PostRepository

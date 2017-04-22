@@ -2,7 +2,7 @@
 
 namespace App\Domain\Post\Repository;
 
-use App\Model\Post;
+use App\Domain\Post\Model\Post;
 use Pagerfanta\Pagerfanta;
 
 /**

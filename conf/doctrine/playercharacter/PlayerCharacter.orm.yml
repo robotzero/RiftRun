@@ -1,0 +1,20 @@
+App\Domain\PlayerCharacter\Model\PlayerCharacter:
+    type: entity
+    table: playercharacter
+#    manyToOne:
+#        searchQuery:
+#            targetEntity: SearchQuery
+#            inversedBy: characterType
+#            joinColumn:
+#                name: searchquery_id
+#                referencedColumnName: id
+    id:
+        id:
+            type: playerCharacterId
+            id: true
+            nullable: false
+    fields:
+        type:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -50,6 +50,7 @@ doctrine:
         types:
             uuid: 'Ramsey\Uuid\Doctrine\UuidType'
             postId: App\Infrastructure\Post\Doctrine\Types\PostIdType
+            playerCharacterId: App\Infrastructure\PlayerCharacter\Doctrine\Types\PlayerCharacterIdType
         connections:
             riftrun:
                 mapping_types:
@@ -68,7 +69,19 @@ doctrine:
                         type: yml
                         is_bundle: false
                         dir:       '%kernel.root_dir%/../conf/doctrine/riftrun'
-                        prefix:    'App\Model'
+                        prefix:    'App\Domain'
+                        alias:     'RiftRunners'
+                    Post:
+                        type: yml
+                        is_bundle: false
+                        dir:       '%kernel.root_dir%/../conf/doctrine/post'
+                        prefix:    'App\Domain\Post\Model'
+                        alias:     'RiftRunners'
+                    PlayerCharacter:
+                        type: yml
+                        is_bundle: false
+                        dir:       '%kernel.root_dir%/../conf/doctrine/playercharacter'
+                        prefix:    'App\Domain\PlayerCharacter\Model'
                         alias:     'RiftRunners'
 # FOS Rest Configuration
 sensio_framework_extra:
