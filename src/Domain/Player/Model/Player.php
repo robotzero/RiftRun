@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Model;
+namespace App\Domain\Player\Model;
 
 /**
- * Character
+ * Class Player
+ * @package App\Domain\Player\Model
  */
-class Character
+class Player
 {
     /**
      * @var integer
@@ -72,7 +73,7 @@ class Character
      */
     public function getId()
     {
-        return $this->id;
+        return $this->id->__toString();
     }
 
     /**
@@ -80,7 +81,7 @@ class Character
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -90,7 +91,7 @@ class Character
      *
      * @return integer
      */
-    public function getParagonPoints()
+    public function getParagonPoints(): int
     {
         return $this->paragonPoints;
     }
@@ -100,7 +101,7 @@ class Character
      *
      * @return string
      */
-    public function getBattleTag()
+    public function getBattleTag(): string
     {
         return $this->battleTag;
     }
@@ -108,9 +109,9 @@ class Character
     /**
      * Get region
      *
-     * @return string
+     * @return string //TODO VALUE OBJECT OR EMBEDDED
      */
-    public function getRegion()
+    public function getRegion(): string
     {
         return $this->region;
     }
@@ -120,7 +121,7 @@ class Character
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
     }
@@ -130,7 +131,7 @@ class Character
      *
      * @return boolean
      */
-    public function getSeasonal()
+    public function getSeasonal(): bool
     {
         return $this->seasonal;
     }
@@ -140,7 +141,7 @@ class Character
      *
      * @return string
      */
-    public function getGameType()
+    public function getGameType(): string
     {
         return $this->gameType;
     }

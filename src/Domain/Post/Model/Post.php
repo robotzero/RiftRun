@@ -2,6 +2,8 @@
 
 namespace App\Domain\Post\Model;
 
+use App\Domain\Player\Model\Player;
+
 /**
  * Class Post
  * @package App\Domain\Post\Model
@@ -19,7 +21,7 @@ class Post
     private $createdAt;
 
     /**
-     * @var \App\Model\Character
+     * @var Player
      */
     private $player;
 
@@ -35,11 +37,11 @@ class Post
 //        $this->query = $query;
 //        $this->createdAt = $createdAt;
 //    }
-    public function __construct($id)
+    public function __construct($id, Player $player)
     {
         $this->id = $id;
+        $this->player = $player;
         $this->createdAt = new \DateTime('now');
-//        $this->player = $player;
 //        $this->query = $query;
 //        $this->createdAt = $createdAt;
     }
@@ -67,9 +69,9 @@ class Post
     /**
      * Get player
      *
-     * @return \App\Model\Character
+     * @return \App\Domain\Player\Model\Player
      */
-    public function getPlayer()
+    public function getPlayer(): Player
     {
         return $this->player;
     }

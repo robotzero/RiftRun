@@ -5,6 +5,7 @@ namespace App\Infrastructure\Post\Factory\Form;
 use App\Domain\Post\Model\Post;
 use App\Domain\Post\ValueObject\PostId;
 use App\DTO\PostDTO;
+use App\Infrastructure\Player\Factory\Form\PlayerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -35,9 +36,9 @@ class PostType extends AbstractType
 //                $searchquery->add('game', $this->typesMap[$data['query']['game']['type']], ['required' => true]);
 //            }
 //        });
-            $builder->add('uuid', null, ['mapped' => false]);
+        $builder->add('uuid', null, ['mapped' => false]);
 //        $builder->add('query', SearchQueryType::class, ['required' => true]);
-//        $builder->add('player', CharacterType::class, ['required' => true]);
+        $builder->add('player', PlayerType::class, ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,15 +1,11 @@
-App\Model\Character:
-    repositoryClass: App\ORM\Repository\CharacterRepository
+App\Domain\Player\Model\Player:
     type: entity
-    table: characters
+    table: player
     id:
         id:
-            type: uuid
+            type: playerId
             id: true
-            generator:
-                strategy: CUSTOM
-            customIdGenerator:
-                class: Ramsey\Uuid\Doctrine\UuidGenerator
+            nullable: false
     fields:
         type:
             type: string

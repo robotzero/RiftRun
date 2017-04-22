@@ -1,18 +1,18 @@
 App\Domain\Post\Model\Post:
     type: entity
-    table: posts
+    table: post
     repositoryClass: App\Infrastructure\Post\Repository\PostRepository
-#    oneToOne:
-#        player:
-#            targetEntity: Character
-#            joinColumn:
-#                name: player_id
-#                referencedColumnName: id
-#                nullable: true
-#                onDelete: CASCADE
-#            fetch: LAZY
-#            cascade: [ persist, remove]
-#            orphanRemoval: true
+    oneToOne:
+        player:
+            targetEntity: App\Domain\Player\Model\Player
+            joinColumn:
+                name: player_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+            fetch: LAZY
+            cascade: [ persist, remove]
+            orphanRemoval: true
 #        query:
 #            targetEntity: SearchQuery
 #            joinColumn:

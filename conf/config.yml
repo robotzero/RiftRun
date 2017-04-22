@@ -51,6 +51,7 @@ doctrine:
             uuid: 'Ramsey\Uuid\Doctrine\UuidType'
             postId: App\Infrastructure\Post\Doctrine\Types\PostIdType
             playerCharacterId: App\Infrastructure\PlayerCharacter\Doctrine\Types\PlayerCharacterIdType
+            playerId: App\Infrastructure\Player\Doctrine\Types\PlayerIdType
         connections:
             riftrun:
                 mapping_types:
@@ -65,17 +66,23 @@ doctrine:
             default:
                 connection: riftrun
                 mappings:
-                    App:
-                        type: yml
-                        is_bundle: false
-                        dir:       '%kernel.root_dir%/../conf/doctrine/riftrun'
-                        prefix:    'App\Domain'
-                        alias:     'RiftRunners'
+#                    App:
+#                        type: yml
+#                        is_bundle: false
+#                        dir:       '%kernel.root_dir%/../conf/doctrine/riftrun'
+#                        prefix:    'App\Domain'
+#                        alias:     'RiftRunners'
                     Post:
                         type: yml
                         is_bundle: false
                         dir:       '%kernel.root_dir%/../conf/doctrine/post'
                         prefix:    'App\Domain\Post\Model'
+                        alias:     'RiftRunners'
+                    Player:
+                        type: yml
+                        is_bundle: false
+                        dir:       '%kernel.root_dir%/../conf/doctrine/player'
+                        prefix:    'App\Domain\Player\Model'
                         alias:     'RiftRunners'
                     PlayerCharacter:
                         type: yml
