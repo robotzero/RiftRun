@@ -2,7 +2,10 @@
 
 namespace App\Infrastructure\Post\Factory;
 
+use App\Domain\Player\Model\Player;
+use App\Domain\Player\ValueObject\PlayerId;
 use App\Domain\Post\Model\Post;
+use App\Domain\Post\ValueObject\PostId;
 use App\Infrastructure\Post\Factory\Form\PostType;
 use App\Infrastructure\Common\Factory\AbstractFormFactory;
 use Symfony\Component\Form\FormFactory;

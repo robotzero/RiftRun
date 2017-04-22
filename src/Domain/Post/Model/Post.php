@@ -3,6 +3,7 @@
 namespace App\Domain\Post\Model;
 
 use App\Domain\Player\Model\Player;
+use App\Domain\Post\ValueObject\PostId;
 
 /**
  * Class Post
@@ -37,7 +38,7 @@ class Post
 //        $this->query = $query;
 //        $this->createdAt = $createdAt;
 //    }
-    public function __construct($id, Player $player)
+    public function __construct(PostId $id, Player $player)
     {
         $this->id = $id;
         $this->player = $player;

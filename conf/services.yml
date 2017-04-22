@@ -43,10 +43,10 @@ services:
         resource: '../src/UI/Rest/Controller'
         public: true
         autowire: true
-    App\Infrastructure\Post\:
-        resource: '../src/Infrastructure/Post'
-        public: true
-        autowire: false
+#    App\Infrastructure\Post\:
+#        resource: '../src/Infrastructure/Post'
+#        public: true
+#        autowire: false
 
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger

@@ -4,6 +4,7 @@ namespace App\Infrastructure\Player\Factory\Form;
 
 use App\Domain\Player\Model\Player;
 use App\Domain\Player\ValueObject\PlayerId;
+use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -11,6 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
+use App\Infrastructure\Post\Factory\Form\PostType;
 
 /**
  * Class PlayerType
@@ -35,6 +37,7 @@ class PlayerType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @throws \OutOfBoundsException
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -43,14 +46,15 @@ class PlayerType extends AbstractType
 //            'constraints' => new Valid(),
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
-                return new Player(
+                $playerData = $form->all();
+                new Player(
                     new PlayerId(),
-                    'demon hunter',
-                    1,
-                    'b',
-                    'c',
-                    'd',
-                    'e',
+                    $playerData['type']->getData(),
+                    $playerData['paragonPoints']->getData(),
+                    $playerData['battleTag']->getData(),
+                    $playerData['region']->getData(),
+                    $playerData['seasonal']->getData(),
+                    $playerData['gameType']->getData(),
                     new \DateTime()
                 );
             }
@@ -64,4 +68,12 @@ class PlayerType extends AbstractType
     {
         return 'player';
     }
+
+    /**
+//     * @return null|string
+//     */
+//    public function getParent(): ?string
+//    {
+//        return PostType::class;
+//    }
 }

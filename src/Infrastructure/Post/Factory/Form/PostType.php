@@ -8,6 +8,7 @@ use App\Domain\Post\Model\Post;
 use App\Domain\Post\ValueObject\PostId;
 use App\DTO\PostDTO;
 use App\Infrastructure\Player\Factory\Form\PlayerType;
+use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -40,12 +41,13 @@ class PostType extends AbstractType
 //        });
         $builder->add('uuid', null, ['mapped' => false]);
 //        $builder->add('query', SearchQueryType::class, ['required' => true]);
-        $builder->add('player', PlayerType::class, ['mapped' => true]);
+        $builder->add('player', PlayerType::class, ['mapped' => false]);
     }
 
     /**
      * @param OptionsResolver $resolver
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @throws \OutOfBoundsException
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -53,17 +55,17 @@ class PostType extends AbstractType
             'data_class' => Post::class,
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
+                $playerData = $form->get('player');
                 return new Post(
-//                    $form->getData()->get('uuid') ?: new PostId()
                     new PostId(),
                     new Player(
                         new PlayerId(),
-                        'demon hunter',
-                        1,
-                        'a',
-                        'b',
-                        'c',
-                        'd',
+                        $playerData->get('type')->getData(),
+                        $playerData->get('paragonPoints')->getData(),
+                        $playerData->get('battleTag')->getData(),
+                        $playerData->get('region')->getData(),
+                        $playerData->get('seasonal')->getData(),
+                        $playerData->get('gameType')->getData(),
                         new \DateTime()
                     )
                 );
