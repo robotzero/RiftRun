@@ -579,12 +579,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "7338c504a198af0ee2020c62d694ba080d2775f5"
+                "reference": "8aef236fb73585b32ecb4a6fd1ff97e21bc5bbab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/7338c504a198af0ee2020c62d694ba080d2775f5",
-                "reference": "7338c504a198af0ee2020c62d694ba080d2775f5",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/8aef236fb73585b32ecb4a6fd1ff97e21bc5bbab",
+                "reference": "8aef236fb73585b32ecb4a6fd1ff97e21bc5bbab",
                 "shasum": ""
             },
             "require": {
@@ -652,7 +652,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-04-13 11:13:40"
+            "time": "2017-04-22 15:50:05"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -980,12 +980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "318e9a559661ee34dbe2a8b6d96c28f31d81b03d"
+                "reference": "03972c9c3a6d16b1c6c6e43d5cc2561f105df8fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/318e9a559661ee34dbe2a8b6d96c28f31d81b03d",
-                "reference": "318e9a559661ee34dbe2a8b6d96c28f31d81b03d",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/03972c9c3a6d16b1c6c6e43d5cc2561f105df8fa",
+                "reference": "03972c9c3a6d16b1c6c6e43d5cc2561f105df8fa",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-04-15 00:23:56"
+            "time": "2017-04-23 12:25:39"
         },
         {
             "name": "fig/link-util",
@@ -2213,12 +2213,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioCorsBundle.git",
-                "reference": "cc9a26517b65769e6e3cea10099d4a40ce11ca29"
+                "reference": "ac6576a599d7db9c2c6022602c188a5594216056"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioCorsBundle/zipball/cc9a26517b65769e6e3cea10099d4a40ce11ca29",
-                "reference": "cc9a26517b65769e6e3cea10099d4a40ce11ca29",
+                "url": "https://api.github.com/repos/nelmio/NelmioCorsBundle/zipball/ac6576a599d7db9c2c6022602c188a5594216056",
+                "reference": "ac6576a599d7db9c2c6022602c188a5594216056",
                 "shasum": ""
             },
             "require": {
@@ -2262,7 +2262,7 @@
                 "cors",
                 "crossdomain"
             ],
-            "time": "2017-01-22 21:34:09"
+            "time": "2017-04-24 09:12:42"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2997,12 +2997,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "17846680901003d26d823c2e3ac9228702837916"
+                "reference": "654c4fa3d11448c8005400a244987896243a990a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/17846680901003d26d823c2e3ac9228702837916",
-                "reference": "17846680901003d26d823c2e3ac9228702837916",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/654c4fa3d11448c8005400a244987896243a990a",
+                "reference": "654c4fa3d11448c8005400a244987896243a990a",
                 "shasum": ""
             },
             "require": {
@@ -3041,7 +3041,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2017-01-10 14:58:45"
+            "time": "2017-04-23 22:28:23"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3866,12 +3866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "59f3f34cc84e93e287e0971d05bfe0edee8e20e2"
+                "reference": "3471b5831822d506d38e2639ac69b0cf5cf43b59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/59f3f34cc84e93e287e0971d05bfe0edee8e20e2",
-                "reference": "59f3f34cc84e93e287e0971d05bfe0edee8e20e2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/3471b5831822d506d38e2639ac69b0cf5cf43b59",
+                "reference": "3471b5831822d506d38e2639ac69b0cf5cf43b59",
                 "shasum": ""
             },
             "require": {
@@ -4012,7 +4012,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-20 17:34:39"
+            "time": "2017-04-23 22:36:34"
         },
         {
             "name": "twig/twig",
@@ -4700,12 +4700,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "bd5580a1ca86bd32a8f72f9b47f273aab3ef90f7"
+                "reference": "cc5720eadd8b231a522c1740a52d49a1b061b15d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/bd5580a1ca86bd32a8f72f9b47f273aab3ef90f7",
-                "reference": "bd5580a1ca86bd32a8f72f9b47f273aab3ef90f7",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/cc5720eadd8b231a522c1740a52d49a1b061b15d",
+                "reference": "cc5720eadd8b231a522c1740a52d49a1b061b15d",
                 "shasum": ""
             },
             "require": {
@@ -4742,7 +4742,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-04-07 07:05:49"
+            "time": "2017-04-24 16:07:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6239,20 +6239,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "5341fe1c336b86d34b8ecdab20e0da75af57db01"
+                "reference": "4768fa6a0b529b827f9c1b15c955b0eb1cff8831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/5341fe1c336b86d34b8ecdab20e0da75af57db01",
-                "reference": "5341fe1c336b86d34b8ecdab20e0da75af57db01",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/4768fa6a0b529b827f9c1b15c955b0eb1cff8831",
+                "reference": "4768fa6a0b529b827f9c1b15c955b0eb1cff8831",
                 "shasum": ""
             },
             "require": {
-                "nelmio/alice": "^3.0@beta",
+                "nelmio/alice": "^3.0-beta.5@beta",
                 "php": "~7.0.0 || ~7.1.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.0",
+                "phpspec/prophecy": "^1.6",
                 "phpunit/phpunit": "^5.5",
                 "symfony/phpunit-bridge": "^3.1"
             },
@@ -6295,7 +6296,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2017-04-20 00:03:42"
+            "time": "2017-04-22 20:12:19"
         },
         {
             "name": "theseer/tokenizer",
