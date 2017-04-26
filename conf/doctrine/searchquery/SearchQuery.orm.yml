@@ -1,0 +1,29 @@
+App\Domain\SearchQuery\Model\SearchQuery:
+    type: entity
+    table: searchquery
+#    oneToOne:
+#        game:
+#            targetEntity: GameType
+#            joinColumn:
+#                name: gametype_id
+#                referencedColumnName: id
+#                onDelete: CASCADE
+#            fetch: EAGER
+#            cascade: [ persist ]
+#    oneToMany:
+#        characterType:
+#            targetEntity: CharacterType
+#            mappedBy: searchQuery
+#            fetch: EAGER
+#            cascade: [ persist, remove, merge ]
+#    repositoryClass: App\ORM\Repository\SearchQueryRepository
+    id:
+        id:
+            type: searchQueryId
+            id: true
+            nullable: false
+    fields:
+        minParagon:
+            type: integer
+            column: min_paragon
+    lifecycleCallbacks: {  }

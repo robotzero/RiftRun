@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Model;
-use App\Model\CharacterType;
-use Doctrine\Common\Collections\ArrayCollection;
+namespace App\Domain\SearchQuery\Model;
+
+use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Doctrine\Common\Collections\Collection;
-use Ramsey\Uuid\Uuid;
 
 /**
- * SearchQuery
+ * Class SearchQuery
+ * @package App\Domain\SearchQuery\Model
  */
 class SearchQuery
 {
     /**
-     * @var Uuid
+     * @var SearchQueryId
      */
     private $id;
 
@@ -42,22 +42,29 @@ class SearchQuery
      * @param GameType $game
      * @param \DateTime $createdAt
      */
-    public function __construct(int $minParagon, GameType $game, \DateTime $createdAt)
+//    public function __construct(int $minParagon, GameType $game, \DateTime $createdAt)
+//    {
+//        $this->characterType = new ArrayCollection();
+//        $this->game = $game;
+//        $this->minParagon = $minParagon;
+//        $this->createdAt = $createdAt;
+//    }
+    public function __construct(SearchQueryId $id, int $minParagon)
     {
-        $this->characterType = new ArrayCollection();
-        $this->game = $game;
-        $this->minParagon = $minParagon;
-        $this->createdAt = $createdAt;
+        $this->id = $id;
+        $this->createdAt = new \DateTime('now');
+//        $this->query = $query;
+//        $this->createdAt = $createdAt;
     }
 
     /**
      * Get id
      *
-     * @return Uuid
+     * @return string
      */
-    public function getId():Uuid
+    public function getId():string
     {
-        return $this->id;
+        return $this->id->__toString();
     }
 
     /**
@@ -85,10 +92,10 @@ class SearchQuery
      *
      * @return \App\Model\GameType
      */
-    public function getGame():GameType
-    {
-        return $this->game;
-    }
+//    public function getGame():GameType
+//    {
+//        return $this->game;
+//    }
 
     /**
      * Add characterType
@@ -97,30 +104,30 @@ class SearchQuery
      *
      * @return SearchQuery
      */
-    public function addCharacterType(CharacterType $characterType)
-    {
-        $this->characterType->add($characterType);
-
-        return $this;
-    }
+//    public function addCharacterType(CharacterType $characterType)
+//    {
+//        $this->characterType->add($characterType);
+//
+//        return $this;
+//    }
 
     /**
      * Remove characterType
      *
      * @param CharacterType $characterType
      */
-    public function removeCharacterType(CharacterType $characterType)
-    {
-        $this->characterType->removeElement($characterType);
-    }
+//    public function removeCharacterType(CharacterType $characterType)
+//    {
+//        $this->characterType->removeElement($characterType);
+//    }
 
     /**
      * Get characterType
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCharacterType():Collection
-    {
-        return $this->characterType;
-    }
+//    public function getCharacterType():Collection
+//    {
+//        return $this->characterType;
+//    }
 }

@@ -52,6 +52,7 @@ doctrine:
             postId: App\Infrastructure\Post\Doctrine\Types\PostIdType
             playerCharacterId: App\Infrastructure\PlayerCharacter\Doctrine\Types\PlayerCharacterIdType
             playerId: App\Infrastructure\Player\Doctrine\Types\PlayerIdType
+            searchQueryId: App\Infrastructure\SearchQuery\Doctrine\Types\SearchQueryIdType
         connections:
             riftrun:
                 mapping_types:
@@ -83,6 +84,12 @@ doctrine:
                         is_bundle: false
                         dir:       '%kernel.root_dir%/../conf/doctrine/player'
                         prefix:    'App\Domain\Player\Model'
+                        alias:     'RiftRunners'
+                    SearchQuery:
+                        type: yml
+                        is_bundle: false
+                        dir:      '%kernel.root_dir%/../conf/doctrine/searchquery'
+                        prefix:    'App\Domain\SearchQuery\Model'
                         alias:     'RiftRunners'
                     PlayerCharacter:
                         type: yml

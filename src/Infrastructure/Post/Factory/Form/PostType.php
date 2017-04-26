@@ -6,8 +6,11 @@ use App\Domain\Player\Model\Player;
 use App\Domain\Player\ValueObject\PlayerId;
 use App\Domain\Post\Model\Post;
 use App\Domain\Post\ValueObject\PostId;
+use App\Domain\SearchQuery\Model\SearchQuery;
+use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use App\DTO\PostDTO;
 use App\Infrastructure\Player\Factory\Form\PlayerType;
+use App\Infrastructure\SearchQuery\Factory\Form\SearchQueryType;
 use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,7 +43,7 @@ class PostType extends AbstractType
 //            }
 //        });
         $builder->add('uuid', null, ['mapped' => false]);
-//        $builder->add('query', SearchQueryType::class, ['required' => true]);
+        $builder->add('query', SearchQueryType::class, ['mapped' => false]);
         $builder->add('player', PlayerType::class, ['mapped' => false]);
     }
 
@@ -67,6 +70,10 @@ class PostType extends AbstractType
                         $playerData->get('seasonal')->getData(),
                         $playerData->get('gameType')->getData(),
                         new \DateTime()
+                    ),
+                    new SearchQuery(
+                        new SearchQueryId(),
+                        $form->get('query')->get('minParagon')->getData()
                     )
                 );
             }

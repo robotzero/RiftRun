@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "beberlei/assert",
-            "version": "v2.7.4",
+            "version": "v2.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "3ee3bc468a3ce4bbfc3d74f53c6cdb5242d39d1a"
+                "reference": "2f688ee39ea9ce9e2c2164c9db62df3246b8fbff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/3ee3bc468a3ce4bbfc3d74f53c6cdb5242d39d1a",
-                "reference": "3ee3bc468a3ce4bbfc3d74f53c6cdb5242d39d1a",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/2f688ee39ea9ce9e2c2164c9db62df3246b8fbff",
+                "reference": "2f688ee39ea9ce9e2c2164c9db62df3246b8fbff",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2017-03-14 18:06:52"
+            "time": "2017-04-26 09:32:13"
         },
         {
             "name": "behat/transliterator",
@@ -579,12 +579,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "8aef236fb73585b32ecb4a6fd1ff97e21bc5bbab"
+                "reference": "32220c127a62700c57afec675c9c768f66988097"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/8aef236fb73585b32ecb4a6fd1ff97e21bc5bbab",
-                "reference": "8aef236fb73585b32ecb4a6fd1ff97e21bc5bbab",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/32220c127a62700c57afec675c9c768f66988097",
+                "reference": "32220c127a62700c57afec675c9c768f66988097",
                 "shasum": ""
             },
             "require": {
@@ -652,7 +652,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-04-22 15:50:05"
+            "time": "2017-04-26 10:51:41"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -3866,12 +3866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "3471b5831822d506d38e2639ac69b0cf5cf43b59"
+                "reference": "b11822640a895c354259a17c107cb18cdd0b016f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/3471b5831822d506d38e2639ac69b0cf5cf43b59",
-                "reference": "3471b5831822d506d38e2639ac69b0cf5cf43b59",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b11822640a895c354259a17c107cb18cdd0b016f",
+                "reference": "b11822640a895c354259a17c107cb18cdd0b016f",
                 "shasum": ""
             },
             "require": {
@@ -4012,7 +4012,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-23 22:36:34"
+            "time": "2017-04-26 17:20:29"
         },
         {
             "name": "twig/twig",
@@ -4792,12 +4792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "056f173ce9911eda4561771de7ed73e62811439d"
+                "reference": "d6c62750391db9b8a7b1d032ca61ada63d3caeb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/056f173ce9911eda4561771de7ed73e62811439d",
-                "reference": "056f173ce9911eda4561771de7ed73e62811439d",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/d6c62750391db9b8a7b1d032ca61ada63d3caeb0",
+                "reference": "d6c62750391db9b8a7b1d032ca61ada63d3caeb0",
                 "shasum": ""
             },
             "require": {
@@ -4857,7 +4857,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-04-11 13:26:07"
+            "time": "2017-04-25 08:04:28"
         },
         {
             "name": "phpdocumentor/reflection-common",

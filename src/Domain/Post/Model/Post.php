@@ -4,6 +4,7 @@ namespace App\Domain\Post\Model;
 
 use App\Domain\Player\Model\Player;
 use App\Domain\Post\ValueObject\PostId;
+use App\Domain\SearchQuery\Model\SearchQuery;
 
 /**
  * Class Post
@@ -38,12 +39,12 @@ class Post
 //        $this->query = $query;
 //        $this->createdAt = $createdAt;
 //    }
-    public function __construct(PostId $id, Player $player)
+    public function __construct(PostId $id, Player $player, SearchQuery $searchQuery)
     {
         $this->id = $id;
         $this->player = $player;
+        $this->query = $searchQuery;
         $this->createdAt = new \DateTime('now');
-//        $this->query = $query;
 //        $this->createdAt = $createdAt;
     }
 

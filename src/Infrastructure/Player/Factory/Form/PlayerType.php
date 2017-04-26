@@ -68,12 +68,4 @@ class PlayerType extends AbstractType
     {
         return 'player';
     }
-
-    /**
-//     * @return null|string
-//     */
-//    public function getParent(): ?string
-//    {
-//        return PostType::class;
-//    }
 }
