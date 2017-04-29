@@ -1,4 +1,4 @@
-App\Model\Rift:
+App\Domain\GameMode\Model\Rift:
     type: entity
     table: rift
     fields:

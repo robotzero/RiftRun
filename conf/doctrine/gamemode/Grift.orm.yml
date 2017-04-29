@@ -1,4 +1,4 @@
-App\Model\Grift:
+App\Domain\GameMode\Model\Grift:
     type: entity
     table: grift
     fields:

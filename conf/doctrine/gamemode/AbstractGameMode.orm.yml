@@ -1,0 +1,23 @@
+App\Domain\GameMode\Model\AbstractGameMode:
+    type: entity
+    table: gamemode
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: type
+        type: string
+        cascade: [ persist, remove ]
+    discriminatorMap:
+        grift: App\Domain\GameMode\Model\Grift
+        rift: App\Domain\GameMode\Model\Rift
+    embedded:
+        type:
+            class: App\Domain\GameMode\ValueObject\GameType
+    cascade: [ persist, remove ]
+    id:
+        id:
+            type: gameModeId
+            id: true
+            nullable: false
+            generator:
+                strategy: UUID
+    lifecycleCallbacks: {  }

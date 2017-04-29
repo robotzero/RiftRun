@@ -30,7 +30,7 @@ class PostType extends AbstractType
         'grift' => GriftType::class
     ];
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
 //        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
 //            $data = $event->getData();

@@ -13,16 +13,16 @@ App\Domain\Post\Model\Post:
             fetch: LAZY
             cascade: [ persist, remove]
             orphanRemoval: true
-#        query:
-#            targetEntity: SearchQuery
-#            joinColumn:
-#                name: searchquery_id
-#                referencedColumnName: id
-#                nullable: true
-#                onDelete: CASCADE
-#            fetch: LAZY
-#            cascade: [ persist, remove ]
-#            orphanRemoval: true
+        query:
+            targetEntity: App\Domain\SearchQuery\Model\SearchQuery
+            joinColumn:
+                name: searchquery_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+            fetch: LAZY
+            cascade: [ persist, remove ]
+            orphanRemoval: true
     id:
         id:
             type: postId

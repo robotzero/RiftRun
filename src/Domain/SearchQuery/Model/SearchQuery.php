@@ -26,9 +26,6 @@ class SearchQuery
      */
     private $createdAt;
 
-    /**
-     * @var \App\Model\GameType
-     */
     private $game;
 
     /**
@@ -38,9 +35,10 @@ class SearchQuery
 
     /**
      * Constructor
+     * @param SearchQueryId $id
      * @param int $minParagon
-     * @param GameType $game
-     * @param \DateTime $createdAt
+     * @internal param GameType $game
+     * @internal param \DateTime $createdAt
      */
 //    public function __construct(int $minParagon, GameType $game, \DateTime $createdAt)
 //    {
@@ -52,6 +50,7 @@ class SearchQuery
     public function __construct(SearchQueryId $id, int $minParagon)
     {
         $this->id = $id;
+        $this->minParagon = $minParagon;
         $this->createdAt = new \DateTime('now');
 //        $this->query = $query;
 //        $this->createdAt = $createdAt;
@@ -62,7 +61,7 @@ class SearchQuery
      *
      * @return string
      */
-    public function getId():string
+    public function getId(): string
     {
         return $this->id->__toString();
     }
@@ -72,7 +71,7 @@ class SearchQuery
      *
      * @return integer
      */
-    public function getMinParagon()
+    public function getMinParagon(): int
     {
         return $this->minParagon;
     }

@@ -53,6 +53,7 @@ doctrine:
             playerCharacterId: App\Infrastructure\PlayerCharacter\Doctrine\Types\PlayerCharacterIdType
             playerId: App\Infrastructure\Player\Doctrine\Types\PlayerIdType
             searchQueryId: App\Infrastructure\SearchQuery\Doctrine\Types\SearchQueryIdType
+            gameModeId: App\Infrastructure\GameMode\Doctrine\Types\GameModeIdType
         connections:
             riftrun:
                 mapping_types:
@@ -67,12 +68,6 @@ doctrine:
             default:
                 connection: riftrun
                 mappings:
-#                    App:
-#                        type: yml
-#                        is_bundle: false
-#                        dir:       '%kernel.root_dir%/../conf/doctrine/riftrun'
-#                        prefix:    'App\Domain'
-#                        alias:     'RiftRunners'
                     Post:
                         type: yml
                         is_bundle: false
@@ -88,7 +83,7 @@ doctrine:
                     SearchQuery:
                         type: yml
                         is_bundle: false
-                        dir:      '%kernel.root_dir%/../conf/doctrine/searchquery'
+                        dir:       '%kernel.root_dir%/../conf/doctrine/searchquery'
                         prefix:    'App\Domain\SearchQuery\Model'
                         alias:     'RiftRunners'
                     PlayerCharacter:
@@ -97,6 +92,18 @@ doctrine:
                         dir:       '%kernel.root_dir%/../conf/doctrine/playercharacter'
                         prefix:    'App\Domain\PlayerCharacter\Model'
                         alias:     'RiftRunners'
+                    GameMode:
+                        type:       yml
+                        is_bundle:  false
+                        dir:        '%kernel.root_dir%/../conf/doctrine/gamemode'
+                        prefix:     'App\Domain\GameMode\Model'
+                        alias:      'RiftRunners'
+                    GameType:
+                        type:       yml
+                        is_bundle:  false
+                        dir:        '%kernel.root_dir%/../conf/doctrine/valueobject'
+                        prefix:     'App\Domain\GameMode\ValueObject'
+
 # FOS Rest Configuration
 sensio_framework_extra:
     view:       { annotations: true }
