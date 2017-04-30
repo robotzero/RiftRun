@@ -980,18 +980,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "03972c9c3a6d16b1c6c6e43d5cc2561f105df8fa"
+                "reference": "7c6c5d87c82ad3bb1b4987f65f5201a99cede2d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/03972c9c3a6d16b1c6c6e43d5cc2561f105df8fa",
-                "reference": "03972c9c3a6d16b1c6c6e43d5cc2561f105df8fa",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7c6c5d87c82ad3bb1b4987f65f5201a99cede2d2",
+                "reference": "7c6c5d87c82ad3bb1b4987f65f5201a99cede2d2",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "~1.2",
                 "doctrine/cache": "~1.5",
-                "doctrine/collections": "~1.3",
+                "doctrine/collections": "^1.4",
                 "doctrine/common": "^2.7.1",
                 "doctrine/dbal": ">=2.5-dev,<2.7-dev",
                 "doctrine/instantiator": "~1.0.1",
@@ -1052,7 +1052,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-04-23 12:25:39"
+            "time": "2017-04-30 11:51:49"
         },
         {
             "name": "fig/link-util",
@@ -3866,12 +3866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f8133cbd4ea7b3139cabb5efc609249872247d91"
+                "reference": "7010a7a76b8880c4bcf2f04f1da47e74487e2d85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f8133cbd4ea7b3139cabb5efc609249872247d91",
-                "reference": "f8133cbd4ea7b3139cabb5efc609249872247d91",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/7010a7a76b8880c4bcf2f04f1da47e74487e2d85",
+                "reference": "7010a7a76b8880c4bcf2f04f1da47e74487e2d85",
                 "shasum": ""
             },
             "require": {
@@ -3925,7 +3925,6 @@
                 "symfony/inflector": "self.version",
                 "symfony/intl": "self.version",
                 "symfony/ldap": "self.version",
-                "symfony/lock": "self.version",
                 "symfony/monolog-bridge": "self.version",
                 "symfony/options-resolver": "self.version",
                 "symfony/process": "self.version",
@@ -4012,7 +4011,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-28 20:30:07"
+            "time": "2017-04-30 16:40:33"
         },
         {
             "name": "twig/twig",
