@@ -1,0 +1,74 @@
+services:
+    find_post_handler:
+        class: App\Application\UseCase\Post\FindPostHandler
+        public: true
+        arguments:
+            - '@post_repository'
+        tags:
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\FindPost }
+
+    JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
+    Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
+    Doctrine\Common\DataFixtures\Purger\PurgerInterface: '@standard_orm_purger'
+    App\Factories\LoaderFactory: '@nelmio_loader_factory'
+    League\Tactician\CommandBus: '@tactician.commandbus.default'
+    App\Domain\Post\Repository\PostRepositoryInterface: '@post_repository'
+
+    App\:
+        resource: '../../src/{Services,CommandBus/Handlers,Command/Handlers}'
+    App\UI\Rest\Controller\:
+        resource: '../../src/UI/Rest/Controller'
+        public: true
+        autowire: true
+
+    standard_orm_purger:
+        class: Doctrine\Common\DataFixtures\Purger\ORMPurger
+
+    pager_fanta_factory:
+        class: Hateoas\Representation\Factory\PagerfantaFactory
+
+    load_fixtures_cli:
+        class: App\Cli\DatabaseSeederCommand
+        tags:
+            -  { name: console.command }
+
+    clear_database_cli:
+        class: App\Cli\DatabaseClearCommand
+        tags:
+            -  { name: console.command }
+
+    # Factories
+    nelmio_loader_factory:
+        class: App\Factories\AliceLoaderFactory
+        arguments:
+            - '@fidry_alice_data_fixtures.doctrine.persister_loader'
+
+    # =========== Split into separate files ========== #
+    riftrun.abstract.repository:
+        abstract: true
+        factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+        public: false
+
+    post_repository:
+        class: App\Infrastructure\Post\Repository\PostRepository
+        autowire: false
+        arguments:
+          - 'App\Domain\Post\Model\Post'
+        parent: riftrun.abstract.repository
+
+    riftrun.factory.post:
+        class: App\Infrastructure\Post\Factory\PostFormFactory
+        parent: riftrun.abstract.form_factory
+
+    riftrun.abstract.form_factory:
+        abstract: true
+        arguments:
+           - '@form.factory'
+
+    App\Application\UseCase\Post\CreatePostCommandHandler:
+         arguments:
+            - '@post_repository'
+            - '@riftrun.factory.post'
+         public: true
+         tags:
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\CreatePost }

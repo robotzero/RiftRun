@@ -2,6 +2,7 @@
 
 namespace App\Domain\SearchQuery\Model;
 
+use App\Domain\GameMode\Model\AbstractGameMode;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Doctrine\Common\Collections\Collection;
 
@@ -47,13 +48,12 @@ class SearchQuery
 //        $this->minParagon = $minParagon;
 //        $this->createdAt = $createdAt;
 //    }
-    public function __construct(SearchQueryId $id, int $minParagon)
+    public function __construct(SearchQueryId $id, $game, int $minParagon)
     {
         $this->id = $id;
         $this->minParagon = $minParagon;
         $this->createdAt = new \DateTime('now');
-//        $this->query = $query;
-//        $this->createdAt = $createdAt;
+        $this->game = $game;
     }
 
     /**
@@ -89,12 +89,11 @@ class SearchQuery
     /**
      * Get game
      *
-     * @return \App\Model\GameType
      */
-//    public function getGame():GameType
-//    {
-//        return $this->game;
-//    }
+    public function getGame():AbstractGameMode
+    {
+        return $this->game;
+    }
 
     /**
      * Add characterType

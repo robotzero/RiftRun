@@ -579,12 +579,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "32220c127a62700c57afec675c9c768f66988097"
+                "reference": "16aed4cc9efcaa23d918bd8d93c0a06d0e031dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/32220c127a62700c57afec675c9c768f66988097",
-                "reference": "32220c127a62700c57afec675c9c768f66988097",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/16aed4cc9efcaa23d918bd8d93c0a06d0e031dad",
+                "reference": "16aed4cc9efcaa23d918bd8d93c0a06d0e031dad",
                 "shasum": ""
             },
             "require": {
@@ -652,7 +652,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-04-26 10:51:41"
+            "time": "2017-05-03 08:50:10"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -980,12 +980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "7c6c5d87c82ad3bb1b4987f65f5201a99cede2d2"
+                "reference": "7bb02d0dbdc337f98fa94078985baa713c24bb65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7c6c5d87c82ad3bb1b4987f65f5201a99cede2d2",
-                "reference": "7c6c5d87c82ad3bb1b4987f65f5201a99cede2d2",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7bb02d0dbdc337f98fa94078985baa713c24bb65",
+                "reference": "7bb02d0dbdc337f98fa94078985baa713c24bb65",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-04-30 11:51:49"
+            "time": "2017-05-03 10:40:33"
         },
         {
             "name": "fig/link-util",
@@ -3163,24 +3163,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SimpleBus/DoctrineORMBridge.git",
-                "reference": "3e93d5d7bbf2f3a4365dd5705cadfae04c9f1e76"
+                "reference": "2fe72fa442ec36eb6dbb4aeb5fbecc38973f2e7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleBus/DoctrineORMBridge/zipball/3e93d5d7bbf2f3a4365dd5705cadfae04c9f1e76",
-                "reference": "3e93d5d7bbf2f3a4365dd5705cadfae04c9f1e76",
+                "url": "https://api.github.com/repos/SimpleBus/DoctrineORMBridge/zipball/2fe72fa442ec36eb6dbb4aeb5fbecc38973f2e7a",
+                "reference": "2fe72fa442ec36eb6dbb4aeb5fbecc38973f2e7a",
                 "shasum": ""
             },
             "require": {
-                "beberlei/assert": "~2.0",
                 "doctrine/orm": "~2.2",
                 "php": ">=5.4",
                 "simple-bus/message-bus": "~2.0"
             },
             "require-dev": {
                 "matthiasnoback/doctrine-orm-test-service-provider": "~2.0",
-                "phpunit/phpunit": "~4.5",
-                "satooshi/php-coveralls": "~0.6"
+                "phpunit/phpunit": "~4.5"
             },
             "suggest": {
                 "simple-bus/symfony-bridge": "Bridge for using command buses and event buses with Symfony"
@@ -3213,7 +3211,7 @@
                 "doctrine",
                 "event bus"
             ],
-            "time": "2016-11-01 17:30:34"
+            "time": "2017-05-02 11:57:13"
         },
         {
             "name": "simple-bus/message-bus",
@@ -3271,12 +3269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SimpleBus/SymfonyBridge.git",
-                "reference": "7879503b3763c04451fcf860e3abfa3b44108218"
+                "reference": "347c88483d4277cede2fb4056c811b6fa4baf287"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleBus/SymfonyBridge/zipball/7879503b3763c04451fcf860e3abfa3b44108218",
-                "reference": "7879503b3763c04451fcf860e3abfa3b44108218",
+                "url": "https://api.github.com/repos/SimpleBus/SymfonyBridge/zipball/347c88483d4277cede2fb4056c811b6fa4baf287",
+                "reference": "347c88483d4277cede2fb4056c811b6fa4baf287",
                 "shasum": ""
             },
             "require": {
@@ -3291,7 +3289,6 @@
                 "doctrine/doctrine-bundle": "~1.0",
                 "doctrine/orm": "~2.3",
                 "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "~0.6",
                 "simple-bus/doctrine-orm-bridge": "~4.0",
                 "symfony/monolog-bridge": "~2.3|~3.0",
                 "symfony/monolog-bundle": "~2.3|~3.0"
@@ -3331,7 +3328,7 @@
                 "event bus",
                 "symfony"
             ],
-            "time": "2016-11-01 17:29:27"
+            "time": "2017-05-02 11:37:47"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3463,12 +3460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "6f96c7dbb6b2ef70b307a1a6f897153cbca3da47"
+                "reference": "e3b284b8ddacd1f5ace5caf5635d3c469c1ab87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/6f96c7dbb6b2ef70b307a1a6f897153cbca3da47",
-                "reference": "6f96c7dbb6b2ef70b307a1a6f897153cbca3da47",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/e3b284b8ddacd1f5ace5caf5635d3c469c1ab87c",
+                "reference": "e3b284b8ddacd1f5ace5caf5635d3c469c1ab87c",
                 "shasum": ""
             },
             "require": {
@@ -3515,7 +3512,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2017-03-26 11:55:59"
+            "time": "2017-05-03 06:45:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -3866,12 +3863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "7010a7a76b8880c4bcf2f04f1da47e74487e2d85"
+                "reference": "deda9eac030f822e9becfea6cbe79a7b862973e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/7010a7a76b8880c4bcf2f04f1da47e74487e2d85",
-                "reference": "7010a7a76b8880c4bcf2f04f1da47e74487e2d85",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/deda9eac030f822e9becfea6cbe79a7b862973e2",
+                "reference": "deda9eac030f822e9becfea6cbe79a7b862973e2",
                 "shasum": ""
             },
             "require": {
@@ -4011,7 +4008,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-04-30 16:40:33"
+            "time": "2017-05-03 19:32:29"
         },
         {
             "name": "twig/twig",
@@ -4699,12 +4696,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "cc5720eadd8b231a522c1740a52d49a1b061b15d"
+                "reference": "309b4e99947d9b9806a797416f2f36259a3df0cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/cc5720eadd8b231a522c1740a52d49a1b061b15d",
-                "reference": "cc5720eadd8b231a522c1740a52d49a1b061b15d",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/309b4e99947d9b9806a797416f2f36259a3df0cb",
+                "reference": "309b4e99947d9b9806a797416f2f36259a3df0cb",
                 "shasum": ""
             },
             "require": {
@@ -4741,7 +4738,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-04-24 16:07:00"
+            "time": "2017-05-02 09:16:26"
         },
         {
             "name": "myclabs/deep-copy",

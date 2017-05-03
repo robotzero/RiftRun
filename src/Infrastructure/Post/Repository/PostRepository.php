@@ -17,8 +17,8 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
     public function findAll() : Pagerfanta {
         $queryBuilder = $this->createQueryBuilder($alias = 'posts');
         $queryBuilder->select('posts')
-//            ->innerJoin('posts.query', 'q')
-//            ->innerJoin('posts.player', 'p')
+            ->innerJoin('posts.query', 'q')
+            ->innerJoin('posts.player', 'p')
 //            ->innerJoin('q.game', 'g')
 //            ->innerJoin('q.characterType', 'ct')
             ->orderBy('posts.createdAt', 'desc')

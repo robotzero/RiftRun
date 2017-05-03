@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Post\Factory\Form;
 
+use App\Domain\GameMode\Model\Rift;
 use App\Domain\Player\Model\Player;
 use App\Domain\Player\ValueObject\PlayerId;
 use App\Domain\Post\Model\Post;
@@ -9,6 +10,8 @@ use App\Domain\Post\ValueObject\PostId;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use App\DTO\PostDTO;
+use App\Infrastructure\GameMode\Factory\Form\GriftType;
+use App\Infrastructure\GameMode\Factory\Form\RiftType;
 use App\Infrastructure\Player\Factory\Form\PlayerType;
 use App\Infrastructure\SearchQuery\Factory\Form\SearchQueryType;
 use Doctrine\Common\Util\Debug;
@@ -32,16 +35,17 @@ class PostType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-//        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
-//            $data = $event->getData();
-//            $form = $event->getForm();
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+            $data = $event->getData();
+            $form = $event->getForm();
 
-            //@Todo verify that type is set to allowed types.
-//            if (isset($data['query']['game']['type'])) {
-//                $searchquery = $form->get('query');
-//                $searchquery->add('game', $this->typesMap[$data['query']['game']['type']], ['required' => true]);
-//            }
-//        });
+//            @Todo verify that type is set to allowed types.
+            if (isset($data['query']['game']['type'])) {
+                $searchquery = $form->get('query');
+                $searchquery->add('game', $this->typesMap[$data['query']['game']['type']], ['mapped' => false]);
+                unset($data['query']['game']['type']);
+            }
+        });
         $builder->add('uuid', null, ['mapped' => false]);
         $builder->add('query', SearchQueryType::class, ['mapped' => false]);
         $builder->add('player', PlayerType::class, ['mapped' => false]);
@@ -59,6 +63,9 @@ class PostType extends AbstractType
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
                 $playerData = $form->get('player');
+                $gameData = $form->get('query');
+//                Debug::dump($gameData->all()['game']['torment']->getData());
+//                die();
                 return new Post(
                     new PostId(),
                     new Player(
@@ -73,6 +80,9 @@ class PostType extends AbstractType
                     ),
                     new SearchQuery(
                         new SearchQueryId(),
+                        new Rift(
+                            $gameData->all()['game']['torment']->getData()
+                        ),
                         $form->get('query')->get('minParagon')->getData()
                     )
                 );
