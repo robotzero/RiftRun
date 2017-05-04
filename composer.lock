@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "beberlei/assert",
-            "version": "v2.7.5",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "2f688ee39ea9ce9e2c2164c9db62df3246b8fbff"
+                "reference": "8726e183ebbb0169cb6cb4832e22ebd355524563"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/2f688ee39ea9ce9e2c2164c9db62df3246b8fbff",
-                "reference": "2f688ee39ea9ce9e2c2164c9db62df3246b8fbff",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/8726e183ebbb0169cb6cb4832e22ebd355524563",
+                "reference": "8726e183ebbb0169cb6cb4832e22ebd355524563",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2017-04-26 09:32:13"
+            "time": "2017-05-04 02:00:24"
         },
         {
             "name": "behat/transliterator",
@@ -1667,12 +1667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "8e4e23534ea0b66b081f97ec7f73275f0f270368"
+                "reference": "8e37f49a1e824c71bdac3024fe16ad6289fd1c19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/8e4e23534ea0b66b081f97ec7f73275f0f270368",
-                "reference": "8e4e23534ea0b66b081f97ec7f73275f0f270368",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/8e37f49a1e824c71bdac3024fe16ad6289fd1c19",
+                "reference": "8e37f49a1e824c71bdac3024fe16ad6289fd1c19",
                 "shasum": ""
             },
             "require": {
@@ -1730,7 +1730,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-04-12 15:57:21"
+            "time": "2017-05-04 15:27:49"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3863,12 +3863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "deda9eac030f822e9becfea6cbe79a7b862973e2"
+                "reference": "f6043bb8f13c7f3f41bdddaf6faf436e867f0dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/deda9eac030f822e9becfea6cbe79a7b862973e2",
-                "reference": "deda9eac030f822e9becfea6cbe79a7b862973e2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f6043bb8f13c7f3f41bdddaf6faf436e867f0dca",
+                "reference": "f6043bb8f13c7f3f41bdddaf6faf436e867f0dca",
                 "shasum": ""
             },
             "require": {
@@ -4008,7 +4008,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-03 19:32:29"
+            "time": "2017-05-04 18:13:14"
         },
         {
             "name": "twig/twig",
@@ -4233,16 +4233,16 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "1f210db45723b21edd69f39794662b8d64656b93"
+                "reference": "2ba90aa46b5e77f87b55f149cfd544b8434941d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/1f210db45723b21edd69f39794662b8d64656b93",
-                "reference": "1f210db45723b21edd69f39794662b8d64656b93",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/2ba90aa46b5e77f87b55f149cfd544b8434941d9",
+                "reference": "2ba90aa46b5e77f87b55f149cfd544b8434941d9",
                 "shasum": ""
             },
             "require": {
@@ -4254,7 +4254,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -4281,7 +4281,7 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2016-10-14 09:17:47"
+            "time": "2017-05-04 12:15:48"
         }
     ],
     "packages-dev": [
@@ -4696,12 +4696,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "309b4e99947d9b9806a797416f2f36259a3df0cb"
+                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/309b4e99947d9b9806a797416f2f36259a3df0cb",
-                "reference": "309b4e99947d9b9806a797416f2f36259a3df0cb",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4c751251f4f66ada7bfb10a96993c664e479b626",
+                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626",
                 "shasum": ""
             },
             "require": {
@@ -4738,7 +4738,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-05-02 09:16:26"
+            "time": "2017-05-04 14:38:58"
         },
         {
             "name": "myclabs/deep-copy",

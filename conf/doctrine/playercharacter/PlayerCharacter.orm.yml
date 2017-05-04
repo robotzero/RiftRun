@@ -1,13 +1,13 @@
 App\Domain\PlayerCharacter\Model\PlayerCharacter:
     type: entity
     table: playercharacter
-#    manyToOne:
-#        searchQuery:
-#            targetEntity: SearchQuery
-#            inversedBy: characterType
-#            joinColumn:
-#                name: searchquery_id
-#                referencedColumnName: id
+    manyToOne:
+        searchQuery:
+            targetEntity: App\Domain\SearchQuery\Model\SearchQuery
+            inversedBy: playerCharacter
+            joinColumn:
+                name: searchquery_id
+                referencedColumnName: id
     id:
         id:
             type: playerCharacterId

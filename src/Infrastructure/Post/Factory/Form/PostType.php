@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Post\Factory\Form;
 
+use App\Domain\GameMode\Model\AbstractGameMode;
 use App\Domain\GameMode\Model\Rift;
 use App\Domain\Player\Model\Player;
 use App\Domain\Player\ValueObject\PlayerId;
@@ -40,13 +41,12 @@ class PostType extends AbstractType
             $form = $event->getForm();
 
 //            @Todo verify that type is set to allowed types.
-            if (isset($data['query']['game']['type'])) {
+            if (isset($data['query']['game']['gameMode'])) {
                 $searchquery = $form->get('query');
-                $searchquery->add('game', $this->typesMap[$data['query']['game']['type']], ['mapped' => false]);
-                unset($data['query']['game']['type']);
+                $searchquery->add('game', $this->typesMap[$data['query']['game']['gameMode']], ['mapped' => false]);
+                unset($data['query']['game']['gameMode']);
             }
         });
-        $builder->add('uuid', null, ['mapped' => false]);
         $builder->add('query', SearchQueryType::class, ['mapped' => false]);
         $builder->add('player', PlayerType::class, ['mapped' => false]);
     }
@@ -78,13 +78,7 @@ class PostType extends AbstractType
                         $playerData->get('gameType')->getData(),
                         new \DateTime()
                     ),
-                    new SearchQuery(
-                        new SearchQueryId(),
-                        new Rift(
-                            $gameData->all()['game']['torment']->getData()
-                        ),
-                        $form->get('query')->get('minParagon')->getData()
-                    )
+                    $form->all()['query']->getData()
                 );
             }
 //            'constraints' => new Valid(),

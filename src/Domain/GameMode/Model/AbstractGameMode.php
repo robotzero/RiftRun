@@ -2,8 +2,10 @@
 
 namespace App\Domain\GameMode\Model;
 
+use App\Domain\GameMode\Exception\InvalidGameTypeException;
 use App\Domain\GameMode\ValueObject\GameModeId;
 use App\Domain\GameMode\ValueObject\GameType;
+use Doctrine\Common\Util\Debug;
 
 /**
  * Class GameMode
@@ -19,17 +21,17 @@ abstract class AbstractGameMode
     /**
      * @var GameType
      */
-    protected $type;
+    protected $gameMode;
 
     /**
      * GameMode constructor.
      * @param GameModeId $id
-     * @param string $type
+     * @param string $gameMode
      */
-    public function __construct(GameModeId $id, string $type)
+    public function __construct(GameModeId $id, string $gameMode)
     {
         $this->id = $id;
-        $this->type = new GameType($type);
+        $this->gameMode = new GameType($gameMode);
     }
 
     /**
@@ -45,8 +47,21 @@ abstract class AbstractGameMode
     /**
      * @return GameType
      */
-    public function getType(): GameType
+    public function getGameMode(): GameType
     {
-        return $this->type;
+        return $this->gameMode;
+    }
+
+    public static function createGameMode(array $data): AbstractGameMode
+    {
+        if (array_key_exists('torment', $data)) {
+            return new Rift($data['torment']->getData());
+        }
+
+        if (array_key_exists('level', $data)) {
+            return new Grift($data['level']->getData());
+        }
+
+        throw new InvalidGameTypeException();
     }
 }

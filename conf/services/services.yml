@@ -14,13 +14,6 @@ services:
     League\Tactician\CommandBus: '@tactician.commandbus.default'
     App\Domain\Post\Repository\PostRepositoryInterface: '@post_repository'
 
-    App\:
-        resource: '../../src/{Services,CommandBus/Handlers,Command/Handlers}'
-    App\UI\Rest\Controller\:
-        resource: '../../src/UI/Rest/Controller'
-        public: true
-        autowire: true
-
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
 

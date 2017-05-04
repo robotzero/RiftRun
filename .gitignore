@@ -28,3 +28,4 @@ fa/bower_components
 fa.bak/
 var
 mockup
+conf/bootstrap.php.cache

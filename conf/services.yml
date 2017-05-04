@@ -21,3 +21,10 @@ services:
 
         Symfony\Component\EventDispatcher\EventSubscriberInterface:
             tags: ['kernel.event_subscriber']
+
+    App\:
+        resource: '../src/{Services,CommandBus/Handlers,Command/Handlers}'
+    App\UI\Rest\Controller\:
+        resource: '../src/UI/Rest/Controller'
+        public: true
+        autowire: true

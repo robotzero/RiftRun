@@ -32,7 +32,7 @@ class SearchQuery
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $characterType;
+    private $playerCharacter;
 
     /**
      * Constructor
@@ -48,12 +48,13 @@ class SearchQuery
 //        $this->minParagon = $minParagon;
 //        $this->createdAt = $createdAt;
 //    }
-    public function __construct(SearchQueryId $id, $game, int $minParagon)
+    public function __construct(SearchQueryId $id, $game, $character, int $minParagon)
     {
         $this->id = $id;
         $this->minParagon = $minParagon;
         $this->createdAt = new \DateTime('now');
         $this->game = $game;
+        $this->playerCharacter = $character;
     }
 
     /**

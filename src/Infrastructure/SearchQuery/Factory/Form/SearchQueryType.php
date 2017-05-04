@@ -2,10 +2,12 @@
 
 namespace App\Infrastructure\SearchQuery\Factory\Form;
 
+use App\Domain\GameMode\Model\AbstractGameMode;
 use App\Domain\GameMode\Model\Rift;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use App\Infrastructure\GameMode\Factory\Form\GameModeType;
+use App\Infrastructure\PlayerCharacter\Factory\Form\PlayerCharacterType;
 use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -23,17 +25,17 @@ class SearchQueryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-//        $builder->add(
-//            'characterType',
-//            CollectionType::class,
-//            [
-//                'entry_type' => CharacterTypeType::class,
-//                'allow_add' => true,
-//                'required' => true,
-//                'by_reference' => false,
-//                'allow_delete' => false
-//            ]
-//        );
+        $builder->add(
+            'playerCharacter',
+            CollectionType::class,
+            [
+                'entry_type' => PlayerCharacterType::class,
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => false,
+                'mapped' => false
+            ]
+        );
         $builder->add('minParagon', IntegerType::class, ['mapped' => false]);
     }
 
@@ -48,12 +50,16 @@ class SearchQueryType extends AbstractType
             'data_class' => SearchQuery::class,
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
+                $characters = $form->all()['playerCharacter']->getData();
                 $queryData = $form->all();
-                return new SearchQuery(
+                $searchQuery = new SearchQuery(
                     new SearchQueryId(),
-                    new Rift($queryData['game']->get('torment')->getData()),
+                    AbstractGameMode::createGameMode($queryData['game']->all()),
+                    $characters,
                     $queryData['minParagon']->getData()
                 );
+
+                return $searchQuery;
             }
 //            'constraints' => new Valid(),
         ));

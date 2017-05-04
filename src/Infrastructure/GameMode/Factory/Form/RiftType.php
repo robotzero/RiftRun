@@ -23,7 +23,7 @@ class RiftType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('torment', NumberType::class, ['mapped' => false]);
-        $builder->add('type', TextType::class, [ 'mapped' => false ]);
+        $builder->add('gameMode', TextType::class, [ 'mapped' => false ]);
     }
 
     /**

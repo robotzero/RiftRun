@@ -1,8 +1,14 @@
 <?php
 
 namespace App\Domain\PlayerCharacter\Model;
+use App\Domain\PlayerCharacter\ValueObject\PlayerCharacterId;
+use App\Domain\SearchQuery\Model\SearchQuery;
 
 
+/**
+ * Class PlayerCharacter
+ * @package App\Domain\PlayerCharacter\Model
+ */
 class PlayerCharacter
 {
     /**
@@ -20,11 +26,12 @@ class PlayerCharacter
      */
     private $type;
 
-//    public function __construct(SearchQuery $searchQuery, string $type)
-//    {
-//        $this->searchQuery = $searchQuery;
-//        $this->type = $type;
-//    }
+    public function __construct(string $type, SearchQuery $searchQuery = null)
+    {
+        $this->id = new PlayerCharacterId();
+        $this->searchQuery = $searchQuery;
+        $this->type = $type;
+    }
 
     /**
      * Get id
@@ -33,7 +40,7 @@ class PlayerCharacter
      */
     public function getId()
     {
-        return $this->id;
+        return $this->id->__toString();
     }
 
     /**
