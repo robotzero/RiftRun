@@ -8,6 +8,7 @@ App\Domain\PlayerCharacter\Model\PlayerCharacter:
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id
+            fetch: EAGER
     id:
         id:
             type: playerCharacterId

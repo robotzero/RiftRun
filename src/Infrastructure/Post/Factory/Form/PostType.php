@@ -62,22 +62,9 @@ class PostType extends AbstractType
             'data_class' => Post::class,
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
-                $playerData = $form->get('player');
-                $gameData = $form->get('query');
-//                Debug::dump($gameData->all()['game']['torment']->getData());
-//                die();
                 return new Post(
                     new PostId(),
-                    new Player(
-                        new PlayerId(),
-                        $playerData->get('type')->getData(),
-                        $playerData->get('paragonPoints')->getData(),
-                        $playerData->get('battleTag')->getData(),
-                        $playerData->get('region')->getData(),
-                        $playerData->get('seasonal')->getData(),
-                        $playerData->get('gameType')->getData(),
-                        new \DateTime()
-                    ),
+                    $form->all()['player']->getData(),
                     $form->all()['query']->getData()
                 );
             }

@@ -47,7 +47,7 @@ class PlayerType extends AbstractType
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
                 $playerData = $form->all();
-                new Player(
+                return new Player(
                     new PlayerId(),
                     $playerData['type']->getData(),
                     $playerData['paragonPoints']->getData(),

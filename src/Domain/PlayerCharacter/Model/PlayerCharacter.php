@@ -3,6 +3,7 @@
 namespace App\Domain\PlayerCharacter\Model;
 use App\Domain\PlayerCharacter\ValueObject\PlayerCharacterId;
 use App\Domain\SearchQuery\Model\SearchQuery;
+use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 
 
 /**
@@ -51,5 +52,20 @@ class PlayerCharacter
     public function getType(): string
     {
         return $this->type;
+    }
+
+    /**
+     * @param SearchQuery $searchQuery
+     */
+    public function setSearchQuery(SearchQuery $searchQuery): void {
+        $this->searchQuery = $searchQuery;
+    }
+
+    /**
+     * @return SearchQuery
+     */
+    public function getSearchQuery(): SearchQuery
+    {
+        return $this->searchQuery;
     }
 }

@@ -1,14 +1,14 @@
 App\Domain\Post\Model\Post:
     exclusion_policy: ALL
     properties:
-        id:
+        uuid:
             expose: true
             groups: [Basic]
             type: App\Domain\Post\ValueObject\PostId
-        createdAt:
+        query:
             expose: true
             groups: [Basic]
-            serialized_name: createdAt
+            type: App\Domain\SearchQuery\Model\SearchQuery
     relations:
         -
             rel: self

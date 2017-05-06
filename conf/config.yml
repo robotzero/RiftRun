@@ -143,11 +143,11 @@ jms_serializer:
             dir: '%kernel.cache_dir%/jms_serializer'
         auto_detection: true
         directories:
-#            RiftRun:
-#                namespace_prefix: 'App\DTO'
-#                path: '%kernel.root_dir%/../conf/serializer'
             Post:
-                namespace_prefix: 'App\Model'
+                namespace_prefix: 'App\\Domain\\Post\\Model'
+                path: '%kernel.root_dir%/../conf/serializer'
+            SearchQuery:
+                namespace_prefix: 'App\\Domain\\SearchQuery\\Model'
                 path: '%kernel.root_dir%/../conf/serializer'
 bazinga_hateoas:
     metadata:

@@ -50,14 +50,18 @@ class SearchQueryType extends AbstractType
             'data_class' => SearchQuery::class,
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
-                $characters = $form->all()['playerCharacter']->getData();
+                $playerCharacters = $form->all()['playerCharacter']->getData();
                 $queryData = $form->all();
                 $searchQuery = new SearchQuery(
                     new SearchQueryId(),
                     AbstractGameMode::createGameMode($queryData['game']->all()),
-                    $characters,
                     $queryData['minParagon']->getData()
                 );
+
+                foreach ($playerCharacters as $playerCharacter) {
+                    $playerCharacter->setSearchQuery($searchQuery);
+                    $searchQuery->addPlayerCharacter($playerCharacter);
+                }
 
                 return $searchQuery;
             }

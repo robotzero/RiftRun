@@ -3,8 +3,11 @@
 namespace App\Domain\SearchQuery\Model;
 
 use App\Domain\GameMode\Model\AbstractGameMode;
+use App\Domain\PlayerCharacter\Model\PlayerCharacter;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Util\Debug;
 
 /**
  * Class SearchQuery
@@ -27,34 +30,26 @@ class SearchQuery
      */
     private $createdAt;
 
-    private $game;
+    private $gameMode;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $playerCharacter;
+    private $playerCharacters;
 
     /**
-     * Constructor
+     * SearchQuery constructor.
      * @param SearchQueryId $id
+     * @param AbstractGameMode $gameMode
      * @param int $minParagon
-     * @internal param GameType $game
-     * @internal param \DateTime $createdAt
      */
-//    public function __construct(int $minParagon, GameType $game, \DateTime $createdAt)
-//    {
-//        $this->characterType = new ArrayCollection();
-//        $this->game = $game;
-//        $this->minParagon = $minParagon;
-//        $this->createdAt = $createdAt;
-//    }
-    public function __construct(SearchQueryId $id, $game, $character, int $minParagon)
+    public function __construct(SearchQueryId $id, AbstractGameMode $gameMode, int $minParagon)
     {
         $this->id = $id;
         $this->minParagon = $minParagon;
         $this->createdAt = new \DateTime('now');
-        $this->game = $game;
-        $this->playerCharacter = $character;
+        $this->gameMode = $gameMode;
+        $this->playerCharacters = new ArrayCollection();
     }
 
     /**
@@ -88,45 +83,44 @@ class SearchQuery
     }
 
     /**
-     * Get game
+     * Get gameMode
      *
      */
-    public function getGame():AbstractGameMode
+    public function getGameMode():AbstractGameMode
     {
-        return $this->game;
+        return $this->gameMode;
     }
 
     /**
-     * Add characterType
+     * Add playerCharacter
      *
-     * @param CharacterType $characterType
+     * @param PlayerCharacter $playerCharacter
      *
      * @return SearchQuery
      */
-//    public function addCharacterType(CharacterType $characterType)
-//    {
-//        $this->characterType->add($characterType);
-//
-//        return $this;
-//    }
+    public function addPlayerCharacter(PlayerCharacter $playerCharacter)
+    {
+        $this->playerCharacters->add($playerCharacter);
+        return $this;
+    }
 
     /**
-     * Remove characterType
+     * Remove playerCharacter
      *
-     * @param CharacterType $characterType
+     * @param PlayerCharacter $playerCharacter
      */
-//    public function removeCharacterType(CharacterType $characterType)
-//    {
-//        $this->characterType->removeElement($characterType);
-//    }
+    public function removeCharacterType(PlayerCharacter $playerCharacter)
+    {
+        $this->playerCharacters->removeElement($playerCharacter);
+    }
 
     /**
-     * Get characterType
+     * Get playerCharacters
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-//    public function getCharacterType():Collection
-//    {
-//        return $this->characterType;
-//    }
+    public function getPlayerCharacters():Collection
+    {
+        return $this->playerCharacters;
+    }
 }
