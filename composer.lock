@@ -3863,12 +3863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "e5bb8fad3f2078ba4011690b9ecc57c1ada43a6f"
+                "reference": "f56245594c957a97750e084204295b7972dd9ae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/e5bb8fad3f2078ba4011690b9ecc57c1ada43a6f",
-                "reference": "e5bb8fad3f2078ba4011690b9ecc57c1ada43a6f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f56245594c957a97750e084204295b7972dd9ae2",
+                "reference": "f56245594c957a97750e084204295b7972dd9ae2",
                 "shasum": ""
             },
             "require": {
@@ -4008,7 +4008,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-05 15:45:54"
+            "time": "2017-05-07 15:55:12"
         },
         {
             "name": "twig/twig",
@@ -5045,12 +5045,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "1c77d11878c4bd475bc66f0eaa2686df0fcfa30f"
+                "reference": "14cf4abb303d99679731f65d92fb057c8f6b1372"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/1c77d11878c4bd475bc66f0eaa2686df0fcfa30f",
-                "reference": "1c77d11878c4bd475bc66f0eaa2686df0fcfa30f",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/14cf4abb303d99679731f65d92fb057c8f6b1372",
+                "reference": "14cf4abb303d99679731f65d92fb057c8f6b1372",
                 "shasum": ""
             },
             "require": {
@@ -5119,7 +5119,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-04-27 12:40:39"
+            "time": "2017-05-07 17:45:59"
         },
         {
             "name": "phpspec/prophecy",
