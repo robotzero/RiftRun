@@ -47,7 +47,8 @@
         "ramsey/uuid-doctrine": "dev-master",
         "nelmio/cors-bundle": "dev-master",
         "league/pipeline": "dev-master",
-        "league/tactician-doctrine": "dev-master"
+        "league/tactician-doctrine": "dev-master",
+        "jms/serializer": "^1.7@DEV"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",

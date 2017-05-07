@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "678dbc665201ddf5ee160ce4ee11dc6f",
-    "content-hash": "08bb9882c04ccbe5e3d74e75a9d27164",
+    "hash": "1664ee6581b4523f1d469aa43a2dba96",
+    "content-hash": "25f7850378debc39efbad269212bc07c",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1583,16 +1583,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.6.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "b8683d206e7297f54034f67a877f966c14dc12ea"
+                "reference": "6a28c1de9f5d6e8d74d8f66048eb8194e06d7f3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/b8683d206e7297f54034f67a877f966c14dc12ea",
-                "reference": "b8683d206e7297f54034f67a877f966c14dc12ea",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/6a28c1de9f5d6e8d74d8f66048eb8194e06d7f3f",
+                "reference": "6a28c1de9f5d6e8d74d8f66048eb8194e06d7f3f",
                 "shasum": ""
             },
             "require": {
@@ -1631,7 +1631,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -1658,7 +1658,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-04-17 15:27:46"
+            "time": "2017-05-05 17:40:46"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1667,16 +1667,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "8e37f49a1e824c71bdac3024fe16ad6289fd1c19"
+                "reference": "c408c0fb92f462f1108c3cda7af694aeef536b91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/8e37f49a1e824c71bdac3024fe16ad6289fd1c19",
-                "reference": "8e37f49a1e824c71bdac3024fe16ad6289fd1c19",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/c408c0fb92f462f1108c3cda7af694aeef536b91",
+                "reference": "c408c0fb92f462f1108c3cda7af694aeef536b91",
                 "shasum": ""
             },
             "require": {
-                "jms/serializer": "^1.6",
+                "jms/serializer": "^1.7@DEV",
                 "php": ">=5.4.0",
                 "phpoption/phpoption": "^1.1.0",
                 "symfony/framework-bundle": "~2.3|~3.0"
@@ -1730,7 +1730,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-04 15:27:49"
+            "time": "2017-05-05 14:50:28"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3863,12 +3863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f6043bb8f13c7f3f41bdddaf6faf436e867f0dca"
+                "reference": "e5bb8fad3f2078ba4011690b9ecc57c1ada43a6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f6043bb8f13c7f3f41bdddaf6faf436e867f0dca",
-                "reference": "f6043bb8f13c7f3f41bdddaf6faf436e867f0dca",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e5bb8fad3f2078ba4011690b9ecc57c1ada43a6f",
+                "reference": "e5bb8fad3f2078ba4011690b9ecc57c1ada43a6f",
                 "shasum": ""
             },
             "require": {
@@ -4008,7 +4008,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-04 18:13:14"
+            "time": "2017-05-05 15:45:54"
         },
         {
             "name": "twig/twig",
@@ -4788,12 +4788,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "d6c62750391db9b8a7b1d032ca61ada63d3caeb0"
+                "reference": "f596140bbcdc2dd19a8a8365bb1334bc94a5c377"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/d6c62750391db9b8a7b1d032ca61ada63d3caeb0",
-                "reference": "d6c62750391db9b8a7b1d032ca61ada63d3caeb0",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/f596140bbcdc2dd19a8a8365bb1334bc94a5c377",
+                "reference": "f596140bbcdc2dd19a8a8365bb1334bc94a5c377",
                 "shasum": ""
             },
             "require": {
@@ -4822,7 +4822,7 @@
             },
             "autoload": {
                 "files": [
-                    "src/functions.php"
+                    "src/deep_clone.php"
                 ],
                 "psr-4": {
                     "Nelmio\\Alice\\": "src"
@@ -4853,7 +4853,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-04-25 08:04:28"
+            "time": "2017-05-06 16:53:48"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -6414,6 +6414,7 @@
         "nelmio/cors-bundle": 20,
         "league/pipeline": 20,
         "league/tactician-doctrine": 20,
+        "jms/serializer": 20,
         "sensio/generator-bundle": 20,
         "behat/behat": 20,
         "phpspec/phpspec": 20,
