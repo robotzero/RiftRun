@@ -20,7 +20,6 @@ use JMS\Serializer\SerializerInterface;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Forms\PostType;
 
 class PostsController extends AbstractBusController
 {
@@ -53,7 +52,8 @@ class PostsController extends AbstractBusController
      * @throws \Pagerfanta\Exception\NotIntegerCurrentPageException
      * @throws \Pagerfanta\Exception\LessThan1MaxPerPageException
      * @throws \Pagerfanta\Exception\LessThan1CurrentPageException
-     * @View()
+     * @View(statusCode=200)
+     * View(statusCode=200, serializerGroups={"Identifier", "Basic"})
      * @QueryParam(name="page", key="page", requirements="\d+", default=1, description="Page Number", strict=true, nullable=true)
      * @QueryParam(name="limit", key="limit", requirements="\d+", default=20, description="Item per page", strict=true, nullable=true)
      * @Get("/posts")

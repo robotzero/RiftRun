@@ -119,19 +119,33 @@ sensio_framework_extra:
 #        psr_message: { enabled: false } # Defaults to true if
 
 fos_rest:
+    versioning:
+        enabled: true
+        resolvers:
+            query:
+                parameter_name: version
+            media_type:
+                enabled: true
+                regex: '/(v|version)=(?P<version>[0-9\.]+)/'
     param_fetcher_listener: force
     body_listener: true
     format_listener:
         rules:
-            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
+            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: true }
     view:
         view_response_listener: force
+        formats:
+            json: true
+        mime_types:
+            json: ['application/json', 'application/json;version=2.0']
         failed_validation: HTTP_BAD_REQUEST
     routing_loader:
         default_format: json
         include_format: false
     serializer:
         serialize_null: true
+        version: 'v1'
+#        groups: ['Identifier']
     exception:
         enabled: true
 
@@ -144,11 +158,18 @@ jms_serializer:
         auto_detection: true
         directories:
             Post:
-                namespace_prefix: 'App\\Domain\\Post\\Model'
-                path: '%kernel.root_dir%/../conf/serializer'
+                namespace_prefix: 'App\Domain\Post\Model'
+                path: '%kernel.root_dir%/../conf/serializer/post'
             SearchQuery:
-                namespace_prefix: 'App\\Domain\\SearchQuery\\Model'
-                path: '%kernel.root_dir%/../conf/serializer'
+                namespace_prefix: 'App\Domain\SearchQuery\Model'
+                path: '%kernel.root_dir%/../conf/serializer/query'
+            Player:
+                namespace_prefix: 'App\Domain\Player\Model'
+                path: '%kernel.root_dir%/../conf/serializer/player'
+            Player:
+                namespace_prefix: 'App\Domain\PlayerCharacter\Model'
+                path: '%kernel.root_dir%/../conf/serializer/playerCharacter'
+
 bazinga_hateoas:
     metadata:
         cache:                file

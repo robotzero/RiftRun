@@ -1,0 +1,19 @@
+App\Domain\Player\Model\Player:
+    exclusion_policy: ALL
+    properties:
+        uuid:
+            expose: true
+            groups: [Identifier]
+            type: App\Domain\Player\ValueObject\PlayerId
+        battleTag:
+            expose: true
+            serialized_name: battleTag
+            groups: [Basic]
+        paragonPoints:
+            expose: true
+            serialized_name: paragonPoints
+            groups: [Basic]
+        gameType:
+            expose: true
+            serialized_name: gameType
+            groups: [Basic]

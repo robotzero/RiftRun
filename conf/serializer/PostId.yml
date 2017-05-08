@@ -1,6 +1,0 @@
-App\Domain\Post\ValueObject\PostId:
-    exclusion_policy: ALL
-    properties:
-        uuid:
-            expose: true
-            groups: [Basic]
