@@ -1,7 +1,7 @@
 App\Domain\SearchQuery\Model\SearchQuery:
     exclusion_policy: ALL
     properties:
-        uuid:
+        id:
             expose: true
             type: App\Domain\SearchQuery\ValueObject\SearchQueryId
             groups: [Identifier]
@@ -9,11 +9,14 @@ App\Domain\SearchQuery\Model\SearchQuery:
             expose: true
             serialized_name: minParagon
             groups: [Basic]
-        playerCharacter:
+        playerCharacters:
             expose: true
             type: ArrayCollection<App\Domain\PlayerCharacter\Model\PlayerCharacter>
             accessor:
                 getter: getPlayerCharacters
-            serialized_name: playerCharacter
+            serialized_name: playerCharacters
             groups: [Basic]
-
+        gameMode:
+            expose: true
+            serialized_name: gameMode
+            groups: [Basic]

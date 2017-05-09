@@ -1,4 +1,0 @@
-App\Model\Grift:
-    properties:
-        id:
-            type: string

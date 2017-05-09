@@ -34,6 +34,10 @@ class PostType extends AbstractType
         'grift' => GriftType::class
     ];
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
@@ -47,8 +51,8 @@ class PostType extends AbstractType
                 unset($data['query']['game']['gameMode']);
             }
         });
-        $builder->add('query', SearchQueryType::class, ['mapped' => false]);
-        $builder->add('player', PlayerType::class, ['mapped' => false]);
+        $builder->add('query', SearchQueryType::class, ['required' => true, 'mapped' => false]);
+        $builder->add('player', PlayerType::class, ['required' => true, 'mapped' => false]);
     }
 
     /**
@@ -67,11 +71,14 @@ class PostType extends AbstractType
                     $form->all()['player']->getData(),
                     $form->all()['query']->getData()
                 );
-            }
-//            'constraints' => new Valid(),
+            },
+            'constraints' => new Valid()
         ));
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return 'post';

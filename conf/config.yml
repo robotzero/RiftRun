@@ -158,17 +158,20 @@ jms_serializer:
         auto_detection: true
         directories:
             Post:
-                namespace_prefix: 'App\Domain\Post\Model'
+                namespace_prefix: 'App\Domain\Post'
                 path: '%kernel.root_dir%/../conf/serializer/post'
             SearchQuery:
-                namespace_prefix: 'App\Domain\SearchQuery\Model'
+                namespace_prefix: 'App\Domain\SearchQuery'
                 path: '%kernel.root_dir%/../conf/serializer/query'
             Player:
-                namespace_prefix: 'App\Domain\Player\Model'
+                namespace_prefix: 'App\Domain\Player'
                 path: '%kernel.root_dir%/../conf/serializer/player'
-            Player:
-                namespace_prefix: 'App\Domain\PlayerCharacter\Model'
+            PlayerCharacter:
+                namespace_prefix: 'App\Domain\PlayerCharacter'
                 path: '%kernel.root_dir%/../conf/serializer/playerCharacter'
+            GameMode:
+                namespace_prefix: 'App\Domain\GameMode'
+                path: '%kernel.root_dir%/../conf/serializer/gameMode'
 
 bazinga_hateoas:
     metadata:

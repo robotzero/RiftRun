@@ -1,7 +1,7 @@
 App\Domain\Player\Model\Player:
     exclusion_policy: ALL
     properties:
-        uuid:
+        id:
             expose: true
             groups: [Identifier]
             type: App\Domain\Player\ValueObject\PlayerId

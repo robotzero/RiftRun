@@ -28,10 +28,6 @@ App\Domain\Post\Model\Post:
             type: postId
             id: true
             nullable: false
-#          generator:
-#            strategy: CUSTOM
-#            customIdGenerator:
-#           class: Ramsey\Uuid\Doctrine\UuidGenerator
     fields:
         createdAt:
             type: datetimetz
