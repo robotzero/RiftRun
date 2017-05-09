@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1664ee6581b4523f1d469aa43a2dba96",
-    "content-hash": "25f7850378debc39efbad269212bc07c",
+    "hash": "d7ecb8f8100357e1da8af395d1e4de84",
+    "content-hash": "735de0f31fcc674289ef71ea10a6e16a",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1587,12 +1587,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "6a28c1de9f5d6e8d74d8f66048eb8194e06d7f3f"
+                "reference": "0d7a9a56aed42adbed7a6773dfd524f45f5a3e42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/6a28c1de9f5d6e8d74d8f66048eb8194e06d7f3f",
-                "reference": "6a28c1de9f5d6e8d74d8f66048eb8194e06d7f3f",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/0d7a9a56aed42adbed7a6773dfd524f45f5a3e42",
+                "reference": "0d7a9a56aed42adbed7a6773dfd524f45f5a3e42",
                 "shasum": ""
             },
             "require": {
@@ -1641,7 +1641,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache2"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -1658,7 +1658,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-05 17:40:46"
+            "time": "2017-05-09 14:46:44"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1667,12 +1667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "c408c0fb92f462f1108c3cda7af694aeef536b91"
+                "reference": "a4c9cf6dc02b4f7c8e4d3e3c426a178e047db878"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/c408c0fb92f462f1108c3cda7af694aeef536b91",
-                "reference": "c408c0fb92f462f1108c3cda7af694aeef536b91",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/a4c9cf6dc02b4f7c8e4d3e3c426a178e047db878",
+                "reference": "a4c9cf6dc02b4f7c8e4d3e3c426a178e047db878",
                 "shasum": ""
             },
             "require": {
@@ -1713,7 +1713,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache2"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -1730,7 +1730,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-05 14:50:28"
+            "time": "2017-05-09 14:47:32"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3332,16 +3332,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.7",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4"
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
                 "shasum": ""
             },
             "require": {
@@ -3382,7 +3382,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-04-20 17:32:18"
+            "time": "2017-05-01 15:54:03"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -3863,12 +3863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "3646d087359bcef6918b8b85513a42e55921856a"
+                "reference": "ae9bda1ffc69d9597c9b7f75140774ac7149cd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/3646d087359bcef6918b8b85513a42e55921856a",
-                "reference": "3646d087359bcef6918b8b85513a42e55921856a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ae9bda1ffc69d9597c9b7f75140774ac7149cd0c",
+                "reference": "ae9bda1ffc69d9597c9b7f75140774ac7149cd0c",
                 "shasum": ""
             },
             "require": {
@@ -4008,7 +4008,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-08 13:59:10"
+            "time": "2017-05-09 14:36:16"
         },
         {
             "name": "twig/twig",
@@ -4696,12 +4696,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626"
+                "reference": "ff29a179c673426c57dc5ccf7635c4ed6fd939db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4c751251f4f66ada7bfb10a96993c664e479b626",
-                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff29a179c673426c57dc5ccf7635c4ed6fd939db",
+                "reference": "ff29a179c673426c57dc5ccf7635c4ed6fd939db",
                 "shasum": ""
             },
             "require": {
@@ -4738,7 +4738,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-05-04 14:38:58"
+            "time": "2017-05-09 13:46:42"
         },
         {
             "name": "myclabs/deep-copy",
@@ -4788,12 +4788,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "f596140bbcdc2dd19a8a8365bb1334bc94a5c377"
+                "reference": "2507f18e47057e42b85ff40033f26c211801df3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/f596140bbcdc2dd19a8a8365bb1334bc94a5c377",
-                "reference": "f596140bbcdc2dd19a8a8365bb1334bc94a5c377",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/2507f18e47057e42b85ff40033f26c211801df3f",
+                "reference": "2507f18e47057e42b85ff40033f26c211801df3f",
                 "shasum": ""
             },
             "require": {
@@ -4853,7 +4853,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-05-06 16:53:48"
+            "time": "2017-05-09 20:35:09"
         },
         {
             "name": "phpdocumentor/reflection-common",

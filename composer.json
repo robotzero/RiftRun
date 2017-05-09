@@ -48,7 +48,7 @@
         "nelmio/cors-bundle": "dev-master",
         "league/pipeline": "dev-master",
         "league/tactician-doctrine": "dev-master",
-        "jms/serializer": "^1.7@DEV"
+        "jms/serializer": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",
