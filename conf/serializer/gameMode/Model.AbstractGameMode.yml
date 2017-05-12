@@ -1,0 +1,13 @@
+App\Domain\GameMode\Model\AbstractGameMode:
+    exclusion_policy: ALL
+    discriminator:
+        field_name: type
+        disabled: false
+        map:
+            rift: App\Domain\GameMode\Model\Rift
+            grift: App\Domain\GameMode\Model\Grift
+    properties:
+        id:
+            expose: true
+            type: App\Domain\GameMode\ValueObject\GameModeId
+            groups: [Identifier]

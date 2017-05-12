@@ -30,19 +30,6 @@ class PostsController extends AbstractBusController
     private $commandBus;
     private $serializer;
 
-//    public function __construct(
-////        PostsQueryService $postsQueryService,
-////        PostQueryService $postQueryService,
-//        CommandBus $commandBus
-////        SerializerInterface $serializer
-//    ) {
-////        parent::__construct($commandBus);
-////        $this->postsQueryService = $postsQueryService;
-////        $this->postQueryService = $postQueryService;
-//        $this->commandBus = $commandBus;
-////        $this->serializer = $serializer;
-//    }
-
     /**
      * @param Request $request
      * @param ParamFetcherInterface $paramFetcher

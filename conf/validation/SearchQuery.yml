@@ -1,0 +1,24 @@
+App\Domain\SearchQuery\Model\SearchQuery:
+    properties:
+        minParagon:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: integer
+            - GreaterThan:
+                value: 1
+            - Regex:
+                pattern: '/^\d+$/'
+        playerCharacters:
+            - Valid: ~
+            - All:
+                - NotNull: ~
+                - NotBlank: ~
+            - Count:
+                min: 1
+                max: 5
+        gameMode:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object

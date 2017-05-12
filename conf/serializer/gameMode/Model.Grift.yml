@@ -1,0 +1,11 @@
+App\Domain\GameMode\Model\Grift:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: App\Domain\GameMode\ValueObject\GameModeId
+            groups: [Identifier]
+        level:
+            expose: true
+            serialized_name: level
+            groups: [Basic]

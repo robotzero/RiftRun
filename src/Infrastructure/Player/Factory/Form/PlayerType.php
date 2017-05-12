@@ -4,7 +4,6 @@ namespace App\Infrastructure\Player\Factory\Form;
 
 use App\Domain\Player\Model\Player;
 use App\Domain\Player\ValueObject\PlayerId;
-use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -12,7 +11,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
-use App\Infrastructure\Post\Factory\Form\PostType;
 
 /**
  * Class PlayerType
@@ -43,18 +41,18 @@ class PlayerType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Player::class,
-//            'constraints' => new Valid(),
+            'constraints' => new Valid(),
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
                 $playerData = $form->all();
                 return new Player(
                     new PlayerId(),
-                    $playerData['type']->getData(),
-                    $playerData['paragonPoints']->getData(),
-                    $playerData['battleTag']->getData(),
-                    $playerData['region']->getData(),
-                    $playerData['seasonal']->getData(),
-                    $playerData['gameType']->getData(),
+                    $playerData['type']->getData() ?: '',
+                    $playerData['paragonPoints']->getData() ?: '',
+                    $playerData['battleTag']->getData() ?: '',
+                    $playerData['region']->getData() ?: '',
+                    $playerData['seasonal']->getData() ?: '',
+                    $playerData['gameType']->getData() ?: '',
                     new \DateTime()
                 );
             }

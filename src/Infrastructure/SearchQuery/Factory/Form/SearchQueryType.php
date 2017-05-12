@@ -3,18 +3,17 @@
 namespace App\Infrastructure\SearchQuery\Factory\Form;
 
 use App\Domain\GameMode\Model\AbstractGameMode;
-use App\Domain\GameMode\Model\Rift;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
-use App\Infrastructure\GameMode\Factory\Form\GameModeType;
 use App\Infrastructure\PlayerCharacter\Factory\Form\PlayerCharacterType;
-use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Valid;
 
 /**
@@ -54,8 +53,8 @@ class SearchQueryType extends AbstractType
                 $queryData = $form->all();
                 $searchQuery = new SearchQuery(
                     new SearchQueryId(),
-                    AbstractGameMode::createGameMode($queryData['game']->all()),
-                    $queryData['minParagon']->getData()
+                    AbstractGameMode::createGameMode($queryData['game']->all()) ?: null,
+                    $queryData['minParagon']->getData() ?: null
                 );
 
                 foreach ($playerCharacters as $playerCharacter) {
@@ -64,8 +63,8 @@ class SearchQueryType extends AbstractType
                 }
 
                 return $searchQuery;
-            }
-//            'constraints' => new Valid(),
+            },
+            'constraints' => new Valid(),
         ));
     }
 

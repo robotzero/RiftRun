@@ -1,0 +1,12 @@
+App\Domain\Post\Model\Post:
+    properties:
+        player:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object
+        query:
+            - NotBlank: ~
+            - NotNull: ~
+            - Type:
+                type: object

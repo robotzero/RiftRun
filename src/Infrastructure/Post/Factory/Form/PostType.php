@@ -51,8 +51,8 @@ class PostType extends AbstractType
                 unset($data['query']['game']['gameMode']);
             }
         });
-        $builder->add('query', SearchQueryType::class, ['required' => true, 'mapped' => false]);
-        $builder->add('player', PlayerType::class, ['required' => true, 'mapped' => false]);
+        $builder->add('query', SearchQueryType::class, ['mapped' => false]);
+        $builder->add('player', PlayerType::class, ['mapped' => false]);
     }
 
     /**
@@ -68,8 +68,8 @@ class PostType extends AbstractType
             'empty_data' => function (FormInterface $form) {
                 return new Post(
                     new PostId(),
-                    $form->all()['player']->getData(),
-                    $form->all()['query']->getData()
+                    $form->all()['player']->getData() ?: null,
+                    $form->all()['query']->getData() ?: null
                 );
             },
             'constraints' => new Valid()

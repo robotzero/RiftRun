@@ -1,0 +1,23 @@
+App\Domain\Post\Model\Post:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: App\Domain\Post\ValueObject\PostId
+            groups: [Identifier]
+        player:
+            expose: true
+            serialized_name: player
+            groups: [Basic]
+        query:
+            expose: true
+            serialized_name: query
+            groups: [Basic]
+    relations:
+        -
+            rel: self
+            href:
+                route: get_post
+                parameters:
+                    id: expr(object.getId())
+                    absolute: true

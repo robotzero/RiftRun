@@ -7,7 +7,6 @@ use App\Domain\PlayerCharacter\Model\PlayerCharacter;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Util\Debug;
 
 /**
  * Class SearchQuery
@@ -43,7 +42,7 @@ class SearchQuery
      * @param AbstractGameMode $gameMode
      * @param int $minParagon
      */
-    public function __construct(SearchQueryId $id, AbstractGameMode $gameMode, int $minParagon)
+    public function __construct(SearchQueryId $id, AbstractGameMode $gameMode = null, int $minParagon = null)
     {
         $this->id = $id;
         $this->minParagon = $minParagon;
