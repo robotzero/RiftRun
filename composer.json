@@ -37,7 +37,7 @@
         "incenteev/composer-parameter-handler": "dev-master",
 	    "friendsofsymfony/rest-bundle": "dev-master",
 	    "willdurand/hateoas-bundle": "dev-master",
-        "jms/serializer-bundle": "dev-master",
+        "jms/serializer-bundle": "1.5.0",
         "hautelook/templated-uri-bundle": "dev-master",
 	    "pagerfanta/pagerfanta": "dev-master",
 	    "simple-bus/symfony-bridge": "dev-master",
@@ -47,8 +47,7 @@
         "ramsey/uuid-doctrine": "dev-master",
         "nelmio/cors-bundle": "dev-master",
         "league/pipeline": "dev-master",
-        "league/tactician-doctrine": "dev-master",
-        "jms/serializer": "dev-master"
+        "league/tactician-doctrine": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",

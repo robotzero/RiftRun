@@ -29,3 +29,4 @@ fa.bak/
 var
 mockup
 conf/bootstrap.php.cache
+composer.phar
