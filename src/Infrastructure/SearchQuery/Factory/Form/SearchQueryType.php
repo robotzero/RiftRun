@@ -3,8 +3,10 @@
 namespace App\Infrastructure\SearchQuery\Factory\Form;
 
 use App\Domain\GameMode\Model\AbstractGameMode;
+use App\Domain\GameMode\ValueObject\GameType;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
+use App\Infrastructure\GameMode\Factory\Form\GameModeType;
 use App\Infrastructure\PlayerCharacter\Factory\Form\PlayerCharacterType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -25,7 +27,7 @@ class SearchQueryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'playerCharacter',
+            'playerCharacters',
             CollectionType::class,
             [
                 'entry_type' => PlayerCharacterType::class,
@@ -49,7 +51,7 @@ class SearchQueryType extends AbstractType
             'data_class' => SearchQuery::class,
             'csrf_protection' => false,
             'empty_data' => function (FormInterface $form) {
-                $playerCharacters = $form->all()['playerCharacter']->getData();
+                $playerCharacters = $form->all()['playerCharacters']->getData();
                 $queryData = $form->all();
                 $searchQuery = new SearchQuery(
                     new SearchQueryId(),

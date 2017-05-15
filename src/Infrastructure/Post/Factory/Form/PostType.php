@@ -16,6 +16,7 @@ use App\Infrastructure\GameMode\Factory\Form\RiftType;
 use App\Infrastructure\Player\Factory\Form\PlayerType;
 use App\Infrastructure\SearchQuery\Factory\Form\SearchQueryType;
 use Doctrine\Common\Util\Debug;
+use JMS\Serializer\Exception\ValidationFailedException;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -23,6 +24,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Component\Validator\ConstraintViolationList;
 
 class PostType extends AbstractType
 {
@@ -45,10 +47,13 @@ class PostType extends AbstractType
             $form = $event->getForm();
 
 //            @Todo verify that type is set to allowed types.
-            if (isset($data['query']['game']['gameMode'])) {
+            if (isset($data['query']['game'])) {
                 $searchquery = $form->get('query');
                 $searchquery->add('game', $this->typesMap[$data['query']['game']['gameMode']], ['mapped' => false]);
                 unset($data['query']['game']['gameMode']);
+                unset($data['query']['game']);
+            } else {
+                throw new ValidationFailedException(new ConstraintViolationList());
             }
         });
         $builder->add('query', SearchQueryType::class, ['mapped' => false]);

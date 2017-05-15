@@ -40,8 +40,8 @@ class GriftType extends AbstractType
                 new Grift(
                     $form->get('level')->getData()
                 );
-            }
-//            'constraints' => new Valid(),
+            },
+            'constraints' => new Valid(),
         ));
     }
 

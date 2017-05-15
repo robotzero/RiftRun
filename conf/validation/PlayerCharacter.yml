@@ -1,4 +1,4 @@
-App\DTO\CharacterTypeDTO:
+App\Domain\PlayerCharacter\Model\PlayerCharacter:
     properties:
         type:
             - NotBlank: ~

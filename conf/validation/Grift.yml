@@ -1,0 +1,5 @@
+App\Domain\GameMode\Model\Grift:
+    properties:
+        level:
+            - NotBlank: ~
+            - NotNull: ~
