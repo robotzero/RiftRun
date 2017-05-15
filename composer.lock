@@ -1582,16 +1582,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "b5abc84a55d7c7203561b3fd9049acd6859a5b62"
+                "reference": "4fad8bbbe76e05de3b79ffa3db027058ed3813ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/b5abc84a55d7c7203561b3fd9049acd6859a5b62",
-                "reference": "b5abc84a55d7c7203561b3fd9049acd6859a5b62",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/4fad8bbbe76e05de3b79ffa3db027058ed3813ff",
+                "reference": "4fad8bbbe76e05de3b79ffa3db027058ed3813ff",
                 "shasum": ""
             },
             "require": {
@@ -1630,7 +1630,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -1640,7 +1640,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache2"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -1657,7 +1657,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-10T09:43:46+00:00"
+            "time": "2017-05-15T08:35:42+00:00"
         },
         {
             "name": "jms/serializer-bundle",
@@ -3862,12 +3862,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "fb532bfc172a531bce4219e4f21db124eb972bbc"
+                "reference": "1bbc35a34a5ecdf5e96d780e709925983c0333fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/fb532bfc172a531bce4219e4f21db124eb972bbc",
-                "reference": "fb532bfc172a531bce4219e4f21db124eb972bbc",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/1bbc35a34a5ecdf5e96d780e709925983c0333fb",
+                "reference": "1bbc35a34a5ecdf5e96d780e709925983c0333fb",
                 "shasum": ""
             },
             "require": {
@@ -4007,7 +4007,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-14 16:23:24"
+            "time": "2017-05-15 15:17:59"
         },
         {
             "name": "twig/twig",
@@ -4290,17 +4290,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "9f3b41a32693314e20e1ffd3161ed74de0cd5839"
+                "reference": "44a58c1480d6144b2dc2c2bf02b9cef73c83840d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/9f3b41a32693314e20e1ffd3161ed74de0cd5839",
-                "reference": "9f3b41a32693314e20e1ffd3161ed74de0cd5839",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/44a58c1480d6144b2dc2c2bf02b9cef73c83840d",
+                "reference": "44a58c1480d6144b2dc2c2bf02b9cef73c83840d",
                 "shasum": ""
             },
             "require": {
                 "behat/gherkin": "^4.4.4",
-                "behat/transliterator": "~1.0",
+                "behat/transliterator": "^1.2",
                 "container-interop/container-interop": "^1.1",
                 "ext-mbstring": "*",
                 "php": ">=5.3.3",
@@ -4364,7 +4364,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-04-06 19:05:31"
+            "time": "2017-05-15T16:49:16+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -4695,12 +4695,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "50e964917077647edefd7914fd4cc89f10bbe804"
+                "reference": "a013415201d4f6b41cef7cf629b7ae91c8df2c32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/50e964917077647edefd7914fd4cc89f10bbe804",
-                "reference": "50e964917077647edefd7914fd4cc89f10bbe804",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a013415201d4f6b41cef7cf629b7ae91c8df2c32",
+                "reference": "a013415201d4f6b41cef7cf629b7ae91c8df2c32",
                 "shasum": ""
             },
             "require": {
@@ -4737,7 +4737,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-05-11T14:13:04+00:00"
+            "time": "2017-05-15T16:09:28+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5118,7 +5118,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-05-12T06:16:46+00:00"
+            "time": "2017-05-12 06:16:46"
         },
         {
             "name": "phpspec/prophecy",
