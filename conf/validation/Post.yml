@@ -4,9 +4,9 @@ App\Domain\Post\Model\Post:
             - NotBlank: ~
             - NotNull: ~
             - Type:
-                type: object
+                type: App\Domain\Player\Model\Player
         query:
             - NotBlank: ~
             - NotNull: ~
             - Type:
-                type: object
+                type: App\Domain\SearchQuery\Model\SearchQuery

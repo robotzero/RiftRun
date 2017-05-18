@@ -47,13 +47,13 @@ class PostType extends AbstractType
             $form = $event->getForm();
 
 //            @Todo verify that type is set to allowed types.
-            if (isset($data['query']['game'])) {
+            if (isset($data['query']) && isset($data['query']['game'])) {
                 $searchquery = $form->get('query');
                 $searchquery->add('game', $this->typesMap[$data['query']['game']['gameMode']], ['mapped' => false]);
                 unset($data['query']['game']['gameMode']);
                 unset($data['query']['game']);
             } else {
-                throw new ValidationFailedException(new ConstraintViolationList());
+//                throw new ValidationFailedException(new ConstraintViolationList());
             }
         });
         $builder->add('query', SearchQueryType::class, ['mapped' => false]);

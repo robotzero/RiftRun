@@ -48,7 +48,7 @@ class PlayerType extends AbstractType
                 return new Player(
                     new PlayerId(),
                     $playerData['type']->getData() ?: '',
-                    $playerData['paragonPoints']->getData() ?: '',
+                    $playerData['paragonPoints']->getData() ?: 0,
                     $playerData['battleTag']->getData() ?: '',
                     $playerData['region']->getData() ?: '',
                     $playerData['seasonal']->getData() ?: '',

@@ -28,24 +28,16 @@ class Post
     private $player;
 
     /**
-     * @var \App\Model\SearchQuery
+     * @var \App\Domain\SearchQuery\Model\SearchQuery
      */
     private $query;
 
-//    public function __construct(Character $player, SearchQuery $query, \DateTime $createdAt)
-//    {
-//        $this->id = new PostId();
-//        $this->player = $player;
-//        $this->query = $query;
-//        $this->createdAt = $createdAt;
-//    }
     public function __construct(PostId $id, Player $player, SearchQuery $searchQuery)
     {
         $this->id = $id;
         $this->player = $player;
         $this->query = $searchQuery;
         $this->createdAt = new \DateTime('now');
-//        $this->createdAt = $createdAt;
     }
 
     /**
@@ -81,7 +73,7 @@ class Post
     /**
      * Get query
      *
-     * @return \App\Model\SearchQuery
+     * @return \App\Domain\SearchQuery\Model\SearchQuery
      */
     public function getQuery()
     {
