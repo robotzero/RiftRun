@@ -510,12 +510,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "51220fcc197ea7c61e04efd2d5d1f6a28ad70d8b"
+                "reference": "9d696ac2ff9391c0dc5328170667248de10e0606"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/51220fcc197ea7c61e04efd2d5d1f6a28ad70d8b",
-                "reference": "51220fcc197ea7c61e04efd2d5d1f6a28ad70d8b",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9d696ac2ff9391c0dc5328170667248de10e0606",
+                "reference": "9d696ac2ff9391c0dc5328170667248de10e0606",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +575,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-05-20 13:31:40"
+            "time": "2017-05-21 18:53:37"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -2338,12 +2338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "29aade64addfdfb12c05aabf160f09d1aea6b143"
+                "reference": "122cbf6fac5d9c49bd8df0c03996462e52a22cc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/29aade64addfdfb12c05aabf160f09d1aea6b143",
-                "reference": "29aade64addfdfb12c05aabf160f09d1aea6b143",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/122cbf6fac5d9c49bd8df0c03996462e52a22cc8",
+                "reference": "122cbf6fac5d9c49bd8df0c03996462e52a22cc8",
                 "shasum": ""
             },
             "require": {
@@ -2399,7 +2399,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2017-03-20 13:46:15"
+            "time": "2017-05-22 16:00:42"
         },
         {
             "name": "paragonie/random_compat",
@@ -4086,12 +4086,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "0dbc6b87dcdfd72b2069b35e56d51d23a1cd5a25"
+                "reference": "fa1a84ec0b20895fe4fa15f5d0d62547bd7a86c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/0dbc6b87dcdfd72b2069b35e56d51d23a1cd5a25",
-                "reference": "0dbc6b87dcdfd72b2069b35e56d51d23a1cd5a25",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/fa1a84ec0b20895fe4fa15f5d0d62547bd7a86c3",
+                "reference": "fa1a84ec0b20895fe4fa15f5d0d62547bd7a86c3",
                 "shasum": ""
             },
             "require": {
@@ -4141,7 +4141,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-05-12 13:59:34"
+            "time": "2017-05-22 06:17:55"
         },
         {
             "name": "willdurand/hateoas",
@@ -4149,12 +4149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Hateoas.git",
-                "reference": "e502fe031678a179590738dd1f0495a7746ad955"
+                "reference": "e71a5702dce56cc8e077bfc06d982eed38764732"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Hateoas/zipball/e502fe031678a179590738dd1f0495a7746ad955",
-                "reference": "e502fe031678a179590738dd1f0495a7746ad955",
+                "url": "https://api.github.com/repos/willdurand/Hateoas/zipball/e71a5702dce56cc8e077bfc06d982eed38764732",
+                "reference": "e71a5702dce56cc8e077bfc06d982eed38764732",
                 "shasum": ""
             },
             "require": {
@@ -4182,7 +4182,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.10-dev"
+                    "dev-master": "2.11-dev"
                 }
             },
             "autoload": {
@@ -4205,7 +4205,7 @@
                 }
             ],
             "description": "A PHP library to support implementing representations for HATEOAS REST web services",
-            "time": "2017-05-17 11:07:53"
+            "time": "2017-05-22 10:40:22"
         },
         {
             "name": "willdurand/hateoas-bundle",
@@ -4361,12 +4361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "44a58c1480d6144b2dc2c2bf02b9cef73c83840d"
+                "reference": "3f5c2060d394de31b4842858f2b10b39c8fb335d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/44a58c1480d6144b2dc2c2bf02b9cef73c83840d",
-                "reference": "44a58c1480d6144b2dc2c2bf02b9cef73c83840d",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/3f5c2060d394de31b4842858f2b10b39c8fb335d",
+                "reference": "3f5c2060d394de31b4842858f2b10b39c8fb335d",
                 "shasum": ""
             },
             "require": {
@@ -4435,7 +4435,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-05-15 16:49:16"
+            "time": "2017-05-22T10:49:37+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -4858,12 +4858,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "32d327e7ae5fe12c6db0c7d90a64a3437d34b7d0"
+                "reference": "a060587f3c90edd92a65c6c0d163972f49bc4e21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/32d327e7ae5fe12c6db0c7d90a64a3437d34b7d0",
-                "reference": "32d327e7ae5fe12c6db0c7d90a64a3437d34b7d0",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/a060587f3c90edd92a65c6c0d163972f49bc4e21",
+                "reference": "a060587f3c90edd92a65c6c0d163972f49bc4e21",
                 "shasum": ""
             },
             "require": {
@@ -4923,7 +4923,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-05-21 14:44:42"
+            "time": "2017-05-22T07:57:59+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4978,7 +4978,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-04-07T07:07:10+00:00"
+            "time": "2017-04-07 07:07:10"
         },
         {
             "name": "phar-io/version",
@@ -5418,7 +5418,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-21T08:03:57+00:00"
+            "time": "2017-04-21 08:03:57"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -5612,12 +5612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fb97015213904613447a238278f927df1b4ab5af"
+                "reference": "d3180f13eac8d8e22d0210c6966ff3060300ed21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fb97015213904613447a238278f927df1b4ab5af",
-                "reference": "fb97015213904613447a238278f927df1b4ab5af",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d3180f13eac8d8e22d0210c6966ff3060300ed21",
+                "reference": "d3180f13eac8d8e22d0210c6966ff3060300ed21",
                 "shasum": ""
             },
             "require": {
@@ -5637,7 +5637,7 @@
                 "phpunit/php-timer": "^1.0.6",
                 "phpunit/phpunit-mock-objects": "^4.0",
                 "sebastian/comparator": "^2.0",
-                "sebastian/diff": "^1.4 || ^2.0",
+                "sebastian/diff": "^1.4.3 || ^2.0",
                 "sebastian/environment": "^3.0.2",
                 "sebastian/exporter": "^3.1",
                 "sebastian/global-state": "^1.1 || ^2.0",
@@ -5688,7 +5688,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-05-19T03:58:51+00:00"
+            "time": "2017-05-22T18:35:57+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5905,12 +5905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "86645316bcb1c04b85797cec666864a7a07b828d"
+                "reference": "852dd59ba4e11b47bbf22132314f36706a4b7fea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/86645316bcb1c04b85797cec666864a7a07b828d",
-                "reference": "86645316bcb1c04b85797cec666864a7a07b828d",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/852dd59ba4e11b47bbf22132314f36706a4b7fea",
+                "reference": "852dd59ba4e11b47bbf22132314f36706a4b7fea",
                 "shasum": ""
             },
             "require": {
@@ -5949,7 +5949,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-21T05:03:06+00:00"
+            "time": "2017-05-22T08:51:12+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -5999,7 +5999,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-05-18T10:10:00+00:00"
+            "time": "2017-05-18 10:10:00"
         },
         {
             "name": "sebastian/exporter",
@@ -6409,12 +6409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "ffc4739a15df001bebe4b2e2f5521855ed214004"
+                "reference": "f2496351171e9823dfe7ee0519284f613f4396b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ffc4739a15df001bebe4b2e2f5521855ed214004",
-                "reference": "ffc4739a15df001bebe4b2e2f5521855ed214004",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/f2496351171e9823dfe7ee0519284f613f4396b8",
+                "reference": "f2496351171e9823dfe7ee0519284f613f4396b8",
                 "shasum": ""
             },
             "require": {
@@ -6468,7 +6468,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-05-19 17:05:40"
+            "time": "2017-05-22T09:57:18+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
