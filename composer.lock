@@ -752,12 +752,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-                "reference": "fb060e289a2996e21869c261a983c0f8450132f6"
+                "reference": "561fb64d1d3b47673bdb13a0ac76f0003cf0eeef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/fb060e289a2996e21869c261a983c0f8450132f6",
-                "reference": "fb060e289a2996e21869c261a983c0f8450132f6",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/561fb64d1d3b47673bdb13a0ac76f0003cf0eeef",
+                "reference": "561fb64d1d3b47673bdb13a0ac76f0003cf0eeef",
                 "shasum": ""
             },
             "require": {
@@ -801,7 +801,7 @@
                 "Fixture",
                 "persistence"
             ],
-            "time": "2016-10-13 13:56:07"
+            "time": "2017-05-23 11:55:00"
         },
         {
             "name": "doctrine/inflector",
@@ -984,12 +984,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "6ea30f035427aba894baa2b332285a2412687186"
+                "reference": "2a239be45ec4e64c736e4277cde8bff376ef2402"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/6ea30f035427aba894baa2b332285a2412687186",
-                "reference": "6ea30f035427aba894baa2b332285a2412687186",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2a239be45ec4e64c736e4277cde8bff376ef2402",
+                "reference": "2a239be45ec4e64c736e4277cde8bff376ef2402",
                 "shasum": ""
             },
             "require": {
@@ -1056,7 +1056,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-05-21 13:17:40"
+            "time": "2017-05-23 16:44:10"
         },
         {
             "name": "egulias/email-validator",
@@ -3118,33 +3118,33 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "025855e0b6829c82bfcb0897c6ffd5f40135028b"
+                "reference": "beb48d061ef93cfb0ad4908f5196afcd62f5a0d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/025855e0b6829c82bfcb0897c6ffd5f40135028b",
-                "reference": "025855e0b6829c82bfcb0897c6ffd5f40135028b",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/beb48d061ef93cfb0ad4908f5196afcd62f5a0d7",
+                "reference": "beb48d061ef93cfb0ad4908f5196afcd62f5a0d7",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.2",
-                "symfony/config": "^3.2",
-                "symfony/dependency-injection": "~3.0",
-                "symfony/framework-bundle": "^3.1",
-                "symfony/http-kernel": "^3.1"
+                "doctrine/common": "^2.2",
+                "symfony/config": "^3.2|^4.0",
+                "symfony/dependency-injection": "^3.0|^4.0",
+                "symfony/framework-bundle": "^3.1|^4.0",
+                "symfony/http-kernel": "^3.1|^4.0"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "^1.5",
                 "doctrine/orm": "^2.4.5",
-                "symfony/browser-kit": "~3.0",
-                "symfony/dom-crawler": "~3.0",
-                "symfony/expression-language": "~3.0",
-                "symfony/finder": "~3.0",
-                "symfony/phpunit-bridge": "~3.2",
+                "symfony/browser-kit": "^3.0|^4.0",
+                "symfony/dom-crawler": "^3.0|^4.0",
+                "symfony/expression-language": "^3.0|^4.0",
+                "symfony/finder": "^3.0|^4.0",
+                "symfony/phpunit-bridge": "^3.2|^4.0",
                 "symfony/psr-http-message-bridge": "^0.3",
-                "symfony/security-bundle": "~3.0",
-                "symfony/twig-bundle": "~3.0",
-                "symfony/yaml": "~3.0",
+                "symfony/security-bundle": "^3.0|^4.0",
+                "symfony/twig-bundle": "^3.0|^4.0",
+                "symfony/yaml": "^3.0|^4.0",
                 "twig/twig": "~1.12|~2.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
@@ -3179,7 +3179,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2017-05-11 17:04:00"
+            "time": "2017-05-23 07:03:24"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -3405,12 +3405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "091821681b943657fb9627e27eeb924373cf74c4"
+                "reference": "3b906b78e1659703c6196cf92092b07abc49cdea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/091821681b943657fb9627e27eeb924373cf74c4",
-                "reference": "091821681b943657fb9627e27eeb924373cf74c4",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/3b906b78e1659703c6196cf92092b07abc49cdea",
+                "reference": "3b906b78e1659703c6196cf92092b07abc49cdea",
                 "shasum": ""
             },
             "require": {
@@ -3452,7 +3452,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-05-20 16:28:26"
+            "time": "2017-05-23 05:57:59"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -4435,7 +4435,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-05-22T10:49:37+00:00"
+            "time": "2017-05-22 10:49:37"
         },
         {
             "name": "behat/gherkin",
@@ -4923,7 +4923,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-05-22T07:57:59+00:00"
+            "time": "2017-05-22 07:57:59"
         },
         {
             "name": "phar-io/manifest",
@@ -5688,7 +5688,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-05-22T18:35:57+00:00"
+            "time": "2017-05-22 18:35:57"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5949,7 +5949,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22T08:51:12+00:00"
+            "time": "2017-05-22 08:51:12"
         },
         {
             "name": "sebastian/environment",
@@ -6468,7 +6468,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-05-22T09:57:18+00:00"
+            "time": "2017-05-22 09:57:18"
         },
         {
             "name": "theofidry/alice-data-fixtures",
@@ -6476,12 +6476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "b9d6c4186a97b4b531c2d4d86aee8dfd1242a2ff"
+                "reference": "ffe5b3460f1c4b6d1e8906edafdadd903bf56c56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/b9d6c4186a97b4b531c2d4d86aee8dfd1242a2ff",
-                "reference": "b9d6c4186a97b4b531c2d4d86aee8dfd1242a2ff",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/ffe5b3460f1c4b6d1e8906edafdadd903bf56c56",
+                "reference": "ffe5b3460f1c4b6d1e8906edafdadd903bf56c56",
                 "shasum": ""
             },
             "require": {
@@ -6533,7 +6533,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2017-05-19 08:39:17"
+            "time": "2017-05-22T20:53:34+00:00"
         },
         {
             "name": "theseer/tokenizer",
