@@ -4,15 +4,15 @@ App\Domain\Post\Model\Post:
         id:
             expose: true
             type: App\Domain\Post\ValueObject\PostId
-            groups: [Identifier]
+            groups: ['Identifier']
         player:
             expose: true
             serialized_name: player
-            groups: [Basic]
+            groups: ['Basic']
         query:
             expose: true
             serialized_name: query
-            groups: [Basic]
+            groups: ['Basic']
     relations:
         -
             rel: self

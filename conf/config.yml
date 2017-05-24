@@ -25,7 +25,7 @@ framework:
         mapping:
             paths:
                 - '%kernel.root_dir%/../conf/validation'
-    serializer:      { enable_annotations: false }
+    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -145,7 +145,7 @@ fos_rest:
     serializer:
         serialize_null: true
         version: 'v1'
-#        groups: ['Identifier']
+#        groups: ['Identifier', 'Basic']
     exception:
         enabled: true
 
@@ -157,6 +157,9 @@ jms_serializer:
             dir: '%kernel.cache_dir%/jms_serializer'
         auto_detection: true
         directories:
+            Common:
+                namespace_prefix: 'App\Domain\Common'
+                path: '%kernel.root_dir%/../conf/serializer/common'
             Post:
                 namespace_prefix: 'App\Domain\Post'
                 path: '%kernel.root_dir%/../conf/serializer/post'

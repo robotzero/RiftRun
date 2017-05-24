@@ -10,5 +10,6 @@ use App\Domain\Common\ValueObject\AggregateRootId;
  */
 class GameModeId extends AggregateRootId
 {
-
+    /** @var  string */
+    protected $uuid;
 }

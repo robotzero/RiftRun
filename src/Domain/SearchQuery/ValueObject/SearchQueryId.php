@@ -3,6 +3,7 @@
 namespace App\Domain\SearchQuery\ValueObject;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class SearchQueryId
@@ -10,5 +11,6 @@ use App\Domain\Common\ValueObject\AggregateRootId;
  */
 class SearchQueryId extends AggregateRootId
 {
-
+   /** @var  string */
+    protected $uuid;
 }

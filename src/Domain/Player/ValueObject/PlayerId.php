@@ -10,5 +10,6 @@ use App\Domain\Common\ValueObject\AggregateRootId;
  */
 class PlayerId extends AggregateRootId
 {
-
+    /** @var  string */
+    protected $uuid;
 }

@@ -10,5 +10,5 @@ use App\Domain\Common\ValueObject\AggregateRootId;
  */
 class PostId extends AggregateRootId
 {
-
+    protected $uuid;
 }

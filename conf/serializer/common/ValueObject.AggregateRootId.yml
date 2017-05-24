@@ -1,0 +1,5 @@
+App\Domain\Common\ValueObject\AggregateRootId:
+    properties:
+        uuid:
+            expose: true
+            groups: [Identifier]

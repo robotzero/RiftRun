@@ -2,21 +2,12 @@
 
 namespace App\Infrastructure\Post\Factory\Form;
 
-use App\Domain\GameMode\Model\AbstractGameMode;
-use App\Domain\GameMode\Model\Rift;
-use App\Domain\Player\Model\Player;
-use App\Domain\Player\ValueObject\PlayerId;
 use App\Domain\Post\Model\Post;
 use App\Domain\Post\ValueObject\PostId;
-use App\Domain\SearchQuery\Model\SearchQuery;
-use App\Domain\SearchQuery\ValueObject\SearchQueryId;
-use App\DTO\PostDTO;
 use App\Infrastructure\GameMode\Factory\Form\GriftType;
 use App\Infrastructure\GameMode\Factory\Form\RiftType;
 use App\Infrastructure\Player\Factory\Form\PlayerType;
 use App\Infrastructure\SearchQuery\Factory\Form\SearchQueryType;
-use Doctrine\Common\Util\Debug;
-use JMS\Serializer\Exception\ValidationFailedException;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -24,7 +15,6 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\ConstraintViolationList;
 
 class PostType extends AbstractType
 {
@@ -46,8 +36,7 @@ class PostType extends AbstractType
             $data = $event->getData();
             $form = $event->getForm();
 
-//            @Todo verify that type is set to allowed types.
-            if (isset($data['query']) && isset($data['query']['game'])) {
+            if (isset($data['query']) && isset($data['query']['game']) && isset($data['query']['game']['gameMode']) && array_key_exists($data['query']['game']['gameMode'], $this->typesMap)) {
                 $searchquery = $form->get('query');
                 $searchquery->add('game', $this->typesMap[$data['query']['game']['gameMode']], ['mapped' => false]);
                 unset($data['query']['game']['gameMode']);

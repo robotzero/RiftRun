@@ -5,7 +5,6 @@ namespace App\Domain\GameMode\Model;
 use App\Domain\GameMode\Exception\InvalidGameTypeException;
 use App\Domain\GameMode\ValueObject\GameModeId;
 use App\Domain\GameMode\ValueObject\GameType;
-use Doctrine\Common\Util\Debug;
 
 /**
  * Class GameMode
@@ -52,8 +51,12 @@ abstract class AbstractGameMode
         return $this->gameMode;
     }
 
-    public static function createGameMode(array $data): AbstractGameMode
+    public static function createGameMode(?array $data): AbstractGameMode
     {
+        if ($data === null) {
+            throw new InvalidGameTypeException();
+        }
+
         if (array_key_exists('torment', $data)) {
             return new Rift($data['torment']->getData());
         }
