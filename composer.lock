@@ -170,12 +170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "d39134e0c7fbedc6f217f1dfe6ff77cf7fbddbcb"
+                "reference": "7c830a576f9471f71096d200d633b6400513ccfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d39134e0c7fbedc6f217f1dfe6ff77cf7fbddbcb",
-                "reference": "d39134e0c7fbedc6f217f1dfe6ff77cf7fbddbcb",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/7c830a576f9471f71096d200d633b6400513ccfb",
+                "reference": "7c830a576f9471f71096d200d633b6400513ccfb",
                 "shasum": ""
             },
             "require": {
@@ -230,7 +230,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2017-05-14 21:24:40"
+            "time": "2017-05-25 15:48:57"
         },
         {
             "name": "doctrine/cache",
@@ -4807,7 +4807,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-05-24T08:02:00+00:00"
+            "time": "2017-05-24 08:02:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6467,7 +6467,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-05-24T11:42:26+00:00"
+            "time": "2017-05-24 11:42:26"
         },
         {
             "name": "theofidry/alice-data-fixtures",

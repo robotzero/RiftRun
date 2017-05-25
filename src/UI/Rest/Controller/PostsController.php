@@ -31,7 +31,6 @@ class PostsController extends AbstractBusController
      * @throws \Pagerfanta\Exception\NotIntegerCurrentPageException
      * @throws \Pagerfanta\Exception\LessThan1MaxPerPageException
      * @throws \Pagerfanta\Exception\LessThan1CurrentPageException
-     * View(statusCode=200)
      * @View(statusCode=200, serializerGroups={"Default", "Identifier", "Basic"})
      * @QueryParam(name="page", key="page", requirements="\d+", default=1, description="Page Number", strict=true, nullable=true)
      * @QueryParam(name="limit", key="limit", requirements="\d+", default=20, description="Item per page", strict=true, nullable=true)

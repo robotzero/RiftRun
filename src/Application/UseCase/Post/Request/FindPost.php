@@ -10,4 +10,5 @@ use App\Application\Common\Request\Pagination;
  */
 class FindPost extends Pagination
 {
+
 }

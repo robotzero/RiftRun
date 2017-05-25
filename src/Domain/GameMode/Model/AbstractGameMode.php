@@ -51,6 +51,11 @@ abstract class AbstractGameMode
         return $this->gameMode;
     }
 
+    /**
+     * @param array|null $data
+     * @return AbstractGameMode
+     * @throws InvalidGameTypeException
+     */
     public static function createGameMode(?array $data): AbstractGameMode
     {
         if ($data === null) {
