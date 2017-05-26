@@ -4086,12 +4086,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "11eac8ae2c88bccdb5b97ef3beaf4233587d4c32"
+                "reference": "9cfb0f565c399068c84affe0b60dbb6f0cf90742"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/11eac8ae2c88bccdb5b97ef3beaf4233587d4c32",
-                "reference": "11eac8ae2c88bccdb5b97ef3beaf4233587d4c32",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9cfb0f565c399068c84affe0b60dbb6f0cf90742",
+                "reference": "9cfb0f565c399068c84affe0b60dbb6f0cf90742",
                 "shasum": ""
             },
             "require": {
@@ -4112,6 +4112,9 @@
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4141,7 +4144,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-05-24 14:23:32"
+            "time": "2017-05-25 22:41:27"
         },
         {
             "name": "willdurand/hateoas",

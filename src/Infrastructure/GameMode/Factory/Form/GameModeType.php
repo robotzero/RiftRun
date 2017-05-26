@@ -21,7 +21,7 @@ abstract class GameModeType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => AbstractGameMode::class,
             'csrf_protection' => false,
-//            'constraints' => new Valid(),
+            'constraints' => new Valid(),
         ));
     }
 
