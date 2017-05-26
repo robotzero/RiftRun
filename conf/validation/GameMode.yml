@@ -1,0 +1,5 @@
+App\Domain\GameMode\Model\GameMode:
+    properties:
+        gameMode:
+            - NotBlank: ~
+            - NotNull: ~

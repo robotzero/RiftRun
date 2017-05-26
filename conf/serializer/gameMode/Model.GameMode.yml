@@ -1,4 +1,4 @@
-App\Domain\GameMode\Model\AbstractGameMode:
+App\Domain\GameMode\Model\GameMode:
     exclusion_policy: ALL
     discriminator:
         field_name: type

@@ -1,6 +1,7 @@
 imports:
     - { resource: 'validation/Player.yml' }
     - { resource: 'validation/PlayerCharacter.yml' }
+    - { resource: 'validation/GameMode.yml' }
     - { resource: 'validation/Grift.yml' }
     - { resource: 'validation/Rift.yml' }
     - { resource: 'validation/Post.yml' }

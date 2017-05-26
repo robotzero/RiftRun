@@ -2,7 +2,7 @@
 
 namespace App\Domain\SearchQuery\Model;
 
-use App\Domain\GameMode\Model\AbstractGameMode;
+use App\Domain\GameMode\Model\GameMode;
 use App\Domain\PlayerCharacter\Model\PlayerCharacter;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -39,10 +39,10 @@ class SearchQuery
     /**
      * SearchQuery constructor.
      * @param SearchQueryId $id
-     * @param AbstractGameMode $gameMode
+     * @param GameMode $gameMode
      * @param int $minParagon
      */
-    public function __construct(SearchQueryId $id, AbstractGameMode $gameMode = null, int $minParagon = null)
+    public function __construct(SearchQueryId $id, GameMode $gameMode = null, int $minParagon = null)
     {
         $this->id = $id;
         $this->minParagon = $minParagon;
@@ -85,7 +85,7 @@ class SearchQuery
      * Get gameMode
      *
      */
-    public function getGameMode():AbstractGameMode
+    public function getGameMode():GameMode
     {
         return $this->gameMode;
     }

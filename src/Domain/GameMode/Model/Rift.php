@@ -8,7 +8,7 @@ use App\Domain\GameMode\ValueObject\GameModeId;
  * Class Rift
  * @package App\Domain\GameMode\Model\GameMode
  */
-class Rift extends AbstractGameMode
+class Rift extends GameMode
 {
     /**
      * @var int

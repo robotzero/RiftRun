@@ -3,7 +3,7 @@ App\Domain\SearchQuery\Model\SearchQuery:
     table: searchquery
     oneToOne:
         gameMode:
-            targetEntity: App\Domain\GameMode\Model\AbstractGameMode
+            targetEntity: App\Domain\GameMode\Model\GameMode
             joinColumn:
                 name: gametype_id
                 referencedColumnName: id

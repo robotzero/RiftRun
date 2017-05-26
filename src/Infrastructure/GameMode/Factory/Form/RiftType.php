@@ -30,6 +30,7 @@ class RiftType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @throws \OutOfBoundsExceptions
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -39,7 +40,7 @@ class RiftType extends AbstractType
             'csrf_protection' => false,
             'empty_data' => function(FormInterface $form) {
                 return new Rift(
-                    $form->get('torment')->getData() ?: ''
+                    $form->get('torment')->getData() ?: 0
                 );
             }
         ));

@@ -2,14 +2,16 @@
 
 namespace App\Infrastructure\SearchQuery\Factory\Form;
 
-use App\Domain\GameMode\Model\AbstractGameMode;
+use App\Domain\GameMode\Model\GameMode;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
+use App\Infrastructure\GameMode\Factory\Form\GameModeType;
 use App\Infrastructure\PlayerCharacter\Factory\Form\PlayerCharacterType;
 use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -35,6 +37,7 @@ class SearchQueryType extends AbstractType
             ]
         );
         $builder->add('minParagon', IntegerType::class, ['mapped' => false]);
+        $builder->add('game', GameModeType::class, ['mapped' => false]);
     }
 
     /**

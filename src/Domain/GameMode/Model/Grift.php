@@ -8,7 +8,7 @@ use App\Domain\GameMode\ValueObject\GameModeId;
  * Class Grift
  * @package App\Domain\GameMode\Model\GameMode
  */
-class Grift extends AbstractGameMode
+class Grift extends GameMode
 {
     /**
      * @var string

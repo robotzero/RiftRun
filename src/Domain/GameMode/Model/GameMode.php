@@ -10,7 +10,7 @@ use App\Domain\GameMode\ValueObject\GameType;
  * Class GameMode
  * @package App\Domain\GameMode\Model
  */
-abstract class AbstractGameMode
+class GameMode
 {
     /**
      * @var GameModeId
@@ -23,13 +23,12 @@ abstract class AbstractGameMode
     protected $gameMode;
 
     /**
-     * GameMode constructor.
-     * @param GameModeId $id
+     * GameMode constructor
      * @param string $gameMode
      */
-    public function __construct(GameModeId $id, string $gameMode)
+    public function __construct(string $gameMode)
     {
-        $this->id = $id;
+        $this->id = new GameModeId();
         $this->gameMode = new GameType($gameMode);
     }
 

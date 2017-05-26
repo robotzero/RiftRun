@@ -1,4 +1,4 @@
-App\Domain\GameMode\Model\AbstractGameMode:
+App\Domain\GameMode\Model\GameMode:
     type: entity
     table: gamemode
     inheritanceType: JOINED
@@ -9,6 +9,7 @@ App\Domain\GameMode\Model\AbstractGameMode:
     discriminatorMap:
         grift: App\Domain\GameMode\Model\Grift
         rift: App\Domain\GameMode\Model\Rift
+        gameMode: App\Domain\GameMode\Model\GameMode
     embedded:
         gameMode:
             class: App\Domain\GameMode\ValueObject\GameType

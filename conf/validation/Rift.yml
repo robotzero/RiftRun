@@ -3,3 +3,5 @@ App\Domain\GameMode\Model\Rift:
         torment:
             - NotBlank: ~
             - NotNull: ~
+            - GreaterThan:
+                value: 0
