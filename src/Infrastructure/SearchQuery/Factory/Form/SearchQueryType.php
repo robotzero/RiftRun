@@ -6,6 +6,7 @@ use App\Domain\GameMode\Model\AbstractGameMode;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use App\Infrastructure\PlayerCharacter\Factory\Form\PlayerCharacterType;
+use Doctrine\Common\Util\Debug;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -51,7 +52,7 @@ class SearchQueryType extends AbstractType
                 $queryData = $form->all();
                 $searchQuery = new SearchQuery(
                     new SearchQueryId(),
-                    AbstractGameMode::createGameMode(array_key_exists('game', $queryData) ? $queryData['game']->all() : null),
+                    $queryData['game']->getData() ?: null,
                     $queryData['minParagon']->getData() ?: null
                 );
 

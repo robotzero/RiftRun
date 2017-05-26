@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Class RiftType
@@ -34,11 +35,11 @@ class RiftType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => Rift::class,
-//            'constraints' => new Valid(),
+            'constraints' => new Valid(),
             'csrf_protection' => false,
             'empty_data' => function(FormInterface $form) {
-                new Rift(
-                    $form->get('torment')->getData()
+                return new Rift(
+                    $form->get('torment')->getData() ?: ''
                 );
             }
         ));

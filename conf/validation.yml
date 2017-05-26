@@ -1,6 +1,7 @@
 imports:
-    - { resource: 'validation/CharacterDTO.yml' }
-    - { resource: 'validation/CharacterTypeDTO.yml' }
-    - { resource: 'validation/GriftDTO.yml' }
-    - { resource: 'validation/PostDTO.yml' }
-    - { resource: 'validation/SearchQueryDTO.yml' }
+    - { resource: 'validation/Player.yml' }
+    - { resource: 'validation/PlayerCharacter.yml' }
+    - { resource: 'validation/Grift.yml' }
+    - { resource: 'validation/Rift.yml' }
+    - { resource: 'validation/Post.yml' }
+    - { resource: 'validation/SearchQuery.yml' }

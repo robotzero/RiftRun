@@ -50,26 +50,4 @@ abstract class AbstractGameMode
     {
         return $this->gameMode;
     }
-
-    /**
-     * @param array|null $data
-     * @return AbstractGameMode
-     * @throws InvalidGameTypeException
-     */
-    public static function createGameMode(?array $data): AbstractGameMode
-    {
-        if ($data === null) {
-            throw new InvalidGameTypeException();
-        }
-
-        if (array_key_exists('torment', $data)) {
-            return new Rift($data['torment']->getData());
-        }
-
-        if (array_key_exists('level', $data)) {
-            return new Grift($data['level']->getData());
-        }
-
-        throw new InvalidGameTypeException();
-    }
 }
