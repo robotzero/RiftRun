@@ -451,12 +451,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "ba467d980d4c403eb13a899c5b9a7b8875f003c2"
+                "reference": "c4c59a64e495e038992e63af683b9faefbea12c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/ba467d980d4c403eb13a899c5b9a7b8875f003c2",
-                "reference": "ba467d980d4c403eb13a899c5b9a7b8875f003c2",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/c4c59a64e495e038992e63af683b9faefbea12c3",
+                "reference": "c4c59a64e495e038992e63af683b9faefbea12c3",
                 "shasum": ""
             },
             "require": {
@@ -483,8 +483,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\DataFixtures": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\DataFixtures\\": "lib/Doctrine/Common/DataFixtures"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -502,7 +502,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2017-05-03 08:28:59"
+            "time": "2017-05-28 02:49:26"
         },
         {
             "name": "doctrine/dbal",
