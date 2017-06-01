@@ -24,7 +24,7 @@
     "require": {
         "php": ">=7.1",
         "roave/security-advisories": "dev-master",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "3.3.x",
         "doctrine/orm": "dev-master",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "dev-master",
@@ -38,7 +38,7 @@
         "incenteev/composer-parameter-handler": "dev-master",
 	    "friendsofsymfony/rest-bundle": "dev-master",
 	    "willdurand/hateoas-bundle": "dev-master",
-        "jms/serializer-bundle": "1.5.*",
+        "jms/serializer-bundle": "dev-master",
         "hautelook/templated-uri-bundle": "dev-master",
 	    "pagerfanta/pagerfanta": "dev-master",
 	    "simple-bus/symfony-bridge": "dev-master",
