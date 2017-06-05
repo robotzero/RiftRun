@@ -2,8 +2,10 @@
 
 namespace App\Infrastructure\Post\Repository;
 
+use App\Domain\Post\Exception\PostNotFoundException;
 use App\Domain\Post\Model\Post;
 use App\Domain\Post\Repository\PostRepositoryInterface;
+use App\Domain\Post\ValueObject\PostId;
 use Doctrine\DBAL\Types\Type;
 use App\Infrastructure\Common\Doctrine\ORM\EntityRepository;
 use Pagerfanta\Pagerfanta;
@@ -32,5 +34,34 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
     {
         $this->getEntityManager()->persist($post);
         return $post;
+    }
+
+    /**
+     * @param PostId $uuid
+     * @return Post
+     * @throws PostNotFoundException
+     */
+    public function get(PostId $uuid): Post
+    {
+        $post = $this->findOneById($uuid);
+
+        if (!$post) {
+            throw new PostNotFoundException();
+        }
+
+        return $post;
+    }
+
+    /**
+     * @param PostId $uuid
+     * @return Post|null
+     */
+    private function findOneById(PostId $uuid): ?Post
+    {
+        return $this->createQueryBuilder('post')
+            ->where('post.id = :id')
+            ->setParameter('id', $uuid->bytes())
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

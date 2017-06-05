@@ -53,6 +53,7 @@ class SearchQueryType extends AbstractType
             'empty_data' => function (FormInterface $form) {
                 $playerCharacters = $form->all()['playerCharacters']->getData();
                 $queryData = $form->all();
+
                 $searchQuery = new SearchQuery(
                     new SearchQueryId(),
                     $queryData['game']->getData() ?: null,

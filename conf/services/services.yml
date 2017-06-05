@@ -65,3 +65,10 @@ services:
          public: true
          tags:
             - { name: tactician.handler, command: App\Application\UseCase\Post\Request\CreatePost }
+
+    App\Application\UseCase\Post\GetPostHandler:
+        arguments:
+            - '@post_repository'
+        public: true
+        tags:
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\GetPost }

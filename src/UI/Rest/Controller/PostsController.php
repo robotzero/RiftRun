@@ -4,6 +4,7 @@ namespace App\UI\Rest\Controller;
 
 use App\Application\UseCase\Post\Request\CreatePost;
 use App\Application\UseCase\Post\Request\FindPost;
+use App\Application\UseCase\Post\Request\GetPost;
 use App\Infrastructure\Common\Exception\Form\FormException;
 use App\Infrastructure\Common\Pagination\PaginationTrait;
 use FOS\RestBundle\Controller\Annotations\Get;
@@ -58,9 +59,33 @@ class PostsController extends AbstractBusController
      * @View()
      * @Get("/posts/{id}")
      */
-    public function getPostAction(string $id) : Response
+//    public function getPostAction(string $id) : Response
+//    {
+//        return new Response($this->serializer->serialize($this->postQueryService->query($id), 'json'));
+//    }
+
+    /**
+     * ApiDoc(
+     *     resource = true,
+     *     section="Post",
+     *     description = "Gets a post for given identifier",
+     *     output = "Application\Domain\Post\Model\Post",
+     *     statusCodes = {
+     *       200 = "Returned when successful",
+     *       404 = "Returned when not found"
+     *     }
+     * )
+     *
+     * @View(statusCode=200, serializerGroups={"Identifier", "Basic"})
+     * @Get("/posts/{id}")
+     *
+     * @param string $postId
+     *
+     * @return Post
+     */
+    public function getPostAction(string $postId): Post
     {
-        return new Response($this->serializer->serialize($this->postQueryService->query($id), 'json'));
+        return $this->handle(new GetPost($postId));
     }
 
     /**
@@ -84,14 +109,5 @@ class PostsController extends AbstractBusController
             return $exception->getForm();
         }
         return $post;
-//        return $this->routeRedirectView('get_post', [ 'postId' => $post->id() ]);
-
-//        $post = $this->commandBus->handle(new CreatePost(
-//            PostType::class,
-//            $request->getMethod(),
-//            $request->request->all()
-//        ));
-//
-//        return new Response(json_encode(['postId' => $post->getId(), 'searchQueryId' => $post->getQuery()->getId()]), 201);
     }
 }

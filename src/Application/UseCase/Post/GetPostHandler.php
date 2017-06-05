@@ -2,23 +2,21 @@
 
 namespace App\Application\UseCase\Post;
 
-use App\Application\Common\Request\Pagination;
+use App\Application\UseCase\Post\Request\GetPost;
+use App\Domain\Post\Model\Post;
 use App\Domain\Post\Repository\PostRepositoryInterface;
-use Pagerfanta\Pagerfanta;
 
 /**
- * Class FindPostHandler
+ * Class GetPostHandler
  * @package App\Application\UseCase\Post
  */
-final class FindPostHandler
+final class GetPostHandler
 {
-    /**
-     * @var PostRepositoryInterface
-     */
+    /** @var PostRepositoryInterface */
     private $repository;
 
     /**
-     * FindPostHandler constructor.
+     * GetPostHandler constructor.
      * @param PostRepositoryInterface $repository
      */
     public function __construct(PostRepositoryInterface $repository)
@@ -27,11 +25,11 @@ final class FindPostHandler
     }
 
     /**
-     * @param Pagination $request
-     * @return Pagerfanta
+     * @param GetPost $request
+     * @return Post
      */
-    public function handle(Pagination $request): Pagerfanta
+    public function handle(GetPost $request): Post
     {
-        return $this->repository->findAll();
+        return $this->repository->get($request->getUuid());
     }
 }
