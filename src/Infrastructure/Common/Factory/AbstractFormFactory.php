@@ -21,7 +21,7 @@ abstract class AbstractFormFactory
     /**
      * @var FormFactory
      */
-    private $formFactory;
+    protected $formFactory;
 
     /**
      * @var string

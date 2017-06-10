@@ -9,6 +9,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * Class GameModeEvent
@@ -16,11 +17,23 @@ use Symfony\Component\Validator\ConstraintViolationList;
  */
 class GameModeEvent implements EventSubscriberInterface
 {
+    /** @var ValidatorInterface */
+    private $validator;
+
     /** @var array  */
     private $typesMap = [
         'rift' => RiftType::class,
         'grift' => GriftType::class
     ];
+
+    /**
+     * GameModeEvent constructor.
+     * @param ValidatorInterface $validator
+     */
+    public function __construct(ValidatorInterface $validator)
+    {
+        $this->validator = $validator;
+    }
 
     /**
      * @return array The event names to listen to
