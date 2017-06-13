@@ -4,11 +4,9 @@ namespace App\Infrastructure\Post\Factory\Form\Event;
 
 use App\Infrastructure\GameMode\Factory\Form\GriftType;
 use App\Infrastructure\GameMode\Factory\Form\RiftType;
-use JMS\Serializer\Exception\ValidationFailedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**

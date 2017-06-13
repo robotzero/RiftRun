@@ -20,9 +20,6 @@ class PostsController extends AbstractBusController
 {
     use PaginationTrait;
 
-    private $postQueryService;
-    private $serializer;
-
     /**
      * @param Request $request
      * @param ParamFetcherInterface $paramFetcher
@@ -50,21 +47,6 @@ class PostsController extends AbstractBusController
     }
 
     /**
-     * @param $id
-     * @return Response
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
-     * @throws \InvalidArgumentException
-     * @View()
-     * @Get("/posts/{id}")
-     */
-//    public function getPostAction(string $id) : Response
-//    {
-//        return new Response($this->serializer->serialize($this->postQueryService->query($id), 'json'));
-//    }
-
-    /**
      * ApiDoc(
      *     resource = true,
      *     section="Post",
@@ -77,13 +59,13 @@ class PostsController extends AbstractBusController
      * )
      *
      * @View(statusCode=200, serializerGroups={"Identifier", "Basic"})
-     * @Get("/posts/{id}")
+     * @Get("/posts/{postId}")
      *
      * @param string $postId
      *
-     * @return Post
+     * @return Response
      */
-    public function getPostAction(string $postId): Post
+    public function getPostAction(string $postId): Response
     {
         return $this->handle(new GetPost($postId));
     }
@@ -97,7 +79,7 @@ class PostsController extends AbstractBusController
      * @View()
      * @Post("/posts")
      */
-    public function createPostAction(Request $request)
+    public function createPostAction(Request $request): Response
     {
         try {
             $post = $this->handle(

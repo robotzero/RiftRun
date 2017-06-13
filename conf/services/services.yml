@@ -72,3 +72,14 @@ services:
         public: true
         tags:
             - { name: tactician.handler, command: App\Application\UseCase\Post\Request\GetPost }
+
+    game_mode_event:
+        class: App\Infrastructure\Post\Factory\Form\Event\GameModeEvent
+        arguments:
+            - '@validator'
+
+    App\Infrastructure\Post\Factory\Form\PostType:
+        arguments:
+            - '@game_mode_event'
+        tags: [form.type]
+        public: false

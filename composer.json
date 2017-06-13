@@ -42,13 +42,15 @@
         "hautelook/templated-uri-bundle": "dev-master",
 	    "pagerfanta/pagerfanta": "dev-master",
 	    "simple-bus/symfony-bridge": "dev-master",
+        "symfony/psr-http-message-bridge": "dev-master",
 	    "simple-bus/doctrine-orm-bridge": "dev-master",
         "league/tactician-bundle": "dev-master",
         "league/tactician-command-events": "dev-master",
         "ramsey/uuid-doctrine": "dev-master",
         "nelmio/cors-bundle": "dev-master",
         "league/pipeline": "dev-master",
-        "league/tactician-doctrine": "dev-master"
+        "league/tactician-doctrine": "dev-master",
+        "zendframework/zend-diactoros": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "dev-master",
