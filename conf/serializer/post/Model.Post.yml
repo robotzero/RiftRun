@@ -19,5 +19,5 @@ App\Domain\Post\Model\Post:
             href:
                 route: get_post
                 parameters:
-                    id: expr(object.getId())
+                    postId: expr(object.getId())
                     absolute: true

@@ -5,6 +5,7 @@ namespace App\UI\Rest\Controller;
 use App\Application\UseCase\Post\Request\CreatePost;
 use App\Application\UseCase\Post\Request\FindPost;
 use App\Application\UseCase\Post\Request\GetPost;
+use App\Domain\Post\Model\Post as ModelPost;
 use App\Infrastructure\Common\Exception\Form\FormException;
 use App\Infrastructure\Common\Pagination\PaginationTrait;
 use FOS\RestBundle\Controller\Annotations\Get;
@@ -63,9 +64,9 @@ class PostsController extends AbstractBusController
      *
      * @param string $postId
      *
-     * @return Response
+     * @return ModelPost
      */
-    public function getPostAction(string $postId): Response
+    public function getPostAction(string $postId): ModelPost
     {
         return $this->handle(new GetPost($postId));
     }
