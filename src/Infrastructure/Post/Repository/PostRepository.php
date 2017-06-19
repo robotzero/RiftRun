@@ -39,6 +39,7 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
     /**
      * @param PostId $uuid
      * @return Post
+     * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws PostNotFoundException
      */
     public function get(PostId $uuid): Post
@@ -55,6 +56,7 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
     /**
      * @param PostId $uuid
      * @return Post|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     private function findOneById(PostId $uuid): ?Post
     {

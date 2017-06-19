@@ -15,8 +15,11 @@ use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use Hateoas\Representation\PaginatedRepresentation;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class PostsController
+ * @package App\UI\Rest\Controller
+ */
 class PostsController extends AbstractBusController
 {
     use PaginationTrait;
