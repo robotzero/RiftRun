@@ -1,19 +1,15 @@
 services:
-    find_post_handler:
-        class: App\Application\UseCase\Post\FindPostHandler
-        public: true
-        arguments:
-            - '@post_repository'
-        tags:
-            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\FindPost }
-
     JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
     Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
     Doctrine\Common\DataFixtures\Purger\PurgerInterface: '@standard_orm_purger'
     App\Factories\LoaderFactory: '@nelmio_loader_factory'
     League\Tactician\CommandBus: '@tactician.commandbus.default'
-    App\Domain\Post\Repository\PostRepositoryInterface: '@post_repository'
 
+    # Legacy aliases
+    game_mode_event: '@App\Infrastructure\Post\Factory\Form\Event\GameModeEvent'
+    post_repository: '@App\Infrastructure\Post\Repository\PostRepository'
+    riftrun_factory_post: '@App\Infrastructure\Post\Factory\PostFormFactory'
+    
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
 
@@ -37,23 +33,20 @@ services:
             - '@fidry_alice_data_fixtures.doctrine.persister_loader'
 
     # =========== Split into separate files ========== #
-    riftrun.abstract.repository:
+    Doctrine\ORM\EntityInterface:
         abstract: true
         factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
         public: false
 
-    post_repository:
-        class: App\Infrastructure\Post\Repository\PostRepository
-        autowire: false
+    App\Infrastructure\Post\Repository\PostRepository:
         arguments:
           - 'App\Domain\Post\Model\Post'
-        parent: riftrun.abstract.repository
+        parent: Doctrine\ORM\EntityInterface
 
-    riftrun.factory.post:
-        class: App\Infrastructure\Post\Factory\PostFormFactory
-        parent: riftrun.abstract.form_factory
+    App\Infrastructure\Post\Factory\PostFormFactory:
+        parent: App\Infrastructure\Common\Factory
 
-    riftrun.abstract.form_factory:
+    App\Infrastructure\Common\Factory:
         abstract: true
         arguments:
            - '@form.factory'
@@ -61,7 +54,7 @@ services:
     App\Application\UseCase\Post\CreatePostCommandHandler:
          arguments:
             - '@post_repository'
-            - '@riftrun.factory.post'
+            - '@riftrun_factory_post'
          public: true
          tags:
             - { name: tactician.handler, command: App\Application\UseCase\Post\Request\CreatePost }
@@ -73,8 +66,14 @@ services:
         tags:
             - { name: tactician.handler, command: App\Application\UseCase\Post\Request\GetPost }
 
-    game_mode_event:
-        class: App\Infrastructure\Post\Factory\Form\Event\GameModeEvent
+    App\Application\UseCase\Post\FindPostHandler:
+        public: true
+        arguments:
+            - '@post_repository'
+        tags:
+            - { name: tactician.handler, command: App\Application\UseCase\Post\Request\FindPost }
+
+    App\Infrastructure\Post\Factory\Form\Event\GameModeEvent:
         arguments:
             - '@validator'
 
