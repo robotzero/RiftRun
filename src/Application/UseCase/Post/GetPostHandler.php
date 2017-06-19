@@ -30,6 +30,6 @@ final class GetPostHandler
      */
     public function handle(GetPost $request): Post
     {
-        return $this->repository->get($request->getUuid());
+        return $this->repository->get($request->uuid());
     }
 }

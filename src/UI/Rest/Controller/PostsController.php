@@ -73,14 +73,14 @@ class PostsController extends AbstractBusController
 
     /**
      * @param Request $request
-     * @return Response
+     * @return ModelPost
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      * @View()
      * @Post("/posts")
      */
-    public function createPostAction(Request $request): Response
+    public function createPostAction(Request $request): ModelPost
     {
         try {
             $post = $this->handle(

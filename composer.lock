@@ -810,12 +810,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "6dcae3aee85691db6df6e91e3b5e10911429516c"
+                "reference": "dde035898f2daae9b3b3e5c792f4891cf7aaff80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/6dcae3aee85691db6df6e91e3b5e10911429516c",
-                "reference": "6dcae3aee85691db6df6e91e3b5e10911429516c",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/dde035898f2daae9b3b3e5c792f4891cf7aaff80",
+                "reference": "dde035898f2daae9b3b3e5c792f4891cf7aaff80",
                 "shasum": ""
             },
             "require": {
@@ -869,7 +869,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2017-06-08 15:16:24"
+            "time": "2017-06-16 11:07:05"
         },
         {
             "name": "doctrine/instantiator",
@@ -1176,12 +1176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "d2df87770c3901d79e3ba8dbb96cddd42d61a6f7"
+                "reference": "5f50d2e360cc44aea80adce7eba98de3a4d63788"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d2df87770c3901d79e3ba8dbb96cddd42d61a6f7",
-                "reference": "d2df87770c3901d79e3ba8dbb96cddd42d61a6f7",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/5f50d2e360cc44aea80adce7eba98de3a4d63788",
+                "reference": "5f50d2e360cc44aea80adce7eba98de3a4d63788",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-05-30 16:52:17"
+            "time": "2017-06-18 13:30:07"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "3a41588d7e66b098c6ebd5b37adbdc60da63a0d8"
+                "reference": "39a24e868be309206e75d5226ba43c4d496e63dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/3a41588d7e66b098c6ebd5b37adbdc60da63a0d8",
-                "reference": "3a41588d7e66b098c6ebd5b37adbdc60da63a0d8",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/39a24e868be309206e75d5226ba43c4d496e63dd",
+                "reference": "39a24e868be309206e75d5226ba43c4d496e63dd",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-24 16:30:33"
+            "time": "2017-06-17 11:22:21"
         },
         {
             "name": "jms/serializer-bundle",
@@ -2221,12 +2221,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/tactician-doctrine.git",
-                "reference": "f5a214a110d07dabdd05ee7fb3a155af2d1c0e6c"
+                "reference": "b30a735ba60f739a01c9a74253f4098c1ab00565"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/tactician-doctrine/zipball/f5a214a110d07dabdd05ee7fb3a155af2d1c0e6c",
-                "reference": "f5a214a110d07dabdd05ee7fb3a155af2d1c0e6c",
+                "url": "https://api.github.com/repos/thephpleague/tactician-doctrine/zipball/b30a735ba60f739a01c9a74253f4098c1ab00565",
+                "reference": "b30a735ba60f739a01c9a74253f4098c1ab00565",
                 "shasum": ""
             },
             "require": {
@@ -2266,7 +2266,7 @@
                 "tactician",
                 "transactions"
             ],
-            "time": "2017-01-05 09:49:53"
+            "time": "2017-06-19 10:51:46"
         },
         {
             "name": "matthiasnoback/symfony-config-test",
@@ -2371,12 +2371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "35c07a81de6200e5aa0629eacecd11fd925d19dc"
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/35c07a81de6200e5aa0629eacecd11fd925d19dc",
-                "reference": "35c07a81de6200e5aa0629eacecd11fd925d19dc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
                 "shasum": ""
             },
             "require": {
@@ -2397,7 +2397,7 @@
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
-                "swiftmailer/swiftmailer": "~5.3"
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -2441,7 +2441,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-05-03 13:17:21"
+            "time": "2017-06-19 01:22:40"
         },
         {
             "name": "nelmio/cors-bundle",
@@ -2506,12 +2506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "122cbf6fac5d9c49bd8df0c03996462e52a22cc8"
+                "reference": "89c38212ce3407d247724eb1b857f3b0fbdd7f8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/122cbf6fac5d9c49bd8df0c03996462e52a22cc8",
-                "reference": "122cbf6fac5d9c49bd8df0c03996462e52a22cc8",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/89c38212ce3407d247724eb1b857f3b0fbdd7f8f",
+                "reference": "89c38212ce3407d247724eb1b857f3b0fbdd7f8f",
                 "shasum": ""
             },
             "require": {
@@ -2567,7 +2567,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2017-05-22 16:00:42"
+            "time": "2017-06-16 11:16:50"
         },
         {
             "name": "paragonie/random_compat",
@@ -3624,12 +3624,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "c7c66b476fa32f2ffdc2ca5d58ea96a773ad47ed"
+                "reference": "52f65679265c69df816fc928075ea675a43a589a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c7c66b476fa32f2ffdc2ca5d58ea96a773ad47ed",
-                "reference": "c7c66b476fa32f2ffdc2ca5d58ea96a773ad47ed",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/52f65679265c69df816fc928075ea675a43a589a",
+                "reference": "52f65679265c69df816fc928075ea675a43a589a",
                 "shasum": ""
             },
             "require": {
@@ -3671,7 +3671,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-06-12 20:29:40"
+            "time": "2017-06-15 14:53:38"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -4431,12 +4431,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Hateoas.git",
-                "reference": "e71a5702dce56cc8e077bfc06d982eed38764732"
+                "reference": "3026defaedb461096dade1002d8dd2a743d78a2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Hateoas/zipball/e71a5702dce56cc8e077bfc06d982eed38764732",
-                "reference": "e71a5702dce56cc8e077bfc06d982eed38764732",
+                "url": "https://api.github.com/repos/willdurand/Hateoas/zipball/3026defaedb461096dade1002d8dd2a743d78a2f",
+                "reference": "3026defaedb461096dade1002d8dd2a743d78a2f",
                 "shasum": ""
             },
             "require": {
@@ -4487,7 +4487,7 @@
                 }
             ],
             "description": "A PHP library to support implementing representations for HATEOAS REST web services",
-            "time": "2017-05-22 10:40:22"
+            "time": "2017-06-15 16:43:41"
         },
         {
             "name": "willdurand/hateoas-bundle",
@@ -5191,12 +5191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "11c57ceccafd2e70a673ab493217f6ea72a30a0d"
+                "reference": "867ea417a1e86b31aa573d799aad3e68f37a4d05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/11c57ceccafd2e70a673ab493217f6ea72a30a0d",
-                "reference": "11c57ceccafd2e70a673ab493217f6ea72a30a0d",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/867ea417a1e86b31aa573d799aad3e68f37a4d05",
+                "reference": "867ea417a1e86b31aa573d799aad3e68f37a4d05",
                 "shasum": ""
             },
             "require": {
@@ -5256,7 +5256,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-06-13T22:26:32+00:00"
+            "time": "2017-06-19T15:55:04+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5550,12 +5550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "d0d14d42e66be0c8b6760313331579f1e1b77966"
+                "reference": "f10b6f5bc59982965ed6f8a4c952970d95c65320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/d0d14d42e66be0c8b6760313331579f1e1b77966",
-                "reference": "d0d14d42e66be0c8b6760313331579f1e1b77966",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/f10b6f5bc59982965ed6f8a4c952970d95c65320",
+                "reference": "f10b6f5bc59982965ed6f8a4c952970d95c65320",
                 "shasum": ""
             },
             "require": {
@@ -5624,7 +5624,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-06-02 13:11:05"
+            "time": "2017-06-18T21:08:56+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -5945,12 +5945,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ac835ca365deede0a69eb132c82f38541776dd02"
+                "reference": "3263b15ba549ea5496249c83d51707a5dfb426ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ac835ca365deede0a69eb132c82f38541776dd02",
-                "reference": "ac835ca365deede0a69eb132c82f38541776dd02",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3263b15ba549ea5496249c83d51707a5dfb426ef",
+                "reference": "3263b15ba549ea5496249c83d51707a5dfb426ef",
                 "shasum": ""
             },
             "require": {
@@ -6021,7 +6021,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-14T16:54:13+00:00"
+            "time": "2017-06-16T16:05:23+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6332,7 +6332,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-06-14T10:35:46+00:00"
+            "time": "2017-06-14 10:35:46"
         },
         {
             "name": "sebastian/exporter",
