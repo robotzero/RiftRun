@@ -9,7 +9,7 @@ services:
     game_mode_event: '@App\Infrastructure\Post\Factory\Form\Event\GameModeEvent'
     post_repository: '@App\Infrastructure\Post\Repository\PostRepository'
     riftrun_factory_post: '@App\Infrastructure\Post\Factory\PostFormFactory'
-    
+
     standard_orm_purger:
         class: Doctrine\Common\DataFixtures\Purger\ORMPurger
 

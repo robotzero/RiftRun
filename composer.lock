@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "899c62bb579027c146b73f6b580c871eb669d310"
+                "reference": "638cb41b859d22007218bbb32b742f1a41f133a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/899c62bb579027c146b73f6b580c871eb669d310",
-                "reference": "899c62bb579027c146b73f6b580c871eb669d310",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/638cb41b859d22007218bbb32b742f1a41f133a2",
+                "reference": "638cb41b859d22007218bbb32b742f1a41f133a2",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-06-13 11:58:27"
+            "time": "2017-06-20 07:18:57"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -985,28 +985,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "fc67b398a1efd3d61837778e2cda2d05a395778c"
+                "reference": "7523513be55c5178a7f6aa01756fc8999f97d26f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/fc67b398a1efd3d61837778e2cda2d05a395778c",
-                "reference": "fc67b398a1efd3d61837778e2cda2d05a395778c",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7523513be55c5178a7f6aa01756fc8999f97d26f",
+                "reference": "7523513be55c5178a7f6aa01756fc8999f97d26f",
                 "shasum": ""
             },
             "require": {
-                "doctrine/annotations": "~1.2",
-                "doctrine/cache": "~1.5",
+                "doctrine/annotations": "~1.4",
+                "doctrine/cache": "~1.6",
                 "doctrine/collections": "^1.4",
                 "doctrine/common": "^2.7.1",
                 "doctrine/dbal": ">=2.5-dev,<2.7-dev",
                 "doctrine/instantiator": "~1.0.1",
                 "ext-pdo": "*",
-                "php": "^7.0",
-                "symfony/console": "~2.5|~3.0|~4.0"
+                "php": "^7.1",
+                "symfony/console": "~3.0|~4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.0",
-                "symfony/yaml": "~2.3|~3.0|~4.0"
+                "symfony/yaml": "~3.0|~4.0"
             },
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-06-12 22:20:57"
+            "time": "2017-06-20 15:34:46"
         },
         {
             "name": "egulias/email-validator",
@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "39a24e868be309206e75d5226ba43c4d496e63dd"
+                "reference": "f96cec79bd20c0a5c174b3cf340641b11e130fa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/39a24e868be309206e75d5226ba43c4d496e63dd",
-                "reference": "39a24e868be309206e75d5226ba43c4d496e63dd",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/f96cec79bd20c0a5c174b3cf340641b11e130fa6",
+                "reference": "f96cec79bd20c0a5c174b3cf340641b11e130fa6",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-06-17 11:22:21"
+            "time": "2017-06-20 11:41:36"
         },
         {
             "name": "jms/serializer-bundle",
@@ -5256,7 +5256,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-06-19T15:55:04+00:00"
+            "time": "2017-06-19 15:55:04"
         },
         {
             "name": "phar-io/manifest",
@@ -5624,7 +5624,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-06-18T21:08:56+00:00"
+            "time": "2017-06-18 21:08:56"
         },
         {
             "name": "phpspec/prophecy",
@@ -6021,7 +6021,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-16T16:05:23+00:00"
+            "time": "2017-06-16 16:05:23"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6290,12 +6290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "99851040b23c18fd20691275d36a96befe8afb62"
+                "reference": "dce014c5ac410e20f39e069a2dbdc31cea112cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/99851040b23c18fd20691275d36a96befe8afb62",
-                "reference": "99851040b23c18fd20691275d36a96befe8afb62",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/dce014c5ac410e20f39e069a2dbdc31cea112cef",
+                "reference": "dce014c5ac410e20f39e069a2dbdc31cea112cef",
                 "shasum": ""
             },
             "require": {
@@ -6332,7 +6332,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-06-14 10:35:46"
+            "time": "2017-06-20T16:26:07+00:00"
         },
         {
             "name": "sebastian/exporter",
