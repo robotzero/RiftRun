@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "7523513be55c5178a7f6aa01756fc8999f97d26f"
+                "reference": "af1ea1ae1d4f0b945eb37c94732ed7e1e44099d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7523513be55c5178a7f6aa01756fc8999f97d26f",
-                "reference": "7523513be55c5178a7f6aa01756fc8999f97d26f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/af1ea1ae1d4f0b945eb37c94732ed7e1e44099d8",
+                "reference": "af1ea1ae1d4f0b945eb37c94732ed7e1e44099d8",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-06-20 15:34:46"
+            "time": "2017-06-22 06:03:42"
         },
         {
             "name": "egulias/email-validator",
@@ -3149,12 +3149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "7cd88c8d4e4e6b483633bb13c35bcec95fd6cd4c"
+                "reference": "0b18b6bbeed070fb900ad78e81ffa1182a57a752"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/7cd88c8d4e4e6b483633bb13c35bcec95fd6cd4c",
-                "reference": "7cd88c8d4e4e6b483633bb13c35bcec95fd6cd4c",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0b18b6bbeed070fb900ad78e81ffa1182a57a752",
+                "reference": "0b18b6bbeed070fb900ad78e81ffa1182a57a752",
                 "shasum": ""
             },
             "conflict": {
@@ -3179,8 +3179,8 @@
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=8,<8.2.8|>=8.3,<8.3.1",
-                "drupal/drupal": ">=8,<8.2.8|>=8.3,<8.3.1",
+                "drupal/core": ">=8,<8.3.4",
+                "drupal/drupal": ">=8,<8.3.4",
                 "firebase/php-jwt": "<2",
                 "friendsofsymfony/rest-bundle": ">=1.2,<1.2.2",
                 "friendsofsymfony/user-bundle": ">=1.2,<1.3.5",
@@ -3277,7 +3277,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2017-06-07T12:12:03+00:00"
+            "time": "2017-06-22T16:43:17+00:00"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -3624,12 +3624,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "52f65679265c69df816fc928075ea675a43a589a"
+                "reference": "dfb80aa5db347f67e7a75aa31fad0d07e1f82e91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/52f65679265c69df816fc928075ea675a43a589a",
-                "reference": "52f65679265c69df816fc928075ea675a43a589a",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/dfb80aa5db347f67e7a75aa31fad0d07e1f82e91",
+                "reference": "dfb80aa5db347f67e7a75aa31fad0d07e1f82e91",
                 "shasum": ""
             },
             "require": {
@@ -3671,7 +3671,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-06-15 14:53:38"
+            "time": "2017-06-21 14:23:14"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -5008,12 +5008,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Symfony2Extension.git",
-                "reference": "ebfc2e67328cb69cbfbdaff7fb81bdeea1777c9d"
+                "reference": "319b56cd6ddb87afaebf0648ef101ce138144275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/ebfc2e67328cb69cbfbdaff7fb81bdeea1777c9d",
-                "reference": "ebfc2e67328cb69cbfbdaff7fb81bdeea1777c9d",
+                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/319b56cd6ddb87afaebf0648ef101ce138144275",
+                "reference": "319b56cd6ddb87afaebf0648ef101ce138144275",
                 "shasum": ""
             },
             "require": {
@@ -5060,7 +5060,7 @@
                 "framework",
                 "symfony"
             ],
-            "time": "2017-06-06 08:41:20"
+            "time": "2017-06-21T18:29:14+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -5945,12 +5945,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3263b15ba549ea5496249c83d51707a5dfb426ef"
+                "reference": "445c9b40b9b9db43b11b81095d6acbae5233e739"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3263b15ba549ea5496249c83d51707a5dfb426ef",
-                "reference": "3263b15ba549ea5496249c83d51707a5dfb426ef",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/445c9b40b9b9db43b11b81095d6acbae5233e739",
+                "reference": "445c9b40b9b9db43b11b81095d6acbae5233e739",
                 "shasum": ""
             },
             "require": {
@@ -6021,7 +6021,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-16 16:05:23"
+            "time": "2017-06-21T08:27:43+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6238,12 +6238,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "c7a73305b177922a6cd6ddfab6bb1780fea29c02"
+                "reference": "5bf53e77396e822ea248d8f48679ab5bd76ac20c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/c7a73305b177922a6cd6ddfab6bb1780fea29c02",
-                "reference": "c7a73305b177922a6cd6ddfab6bb1780fea29c02",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/5bf53e77396e822ea248d8f48679ab5bd76ac20c",
+                "reference": "5bf53e77396e822ea248d8f48679ab5bd76ac20c",
                 "shasum": ""
             },
             "require": {
@@ -6282,7 +6282,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-10 10:11:03"
+            "time": "2017-06-22T14:02:19+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6332,7 +6332,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-06-20T16:26:07+00:00"
+            "time": "2017-06-20 16:26:07"
         },
         {
             "name": "sebastian/exporter",
