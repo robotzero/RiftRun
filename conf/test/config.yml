@@ -17,3 +17,10 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+fidry_alice_data_fixtures:
+    db_drivers:
+        doctrine_orm: ~
+        doctrine_mongodb_odm: ~
+        doctrine_phpcr_odm: ~
+        eloquent_orm: ~

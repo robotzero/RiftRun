@@ -24,9 +24,16 @@ use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+/**
+ * Class AppKernel
+ * @package App
+ */
 class AppKernel extends Kernel
 {
-    public function registerBundles()
+    /**
+     * @return array
+     */
+    public function registerBundles(): array
     {
         $bundles = [
             new FrameworkBundle(),
@@ -56,20 +63,34 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-    public function getRootDir()
+    /**
+     * @return string
+     */
+    public function getRootDir(): string
     {
         return __DIR__;
     }
-    public function getCacheDir()
+
+    /**
+     * @return string
+     */
+    public function getCacheDir(): string
     {
         return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
     }
-    public function getLogDir()
+
+    /**
+     * @return string
+     */
+    public function getLogDir(): string
     {
         return dirname(__DIR__).'/var/logs';
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    /**
+     * @param LoaderInterface $loader
+     */
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load($this->getRootDir().'/../conf/'.$this->getEnvironment().'/config.yml');
     }

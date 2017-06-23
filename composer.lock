@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc813ab1ebb03010ca20e49aac9faf26",
+    "content-hash": "8d8ec456adf81d72d2c0c2e1dc9308de",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "638cb41b859d22007218bbb32b742f1a41f133a2"
+                "reference": "03e17189c48a92bff9c5fd7d9242d13a15780d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/638cb41b859d22007218bbb32b742f1a41f133a2",
-                "reference": "638cb41b859d22007218bbb32b742f1a41f133a2",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/03e17189c48a92bff9c5fd7d9242d13a15780d15",
+                "reference": "03e17189c48a92bff9c5fd7d9242d13a15780d15",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-06-20 07:18:57"
+            "time": "2017-06-23 20:42:58"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "af1ea1ae1d4f0b945eb37c94732ed7e1e44099d8"
+                "reference": "41bcdb3268bbe52917a95696477210a1b07f93d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/af1ea1ae1d4f0b945eb37c94732ed7e1e44099d8",
-                "reference": "af1ea1ae1d4f0b945eb37c94732ed7e1e44099d8",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/41bcdb3268bbe52917a95696477210a1b07f93d9",
+                "reference": "41bcdb3268bbe52917a95696477210a1b07f93d9",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-06-22 06:03:42"
+            "time": "2017-06-23 10:54:29"
         },
         {
             "name": "egulias/email-validator",
@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "f96cec79bd20c0a5c174b3cf340641b11e130fa6"
+                "reference": "b57ee1e8f0311c6c3c37a7487d08c57ea3fd520a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/f96cec79bd20c0a5c174b3cf340641b11e130fa6",
-                "reference": "f96cec79bd20c0a5c174b3cf340641b11e130fa6",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/b57ee1e8f0311c6c3c37a7487d08c57ea3fd520a",
+                "reference": "b57ee1e8f0311c6c3c37a7487d08c57ea3fd520a",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-06-20 11:41:36"
+            "time": "2017-06-23 11:15:13"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1736,17 +1736,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "8b78967bd52b0e5b8012d84f8b9e9316b6fc98f3"
+                "reference": "6a145e4108f1734e74e1e629e234ec34cb0299db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/8b78967bd52b0e5b8012d84f8b9e9316b6fc98f3",
-                "reference": "8b78967bd52b0e5b8012d84f8b9e9316b6fc98f3",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/6a145e4108f1734e74e1e629e234ec34cb0299db",
+                "reference": "6a145e4108f1734e74e1e629e234ec34cb0299db",
                 "shasum": ""
             },
             "require": {
                 "jms/serializer": "^1.7",
-                "php": ">=5.4.0",
+                "php": "^5.5|^7.0",
                 "phpoption/phpoption": "^1.1.0",
                 "symfony/framework-bundle": "~2.3|~3.0"
             },
@@ -1806,7 +1806,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-06-13 14:13:17"
+            "time": "2017-06-23 11:22:59"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -5060,7 +5060,121 @@
                 "framework",
                 "symfony"
             ],
-            "time": "2017-06-21T18:29:14+00:00"
+            "time": "2017-06-21 18:29:14"
+        },
+        {
+            "name": "coduo/php-matcher",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coduo/php-matcher.git",
+                "reference": "a222274b577de57cc45723b2d65a789b28b17836"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/a222274b577de57cc45723b2d65a789b28b17836",
+                "reference": "a222274b577de57cc45723b2d65a789b28b17836",
+                "shasum": ""
+            },
+            "require": {
+                "coduo/php-to-string": "^2",
+                "doctrine/lexer": "1.0.*",
+                "ext-filter": "*",
+                "openlss/lib-array2xml": "~0.0.9",
+                "php": ">=5.3.0",
+                "symfony/expression-language": "^2.3|^3.0",
+                "symfony/property-access": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coduo\\PHPMatcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Norbert Orzechowicz",
+                    "email": "norbert@orzechowicz.pl"
+                },
+                {
+                    "name": "Michał Dąbrowski",
+                    "email": "dabrowski@brillante.pl"
+                }
+            ],
+            "description": "PHP Matcher enables you to match values with patterns",
+            "keywords": [
+                "Match",
+                "json",
+                "matcher",
+                "tests"
+            ],
+            "time": "2016-12-11T16:49:13+00:00"
+        },
+        {
+            "name": "coduo/php-to-string",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coduo/php-to-string.git",
+                "reference": "4c1d7e2e76017719edc70e944ace0ec570748a78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coduo/php-to-string/zipball/4c1d7e2e76017719edc70e944ace0ec570748a78",
+                "reference": "4c1d7e2e76017719edc70e944ace0ec570748a78",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "coduo/phpspec-data-provider-extension": "^1",
+                "phpspec/phpspec": "^2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Norbert Orzechowicz",
+                    "email": "norbert@orzechowicz.pl"
+                },
+                {
+                    "name": "Michał Dąbrowski",
+                    "email": "dabrowski@brillante.pl"
+                }
+            ],
+            "keywords": [
+                "php",
+                "string",
+                "to",
+                "to string"
+            ],
+            "time": "2016-01-20T18:29:02+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -5257,6 +5371,55 @@
                 "test"
             ],
             "time": "2017-06-19 15:55:04"
+        },
+        {
+            "name": "openlss/lib-array2xml",
+            "version": "0.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openlss/lib-array2xml.git",
+                "reference": "f6686668959a342ec326c5ad82ac557d767f34ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openlss/lib-array2xml/zipball/f6686668959a342ec326c5ad82ac557d767f34ef",
+                "reference": "f6686668959a342ec326c5ad82ac557d767f34ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LSS": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Bryan Tong",
+                    "email": "contact@nullivex.com",
+                    "homepage": "http://bryantong.com"
+                },
+                {
+                    "name": "Tony Butler",
+                    "email": "spudz76@gmail.com",
+                    "homepage": "http://openlss.org"
+                }
+            ],
+            "description": "Array2XML conversion library credit to lalit.org",
+            "homepage": "http://openlss.org",
+            "keywords": [
+                "array",
+                "array conversion",
+                "xml",
+                "xml conversion"
+            ],
+            "time": "2015-09-16T18:59:23+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5945,12 +6108,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "445c9b40b9b9db43b11b81095d6acbae5233e739"
+                "reference": "c98de56db2cecdde861267470abace463bc89cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/445c9b40b9b9db43b11b81095d6acbae5233e739",
-                "reference": "445c9b40b9b9db43b11b81095d6acbae5233e739",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c98de56db2cecdde861267470abace463bc89cbe",
+                "reference": "c98de56db2cecdde861267470abace463bc89cbe",
                 "shasum": ""
             },
             "require": {
@@ -6021,7 +6184,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-21T08:27:43+00:00"
+            "time": "2017-06-23T12:47:06+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6282,7 +6445,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-22T14:02:19+00:00"
+            "time": "2017-06-22 14:02:19"
         },
         {
             "name": "sebastian/environment",
@@ -7002,7 +7165,8 @@
         "nelmio/alice": 20,
         "ralfmaxxx/behat_multidimensional_extension": 20,
         "theofidry/alice-data-fixtures": 20,
-        "symfony/var-dumper": 20
+        "symfony/var-dumper": 20,
+        "coduo/php-matcher": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

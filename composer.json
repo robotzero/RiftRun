@@ -67,7 +67,8 @@
 	    "ralfmaxxx/behat_multidimensional_extension": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "theofidry/alice-data-fixtures": "dev-master",
-        "symfony/var-dumper": "dev-master"
+        "symfony/var-dumper": "dev-master",
+        "coduo/php-matcher": "dev-master"
     },
     "scripts": {
         "symfony-scripts": [
