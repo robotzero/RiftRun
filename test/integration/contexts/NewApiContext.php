@@ -2,11 +2,13 @@
 
 namespace Test\Integration\Context;
 
+use Coduo\PHPMatcher\Matcher;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\EntityManager;
 use Fidry\AliceDataFixtures\LoaderInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ResettableContainerInterface;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Client;
 use Symfony\Component\HttpKernel\Kernel;
@@ -18,30 +20,37 @@ abstract class NewApiContext extends WebTestCase
      * @var Kernel
      */
     protected static $sharedKernel;
+
     /**
      * @var Client
      */
     protected $client;
+
     /**
      * @var string
      */
     protected $expectedResponsesPath;
+
     /**
      * @var string
      */
     protected $mockedResponsesPath;
+
     /**
      * @var string
      */
     protected $dataFixturesPath;
+
     /**
      * @var LoaderInterface
      */
     private $fixtureLoader;
+
     /**
      * @var EntityManager
      */
     private $entityManager;
+
     /**
      * @beforeClass
      */
@@ -50,6 +59,7 @@ abstract class NewApiContext extends WebTestCase
         static::$sharedKernel = static::createKernel(['debug' => false]);
         static::$sharedKernel->boot();
     }
+
     /**
      * @afterClass
      */
@@ -63,6 +73,7 @@ abstract class NewApiContext extends WebTestCase
             }
         }
     }
+
     /**
      * @before
      */
@@ -70,18 +81,17 @@ abstract class NewApiContext extends WebTestCase
     {
         $this->client = static::createClient(['debug' => false]);
     }
+
     /**
      * @before
      */
     public function setUpDatabase(): void
     {
-        if (isset($_SERVER['IS_DOCTRINE_ORM_SUPPORTED']) && $_SERVER['IS_DOCTRINE_ORM_SUPPORTED']) {
-            $this->entityManager = static::$sharedKernel->getContainer()->get('doctrine.orm.entity_manager');
-            $this->entityManager->getConnection()->connect();
-            $this->fixtureLoader = static::$sharedKernel->getContainer->get('fidry_alice_data_fixtures.doctrine.persister_loader');
-//            $this->fixtureLoader = new Fixtures(new Doctrine($this->getEntityManager()), [], $this->getFixtureProcessors());
-            $this->purgeDatabase();
-        }
+        $this->entityManager = static::$sharedKernel->getContainer()->get('doctrine.orm.entity_manager');
+        $this->entityManager->getConnection()->connect();
+        $this->fixtureLoader = static::$sharedKernel->getContainer->get('fidry_alice_data_fixtures.doctrine.persister_loader');
+//      $this->fixtureLoader = new Fixtures(new Doctrine($this->getEntityManager()), [], $this->getFixtureProcessors());
+        $this->purgeDatabase();
     }
 
     public function tearDown(): void
@@ -203,7 +213,7 @@ abstract class NewApiContext extends WebTestCase
             $openCommand = isset($_SERVER['OPEN_BROWSER_COMMAND']) ? $_SERVER['OPEN_BROWSER_COMMAND'] : 'open %s';
             $tmpDir = isset($_SERVER['TMP_DIR']) ? $_SERVER['TMP_DIR'] : sys_get_temp_dir();
 
-            $filename = PathBuilder::build(rtrim($tmpDir, \DIRECTORY_SEPARATOR), uniqid() . '.html');
+            $filename = PathBuilder::build(rtrim($tmpDir, \DIRECTORY_SEPARATOR), uniqid('', true) . '.html');
             file_put_contents($filename, $response->getContent());
             system(sprintf($openCommand, escapeshellarg($filename)));
             throw new \Exception('Internal server error.');

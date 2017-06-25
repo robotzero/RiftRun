@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "41bcdb3268bbe52917a95696477210a1b07f93d9"
+                "reference": "388afb46d0cb3ed0c51332e8df0de9e942c2690b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/41bcdb3268bbe52917a95696477210a1b07f93d9",
-                "reference": "41bcdb3268bbe52917a95696477210a1b07f93d9",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/388afb46d0cb3ed0c51332e8df0de9e942c2690b",
+                "reference": "388afb46d0cb3ed0c51332e8df0de9e942c2690b",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-06-23 10:54:29"
+            "time": "2017-06-24 07:17:55"
         },
         {
             "name": "egulias/email-validator",
@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "b57ee1e8f0311c6c3c37a7487d08c57ea3fd520a"
+                "reference": "3617f8d2b81060ed2faf92c9a0e9e0025d3fbdca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/b57ee1e8f0311c6c3c37a7487d08c57ea3fd520a",
-                "reference": "b57ee1e8f0311c6c3c37a7487d08c57ea3fd520a",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/3617f8d2b81060ed2faf92c9a0e9e0025d3fbdca",
+                "reference": "3617f8d2b81060ed2faf92c9a0e9e0025d3fbdca",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-06-23 11:15:13"
+            "time": "2017-06-24 17:37:35"
         },
         {
             "name": "jms/serializer-bundle",
@@ -5120,7 +5120,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2016-12-11T16:49:13+00:00"
+            "time": "2016-12-11 16:49:13"
         },
         {
             "name": "coduo/php-to-string",
@@ -5174,7 +5174,7 @@
                 "to",
                 "to string"
             ],
-            "time": "2016-01-20T18:29:02+00:00"
+            "time": "2016-01-20 18:29:02"
         },
         {
             "name": "container-interop/container-interop",
@@ -6184,7 +6184,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-23T12:47:06+00:00"
+            "time": "2017-06-23 12:47:06"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6401,12 +6401,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "5bf53e77396e822ea248d8f48679ab5bd76ac20c"
+                "reference": "2994073dc733d81c4f54d5291ac3d867402dddee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/5bf53e77396e822ea248d8f48679ab5bd76ac20c",
-                "reference": "5bf53e77396e822ea248d8f48679ab5bd76ac20c",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2994073dc733d81c4f54d5291ac3d867402dddee",
+                "reference": "2994073dc733d81c4f54d5291ac3d867402dddee",
                 "shasum": ""
             },
             "require": {
@@ -6445,7 +6445,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-22 14:02:19"
+            "time": "2017-06-25T08:47:13+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6905,12 +6905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "eceeb08d2658a977cf9740b5e6856316a63cf312"
+                "reference": "060ff4df3107a0b92b7d93244bda120b11a706dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/eceeb08d2658a977cf9740b5e6856316a63cf312",
-                "reference": "eceeb08d2658a977cf9740b5e6856316a63cf312",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/060ff4df3107a0b92b7d93244bda120b11a706dc",
+                "reference": "060ff4df3107a0b92b7d93244bda120b11a706dc",
                 "shasum": ""
             },
             "require": {
@@ -6964,7 +6964,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-06-12 18:12:26"
+            "time": "2017-06-24T12:58:08+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
