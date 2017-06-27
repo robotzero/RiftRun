@@ -17,6 +17,7 @@ default:
                 - Test\Integration\Context\ApiContext:
                     doctrine: '@doctrine'
                     commandBus: '@tactician.commandbus.default'
+                    basePath: '%paths.base%'
                 - Test\Integration\Context\ChaosMonkeyContext:
                     doctrine: '@doctrine'
                     commandBus: '@tactician.commandbus.default'

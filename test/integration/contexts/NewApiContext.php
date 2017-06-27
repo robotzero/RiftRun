@@ -54,7 +54,7 @@ abstract class NewApiContext extends WebTestCase
     /**
      * @beforeClass
      */
-    public static function createSharedKernel()
+    public static function createSharedKernel(): void
     {
         static::$sharedKernel = static::createKernel(['debug' => false]);
         static::$sharedKernel->boot();
@@ -63,7 +63,7 @@ abstract class NewApiContext extends WebTestCase
     /**
      * @afterClass
      */
-    public static function ensureSharedKernelShutdown()
+    public static function ensureSharedKernelShutdown(): void
     {
         if (null !== static::$sharedKernel) {
             $container = static::$sharedKernel->getContainer();
@@ -89,7 +89,7 @@ abstract class NewApiContext extends WebTestCase
     {
         $this->entityManager = static::$sharedKernel->getContainer()->get('doctrine.orm.entity_manager');
         $this->entityManager->getConnection()->connect();
-        $this->fixtureLoader = static::$sharedKernel->getContainer->get('fidry_alice_data_fixtures.doctrine.persister_loader');
+        $this->fixtureLoader = static::$sharedKernel->getContainer()->get('fidry_alice_data_fixtures.doctrine.persister_loader');
 //      $this->fixtureLoader = new Fixtures(new Doctrine($this->getEntityManager()), [], $this->getFixtureProcessors());
         $this->purgeDatabase();
     }
@@ -124,7 +124,7 @@ abstract class NewApiContext extends WebTestCase
     /**
      * @return string
      */
-    protected static function getKernelClass()
+    protected static function getKernelClass(): string
     {
         if (isset($_SERVER['KERNEL_CLASS'])) {
             return '\\' . ltrim($_SERVER['KERNEL_CLASS'], '\\');

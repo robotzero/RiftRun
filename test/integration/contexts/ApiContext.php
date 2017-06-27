@@ -2,6 +2,7 @@
 
 namespace Test\Integration\Context;
 
+use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\ScenarioScope;
@@ -11,7 +12,6 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use League\Tactician\CommandBus;
 use Psr\Container\ContainerInterface;
-use App\Model\Post;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,9 +28,9 @@ require_once __DIR__.'/../../../src/AppKernel.php';
 /**
  * Defines application features from the specific context.
  */
-class ApiContext extends MinkContext implements KernelAwareContext
+class ApiContext extends JsonApiContext implements Context
 {
-    use DoctrineHelperTrait;
+//    use DoctrineHelperTrait;
 
     private const FIXTURES_LOCATION = 'test/Fixtures/DatabaseSeeder/';
 
@@ -38,13 +38,13 @@ class ApiContext extends MinkContext implements KernelAwareContext
     private $singleRandomId;
 
     /** @var  Kernel */
-    protected $kernel;
+//    protected $kernel;
 
     /** @var  Crawler */
     private $crawler;
 
     /** @var Client */
-    private $client;
+//    protected $client;
 
     /** @var Response */
     private $response;
@@ -87,19 +87,23 @@ class ApiContext extends MinkContext implements KernelAwareContext
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
      * @param Registry $doctrine
-     * @param $commandBus
+     * @param CommandBus $commandBus
+     * @param string $basePath
      */
     public function __construct(
         Registry $doctrine,
-        CommandBus $commandBus
+        CommandBus $commandBus,
+        string $basePath
     ) {
+        $_SERVER['KERNEL_DIR'] = $basePath . '../../src';
         $this->doctrine   = $doctrine;
         $this->commandBus = $commandBus;
+        parent::__construct();
     }
 
-    public function getContainer() : ContainerInterface {
-        return $this->kernel->getContainer();
-    }
+//    public function getContainer() : ContainerInterface {
+//        return $this->kernel->getContainer();
+//    }
 
     /**
      * @param BeforeScenarioScope $scope
@@ -107,19 +111,19 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function before(BeforeScenarioScope $scope)
     {
-        $this->client = $this->kernel->getContainer()->get('test.client');
+//        $this->client = $this->kernel->getContainer()->get('test.client');
         $this->scenarioScope = $scope;
-        $this->client->setServerParameters([]);
+//        $this->client->setServerParameters([]);
         $this->resetScope();
     }
 
     /**
      * @param KernelInterface $kernelInterface
      */
-    public function setKernel(KernelInterface $kernelInterface)
-    {
-        $this->kernel = $kernelInterface;
-    }
+//    public function setKernel(KernelInterface $kernelInterface)
+//    {
+//        $this->kernel = $kernelInterface;
+//    }
 
     /**
      * @Given /^I have exactly (\d+) "([^"]*)" in the database$/
@@ -128,18 +132,21 @@ class ApiContext extends MinkContext implements KernelAwareContext
      */
     public function iHaveInTheDatabase(int $number, string $record) : void
     {
-        $record = rtrim($record, 's');
-        $fileLocations = [
-            self::FIXTURES_LOCATION .
-            ucfirst($record) . '/' . $record .
-            '_x' . $number . '.yml'
-        ];
+        static::createSharedKernel();
+        $this->setUpDatabase();
 
-        $this->createSchema();
-        $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
-
-        $currentFixtureNumber = $this->getCurrentEntitiesCount('Post');
-        assertTrue($currentFixtureNumber === ((int) $number));
+//        $record = rtrim($record, 's');
+//        $fileLocations = [
+//            self::FIXTURES_LOCATION .
+//            ucfirst($record) . '/' . $record .
+//            '_x' . $number . '.yml'
+//        ];
+//
+//        $this->createSchema();
+//        $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
+//
+//        $currentFixtureNumber = $this->getCurrentEntitiesCount('Post');
+//        assertTrue($currentFixtureNumber === ((int) $number));
     }
 
     /**

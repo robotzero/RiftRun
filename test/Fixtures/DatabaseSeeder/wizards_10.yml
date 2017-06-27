@@ -1,6 +1,0 @@
-include:
-    - template.yml
-
-App\Model\Character:
-    wizards{1..10} (extends character):
-        type: 'wizard'
