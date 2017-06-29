@@ -33,7 +33,7 @@ monolog:
                 VERBOSITY_VERBOSE: NOTICE
                 VERBOSITY_VERY_VERBOSE: NOTICE
                 VERBOSITY_DEBUG: DEBUG
-            channels: ['doctrine', 'event', 'console' ]
+            channels: ['doctrine', 'console' ]
         # To follow logs in real time, execute the following command:
         # `bin/console server:log -vv`
         server_log:

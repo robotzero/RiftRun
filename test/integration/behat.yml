@@ -6,10 +6,10 @@ default:
                 path: '../../src/AppKernel.php'
                 class: 'App\AppKernel'
                 env: 'test'
-        Behat\MinkExtension:
-            sessions:
-              default:
-                symfony2: ~
+#        Behat\MinkExtension:
+#            sessions:
+#              default:
+#                symfony2: ~
         TableNode\Extension\NestedTableNodeExtension: ~
     suites:
         default:

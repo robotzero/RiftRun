@@ -95,7 +95,8 @@ class ApiContext extends JsonApiContext implements Context
         CommandBus $commandBus,
         string $basePath
     ) {
-        $_SERVER['KERNEL_DIR'] = $basePath . '../../src';
+        $_SERVER['KERNEL_DIR'] = $basePath . '/../../src';
+        $_SERVER['KERNEL_CLASS'] = 'App\AppKernel';
         $this->doctrine   = $doctrine;
         $this->commandBus = $commandBus;
         parent::__construct();
@@ -133,6 +134,11 @@ class ApiContext extends JsonApiContext implements Context
     public function iHaveInTheDatabase(int $number, string $record) : void
     {
         static::createSharedKernel();
+
+        if (!$this->client) {
+            $this->setUpClient();
+        }
+
         $this->setUpDatabase();
 
 //        $record = rtrim($record, 's');
@@ -169,8 +175,8 @@ class ApiContext extends JsonApiContext implements Context
      */
     public function iRequest(string $httpMethod, string $resource)
     {
-        $this->crawler = $this->client->request($httpMethod, $resource);
-        $this->response = $this->client->getResponse();
+//        $this->crawler = $this->client->request($httpMethod, $resource);
+//        $this->response = $this->client->getResponse();
     }
 
     /**
