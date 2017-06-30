@@ -1,3 +1,3 @@
-App\Model\Post:
+App\Domain\Post\Model\Post:
     post (template):
         __construct: false

@@ -140,13 +140,14 @@ class ApiContext extends JsonApiContext implements Context
         }
 
         $this->setUpDatabase();
-
-//        $record = rtrim($record, 's');
+        $record = rtrim($record, 's');
+        $this->dataFixturesPath = $this->client->getContainer()->getParameter('kernel.root_dir') . '/../' . self::FIXTURES_LOCATION . ucfirst($record) . '/';
 //        $fileLocations = [
 //            self::FIXTURES_LOCATION .
 //            ucfirst($record) . '/' . $record .
 //            '_x' . $number . '.yml'
 //        ];
+        $this->loadFixturesFromFile($record . '_x' . $number . '.yml');
 //
 //        $this->createSchema();
 //        $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
@@ -175,8 +176,8 @@ class ApiContext extends JsonApiContext implements Context
      */
     public function iRequest(string $httpMethod, string $resource)
     {
-//        $this->crawler = $this->client->request($httpMethod, $resource);
-//        $this->response = $this->client->getResponse();
+        $this->crawler = $this->client->request($httpMethod, $resource);
+        $this->response = $this->client->getResponse();
     }
 
     /**

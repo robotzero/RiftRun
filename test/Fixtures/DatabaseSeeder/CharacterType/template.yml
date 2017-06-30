@@ -1,6 +1,6 @@
 parameters:
     type: "demon hunter"
 
-App\Model\CharacterType:
+App\Domain\PlayerCharacter\Model\PlayerCharacter:
     charactertype (template):
         __construct: false

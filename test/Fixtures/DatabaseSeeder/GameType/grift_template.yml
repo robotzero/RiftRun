@@ -1,6 +1,6 @@
 parameters:
     level: '40+'
 
-App\Model\Grift:
+App\Domain\GameMode\Model\Grift:
     grift (template):
         __construct: false

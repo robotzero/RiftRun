@@ -3,7 +3,6 @@
 namespace App\Domain\SearchQuery\ValueObject;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
-use Ramsey\Uuid\Uuid;
 
 /**
  * Class SearchQueryId

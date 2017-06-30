@@ -253,7 +253,7 @@ abstract class NewApiContext extends WebTestCase
         foreach ($finder as $file) {
             $files[] = $file->getRealPath();
         }
-        return $this->getFixtureLoader()->loadFiles($files);
+        return $this->getFixtureLoader()->load($files);
     }
 
     /**
@@ -265,7 +265,8 @@ abstract class NewApiContext extends WebTestCase
     {
         $source = $this->getFixtureRealPath($source);
         $this->assertSourceExists($source);
-        return $this->getFixtureLoader()->loadFiles($source);
+
+        return $this->getFixtureLoader()->load([$source]);
     }
 
     /**

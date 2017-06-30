@@ -2,5 +2,5 @@ parameters:
     minParagon: <numberBetween($min = 70, $max = 1000)>
     createdAt: <dateTime($max = 'now')>
 
-App\Model\SearchQuery:
+App\Domain\SearchQuery\Model\SearchQuery:
     searchquery (template): []

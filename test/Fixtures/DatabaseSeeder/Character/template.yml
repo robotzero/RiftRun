@@ -7,6 +7,6 @@ parameters:
     gameType: "softcore"
 #    createdAt: <dateTime($max = 'now')>
     #createdAt: <dateTimeBetween("-200 days", "now")>
-App\Model\Character:
+App\Domain\Player\Model\Player:
     character (template):
         __construct: ['monk', '<numberBetween(70, 1000)>', "#11111", "EU", "false", "softcore", '<dateTimeBetween("-200 days", "now")>']
