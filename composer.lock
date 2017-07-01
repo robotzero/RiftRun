@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "65d74db371f9611918997182f8e594b45619d270"
+                "reference": "93488498afc645e5af9fe928135298f31709e308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/65d74db371f9611918997182f8e594b45619d270",
-                "reference": "65d74db371f9611918997182f8e594b45619d270",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/93488498afc645e5af9fe928135298f31709e308",
+                "reference": "93488498afc645e5af9fe928135298f31709e308",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-06-29 19:50:53"
+            "time": "2017-07-01 12:03:50"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -4768,7 +4768,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-06-30T05:35:45+00:00"
+            "time": "2017-06-30 05:35:45"
         },
         {
             "name": "behat/gherkin",
@@ -5370,7 +5370,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-06-28T23:23:25+00:00"
+            "time": "2017-06-28 23:23:25"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -6108,12 +6108,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0300973dafb29d2e6d8d543f24128027e497cb0c"
+                "reference": "077a638b1b28f097a6c3bca248e0166d6f75d8c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0300973dafb29d2e6d8d543f24128027e497cb0c",
-                "reference": "0300973dafb29d2e6d8d543f24128027e497cb0c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/077a638b1b28f097a6c3bca248e0166d6f75d8c4",
+                "reference": "077a638b1b28f097a6c3bca248e0166d6f75d8c4",
                 "shasum": ""
             },
             "require": {
@@ -6134,7 +6134,7 @@
                 "phpunit/phpunit-mock-objects": "^4.0",
                 "sebastian/comparator": "^2.0",
                 "sebastian/diff": "^1.4.3 || ^2.0",
-                "sebastian/environment": "^3.0.2",
+                "sebastian/environment": "^3.1",
                 "sebastian/exporter": "^3.1",
                 "sebastian/global-state": "^1.1 || ^2.0",
                 "sebastian/object-enumerator": "^3.0.2",
@@ -6184,7 +6184,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-26 06:23:47"
+            "time": "2017-07-01T11:24:04+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6243,7 +6243,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-06-30T08:15:21+00:00"
+            "time": "2017-06-30 08:15:21"
         },
         {
             "name": "ralfmaxxx/behat_multidimensional_extension",
@@ -6453,12 +6453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "dce014c5ac410e20f39e069a2dbdc31cea112cef"
+                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/dce014c5ac410e20f39e069a2dbdc31cea112cef",
-                "reference": "dce014c5ac410e20f39e069a2dbdc31cea112cef",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
+                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
                 "shasum": ""
             },
             "require": {
@@ -6495,7 +6495,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-06-20 16:26:07"
+            "time": "2017-07-01T08:51:00+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -7036,7 +7036,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2017-06-29T19:46:38+00:00"
+            "time": "2017-06-29 19:46:38"
         },
         {
             "name": "theseer/tokenizer",
