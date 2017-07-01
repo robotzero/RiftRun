@@ -1,6 +1,3 @@
-parameters:
-    minParagon: <numberBetween($min = 70, $max = 1000)>
-    createdAt: <dateTime($max = 'now')>
-
 App\Domain\SearchQuery\Model\SearchQuery:
-    searchquery (template): []
+    searchquery (template):
+        __construct: ['@searchqueryid<current()>', '@grifts<current()>', '<numberBetween(70, 1000)>']

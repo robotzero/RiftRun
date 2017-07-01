@@ -1,8 +1,8 @@
 services:
     JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
-    Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
-    Doctrine\Common\DataFixtures\Purger\PurgerInterface: '@standard_orm_purger'
-    App\Factories\LoaderFactory: '@nelmio_loader_factory'
+#    Hateoas\Representation\Factory\PagerfantaFactory: '@pager_fanta_factory'
+#    Doctrine\Common\DataFixtures\Purger\PurgerInterface: '@standard_orm_purger'
+#    App\Factories\LoaderFactory: '@nelmio_loader_factory'
     League\Tactician\CommandBus: '@tactician.commandbus.default'
 
     # Legacy aliases
@@ -10,27 +10,27 @@ services:
     post_repository: '@App\Infrastructure\Post\Repository\PostRepository'
     riftrun_factory_post: '@App\Infrastructure\Post\Factory\PostFormFactory'
 
-    standard_orm_purger:
-        class: Doctrine\Common\DataFixtures\Purger\ORMPurger
+#    standard_orm_purger:
+#        class: Doctrine\Common\DataFixtures\Purger\ORMPurger
 
-    pager_fanta_factory:
-        class: Hateoas\Representation\Factory\PagerfantaFactory
+#    pager_fanta_factory:
+#        class: Hateoas\Representation\Factory\PagerfantaFactory
 
-    load_fixtures_cli:
-        class: App\Cli\DatabaseSeederCommand
-        tags:
-            -  { name: console.command }
+#    load_fixtures_cli:
+#        class: App\Cli\DatabaseSeederCommand
+#        tags:
+#            -  { name: console.command }
 
-    clear_database_cli:
-        class: App\Cli\DatabaseClearCommand
-        tags:
-            -  { name: console.command }
+#    clear_database_cli:
+#        class: App\Cli\DatabaseClearCommand
+#        tags:
+#            -  { name: console.command }
 
     # Factories
-    nelmio_loader_factory:
-        class: App\Factories\AliceLoaderFactory
-        arguments:
-            - '@fidry_alice_data_fixtures.doctrine.persister_loader'
+#    nelmio_loader_factory:
+#        class: App\Factories\AliceLoaderFactory
+#        arguments:
+#            - '@fidry_alice_data_fixtures.doctrine.persister_loader'
 
     # =========== Split into separate files ========== #
     Doctrine\ORM\EntityInterface:

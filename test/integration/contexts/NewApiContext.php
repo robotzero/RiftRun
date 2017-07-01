@@ -90,7 +90,7 @@ abstract class NewApiContext extends WebTestCase
         $this->entityManager = static::$sharedKernel->getContainer()->get('doctrine.orm.entity_manager');
         $this->entityManager->getConnection()->connect();
         $this->fixtureLoader = static::$sharedKernel->getContainer()->get('fidry_alice_data_fixtures.doctrine.persister_loader');
-//      $this->fixtureLoader = new Fixtures(new Doctrine($this->getEntityManager()), [], $this->getFixtureProcessors());
+
         $this->purgeDatabase();
     }
 
@@ -210,8 +210,8 @@ abstract class NewApiContext extends WebTestCase
     protected function showErrorInBrowserIfOccurred(Response $response): void
     {
         if (!$response->isSuccessful()) {
-            $openCommand = isset($_SERVER['OPEN_BROWSER_COMMAND']) ? $_SERVER['OPEN_BROWSER_COMMAND'] : 'open %s';
-            $tmpDir = isset($_SERVER['TMP_DIR']) ? $_SERVER['TMP_DIR'] : sys_get_temp_dir();
+            $openCommand = $_SERVER['OPEN_BROWSER_COMMAND'] ?? 'open %s';
+            $tmpDir = $_SERVER['TMP_DIR'] ?? sys_get_temp_dir();
 
             $filename = PathBuilder::build(rtrim($tmpDir, \DIRECTORY_SEPARATOR), uniqid('', true) . '.html');
             file_put_contents($filename, $response->getContent());
@@ -270,9 +270,9 @@ abstract class NewApiContext extends WebTestCase
     }
 
     /**
-     * @return Fixtures
+     * @return LoaderInterface
      */
-    protected function getFixtureLoader()
+    protected function getFixtureLoader(): LoaderInterface
     {
         if (null === $this->fixtureLoader) {
             throw new \RuntimeException('Please, set up a database before you will try to use a fixture loader');

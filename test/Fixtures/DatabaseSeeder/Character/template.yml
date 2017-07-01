@@ -1,12 +1,3 @@
-parameters:
-#    paragonPoints: '<numberBetween(70, 1000)>'
-    battleTag: "#11111"
-    region: "EU"
-    type: "demon hunter"
-    seasonal: "false"
-    gameType: "softcore"
-#    createdAt: <dateTime($max = 'now')>
-    #createdAt: <dateTimeBetween("-200 days", "now")>
 App\Domain\Player\Model\Player:
     character (template):
-        __construct: ['monk', '<numberBetween(70, 1000)>', "#11111", "EU", "false", "softcore", '<dateTimeBetween("-200 days", "now")>']
+        __construct: ['@playerid<current()>', 'wizard', '<numberBetween(70, 1000)>', "#11111", "EU", "false", "softcore", '<dateTimeBetween("-200 days", "now")>']

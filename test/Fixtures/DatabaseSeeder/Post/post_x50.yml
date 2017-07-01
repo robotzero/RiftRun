@@ -6,24 +6,28 @@ include:
     - ../SearchQuery/template.yml
 
 App\Domain\SearchQuery\ValueObject\SearchQueryId:
-    searchqueryid{1..50}:
-      __construct: [null]
+    searchqueryid{1..50}: []
+
+App\Domain\Player\ValueObject\PlayerId:
+    playerid{1..50}: []
+
+App\Domain\Post\ValueObject\PostId:
+    postid{1..50}: []
 
 App\Domain\Player\Model\Player:
-    monks{1..50} (extends character): []
+    players{1..50} (extends character): []
 
 App\Domain\GameMode\Model\Grift:
     grifts{1..50} (extends grift):
         __construct: [<{level}>]
 
 App\Domain\SearchQuery\Model\SearchQuery:
-    searchqueries{1..50} (extends searchquery):
-        __construct: ['@searchqueryid<current()>', '@grifts<current()>', '<dateTime("now")>']
+    searchqueries{1..50} (extends searchquery): []
 
 App\Domain\PlayerCharacter\Model\PlayerCharacter:
     charactertypes{1..50} (extends charactertype):
-        __construct: ['@searchqueries<current()>', <{type}>]
+        __construct: [<{type}>, '@searchqueries<current()>']
 
 App\Domain\Post\Model\Post:
     posts{1..50} (extends post):
-        __construct: ['@monks<current()>', '@searchqueries<current()>', "<dateTimeBetween('-26 days', 'now')>"]
+        __construct: ['@postid<current()>', '@players<current()>', '@searchqueries<current()>']

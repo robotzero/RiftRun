@@ -2,6 +2,7 @@
 
 namespace Test\Integration\Context;
 
+use App\Domain\Post\Model\Post;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -10,6 +11,7 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+use Doctrine\Common\Util\Debug;
 use League\Tactician\CommandBus;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Client;
@@ -147,11 +149,10 @@ class ApiContext extends JsonApiContext implements Context
 //            ucfirst($record) . '/' . $record .
 //            '_x' . $number . '.yml'
 //        ];
-        $this->loadFixturesFromFile($record . '_x' . $number . '.yml');
-//
+        $this->inMemoryFixtures = $this->loadFixturesFromFile($record . '_x' . $number . '.yml');
+
 //        $this->createSchema();
-//        $this->inMemoryFixtures = $this->commandBus->handle(new LoadFixtures($fileLocations));
-//
+
 //        $currentFixtureNumber = $this->getCurrentEntitiesCount('Post');
 //        assertTrue($currentFixtureNumber === ((int) $number));
     }
@@ -569,7 +570,7 @@ class ApiContext extends JsonApiContext implements Context
             return null;
         }));
 
-        $this->singleRandomId = $this->inMemoryFixtures['posts' . random_int(1, $numberOfPostsObjectsInMemory)]->getId()->__toString();
+        $this->singleRandomId = $this->inMemoryFixtures['posts' . random_int(1, $numberOfPostsObjectsInMemory)]->getId();
         assertTrue($this->singleRandomId !== null);
     }
 

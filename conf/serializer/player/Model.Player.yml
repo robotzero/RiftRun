@@ -17,3 +17,15 @@ App\Domain\Player\Model\Player:
             expose: true
             serialized_name: gameType
             groups: [Basic]
+        type:
+            expose: true
+            serialized_name: type
+            groups: [Basic]
+        region:
+            expose: true
+            serialized_name: region
+            groups: [Basic]
+        seasonal:
+            expose: true
+            serialized_name: seasonal
+            groups: [Basic]

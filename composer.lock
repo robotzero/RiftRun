@@ -170,17 +170,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "7c830a576f9471f71096d200d633b6400513ccfb"
+                "reference": "2016f4e48149d8c1ce65eb25d7f641fb3760b40c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/7c830a576f9471f71096d200d633b6400513ccfb",
-                "reference": "7c830a576f9471f71096d200d633b6400513ccfb",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/2016f4e48149d8c1ce65eb25d7f641fb3760b40c",
+                "reference": "2016f4e48149d8c1ce65eb25d7f641fb3760b40c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
-                "php": "^5.6 || ^7.0"
+                "php": "^7.1"
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
@@ -189,7 +189,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -230,7 +230,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2017-05-25 15:48:57"
+            "time": "2017-06-28 04:31:58"
         },
         {
             "name": "doctrine/cache",
@@ -511,18 +511,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "03e17189c48a92bff9c5fd7d9242d13a15780d15"
+                "reference": "65d74db371f9611918997182f8e594b45619d270"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/03e17189c48a92bff9c5fd7d9242d13a15780d15",
-                "reference": "03e17189c48a92bff9c5fd7d9242d13a15780d15",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/65d74db371f9611918997182f8e594b45619d270",
+                "reference": "65d74db371f9611918997182f8e594b45619d270",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "^2.7.1",
                 "ext-pdo": "*",
-                "php": "^7.0"
+                "php": "^7.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.4.6",
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-06-23 20:42:58"
+            "time": "2017-06-29 19:50:53"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1176,12 +1176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "6fbe5ecb9b60d9f8879da74e2f0655bef16d8326"
+                "reference": "e72570b4b09633f41dcb9a26317c6cb2dd60c20e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/6fbe5ecb9b60d9f8879da74e2f0655bef16d8326",
-                "reference": "6fbe5ecb9b60d9f8879da74e2f0655bef16d8326",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/e72570b4b09633f41dcb9a26317c6cb2dd60c20e",
+                "reference": "e72570b4b09633f41dcb9a26317c6cb2dd60c20e",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-06-26 10:01:48"
+            "time": "2017-06-30 19:27:51"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2506,12 +2506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "89c38212ce3407d247724eb1b857f3b0fbdd7f8f"
+                "reference": "7d228ca34c009f8a8428abef1527b0a807ef6862"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/89c38212ce3407d247724eb1b857f3b0fbdd7f8f",
-                "reference": "89c38212ce3407d247724eb1b857f3b0fbdd7f8f",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/7d228ca34c009f8a8428abef1527b0a807ef6862",
+                "reference": "7d228ca34c009f8a8428abef1527b0a807ef6862",
                 "shasum": ""
             },
             "require": {
@@ -2567,7 +2567,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2017-06-16 11:16:50"
+            "time": "2017-06-30 10:14:12"
         },
         {
             "name": "paragonie/random_compat",
@@ -2767,12 +2767,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
+                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
                 "shasum": ""
             },
             "require": {
@@ -2808,7 +2808,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14 16:28:37"
+            "time": "2017-06-28 15:35:32"
         },
         {
             "name": "psr/http-message",
@@ -3093,12 +3093,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid-doctrine.git",
-                "reference": "2b80966f4c09b1c39a07b30fecdd24869374c66e"
+                "reference": "7f9cb295b4103352847e4401a49f75d2223a1f4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/2b80966f4c09b1c39a07b30fecdd24869374c66e",
-                "reference": "2b80966f4c09b1c39a07b30fecdd24869374c66e",
+                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/7f9cb295b4103352847e4401a49f75d2223a1f4a",
+                "reference": "7f9cb295b4103352847e4401a49f75d2223a1f4a",
                 "shasum": ""
             },
             "require": {
@@ -3141,7 +3141,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2017-04-13 16:09:49"
+            "time": "2017-06-28 14:18:17"
         },
         {
             "name": "roave/security-advisories",
@@ -4694,12 +4694,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "3f5c2060d394de31b4842858f2b10b39c8fb335d"
+                "reference": "36a9d2788ff1d11b1a25a9bf58f7f8f73a00de6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/3f5c2060d394de31b4842858f2b10b39c8fb335d",
-                "reference": "3f5c2060d394de31b4842858f2b10b39c8fb335d",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/36a9d2788ff1d11b1a25a9bf58f7f8f73a00de6a",
+                "reference": "36a9d2788ff1d11b1a25a9bf58f7f8f73a00de6a",
                 "shasum": ""
             },
             "require": {
@@ -4768,7 +4768,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-05-22 10:49:37"
+            "time": "2017-06-30T05:35:45+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -5305,20 +5305,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "867ea417a1e86b31aa573d799aad3e68f37a4d05"
+                "reference": "4cf5f415071cbd302173e3c99f6aab0e17f99469"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/867ea417a1e86b31aa573d799aad3e68f37a4d05",
-                "reference": "867ea417a1e86b31aa573d799aad3e68f37a4d05",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/4cf5f415071cbd302173e3c99f6aab0e17f99469",
+                "reference": "4cf5f415071cbd302173e3c99f6aab0e17f99469",
                 "shasum": ""
             },
             "require": {
                 "fzaninotto/faker": "^1.6",
                 "myclabs/deep-copy": "^1.5.2",
-                "php": "7.0 - 7.1",
+                "php": "^7.0",
                 "symfony/property-access": "^2.7.11||^3.0",
-                "symfony/yaml": "^2.0||^3.0"
+                "symfony/yaml": "^2.7||^3.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.1.0",
@@ -5370,7 +5370,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-06-19 15:55:04"
+            "time": "2017-06-28T23:23:25+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -6192,12 +6192,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "5cbf2424850cc702617646fca5a2ae2c77bf6f6e"
+                "reference": "d8833b396dce9162bb2eb5d59aee5a3ab3cfa5b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/5cbf2424850cc702617646fca5a2ae2c77bf6f6e",
-                "reference": "5cbf2424850cc702617646fca5a2ae2c77bf6f6e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/d8833b396dce9162bb2eb5d59aee5a3ab3cfa5b4",
+                "reference": "d8833b396dce9162bb2eb5d59aee5a3ab3cfa5b4",
                 "shasum": ""
             },
             "require": {
@@ -6243,7 +6243,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-04-01 10:07:28"
+            "time": "2017-06-30T08:15:21+00:00"
         },
         {
             "name": "ralfmaxxx/behat_multidimensional_extension",
@@ -6972,26 +6972,35 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "ffe5b3460f1c4b6d1e8906edafdadd903bf56c56"
+                "reference": "788b8364e5e7fdd527376c06863c4dce2550b456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/ffe5b3460f1c4b6d1e8906edafdadd903bf56c56",
-                "reference": "ffe5b3460f1c4b6d1e8906edafdadd903bf56c56",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/788b8364e5e7fdd527376c06863c4dce2550b456",
+                "reference": "788b8364e5e7fdd527376c06863c4dce2550b456",
                 "shasum": ""
             },
             "require": {
-                "nelmio/alice": "^3.0-beta.5@beta",
-                "php": "~7.0.0 || ~7.1.0"
+                "nelmio/alice": "^3.0-rc1@rc",
+                "php": "^7.0.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.0",
-                "phpspec/prophecy": "^1.6",
-                "phpunit/phpunit": "^5.5",
-                "symfony/phpunit-bridge": "^3.1"
+                "phpspec/prophecy": "^1.7",
+                "phpunit/phpunit": "^6.0",
+                "symfony/phpunit-bridge": "^3.3.2"
             },
             "suggest": {
-                "doctrine/orm": "To use Doctrine ORM"
+                "alcaeus/mongo-php-adapter": "To use Doctrine with the MongoDB flavour",
+                "doctrine/data-fixtures": "To use Doctrine",
+                "doctrine/dbal": "To use Doctrine with the PHPCR flavour",
+                "doctrine/mongodb": "To use Doctrine with the MongoDB flavour",
+                "doctrine/mongodb-odm": "To use Doctrine with the MongoDB flavour",
+                "doctrine/orm": "To use Doctrine ORM",
+                "doctrine/phpcr-odm": "To use Doctrine with the PHPCR flavour",
+                "illuminate/database": "To use Eloquent",
+                "jackalope/jackalope-doctrine-dbal": "To use Doctrine with the PHPCR flavour",
+                "ocramius/proxy-manager": "To avoid database connection on kernel boot"
             },
             "type": "library",
             "extra": {
@@ -7000,9 +7009,7 @@
                 },
                 "branch-alias": {
                     "dev-master": "1.x-dev"
-                },
-                "bin-dir": "bin",
-                "sort-packages": true
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -7029,7 +7036,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2017-05-22 20:53:34"
+            "time": "2017-06-29T19:46:38+00:00"
         },
         {
             "name": "theseer/tokenizer",
