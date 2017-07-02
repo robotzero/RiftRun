@@ -20,3 +20,4 @@ App\Domain\SearchQuery\Model\SearchQuery:
             expose: true
             serialized_name: gameMode
             groups: [Basic]
+            type: App\Domain\GameMode\Model\GameMode

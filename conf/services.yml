@@ -5,17 +5,6 @@ services:
         autowire: true
 
     _instanceof:
-#        App\Services\QueryService:
-#            public: true
-#        App\Command\Handlers\LoadFixturesCommandHandler:
-#            public: true
-#            tags:
-#                - { name: tactician.handler, command: App\Command\Commands\LoadFixtures }
-#        App\Command\Handlers\DatabaseClearCommandHandler:
-#            public: true
-#            tags:
-#                - { name: tactician.handler, command: App\Command\Commands\ClearDatabase }
-
         Twig_ExtensionInterface:
             tags: ['twig.extension']
 

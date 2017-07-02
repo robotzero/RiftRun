@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "93488498afc645e5af9fe928135298f31709e308"
+                "reference": "8906f736e95aaf035c2a766f103d021d854091d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/93488498afc645e5af9fe928135298f31709e308",
-                "reference": "93488498afc645e5af9fe928135298f31709e308",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/8906f736e95aaf035c2a766f103d021d854091d6",
+                "reference": "8906f736e95aaf035c2a766f103d021d854091d6",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-07-01 12:03:50"
+            "time": "2017-07-02 10:10:52"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -4768,7 +4768,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-06-30 05:35:45"
+            "time": "2017-06-30T05:35:45+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -5060,7 +5060,7 @@
                 "framework",
                 "symfony"
             ],
-            "time": "2017-06-21 18:29:14"
+            "time": "2017-06-21T18:29:14+00:00"
         },
         {
             "name": "coduo/php-matcher",
@@ -5120,7 +5120,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2016-12-11 16:49:13"
+            "time": "2016-12-11T16:49:13+00:00"
         },
         {
             "name": "coduo/php-to-string",
@@ -5174,7 +5174,7 @@
                 "to",
                 "to string"
             ],
-            "time": "2016-01-20 18:29:02"
+            "time": "2016-01-20T18:29:02+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -5255,7 +5255,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-06-26 11:43:23"
+            "time": "2017-06-26T11:43:23+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5297,7 +5297,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12 18:52:22"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "nelmio/alice",
@@ -5370,7 +5370,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-06-28 23:23:25"
+            "time": "2017-06-28T23:23:25+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -5787,7 +5787,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-06-18 21:08:56"
+            "time": "2017-06-18T21:08:56+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -5914,7 +5914,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-26 06:37:27"
+            "time": "2017-06-26T06:37:27+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -6243,7 +6243,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-06-30 08:15:21"
+            "time": "2017-06-30T08:15:21+00:00"
         },
         {
             "name": "ralfmaxxx/behat_multidimensional_extension",
@@ -6445,7 +6445,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-25 08:47:13"
+            "time": "2017-06-25T08:47:13+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6964,7 +6964,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-06-24 12:58:08"
+            "time": "2017-06-24T12:58:08+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
@@ -7036,7 +7036,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2017-06-29 19:46:38"
+            "time": "2017-06-29T19:46:38+00:00"
         },
         {
             "name": "theseer/tokenizer",

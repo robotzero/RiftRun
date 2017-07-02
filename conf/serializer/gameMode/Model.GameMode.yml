@@ -11,3 +11,10 @@ App\Domain\GameMode\Model\GameMode:
             expose: true
             type: App\Domain\GameMode\ValueObject\GameModeId
             groups: [Identifier]
+        gameMode:
+            expose: true
+            serialized_name: gameMode
+            type: App\Domain\GameMode\ValueObject\GameType
+            groups: [Basic]
+            accessor:
+                getter: getGameMode

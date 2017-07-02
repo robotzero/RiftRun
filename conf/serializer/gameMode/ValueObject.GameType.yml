@@ -1,0 +1,6 @@
+App\Domain\GameMode\ValueObject\GameType:
+    exclusion_policy: ALL
+    properties:
+        type:
+            expose: true
+            groups: [Identifier]

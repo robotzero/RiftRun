@@ -63,28 +63,28 @@ Scenario: Returning a single post
         And the "playerCharacters" property is an array
         And scope into the "query.gameMode" property
             And the "level" property is a string
-#            And the "type" property is a string
-#    And scope into the "_links.self" property
-#        And the "href" property exists
-#        And the "href" property is a string equalling payload id
+            And the "gameMode.type" property is a string
+    And scope into the "_links.self" property
+        And the "href" property exists
+        And the "href" property is a string equalling payload id
 
-#Scenario: When single post is not found return 404.
-#    When I request "GET /v1/posts/84136ccd-9ec1-48a7-8273-00a41a6f86b9"
-#    Then I get a "404" response
-#
-#Scenario Outline: When object is missing for the given post do not display this post.
-#    Given I have <numberMissing> posts missing <object>
-#    When I request "GET /v1/posts?limit=500&page=1"
-#    Then I get a "200" response
-#    And the "page" property exists
-#    And the "page" property is a integer equalling "1"
-#    And the "total" property is a integer equalling <result>
+Scenario: When single post is not found return 404.
+    When I request "GET /v1/posts/f4a1dfce-5eb6-4536-9b23-9363e418c5ff"
+    Then I get a "404" response
+
+Scenario Outline: When object is missing for the given post do not display this post.
+    Given I have <numberMissing> posts missing <object>
+    When I request "GET /v1/posts?limit=500&page=1"
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "1"
+    And the "total" property is a integer equalling <result>
 #    And scope into the "_embedded" property
 #        And the "items" property contains <items> items
 #
-#    Examples:
-#        | numberMissing   | object        | result | items |
-#        | 10              | SearchQuery   |  "40"  |  40   |
+    Examples:
+        | numberMissing   | object        | result | items |
+        | 10              | App\Domain\SearchQuery\Model\SearchQuery   |  "40"  |  40   |
 #        | 10              | Character     |  "40"  |  40   |
 #        | 10              | Grift         |  "40"  |  40   |
 #        | 10              | CharacterType |  "40"  |  40   |

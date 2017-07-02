@@ -27,12 +27,13 @@ class ChaosMonkeyContext implements Context {
     /**
      * @Given /^I have (\d+) posts missing (.*)$/
      * @param int $numberMissing
-     * @param string $object
+     * @param string $clazz
      */
-    public function iHavePostsMissingObject(int $numberMissing , string $object)
+    public function iHavePostsMissingObject(int $numberMissing , string $clazz): void
     {
+        //@TODO change to native query because removal could cascade.s
         $enityManager = $this->doctrine->getManager();
-        $allEntities = $enityManager->getRepository($this->repositoryAlias . $object)->findAll();
+        $allEntities = $enityManager->getRepository($clazz)->findAll();
         $slicedEntities = array_slice($allEntities, count($allEntities) - $numberMissing);
         foreach ($slicedEntities as $eachEntity) {
             $enityManager->remove($eachEntity);
@@ -43,7 +44,7 @@ class ChaosMonkeyContext implements Context {
     /**
      * @Given /^I have (\d+) posts in the database older than (\d+) days$/
      */
-    public function iHavePostsInTheDatabaseOlderThan($oldRecordAmount, $olderThanDays)
+    public function iHavePostsInTheDatabaseOlderThan($oldRecordAmount, $olderThanDays): void
     {
         $fileLocations = [
             'test/Fixtures/DatabaseSeeder/Post/posts_' . $oldRecordAmount . '_old_x10.yml'

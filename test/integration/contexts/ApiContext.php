@@ -596,7 +596,7 @@ class ApiContext extends JsonApiContext implements Context
         $actualValue = $this->arrayGet($payload, $property);
 
         $arr = explode('/', $payload->href);
-        $uuid = 'http://localhost/v1/posts/' . end($arr);
+        $uuid = '/v1/posts/' . end($arr);
         assertSame(
             $actualValue,
             $uuid,

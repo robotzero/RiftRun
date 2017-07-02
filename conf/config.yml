@@ -25,7 +25,7 @@ framework:
         mapping:
             paths:
                 - '%kernel.root_dir%/../conf/validation'
-    serializer:      { enable_annotations: true }
+    serializer:      { enable_annotations: false }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -148,6 +148,14 @@ fos_rest:
 #        groups: ['Identifier', 'Basic']
     exception:
         enabled: true
+        codes:
+            '\InvalidArgumentException': 400
+            'Doctrine\ORM\OptimisticLockException': 409
+            'Doctrine\DBAL\Exception\UniqueConstraintViolationException': 409
+            'App\Domain\Common\NotFoundException': 404
+        messages:
+            '\InvalidArgumentException': true
+            'App\Domain\Common\NotFoundException': true
 
 jms_serializer:
     metadata:

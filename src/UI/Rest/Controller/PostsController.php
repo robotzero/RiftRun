@@ -62,7 +62,7 @@ class PostsController extends AbstractBusController
      *     }
      * )
      *
-     * @View(statusCode=200, serializerGroups={"Identifier", "Basic"})
+     * @View(statusCode=200, serializerGroups={"Default", "Identifier", "Basic"})
      * @Get("/posts/{postId}")
      *
      * @param string $postId
