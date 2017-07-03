@@ -8,7 +8,8 @@ App\Domain\PlayerCharacter\Model\PlayerCharacter:
             joinColumn:
                 name: searchquery_id
                 referencedColumnName: id
-            fetch: EAGER
+                onDelete: "SET NULL"
+            fetch: LAZY
     id:
         id:
             type: playerCharacterId

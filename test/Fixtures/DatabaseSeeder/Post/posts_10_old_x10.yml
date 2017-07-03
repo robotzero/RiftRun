@@ -5,21 +5,33 @@ include:
     - ../GameType/grift_template.yml
     - ../SearchQuery/template.yml
 
-App\Model\Character:
-    monks{1..10} (extends character): []
+App\Domain\SearchQuery\ValueObject\SearchQueryId:
+    searchqueryid{1..10}: []
 
-App\Model\Grift:
+App\Domain\Player\ValueObject\PlayerId:
+    playerid{1..10}: []
+
+App\Domain\Post\ValueObject\PostId:
+    postid{1..10}: []
+
+App\Domain\Player\Model\Player:
+    players{1..10} (extends character): []
+
+App\Domain\GameMode\Model\Grift:
     grifts{1..10} (extends grift):
         __construct: [<{level}>]
 
-App\Model\SearchQuery:
-    searchqueries{1..10} (extends searchquery):
-        __construct: ['<numberBetween(70, 1000)>', '@grifts<current()>', '<dateTime("now")>']
+App\Domain\SearchQuery\Model\SearchQuery:
+    searchqueries{1..10} (extends searchquery): []
 
-App\Model\CharacterType:
-    charactertype{1..10} (extends charactertype):
-        __construct: ['@searchqueries<current()>', <{type}>]
+App\Domain\PlayerCharacter\Model\PlayerCharacter:
+    charactertypes{1..10} (extends charactertype):
+        __construct: [<{type}>, '@searchqueries<current()>']
 
-App\Model\Post:
+App\Domain\Post\Model\Post:
     posts{1..10} (extends post):
-        __construct: ['@monks<current()>', '@searchqueries<current()>', "<dateTimeBetween('-3 months', '-31 days')>"]
+        __construct: ['@postid<current()>', '@players<current()>', '@searchqueries<current()>']
+
+#App\Model\Post:
+#    posts{1..10} (extends post):
+#        __construct: ['@monks<current()>', '@searchqueries<current()>', "<dateTimeBetween('-29 days', '-27 days')>"]

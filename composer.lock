@@ -4768,7 +4768,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-06-30T05:35:45+00:00"
+            "time": "2017-06-30 05:35:45"
         },
         {
             "name": "behat/gherkin",
@@ -5060,7 +5060,7 @@
                 "framework",
                 "symfony"
             ],
-            "time": "2017-06-21T18:29:14+00:00"
+            "time": "2017-06-21 18:29:14"
         },
         {
             "name": "coduo/php-matcher",
@@ -5120,7 +5120,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2016-12-11T16:49:13+00:00"
+            "time": "2016-12-11 16:49:13"
         },
         {
             "name": "coduo/php-to-string",
@@ -5174,7 +5174,7 @@
                 "to",
                 "to string"
             ],
-            "time": "2016-01-20T18:29:02+00:00"
+            "time": "2016-01-20 18:29:02"
         },
         {
             "name": "container-interop/container-interop",
@@ -5213,12 +5213,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "617e3fe04b4adbdda3315c3ff0d38c794968c274"
+                "reference": "ff1ce3321922821ec54943a9b1c270e8af365a72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/617e3fe04b4adbdda3315c3ff0d38c794968c274",
-                "reference": "617e3fe04b4adbdda3315c3ff0d38c794968c274",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff1ce3321922821ec54943a9b1c270e8af365a72",
+                "reference": "ff1ce3321922821ec54943a9b1c270e8af365a72",
                 "shasum": ""
             },
             "require": {
@@ -5255,7 +5255,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-06-26T11:43:23+00:00"
+            "time": "2017-07-03T15:50:13+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5297,7 +5297,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-04-12 18:52:22"
         },
         {
             "name": "nelmio/alice",
@@ -5305,12 +5305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "4cf5f415071cbd302173e3c99f6aab0e17f99469"
+                "reference": "122d5a37d5c4a3778b5d69e2ad5d1ca9c692fde0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/4cf5f415071cbd302173e3c99f6aab0e17f99469",
-                "reference": "4cf5f415071cbd302173e3c99f6aab0e17f99469",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/122d5a37d5c4a3778b5d69e2ad5d1ca9c692fde0",
+                "reference": "122d5a37d5c4a3778b5d69e2ad5d1ca9c692fde0",
                 "shasum": ""
             },
             "require": {
@@ -5370,7 +5370,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-06-28T23:23:25+00:00"
+            "time": "2017-07-03T07:35:18+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -5787,7 +5787,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-06-18T21:08:56+00:00"
+            "time": "2017-06-18 21:08:56"
         },
         {
             "name": "phpspec/prophecy",
@@ -5914,7 +5914,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-26T06:37:27+00:00"
+            "time": "2017-06-26 06:37:27"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -6108,12 +6108,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "077a638b1b28f097a6c3bca248e0166d6f75d8c4"
+                "reference": "db5b7d570d165f26c0e4d2c028774cb2e2d49448"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/077a638b1b28f097a6c3bca248e0166d6f75d8c4",
-                "reference": "077a638b1b28f097a6c3bca248e0166d6f75d8c4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/db5b7d570d165f26c0e4d2c028774cb2e2d49448",
+                "reference": "db5b7d570d165f26c0e4d2c028774cb2e2d49448",
                 "shasum": ""
             },
             "require": {
@@ -6184,7 +6184,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-07-01T11:24:04+00:00"
+            "time": "2017-07-03T15:57:43+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6243,7 +6243,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-06-30T08:15:21+00:00"
+            "time": "2017-06-30 08:15:21"
         },
         {
             "name": "ralfmaxxx/behat_multidimensional_extension",
@@ -6445,7 +6445,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-25T08:47:13+00:00"
+            "time": "2017-06-25 08:47:13"
         },
         {
             "name": "sebastian/environment",
@@ -6495,7 +6495,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-07-01T08:51:00+00:00"
+            "time": "2017-07-01 08:51:00"
         },
         {
             "name": "sebastian/exporter",
@@ -6905,12 +6905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "060ff4df3107a0b92b7d93244bda120b11a706dc"
+                "reference": "5633848bacf170ceff2d59b6ad2bba481b91fd20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/060ff4df3107a0b92b7d93244bda120b11a706dc",
-                "reference": "060ff4df3107a0b92b7d93244bda120b11a706dc",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/5633848bacf170ceff2d59b6ad2bba481b91fd20",
+                "reference": "5633848bacf170ceff2d59b6ad2bba481b91fd20",
                 "shasum": ""
             },
             "require": {
@@ -6964,7 +6964,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-06-24T12:58:08+00:00"
+            "time": "2017-07-03T13:32:35+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
@@ -7036,7 +7036,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2017-06-29T19:46:38+00:00"
+            "time": "2017-06-29 19:46:38"
         },
         {
             "name": "theseer/tokenizer",

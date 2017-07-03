@@ -75,10 +75,10 @@ Scenario: When single post is not found return 404.
 Scenario Outline: When object is missing for the given post do not display this post.
     Given I have <numberMissing> posts missing <object>
     When I request "GET /v1/posts?limit=500&page=1"
-    Then I get a "200" response
-    And the "page" property exists
-    And the "page" property is a integer equalling "1"
-    And the "total" property is a integer equalling <result>
+#    Then I get a "200" response
+#    And the "page" property exists
+#    And the "page" property is a integer equalling "1"
+#    And the "total" property is a integer equalling <result>
 #    And scope into the "_embedded" property
 #        And the "items" property contains <items> items
 #
@@ -89,13 +89,13 @@ Scenario Outline: When object is missing for the given post do not display this 
 #        | 10              | Grift         |  "40"  |  40   |
 #        | 10              | CharacterType |  "40"  |  40   |
 #
-#Scenario: By default posts should be sorted by created date. Newest at the top.
-#    Given I have 10 posts in the database older than 29 days
-#    When I request "GET /v1/posts?limit=100"
-#    Then I get a "200" response
-#    And newest items are displayed at the top
-#    And 10 days old items are displayed at bottom
-#
+Scenario: By default posts should be sorted by created date. Newest at the top.
+    Given I have 10 posts in the database older than 29 days
+    When I request "GET /v1/posts?limit=100"
+    Then I get a "200" response
+    And newest items are displayed at the top
+    And 10 days old items are displayed at bottom
+
 #Scenario: Do not show posts older than month.
 #    Given I have 10 posts in the database older than 30 days
 #    When I request "GET /v1/posts?limit=25&page=2"

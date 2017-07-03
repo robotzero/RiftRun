@@ -7,15 +7,16 @@ App\Domain\SearchQuery\Model\SearchQuery:
             joinColumn:
                 name: gametype_id
                 referencedColumnName: id
-                onDelete: CASCADE
-            fetch: EAGER
+                onDelete: SET NULL
+            fetch: LAZY
             cascade: [ persist ]
     oneToMany:
         playerCharacters:
             targetEntity: App\Domain\PlayerCharacter\Model\PlayerCharacter
             mappedBy: searchQuery
-            fetch: EAGER
-            cascade: [ persist, remove, merge ]
+            fetch: LAZY
+            cascade: [ persist, remove ]
+            onDelete: SET NULL
 #    repositoryClass: App\ORM\Repository\SearchQueryRepository
     id:
         id:
