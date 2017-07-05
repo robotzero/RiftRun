@@ -2,6 +2,8 @@
 
 namespace Test\Integration\Context;
 
+use App\Domain\Post\Model\Post;
+use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Behat\Behat\Context\Context;
 use App\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
@@ -31,14 +33,16 @@ class ChaosMonkeyContext implements Context {
      */
     public function iHavePostsMissingObject(int $numberMissing , string $clazz): void
     {
-        //@TODO change to native query because removal could cascade.s
         $enityManager = $this->doctrine->getManager();
+        $parentRepository = $enityManager->getRepository(Post::class);
         $allEntities = $enityManager->getRepository($clazz)->findAll();
         $slicedEntities = array_slice($allEntities, count($allEntities) - $numberMissing);
         foreach ($slicedEntities as $eachEntity) {
+            $parent = $parentRepository->findOneBy(['query' => new SearchQueryId($eachEntity->getId())]);
+            $parent->removeQuery();
             $enityManager->remove($eachEntity);
-            $enityManager->detach($eachEntity);
         }
+
         $enityManager->flush();
     }
 

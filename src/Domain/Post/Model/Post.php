@@ -79,4 +79,12 @@ class Post
     {
         return $this->query;
     }
+
+    /**
+     * Remove query
+     */
+    public function removeQuery(): void
+    {
+        $this->query = null;
+    }
 }

@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "3617f8d2b81060ed2faf92c9a0e9e0025d3fbdca"
+                "reference": "22b592744fafbae507a163b15bdc36bb7b8588fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/3617f8d2b81060ed2faf92c9a0e9e0025d3fbdca",
-                "reference": "3617f8d2b81060ed2faf92c9a0e9e0025d3fbdca",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/22b592744fafbae507a163b15bdc36bb7b8588fc",
+                "reference": "22b592744fafbae507a163b15bdc36bb7b8588fc",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-06-24 17:37:35"
+            "time": "2017-07-04 12:27:55"
         },
         {
             "name": "jms/serializer-bundle",
@@ -3093,12 +3093,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid-doctrine.git",
-                "reference": "7f9cb295b4103352847e4401a49f75d2223a1f4a"
+                "reference": "50127b5e0f75cc4d18ef1aecfb91e88ab8c0269a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/7f9cb295b4103352847e4401a49f75d2223a1f4a",
-                "reference": "7f9cb295b4103352847e4401a49f75d2223a1f4a",
+                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/50127b5e0f75cc4d18ef1aecfb91e88ab8c0269a",
+                "reference": "50127b5e0f75cc4d18ef1aecfb91e88ab8c0269a",
                 "shasum": ""
             },
             "require": {
@@ -3141,7 +3141,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2017-06-28 14:18:17"
+            "time": "2017-07-05 15:45:21"
         },
         {
             "name": "roave/security-advisories",
@@ -3557,12 +3557,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SimpleBus/SymfonyBridge.git",
-                "reference": "c5752d4f7a40e0c312a665af0a05c7e6da89f06f"
+                "reference": "0fcf941b87722ac0040cb1aca6b5e526004c2bb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleBus/SymfonyBridge/zipball/c5752d4f7a40e0c312a665af0a05c7e6da89f06f",
-                "reference": "c5752d4f7a40e0c312a665af0a05c7e6da89f06f",
+                "url": "https://api.github.com/repos/SimpleBus/SymfonyBridge/zipball/0fcf941b87722ac0040cb1aca6b5e526004c2bb8",
+                "reference": "0fcf941b87722ac0040cb1aca6b5e526004c2bb8",
                 "shasum": ""
             },
             "require": {
@@ -3616,7 +3616,7 @@
                 "event bus",
                 "symfony"
             ],
-            "time": "2017-06-12 09:53:40"
+            "time": "2017-07-05 15:43:56"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4208,16 +4208,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.2",
+            "version": "v3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "82bd7c039214b34bb5d12c04f996f05f6581c49f"
+                "reference": "82f7cba3c272bcd266f2d27ad6f07832c2eb3a1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/82bd7c039214b34bb5d12c04f996f05f6581c49f",
-                "reference": "82bd7c039214b34bb5d12c04f996f05f6581c49f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/82f7cba3c272bcd266f2d27ad6f07832c2eb3a1c",
+                "reference": "82f7cba3c272bcd266f2d27ad6f07832c2eb3a1c",
                 "shasum": ""
             },
             "require": {
@@ -4326,7 +4326,6 @@
                     "Symfony\\Bridge\\Doctrine\\": "src/Symfony/Bridge/Doctrine/",
                     "Symfony\\Bridge\\Monolog\\": "src/Symfony/Bridge/Monolog/",
                     "Symfony\\Bridge\\ProxyManager\\": "src/Symfony/Bridge/ProxyManager/",
-                    "Symfony\\Bridge\\Swiftmailer\\": "src/Symfony/Bridge/Swiftmailer/",
                     "Symfony\\Bridge\\Twig\\": "src/Symfony/Bridge/Twig/",
                     "Symfony\\Bundle\\": "src/Symfony/Bundle/",
                     "Symfony\\Component\\": "src/Symfony/Component/"
@@ -4357,7 +4356,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-06-06T04:00:14+00:00"
+            "time": "2017-07-05T13:28:34+00:00"
         },
         {
             "name": "twig/twig",
@@ -4365,12 +4364,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "a9cca4b3b7c888a1077227c36821e8bf0ab1bd13"
+                "reference": "9823bed943c91316183df6e387a24d2acfdbf453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a9cca4b3b7c888a1077227c36821e8bf0ab1bd13",
-                "reference": "a9cca4b3b7c888a1077227c36821e8bf0ab1bd13",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9823bed943c91316183df6e387a24d2acfdbf453",
+                "reference": "9823bed943c91316183df6e387a24d2acfdbf453",
                 "shasum": ""
             },
             "require": {
@@ -4423,7 +4422,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-12 16:59:07"
+            "time": "2017-07-04 13:21:11"
         },
         {
             "name": "willdurand/hateoas",
@@ -5213,26 +5212,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "ff1ce3321922821ec54943a9b1c270e8af365a72"
+                "reference": "2226f71a3f8644267c2d6588ade9b5fa6f832c23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff1ce3321922821ec54943a9b1c270e8af365a72",
-                "reference": "ff1ce3321922821ec54943a9b1c270e8af365a72",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2226f71a3f8644267c2d6588ade9b5fa6f832c23",
+                "reference": "2226f71a3f8644267c2d6588ade9b5fa6f832c23",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3|^7.0"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
                 "ext-intl": "*",
-                "phpunit/phpunit": "~4.0||~5.0",
-                "squizlabs/php_codesniffer": "~1.5"
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "squizlabs/php_codesniffer": "^1.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -5255,7 +5254,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-07-03T15:50:13+00:00"
+            "time": "2017-07-05T13:44:57+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6108,12 +6107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "db5b7d570d165f26c0e4d2c028774cb2e2d49448"
+                "reference": "8db730130cbb9c97b04d621e59cfd4678814b2fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/db5b7d570d165f26c0e4d2c028774cb2e2d49448",
-                "reference": "db5b7d570d165f26c0e4d2c028774cb2e2d49448",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8db730130cbb9c97b04d621e59cfd4678814b2fc",
+                "reference": "8db730130cbb9c97b04d621e59cfd4678814b2fc",
                 "shasum": ""
             },
             "require": {
@@ -6184,7 +6183,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-07-03T15:57:43+00:00"
+            "time": "2017-07-04T09:28:10+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6905,12 +6904,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "5633848bacf170ceff2d59b6ad2bba481b91fd20"
+                "reference": "3648dc3f2178f40023b4bc984b7592367ec74f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/5633848bacf170ceff2d59b6ad2bba481b91fd20",
-                "reference": "5633848bacf170ceff2d59b6ad2bba481b91fd20",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3648dc3f2178f40023b4bc984b7592367ec74f57",
+                "reference": "3648dc3f2178f40023b4bc984b7592367ec74f57",
                 "shasum": ""
             },
             "require": {
@@ -6964,7 +6963,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-07-03T13:32:35+00:00"
+            "time": "2017-07-04T19:23:10+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",

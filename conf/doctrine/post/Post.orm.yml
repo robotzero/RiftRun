@@ -19,9 +19,10 @@ App\Domain\Post\Model\Post:
                 name: searchquery_id
                 referencedColumnName: id
                 nullable: true
-                onDelete: SET NULL
+                onDelete: CASCADE
+                onUpdate: CASCADE
             fetch: LAZY
-            cascade: [ persist, remove ]
+            cascade: [ remove ]
             orphanRemoval: true
     id:
         id:

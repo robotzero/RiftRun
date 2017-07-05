@@ -75,12 +75,12 @@ Scenario: When single post is not found return 404.
 Scenario Outline: When object is missing for the given post do not display this post.
     Given I have <numberMissing> posts missing <object>
     When I request "GET /v1/posts?limit=500&page=1"
-#    Then I get a "200" response
-#    And the "page" property exists
-#    And the "page" property is a integer equalling "1"
-#    And the "total" property is a integer equalling <result>
-#    And scope into the "_embedded" property
-#        And the "items" property contains <items> items
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "1"
+    And the "total" property is a integer equalling <result>
+    And scope into the "_embedded" property
+        And the "items" property contains <items> items
 #
     Examples:
         | numberMissing   | object        | result | items |
