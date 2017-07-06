@@ -87,4 +87,12 @@ class Post
     {
         $this->query = null;
     }
+
+    /**
+     * Remove player
+     */
+    public function removePlayer(): void
+    {
+        $this->player = null;
+    }
 }

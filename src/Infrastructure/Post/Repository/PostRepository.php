@@ -16,13 +16,16 @@ use Pagerfanta\Pagerfanta;
  */
 class PostRepository extends EntityRepository implements PostRepositoryInterface
 {
+    /**
+     * @return Pagerfanta
+     */
     public function findAll() : Pagerfanta {
         $queryBuilder = $this->createQueryBuilder($alias = 'posts');
         $queryBuilder->select('posts')
             ->innerJoin('posts.query', 'q')
-//            ->innerJoin('posts.player', 'p')
-//            ->innerJoin('q.gameMode', 'g')
-//            ->innerJoin('q.playerCharacters', 'qp')
+            ->innerJoin('posts.player', 'p')
+            ->innerJoin('q.gameMode', 'g')
+            ->innerJoin('q.playerCharacters', 'qp')
             ->orderBy('posts.createdAt', 'desc')
             ->add('where', ['posts.createdAt > :createdAt'])
             ->setParameter('createdAt', new \DateTime('-1 month'), Type::DATETIME);
@@ -30,6 +33,12 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
         return $this->getPaginator($queryBuilder);
     }
 
+    /**
+     * @param Post $post
+     * @return Post
+     * @throws \Doctrine\ORM\ORMInvalidArgumentException
+     * @throws \Doctrine\ORM\ORMException
+     */
     public function save(Post $post): Post
     {
         $this->getEntityManager()->persist($post);

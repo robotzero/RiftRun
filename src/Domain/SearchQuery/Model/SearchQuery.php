@@ -122,4 +122,17 @@ class SearchQuery
     {
         return $this->playerCharacters;
     }
+
+    /**
+     * Remove gameMode
+     */
+    public function removeGameMode(): void
+    {
+        $this->gameMode = null;
+    }
+
+    public function removePlayerCharacters(): void
+    {
+        $this->playerCharacters = new ArrayCollection();
+    }
 }

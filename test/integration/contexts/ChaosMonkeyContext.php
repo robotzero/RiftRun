@@ -2,18 +2,42 @@
 
 namespace Test\Integration\Context;
 
+use App\Domain\GameMode\ValueObject\GameModeId;
+use App\Domain\Player\ValueObject\PlayerId;
+use App\Domain\PlayerCharacter\ValueObject\PlayerCharacterId;
 use App\Domain\Post\Model\Post;
+use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Behat\Behat\Context\Context;
-use App\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use League\Tactician\CommandBus;
 
 class ChaosMonkeyContext implements Context {
 
+    /** @var Registry  */
     private $doctrine;
-    private $repositoryAlias = 'RiftRunners:';
+
+    /** @var CommandBus  */
     private $commandBus;
+
+    /** @var array  */
+    private $relationships = [
+        'App\Domain\SearchQuery\Model\SearchQuery' => [
+            'parent' => Post::class, 'method' => 'removeQuery', 'id' => SearchQueryId::class, 'field' => 'query'
+        ],
+        'App\Domain\Player\Model\Player' => [
+            'parent' => Post::class, 'method' => 'removePlayer', 'id' => PlayerId::class, 'field' => 'player'
+        ],
+        'App\Domain\GameMode\Model\Grift' => [
+            'parent' => SearchQuery::class, 'method' => 'removeGameMode', 'id' => GameModeId::class, 'field' => 'gameMode'
+        ],
+        'App\Domain\GameMode\Model\Rift' => [
+            'parent' => SearchQuery::class, 'method' => 'removeGameMode', 'id' => GameModeId::class, 'field' => 'gameMode'
+        ],
+        'App\Domain\PlayerCharacter\Model\PlayerCharacter' => [
+            'parent' => SearchQuery::class, 'method' => 'removePlayerCharacter', 'id' => PlayerCharacterId::class, 'field' => 'playerCharacters'
+        ]
+    ];
 
     /**
      * ChaosMonkeyContext constructor.
@@ -34,12 +58,15 @@ class ChaosMonkeyContext implements Context {
     public function iHavePostsMissingObject(int $numberMissing , string $clazz): void
     {
         $enityManager = $this->doctrine->getManager();
-        $parentRepository = $enityManager->getRepository(Post::class);
+        $parentRepository = $enityManager->getRepository($this->relationships[$clazz]['parent']);
         $allEntities = $enityManager->getRepository($clazz)->findAll();
         $slicedEntities = array_slice($allEntities, count($allEntities) - $numberMissing);
         foreach ($slicedEntities as $eachEntity) {
-            $parent = $parentRepository->findOneBy(['query' => new SearchQueryId($eachEntity->getId())]);
-            $parent->removeQuery();
+            if ($clazz !== 'App\Domain\PlayerCharacter\Model\PlayerCharacter') {
+                $parent = $parentRepository->findOneBy([$this->relationships[$clazz]['field'] => new $this->relationships[$clazz]['id']($eachEntity->getId())]);
+                $method = $this->relationships[$clazz]['method'];
+                $parent->$method();
+            }
             $enityManager->remove($eachEntity);
         }
 

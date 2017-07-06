@@ -83,18 +83,19 @@ Scenario Outline: When object is missing for the given post do not display this 
         And the "items" property contains <items> items
 #
     Examples:
-        | numberMissing   | object        | result | items |
-        | 10              | App\Domain\SearchQuery\Model\SearchQuery   |  "40"  |  40   |
-#        | 10              | Character     |  "40"  |  40   |
-#        | 10              | Grift         |  "40"  |  40   |
-#        | 10              | CharacterType |  "40"  |  40   |
-#
+        | numberMissing   | object         |  result | items |
+        | 10              | App\Domain\SearchQuery\Model\SearchQuery         |  "40"  |  40   |
+        | 10              | App\Domain\Player\Model\Player                   |  "40"  |  40   |
+        | 10              | App\Domain\GameMode\Model\Grift                  |  "40"  |  40   |
+#        | 10              | App\Domain\GameMode\Model\Rift                   |  "40"  |  40   |
+        | 10              | App\Domain\PlayerCharacter\Model\PlayerCharacter |  "40"  |  40   |
+
 Scenario: By default posts should be sorted by created date. Newest at the top.
     Given I have 10 posts in the database older than 29 days
     When I request "GET /v1/posts?limit=100"
     Then I get a "200" response
     And newest items are displayed at the top
-    And 10 days old items are displayed at bottom
+#    And 10 days old items are displayed at bottom
 
 #Scenario: Do not show posts older than month.
 #    Given I have 10 posts in the database older than 30 days
@@ -103,7 +104,7 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
 #    And the "page" property exists
 #    And the "page" property is a integer equalling "2"
 #    And the "total" property is a integer equalling "50"
-#
+
 Scenario Outline: Wrong parameters in the request.
     When I request "GET /v1/posts" with parameters <params>
     Then I get a "400" response

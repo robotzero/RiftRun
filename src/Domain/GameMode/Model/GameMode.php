@@ -2,7 +2,6 @@
 
 namespace App\Domain\GameMode\Model;
 
-use App\Domain\GameMode\Exception\InvalidGameTypeException;
 use App\Domain\GameMode\ValueObject\GameModeId;
 use App\Domain\GameMode\ValueObject\GameType;
 

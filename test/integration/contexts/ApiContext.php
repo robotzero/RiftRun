@@ -498,15 +498,29 @@ class ApiContext extends JsonApiContext implements Context
      */
     public function newestPostsAreDisplayedAtTheTop()
     {
-        $createdAts = [];
         $scope = $this->getScopePayload();
+
+        $posts = array_filter($this->inMemoryFixtures, function ($fixture) {
+            if ($fixture instanceof Post) {
+                return $fixture;
+            }
+        });
+
+        $dates = array_map(function (Post $a) {
+            Debug::dump($a->getId());
+            return [$a->getId() => $a->getCreatedAt()];
+        }, $posts);
+
+        sort($dates);
+
         /** @var array $items */
         $items = $scope->_embedded->items;
+        $ids = [];
         foreach ($items as $item) {
-            $createdAts[] = $item->createdAt;
+            $ids[] = $item->id->uuid;
         }
 
-        assertTrue($createdAts[0] > $createdAts[9]);
+        assertTrue($dates[$ids[0]] > $dates[$ids[9]]);
     }
 
     /**

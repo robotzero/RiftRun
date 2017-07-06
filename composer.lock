@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "8906f736e95aaf035c2a766f103d021d854091d6"
+                "reference": "7baf44892f2cfb83cedf9b05ef409e9ac793b962"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/8906f736e95aaf035c2a766f103d021d854091d6",
-                "reference": "8906f736e95aaf035c2a766f103d021d854091d6",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7baf44892f2cfb83cedf9b05ef409e9ac793b962",
+                "reference": "7baf44892f2cfb83cedf9b05ef409e9ac793b962",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-07-02 10:10:52"
+            "time": "2017-07-05 22:19:44"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -810,12 +810,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "dde035898f2daae9b3b3e5c792f4891cf7aaff80"
+                "reference": "4af64e1756e2bd765ff5e7c36dbcf5ea47e8e576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/dde035898f2daae9b3b3e5c792f4891cf7aaff80",
-                "reference": "dde035898f2daae9b3b3e5c792f4891cf7aaff80",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/4af64e1756e2bd765ff5e7c36dbcf5ea47e8e576",
+                "reference": "4af64e1756e2bd765ff5e7c36dbcf5ea47e8e576",
                 "shasum": ""
             },
             "require": {
@@ -869,7 +869,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2017-06-16 11:07:05"
+            "time": "2017-07-06 08:23:43"
         },
         {
             "name": "doctrine/instantiator",
@@ -5254,7 +5254,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-07-05T13:44:57+00:00"
+            "time": "2017-07-05 13:44:57"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5369,7 +5369,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-07-03T07:35:18+00:00"
+            "time": "2017-07-03 07:35:18"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -6183,7 +6183,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-07-04T09:28:10+00:00"
+            "time": "2017-07-04 09:28:10"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6904,12 +6904,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "3648dc3f2178f40023b4bc984b7592367ec74f57"
+                "reference": "05c5deb27d8cbb65410fd04d691e16b558931d0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3648dc3f2178f40023b4bc984b7592367ec74f57",
-                "reference": "3648dc3f2178f40023b4bc984b7592367ec74f57",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/05c5deb27d8cbb65410fd04d691e16b558931d0f",
+                "reference": "05c5deb27d8cbb65410fd04d691e16b558931d0f",
                 "shasum": ""
             },
             "require": {
@@ -6963,7 +6963,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-07-04T19:23:10+00:00"
+            "time": "2017-07-06T06:25:25+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
