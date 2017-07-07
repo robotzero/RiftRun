@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "388afb46d0cb3ed0c51332e8df0de9e942c2690b"
+                "reference": "c32ba8f5d161835f78cd99507e78119599292611"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/388afb46d0cb3ed0c51332e8df0de9e942c2690b",
-                "reference": "388afb46d0cb3ed0c51332e8df0de9e942c2690b",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/c32ba8f5d161835f78cd99507e78119599292611",
+                "reference": "c32ba8f5d161835f78cd99507e78119599292611",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-06-24 07:17:55"
+            "time": "2017-07-07 08:36:08"
         },
         {
             "name": "egulias/email-validator",
@@ -5212,12 +5212,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "2226f71a3f8644267c2d6588ade9b5fa6f832c23"
+                "reference": "83ade5f05d0a7dcfc7c38c7b5fbcaca8863436b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2226f71a3f8644267c2d6588ade9b5fa6f832c23",
-                "reference": "2226f71a3f8644267c2d6588ade9b5fa6f832c23",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/83ade5f05d0a7dcfc7c38c7b5fbcaca8863436b5",
+                "reference": "83ade5f05d0a7dcfc7c38c7b5fbcaca8863436b5",
                 "shasum": ""
             },
             "require": {
@@ -5254,7 +5254,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-07-05 13:44:57"
+            "time": "2017-07-07 15:11:58"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6963,7 +6963,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-07-06T06:25:25+00:00"
+            "time": "2017-07-06 06:25:25"
         },
         {
             "name": "theofidry/alice-data-fixtures",
