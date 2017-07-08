@@ -2,6 +2,8 @@
 
 namespace App\Domain\GameMode\Model;
 
+use App\Domain\GameMode\ValueObject\GameModeId;
+
 /**
  * Class Grift
  * @package App\Domain\GameMode\Model\GameMode
@@ -13,10 +15,10 @@ class Grift extends GameMode
      */
     private $level;
 
-    public function __construct(string $level)
+    public function __construct(GameModeId $id, string $level)
     {
         $this->level = $level;
-        parent::__construct('grift');
+        parent::__construct($id, 'grift');
     }
 
     /**

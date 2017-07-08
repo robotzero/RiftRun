@@ -23,11 +23,12 @@ class GameMode
 
     /**
      * GameMode constructor
+     * @param GameModeId $id
      * @param string $gameMode
      */
-    public function __construct(string $gameMode)
+    public function __construct(GameModeId $id, string $gameMode)
     {
-        $this->id = new GameModeId();
+        $this->id = $id;
         $this->gameMode = new GameType($gameMode);
     }
 

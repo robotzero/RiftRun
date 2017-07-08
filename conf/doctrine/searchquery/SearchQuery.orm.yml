@@ -8,8 +8,11 @@ App\Domain\SearchQuery\Model\SearchQuery:
                 name: gametype_id
                 referencedColumnName: id
                 onDelete: CASCADE
+                onUpdate: CASCADE
+                cascade: [ persist, remove ]
             fetch: LAZY
-            cascade: [ all ]
+            cascade: [ persist, remove ]
+            orphanRemoval: true
     oneToMany:
         playerCharacters:
             targetEntity: App\Domain\PlayerCharacter\Model\PlayerCharacter

@@ -9,20 +9,16 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\ScenarioScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
-use Behat\MinkExtension\Context\MinkContext;
-use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Doctrine\Common\Util\Debug;
 use League\Tactician\CommandBus;
-use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Response;
 use TableNode\Extension\NestedTableNode;
 use Test\Integration\Helpers\DoctrineHelperTrait;
-use App\Command\Commands\LoadFixtures;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\HttpKernel\KernelInterface;
+use App\AppKernel;
 
 require_once __DIR__.'/../../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 require_once __DIR__.'/../../../src/AppKernel.php';
@@ -32,21 +28,17 @@ require_once __DIR__.'/../../../src/AppKernel.php';
  */
 class ApiContext extends JsonApiContext implements Context
 {
-//    use DoctrineHelperTrait;
-
     private const FIXTURES_LOCATION = 'test/Fixtures/DatabaseSeeder/';
+    private const BASE_FIXTURE_NUMBER = 50;
+
+    /** @var ChaosMonkeyContext */
+    private $chaosMonkeyContext;
 
     /** @var  string */
     private $singleRandomId;
 
-    /** @var  Kernel */
-//    protected $kernel;
-
     /** @var  Crawler */
     private $crawler;
-
-    /** @var Client */
-//    protected $client;
 
     /** @var Response */
     private $response;
@@ -57,6 +49,7 @@ class ApiContext extends JsonApiContext implements Context
     /** @var Registry */
     private $doctrine;
 
+    /** @var array */
     private $postPayload;
 
     /** @var  CommandBus */
@@ -98,35 +91,25 @@ class ApiContext extends JsonApiContext implements Context
         string $basePath
     ) {
         $_SERVER['KERNEL_DIR'] = $basePath . '/../../src';
-        $_SERVER['KERNEL_CLASS'] = 'App\AppKernel';
+        $_SERVER['KERNEL_CLASS'] = AppKernel::class;
         $this->doctrine   = $doctrine;
         $this->commandBus = $commandBus;
         parent::__construct();
     }
 
-//    public function getContainer() : ContainerInterface {
-//        return $this->kernel->getContainer();
-//    }
-
     /**
      * @param BeforeScenarioScope $scope
      * @BeforeScenario
      */
-    public function before(BeforeScenarioScope $scope)
+    public function before(BeforeScenarioScope $scope): void
     {
 //        $this->client = $this->kernel->getContainer()->get('test.client');
         $this->scenarioScope = $scope;
+        $environment = $scope->getEnvironment();
+        $this->chaosMonkeyContext = $environment->getContext(ChaosMonkeyContext::class);
 //        $this->client->setServerParameters([]);
         $this->resetScope();
     }
-
-    /**
-     * @param KernelInterface $kernelInterface
-     */
-//    public function setKernel(KernelInterface $kernelInterface)
-//    {
-//        $this->kernel = $kernelInterface;
-//    }
 
     /**
      * @Given /^I have exactly (\d+) "([^"]*)" in the database$/
@@ -144,17 +127,29 @@ class ApiContext extends JsonApiContext implements Context
         $this->setUpDatabase();
         $record = rtrim($record, 's');
         $this->dataFixturesPath = $this->client->getContainer()->getParameter('kernel.root_dir') . '/../' . self::FIXTURES_LOCATION . ucfirst($record) . '/';
-//        $fileLocations = [
-//            self::FIXTURES_LOCATION .
-//            ucfirst($record) . '/' . $record .
-//            '_x' . $number . '.yml'
-//        ];
         $this->inMemoryFixtures = $this->loadFixturesFromFile($record . '_x' . $number . '.yml');
 
-//        $this->createSchema();
+        assertTrue(count($this->inMemoryFixtures) / 9 === ((int) $number));
+    }
 
-//        $currentFixtureNumber = $this->getCurrentEntitiesCount('Post');
-//        assertTrue($currentFixtureNumber === ((int) $number));
+    /**
+     * @Given /^I have additional (\d+) "([^"]*)" in the database older than (\d+) days$/
+     * @param int $number
+     * @param string $record
+     * @param int $daysOld
+     */
+    public function iHaveAdditionalInTheDatabase(int $number, string $record, int $daysOld) : void
+    {
+        $record = rtrim($record, 's');
+        $this->dataFixturesPath = $this->client->getContainer()->getParameter('kernel.root_dir') . '/../' . self::FIXTURES_LOCATION . ucfirst($record) . '/';
+
+        $fixtures = $this->loadFixturesFromFile($record . '_' . $daysOld . '_old_x' . $number . '.yml');
+        foreach($fixtures as $fixture) {
+            $this->inMemoryFixtures[] = $fixture;
+        }
+        $this->chaosMonkeyContext->changeCreatedDate($daysOld, $number, $this->inMemoryFixtures);
+
+        assertTrue(count($this->inMemoryFixtures) / 8  === ((int) $number + self::BASE_FIXTURE_NUMBER));
     }
 
     /**
@@ -499,19 +494,25 @@ class ApiContext extends JsonApiContext implements Context
     public function newestPostsAreDisplayedAtTheTop()
     {
         $scope = $this->getScopePayload();
-
         $posts = array_filter($this->inMemoryFixtures, function ($fixture) {
             if ($fixture instanceof Post) {
                 return $fixture;
             }
         });
 
-        $dates = array_map(function (Post $a) {
-            Debug::dump($a->getId());
-            return [$a->getId() => $a->getCreatedAt()];
+        $dates = array_map(function (Post $post) {
+            echo $post->getCreatedAt()->format('Y-m-d h:m:s');
+            return [$post->getId() => $post->getCreatedAt()];
         }, $posts);
 
-        sort($dates);
+        usort($dates, function($a, $b) {
+           return array_values($a)[0] > array_values($b)[0];
+        });
+
+//        Debug::dump($dates[0]);
+//        Debug::dump($dates[49]);
+
+        $merged = array_merge(...$dates);
 
         /** @var array $items */
         $items = $scope->_embedded->items;
@@ -520,7 +521,7 @@ class ApiContext extends JsonApiContext implements Context
             $ids[] = $item->id->uuid;
         }
 
-        assertTrue($dates[$ids[0]] > $dates[$ids[9]]);
+        assertTrue($merged[$ids[0]] > $merged[$ids[9]]);
     }
 
     /**
@@ -700,6 +701,7 @@ class ApiContext extends JsonApiContext implements Context
     public function resetPayload(AfterScenarioScope $scope)
     {
         $this->postPayload = null;
+        $this->purgeDatabase();
     }
 
     /** @Transform table:player.type,player.paragonPoints,player.battleTag,player.region,player.seasonal,player.gameType,query.minParagon,query.characterType.type,query.game.type,query.game.level

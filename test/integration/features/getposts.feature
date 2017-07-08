@@ -91,7 +91,7 @@ Scenario Outline: When object is missing for the given post do not display this 
         | 10              | App\Domain\PlayerCharacter\Model\PlayerCharacter |  "40"  |  40   |
 
 Scenario: By default posts should be sorted by created date. Newest at the top.
-    Given I have 10 posts in the database older than 29 days
+    Given I have additional 10 "posts" in the database older than 29 days
     When I request "GET /v1/posts?limit=100"
     Then I get a "200" response
     And newest items are displayed at the top

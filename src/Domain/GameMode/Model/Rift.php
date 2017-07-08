@@ -2,6 +2,8 @@
 
 namespace App\Domain\GameMode\Model;
 
+use App\Domain\GameMode\ValueObject\GameModeId;
+
 /**
  * Class Rift
  * @package App\Domain\GameMode\Model\GameMode
@@ -13,10 +15,10 @@ class Rift extends GameMode
      */
     private $torment;
 
-    public function __construct(int $torment)
+    public function __construct(GameModeId $id, int $torment)
     {
         $this->torment = $torment;
-        parent::__construct('rift');
+        parent::__construct($id, 'rift');
     }
 
     /**

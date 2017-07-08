@@ -10,6 +10,7 @@ App\Domain\Post\Model\Post:
                 referencedColumnName: id
                 nullable: true
                 onDelete: CASCADE
+                onUpdate: CASCADE
             fetch: LAZY
             cascade: [ persist, remove]
             orphanRemoval: true
@@ -22,7 +23,7 @@ App\Domain\Post\Model\Post:
                 onDelete: CASCADE
                 onUpdate: CASCADE
             fetch: LAZY
-            cascade: [ remove ]
+            cascade: [ persist, remove ]
             orphanRemoval: true
     id:
         id:

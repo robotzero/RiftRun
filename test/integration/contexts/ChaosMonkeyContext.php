@@ -6,19 +6,17 @@ use App\Domain\GameMode\ValueObject\GameModeId;
 use App\Domain\Player\ValueObject\PlayerId;
 use App\Domain\PlayerCharacter\ValueObject\PlayerCharacterId;
 use App\Domain\Post\Model\Post;
+use App\Domain\Post\ValueObject\PostId;
 use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Behat\Behat\Context\Context;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use League\Tactician\CommandBus;
+use Pagerfanta\Pagerfanta;
 
 class ChaosMonkeyContext implements Context {
 
     /** @var Registry  */
     private $doctrine;
-
-    /** @var CommandBus  */
-    private $commandBus;
 
     /** @var array  */
     private $relationships = [
@@ -42,12 +40,10 @@ class ChaosMonkeyContext implements Context {
     /**
      * ChaosMonkeyContext constructor.
      * @param Registry $doctrine
-     * @param CommandBus $commandBus
      */
-    public function __construct(Registry $doctrine, CommandBus $commandBus)
+    public function __construct(Registry $doctrine)
     {
         $this->doctrine = $doctrine;
-        $this->commandBus = $commandBus;
     }
 
     /**
@@ -74,21 +70,31 @@ class ChaosMonkeyContext implements Context {
     }
 
     /**
-     * @Given /^I have (\d+) posts in the database older than (\d+) days$/
+     * @param int $daysOld
+     * @param int $number
+     * @param array $fixtures
      */
-    public function iHavePostsInTheDatabaseOlderThan($oldRecordAmount, $olderThanDays): void
+    public function changeCreatedDate(int $daysOld, int $number, array $fixtures): void
     {
-        $fileLocations = [
-            'test/Fixtures/DatabaseSeeder/Post/posts_' . $oldRecordAmount . '_old_x10.yml'
-        ];
-        
-//        $this->commandBus->handle(new LoadFixtures($fileLocations));
-//        $connection = $this->doctrine->getManager()->getConnection();
-//
-//        $negativeOlderThanDays = ($olderThanDays * -1) . ' days';
-//        $numberOfDaysForDbQuery = sprintf("SELECT count() AS count FROM posts WHERE createdAt < date(%s, %s)", "'now'", "'$negativeOlderThanDays'");
-//
-//        $result = $connection->fetchAll($numberOfDaysForDbQuery);
-//        assertTrue(((int)$result[0]['count']) === ((int)$oldRecordAmount));
+        $entityManager = $this->doctrine->getManager();
+        $createdAt = random_int($daysOld + 1, 100);
+        $now = new \DateTime('now');
+        $postEntities = [];
+        foreach($fixtures as $index => $eachEntity) {
+            if ($eachEntity instanceof Post) {
+                $postEntities[] = $eachEntity;
+//                $fixtures[] = $eachEntity;
+            }
+        }
+
+        $slicedEntities = array_slice($postEntities, 0, $number);
+        foreach($slicedEntities as $entity) {
+            $newDateTime = $now->sub(new \DateInterval('P'.$createdAt.'D'));
+            $entityManager->find(Post::class, new PostId($entity->getId()));
+            $entity->setCreatedAt($newDateTime);
+            $entityManager->persist($entity);
+        }
+        $entityManager->flush();
+        echo count($fixtures);
     }
 }

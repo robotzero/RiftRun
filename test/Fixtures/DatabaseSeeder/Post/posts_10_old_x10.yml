@@ -5,6 +5,9 @@ include:
     - ../GameType/grift_template.yml
     - ../SearchQuery/template.yml
 
+App\Domain\GameMode\ValueObject\GameModeId:
+    gamemodeid{1..10}: []
+
 App\Domain\SearchQuery\ValueObject\SearchQueryId:
     searchqueryid{1..10}: []
 
@@ -19,7 +22,7 @@ App\Domain\Player\Model\Player:
 
 App\Domain\GameMode\Model\Grift:
     grifts{1..10} (extends grift):
-        __construct: [<{level}>]
+        __construct: ['@gamemodeid<current()>', <{level}>]
 
 App\Domain\SearchQuery\Model\SearchQuery:
     searchqueries{1..10} (extends searchquery): []
