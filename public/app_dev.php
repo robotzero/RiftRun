@@ -18,7 +18,7 @@ umask(0000);
 //     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
 // }
 
-$loader = require __DIR__.'/../conf/autoload.php';
+$loader = require __DIR__.'/../config/autoload.php';
 
 Debug::enable();
 $kernel = new AppKernel('dev', true);

@@ -3,6 +3,7 @@
 namespace App\Infrastructure\GameMode\Factory\Form;
 
 use App\Domain\GameMode\Model\GameMode;
+use App\Domain\GameMode\ValueObject\GameModeId;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,6 +30,7 @@ class GameModeType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @throws \OutOfBoundsException
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -36,6 +38,7 @@ class GameModeType extends AbstractType
             'data_class' => GameMode::class,
             'empty_data' => function(FormInterface $form) {
                 return new GameMode(
+                    new GameModeId(),
                     $form->get('gameMode')->getData() ?: ''
                 );
             },

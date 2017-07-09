@@ -3,6 +3,7 @@
 namespace App\Infrastructure\GameMode\Factory\Form;
 
 use App\Domain\GameMode\Model\Grift;
+use App\Domain\GameMode\ValueObject\GameModeId;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,6 +41,7 @@ class GriftType extends AbstractType
             'empty_data' => function (FormInterface $form) {
                 $playerData = $form->all();
                 return new Grift(
+                    new GameModeId(),
                     $playerData['level']->getData() ?: ''
                 );
             }

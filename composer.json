@@ -90,14 +90,14 @@
         "bin-dir": "bin"
     },
     "extra": {
-        "symfony-app-dir": "conf",
-        "symfony-web-dir": "web",
+        "symfony-app-dir": "config",
+        "symfony-web-dir": "public",
         "symfony-var-dir": "var",
         "symfony-bin-dir": "bin",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "conf/parameters.yml"
+            "file": "config/parameters.yml"
         },
         "branch-alias": {
             "dev-master": "4.0-dev"

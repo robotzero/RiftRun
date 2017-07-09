@@ -2,7 +2,7 @@
 use App\AppKernel;
 use Symfony\Component\HttpFoundation\Request;
 
-$loader = require __DIR__.'/../conf/autoload.php';
+$loader = require __DIR__.'/../config/autoload.php';
 include_once __DIR__.'/../var/bootstrap.php.cache';
 
 umask(0000); // This will let the permissions be 0777

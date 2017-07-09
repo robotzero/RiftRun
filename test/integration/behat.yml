@@ -2,7 +2,7 @@ default:
     extensions:
         Behat\Symfony2Extension:
             kernel:
-                bootstrap: 'conf/autoload.php'
+                bootstrap: 'config/autoload.php'
                 path: '../../src/AppKernel.php'
                 class: 'App\AppKernel'
                 env: 'test'

@@ -15,7 +15,7 @@ framework:
     #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
-        resource: '%kernel.root_dir%/../conf/routing.yml'
+        resource: '%kernel.root_dir%/../config/routing.yml'
         strict_requirements: true
     form:            ~
     csrf_protection: ~
@@ -24,7 +24,7 @@ framework:
         enable_annotations: false
         mapping:
             paths:
-                - '%kernel.root_dir%/../conf/validation'
+                - '%kernel.root_dir%/../config/validation'
     serializer:      { enable_annotations: false }
     templating:
         engines: ['twig']
@@ -72,37 +72,37 @@ doctrine:
                     Post:
                         type: yml
                         is_bundle: false
-                        dir:       '%kernel.root_dir%/../conf/doctrine/post'
+                        dir:       '%kernel.root_dir%/../config/doctrine/post'
                         prefix:    'App\Domain\Post\Model'
                         alias:     'RiftRunners'
                     Player:
                         type: yml
                         is_bundle: false
-                        dir:       '%kernel.root_dir%/../conf/doctrine/player'
+                        dir:       '%kernel.root_dir%/../config/doctrine/player'
                         prefix:    'App\Domain\Player\Model'
                         alias:     'RiftRunners'
                     SearchQuery:
                         type: yml
                         is_bundle: false
-                        dir:       '%kernel.root_dir%/../conf/doctrine/searchquery'
+                        dir:       '%kernel.root_dir%/../config/doctrine/searchquery'
                         prefix:    'App\Domain\SearchQuery\Model'
                         alias:     'RiftRunners'
                     PlayerCharacter:
                         type: yml
                         is_bundle: false
-                        dir:       '%kernel.root_dir%/../conf/doctrine/playercharacter'
+                        dir:       '%kernel.root_dir%/../config/doctrine/playercharacter'
                         prefix:    'App\Domain\PlayerCharacter\Model'
                         alias:     'RiftRunners'
                     GameMode:
                         type:       yml
                         is_bundle:  false
-                        dir:        '%kernel.root_dir%/../conf/doctrine/gamemode'
+                        dir:        '%kernel.root_dir%/../config/doctrine/gamemode'
                         prefix:     'App\Domain\GameMode\Model'
                         alias:      'RiftRunners'
                     GameType:
                         type:       yml
                         is_bundle:  false
-                        dir:        '%kernel.root_dir%/../conf/doctrine/valueobject'
+                        dir:        '%kernel.root_dir%/../config/doctrine/valueobject'
                         prefix:     'App\Domain\GameMode\ValueObject'
 
 # FOS Rest Configuration
@@ -167,22 +167,22 @@ jms_serializer:
         directories:
             Common:
                 namespace_prefix: 'App\Domain\Common'
-                path: '%kernel.root_dir%/../conf/serializer/common'
+                path: '%kernel.root_dir%/../config/serializer/common'
             Post:
                 namespace_prefix: 'App\Domain\Post'
-                path: '%kernel.root_dir%/../conf/serializer/post'
+                path: '%kernel.root_dir%/../config/serializer/post'
             SearchQuery:
                 namespace_prefix: 'App\Domain\SearchQuery'
-                path: '%kernel.root_dir%/../conf/serializer/query'
+                path: '%kernel.root_dir%/../config/serializer/query'
             Player:
                 namespace_prefix: 'App\Domain\Player'
-                path: '%kernel.root_dir%/../conf/serializer/player'
+                path: '%kernel.root_dir%/../config/serializer/player'
             PlayerCharacter:
                 namespace_prefix: 'App\Domain\PlayerCharacter'
-                path: '%kernel.root_dir%/../conf/serializer/playerCharacter'
+                path: '%kernel.root_dir%/../config/serializer/playerCharacter'
             GameMode:
                 namespace_prefix: 'App\Domain\GameMode'
-                path: '%kernel.root_dir%/../conf/serializer/gameMode'
+                path: '%kernel.root_dir%/../config/serializer/gameMode'
 
 bazinga_hateoas:
     metadata:

@@ -3,6 +3,7 @@
 namespace App\Infrastructure\GameMode\Factory\Form;
 
 use App\Domain\GameMode\Model\Rift;
+use App\Domain\GameMode\ValueObject\GameModeId;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -30,7 +31,7 @@ class RiftType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
-     * @throws \OutOfBoundsExceptions
+     * @throws \OutOfBoundsException
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -40,6 +41,7 @@ class RiftType extends AbstractType
             'csrf_protection' => false,
             'empty_data' => function(FormInterface $form) {
                 return new Rift(
+                    new GameModeId(),
                     $form->get('torment')->getData() ?: 0
                 );
             }

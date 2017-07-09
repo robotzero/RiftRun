@@ -3,7 +3,7 @@ FROM nginx:latest
 # configure nginx
 RUN mkdir -p /etc/ssl/certs/
 RUN mkdir -p /etc/ssl/private/
-RUN mkdir -p /var/www/html/riftrun/web/
+RUN mkdir -p /var/www/html/riftrun/public/
 RUN mkdir -p /var/www/fa/
 RUN mkdir -p /etc/nginx/logs/
 RUN chmod -R a+rwx /etc/nginx/logs

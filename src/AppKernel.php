@@ -89,9 +89,10 @@ class AppKernel extends Kernel
 
     /**
      * @param LoaderInterface $loader
+     * @throws \Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load($this->getRootDir().'/../conf/'.$this->getEnvironment().'/config.yml');
+        $loader->load($this->getRootDir().'/../config/'.$this->getEnvironment().'/config.yml');
     }
 }
