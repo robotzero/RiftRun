@@ -95,15 +95,15 @@ Scenario: By default posts should be sorted by created date. Newest at the top.
     When I request "GET /v1/posts?limit=100"
     Then I get a "200" response
     And newest items are displayed at the top
-#    And 10 days old items are displayed at bottom
+    And 29 days old items are displayed at bottom
 
-#Scenario: Do not show posts older than month.
-#    Given I have 10 posts in the database older than 30 days
-#    When I request "GET /v1/posts?limit=25&page=2"
-#    Then I get a "200" response
-#    And the "page" property exists
-#    And the "page" property is a integer equalling "2"
-#    And the "total" property is a integer equalling "50"
+Scenario: Do not show posts older than month.
+    Given I have additional 10 "posts" in the database older than 30 days
+    When I request "GET /v1/posts?limit=25&page=2"
+    Then I get a "200" response
+    And the "page" property exists
+    And the "page" property is a integer equalling "2"
+    And the "total" property is a integer equalling "40"
 
 Scenario Outline: Wrong parameters in the request.
     When I request "GET /v1/posts" with parameters <params>

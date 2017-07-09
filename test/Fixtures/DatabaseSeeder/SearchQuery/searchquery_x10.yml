@@ -1,7 +1,0 @@
-include:
-    - template.yml
-
-App\Model\SearchQuery:
-    searchqueries{1..10} (extends searchquery):
-        __construct: [<{minParagon}>, @grifts<current()>, <{createdAt}>]
-        lookingFor: ['@characterclasses<current()>']

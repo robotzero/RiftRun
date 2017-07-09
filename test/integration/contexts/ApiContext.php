@@ -140,16 +140,9 @@ class ApiContext extends JsonApiContext implements Context
      */
     public function iHaveAdditionalInTheDatabase(int $number, string $record, int $daysOld) : void
     {
-        $record = rtrim($record, 's');
-        $this->dataFixturesPath = $this->client->getContainer()->getParameter('kernel.root_dir') . '/../' . self::FIXTURES_LOCATION . ucfirst($record) . '/';
+        $this->inMemoryFixtures = $this->chaosMonkeyContext->changeCreatedDate($daysOld, $number, $this->inMemoryFixtures);
 
-        $fixtures = $this->loadFixturesFromFile($record . '_' . $daysOld . '_old_x' . $number . '.yml');
-        foreach($fixtures as $fixture) {
-            $this->inMemoryFixtures[] = $fixture;
-        }
-        $this->chaosMonkeyContext->changeCreatedDate($daysOld, $number, $this->inMemoryFixtures);
-
-        assertTrue(count($this->inMemoryFixtures) / 8  === ((int) $number + self::BASE_FIXTURE_NUMBER));
+        assertTrue(count($this->inMemoryFixtures) / 9  === self::BASE_FIXTURE_NUMBER);
     }
 
     /**
@@ -501,27 +494,25 @@ class ApiContext extends JsonApiContext implements Context
         });
 
         $dates = array_map(function (Post $post) {
-            echo $post->getCreatedAt()->format('Y-m-d h:m:s');
             return [$post->getId() => $post->getCreatedAt()];
         }, $posts);
 
         usort($dates, function($a, $b) {
-           return array_values($a)[0] > array_values($b)[0];
+           return array_values($a)[0] < array_values($b)[0];
         });
-
-//        Debug::dump($dates[0]);
-//        Debug::dump($dates[49]);
 
         $merged = array_merge(...$dates);
 
         /** @var array $items */
         $items = $scope->_embedded->items;
+
         $ids = [];
         foreach ($items as $item) {
             $ids[] = $item->id->uuid;
         }
 
-        assertTrue($merged[$ids[0]] > $merged[$ids[9]]);
+        assertTrue($merged[$ids[0]] > $merged[$ids[10]]);
+        assertTrue($merged[$ids[3]] > $merged[$ids[5]]);
     }
 
     /**
@@ -531,10 +522,17 @@ class ApiContext extends JsonApiContext implements Context
     {
         $scope = $this->getScopePayload();
 
-        $firstItemCreatedAt = $scope->_embedded->items[0]->createdAt;
-        $lastItemCreatedAt = array_pop($scope->_embedded->items)->createdAt;
+        $firstItemId = $scope->_embedded->items[0]->id->uuid;
+        $lastItemId = array_pop($scope->_embedded->items)->id->uuid;
         $this->resetScope();
-        assertTrue($lastItemCreatedAt < $firstItemCreatedAt);
+        $postFixtures = [];
+        foreach ($this->inMemoryFixtures as $fixture) {
+            if ($fixture instanceof Post) {
+                $postFixtures[$fixture->getId()] = $fixture;
+            }
+        }
+
+        assertTrue($postFixtures[$firstItemId]->getCreatedAt() > $postFixtures[$lastItemId]->getCreatedAt());
     }
 
     /**

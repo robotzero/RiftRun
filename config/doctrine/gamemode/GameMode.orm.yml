@@ -6,6 +6,8 @@ App\Domain\GameMode\Model\GameMode:
         name: type
         type: string
         cascade: [ persist, remove ]
+        onUpdate: CASCADE
+        onDelete: CASCADE
     discriminatorMap:
         grift: App\Domain\GameMode\Model\Grift
         rift: App\Domain\GameMode\Model\Rift

@@ -11,6 +11,7 @@ use App\Domain\SearchQuery\Model\SearchQuery;
 use App\Domain\SearchQuery\ValueObject\SearchQueryId;
 use Behat\Behat\Context\Context;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use Doctrine\Common\Util\Debug;
 use Pagerfanta\Pagerfanta;
 
 class ChaosMonkeyContext implements Context {
@@ -73,28 +74,39 @@ class ChaosMonkeyContext implements Context {
      * @param int $daysOld
      * @param int $number
      * @param array $fixtures
+     * @return array
      */
-    public function changeCreatedDate(int $daysOld, int $number, array $fixtures): void
+    public function changeCreatedDate(int $daysOld, int $number, array $fixtures): array
     {
         $entityManager = $this->doctrine->getManager();
-        $createdAt = random_int($daysOld + 1, 100);
-        $now = new \DateTime('now');
         $postEntities = [];
         foreach($fixtures as $index => $eachEntity) {
             if ($eachEntity instanceof Post) {
-                $postEntities[] = $eachEntity;
-//                $fixtures[] = $eachEntity;
+                $postEntities[$index] = $eachEntity;
             }
         }
 
-        $slicedEntities = array_slice($postEntities, 0, $number);
-        foreach($slicedEntities as $entity) {
-            $newDateTime = $now->sub(new \DateInterval('P'.$createdAt.'D'));
-            $entityManager->find(Post::class, new PostId($entity->getId()));
-            $entity->setCreatedAt($newDateTime);
-            $entityManager->persist($entity);
+        $slicedEntities = array_slice($postEntities, 0, count($postEntities) - $number);
+        foreach($slicedEntities as $index => $entity) {
+            $createdAt = random_int(1, $daysOld - 1);
+            $newDateTime = $entity->getCreatedAt()->sub(new \DateInterval('P'.$createdAt.'D'));
+            $post = $entityManager->find(Post::class, new PostId($entity->getId()));
+            $post->setCreatedAt($newDateTime);
+            $postEntities[$index] = $post;
+            $entityManager->merge($post);
+        }
+
+        $slicedEntities = array_slice($postEntities, count($postEntities) - $number, count($postEntities));
+        foreach($slicedEntities as $index => $entity) {
+            $createdAt = random_int($daysOld, 30);
+            $newDateTime = $entity->getCreatedAt()->sub(new \DateInterval('P'.$createdAt.'D'));
+            $post = $entityManager->find(Post::class, new PostId($entity->getId()));
+            $post->setCreatedAt($newDateTime);
+            $postEntities[$index] = $post;
+            $entityManager->merge($post);
         }
         $entityManager->flush();
-        echo count($fixtures);
+
+        return array_merge($fixtures, $postEntities);
     }
 }
