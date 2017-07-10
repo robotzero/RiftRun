@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "7baf44892f2cfb83cedf9b05ef409e9ac793b962"
+                "reference": "a55b83eae856b706a5c30e3a578e449046669a05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7baf44892f2cfb83cedf9b05ef409e9ac793b962",
-                "reference": "7baf44892f2cfb83cedf9b05ef409e9ac793b962",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a55b83eae856b706a5c30e3a578e449046669a05",
+                "reference": "a55b83eae856b706a5c30e3a578e449046669a05",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-07-05 22:19:44"
+            "time": "2017-07-09 14:23:49"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1176,12 +1176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "e72570b4b09633f41dcb9a26317c6cb2dd60c20e"
+                "reference": "32d73743fc9693aa2c6fffb17d524ec0da9fc74c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/e72570b4b09633f41dcb9a26317c6cb2dd60c20e",
-                "reference": "e72570b4b09633f41dcb9a26317c6cb2dd60c20e",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/32d73743fc9693aa2c6fffb17d524ec0da9fc74c",
+                "reference": "32d73743fc9693aa2c6fffb17d524ec0da9fc74c",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-06-30 19:27:51"
+            "time": "2017-07-10 15:53:27"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -5304,12 +5304,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "122d5a37d5c4a3778b5d69e2ad5d1ca9c692fde0"
+                "reference": "59957afceb500bc88ab4fbbb5278c564a6a56582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/122d5a37d5c4a3778b5d69e2ad5d1ca9c692fde0",
-                "reference": "122d5a37d5c4a3778b5d69e2ad5d1ca9c692fde0",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/59957afceb500bc88ab4fbbb5278c564a6a56582",
+                "reference": "59957afceb500bc88ab4fbbb5278c564a6a56582",
                 "shasum": ""
             },
             "require": {
@@ -5369,7 +5369,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-07-03 07:35:18"
+            "time": "2017-07-09T12:05:37+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
