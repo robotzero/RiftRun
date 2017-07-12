@@ -1,4 +1,3 @@
-///<reference path="../../typings/browser.d.ts"/>
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';

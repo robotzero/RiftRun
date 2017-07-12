@@ -1,16 +1,12 @@
-///<reference path="../../typings/browser.d.ts"/>
-///<reference path="../../typings/browser/ambient/es6-shim/index.d.ts" />
-
 import {PostQuery} from '../models/postquery';
 import {Player} from '../models/player';
 import {Query} from '../models/query';
 import {GameType} from '../models/gametype';
 import {CharacterType} from '../models/charactertype';
 import {Component, Injectable} from '@angular/core';
-import {CORE_DIRECTIVES} from "@angular/common";
 
 @Component({
-    directives: [CORE_DIRECTIVES]
+
 })
 
 @Injectable()

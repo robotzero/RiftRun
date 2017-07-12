@@ -1,9 +1,0 @@
-<div class="demo">
-<div [formGroup]="form" class="mdl-selectfield">
-    <select #sel (change)="select.emit(sel.value)" [formControl]="form.controls[formKey]" class="browser-default">
-        <option *ngFor="let model of models">
-            {{model}}
-        </option>
-    </select>
-</div>
-</div>

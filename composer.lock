@@ -511,12 +511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "a55b83eae856b706a5c30e3a578e449046669a05"
+                "reference": "5c5966aae7aee4cfab8753499590c575c173015e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a55b83eae856b706a5c30e3a578e449046669a05",
-                "reference": "a55b83eae856b706a5c30e3a578e449046669a05",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5c5966aae7aee4cfab8753499590c575c173015e",
+                "reference": "5c5966aae7aee4cfab8753499590c575c173015e",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-07-09 14:23:49"
+            "time": "2017-07-12 06:24:58"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "c32ba8f5d161835f78cd99507e78119599292611"
+                "reference": "e3ecec36ad77525553bfd4e6a2ec86e80d39ac27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/c32ba8f5d161835f78cd99507e78119599292611",
-                "reference": "c32ba8f5d161835f78cd99507e78119599292611",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e3ecec36ad77525553bfd4e6a2ec86e80d39ac27",
+                "reference": "e3ecec36ad77525553bfd4e6a2ec86e80d39ac27",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-07-07 08:36:08"
+            "time": "2017-07-12 06:23:18"
         },
         {
             "name": "egulias/email-validator",
@@ -1653,12 +1653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "22b592744fafbae507a163b15bdc36bb7b8588fc"
+                "reference": "020f2a221880fba6485ca428f405846279a0470f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/22b592744fafbae507a163b15bdc36bb7b8588fc",
-                "reference": "22b592744fafbae507a163b15bdc36bb7b8588fc",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/020f2a221880fba6485ca428f405846279a0470f",
+                "reference": "020f2a221880fba6485ca428f405846279a0470f",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-07-04 12:27:55"
+            "time": "2017-07-12 06:03:24"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1736,17 +1736,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "d81b06c1455bb3c501c837eeb63c34ba90eca439"
+                "reference": "067ff257c1e185464314a2c5fab3f908c64fbc10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/d81b06c1455bb3c501c837eeb63c34ba90eca439",
-                "reference": "d81b06c1455bb3c501c837eeb63c34ba90eca439",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/067ff257c1e185464314a2c5fab3f908c64fbc10",
+                "reference": "067ff257c1e185464314a2c5fab3f908c64fbc10",
                 "shasum": ""
             },
             "require": {
                 "jms/serializer": "^1.7",
-                "php": "^5.5|^7.0",
+                "php": "^5.4|^7.0",
                 "phpoption/phpoption": "^1.1.0",
                 "symfony/framework-bundle": "~2.3|~3.0|~4.0"
             },
@@ -1806,7 +1806,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-06-26 12:24:11"
+            "time": "2017-07-11 06:59:26"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3149,12 +3149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "0b18b6bbeed070fb900ad78e81ffa1182a57a752"
+                "reference": "c1bdf69b424087447dc8e12d95b373c2b1cc77f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0b18b6bbeed070fb900ad78e81ffa1182a57a752",
-                "reference": "0b18b6bbeed070fb900ad78e81ffa1182a57a752",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c1bdf69b424087447dc8e12d95b373c2b1cc77f2",
+                "reference": "c1bdf69b424087447dc8e12d95b373c2b1cc77f2",
                 "shasum": ""
             },
             "conflict": {
@@ -3168,7 +3168,8 @@
                 "codeigniter/framework": "<=3.0.6",
                 "composer/composer": "<=1.0.0-alpha11",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
-                "contao/core": ">=2.11,<3.5.15",
+                "contao/core": ">=2,<3.5.28",
+                "contao/core-bundle": ">=4,<4.4.1",
                 "doctrine/annotations": ">=1,<1.2.7",
                 "doctrine/cache": ">=1,<1.3.2|>=1.4,<1.4.2",
                 "doctrine/common": ">=2,<2.4.3|>=2.5,<2.5.1",
@@ -3277,7 +3278,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2017-06-22T16:43:17+00:00"
+            "time": "2017-07-12T12:45:47+00:00"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -5369,7 +5370,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-07-09T12:05:37+00:00"
+            "time": "2017-07-09 12:05:37"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -6336,17 +6337,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "be09eeb0229d6ad4a1e80d2a8473dbe14b0db914"
+                "reference": "875bd7cdcb5f49e9bcea732538767937abbed51d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/be09eeb0229d6ad4a1e80d2a8473dbe14b0db914",
-                "reference": "be09eeb0229d6ad4a1e80d2a8473dbe14b0db914",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/875bd7cdcb5f49e9bcea732538767937abbed51d",
+                "reference": "875bd7cdcb5f49e9bcea732538767937abbed51d",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "sebastian/diff": "^1.2 || ^2.0",
+                "sebastian/diff": "^2.0",
                 "sebastian/exporter": "^3.0"
             },
             "require-dev": {
@@ -6392,7 +6393,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-05-19 04:08:27"
+            "time": "2017-07-11 16:29:53"
         },
         {
             "name": "sebastian/diff",
@@ -6400,19 +6401,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "2994073dc733d81c4f54d5291ac3d867402dddee"
+                "reference": "f2e7d89ea610c629b4f74723c0d523ca12a49e30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2994073dc733d81c4f54d5291ac3d867402dddee",
-                "reference": "2994073dc733d81c4f54d5291ac3d867402dddee",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/f2e7d89ea610c629b4f74723c0d523ca12a49e30",
+                "reference": "f2e7d89ea610c629b4f74723c0d523ca12a49e30",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.1"
+                "phpunit/phpunit": "^6.2"
             },
             "type": "library",
             "extra": {
@@ -6444,7 +6445,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-06-25 08:47:13"
+            "time": "2017-07-12 07:11:10"
         },
         {
             "name": "sebastian/environment",
@@ -6850,12 +6851,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "37f9f4e165b033fb76cc2320838321cc57140e65"
+                "reference": "535417a99ac1b387df3bfbc0c060122c24665b78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/37f9f4e165b033fb76cc2320838321cc57140e65",
-                "reference": "37f9f4e165b033fb76cc2320838321cc57140e65",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/535417a99ac1b387df3bfbc0c060122c24665b78",
+                "reference": "535417a99ac1b387df3bfbc0c060122c24665b78",
                 "shasum": ""
             },
             "require": {
@@ -6896,7 +6897,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2017-03-15 01:02:10"
+            "time": "2017-07-12 17:28:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -6904,12 +6905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "05c5deb27d8cbb65410fd04d691e16b558931d0f"
+                "reference": "47f19cd21046fb5194b24d525f1f89f6b0f088e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/05c5deb27d8cbb65410fd04d691e16b558931d0f",
-                "reference": "05c5deb27d8cbb65410fd04d691e16b558931d0f",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/47f19cd21046fb5194b24d525f1f89f6b0f088e6",
+                "reference": "47f19cd21046fb5194b24d525f1f89f6b0f088e6",
                 "shasum": ""
             },
             "require": {
@@ -6963,7 +6964,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-07-06 06:25:25"
+            "time": "2017-07-12 14:12:10"
         },
         {
             "name": "theofidry/alice-data-fixtures",
