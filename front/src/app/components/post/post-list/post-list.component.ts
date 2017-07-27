@@ -1,9 +1,9 @@
-import {APIGetService} from '../../services/apigetservice';
-import {PostQuery} from '../../models/postquery';
-import {APIPostService} from '../../services/apipostservice';
+import {APIGetService} from '../../../services/apigetservice';
+import {PostQuery} from '../../../models/postquery';
+import {APIPostService} from '../../../services/apipostservice';
 import {Component, OnInit} from '@angular/core';
 // import {CORE_DIRECTIVES, NgFor, NgIf} from '@angular/common';
-import {PostFactory} from "../../utils/postFactory";
+import {PostFactory} from "../../../utils/postFactory";
 import {FormBuilder, FormGroup} from "@angular/forms";
 // import {ModelSelector} from "../../directives/modelselector";
 // import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
@@ -12,10 +12,10 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 // import {MdButton} from "@angular2-material/button/button";
 
 @Component({
-    selector: 'post',
-    providers:[APIGetService, APIPostService, PostFactory],
-    viewProviders: [FormBuilder],
-    templateUrl: './app/components/post/post.html',
+    selector: 'post-list',
+    providers: [APIGetService, APIPostService, PostFactory],
+    // viewProviders: [FormBuilder],
+    templateUrl: './post-list.html',
     // directives: [NgFor, NgIf]
 })
 
@@ -31,7 +31,7 @@ export class PostListComponent implements OnInit {
     playerTypes: Array<string> = ['Demon Hunter', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader'];
     playerRegions: Array<string> = ['EU', 'US', 'ASIA'];
     queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+', '90+', '100+'];
-    queryGameTypes: Array<string> = ['Rift', 'Grift', 'PowerGrift', 'Bounties', 'Keywardens', 'Ubers'];
+    queryGameTypes: Array<string> = ['Rift', 'Grift', 'Bounties', 'Keywardens', 'Ubers', 'Goblins'];
 
     ngOnInit():void {
         this.postForm = this.formBuilder.group({

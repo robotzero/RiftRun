@@ -200,9 +200,16 @@ tactician:
 # Nelmio CORS
 nelmio_cors:
     defaults:
-        allow_origin:  ['http://localhost']
+        origin_regex: true
+        allow_origin: ['^http://localhost:[0-9]+']
+        allow_headers: ['Authorization', 'X-Requested-With', 'Content-Type', 'Accept', 'Origin', 'X-Custom-Auth']
         allow_methods: ["POST", "PUT", "GET", "DELETE", "OPTIONS"]
-        allow_headers: ["content-type", "authorization"]
+        forced_allow_origin_value: '*'
         max_age:       3600
     paths:
-        '^/': ~
+        '^/':
+            origin_regex: true
+            allow_origin: ['^http://localhost:[0-9]+']
+            allow_headers: ['Authorization', 'X-Requested-With', 'Content-Type', 'Accept', 'Origin', 'X-Custom-Auth']
+            allow_methods: ["POST", "PUT", "GET", "DELETE", "OPTIONS"]
+            forced_allow_origin_value: '*'

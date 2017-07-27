@@ -1,9 +1,9 @@
-import {PostQuery} from '../models/postquery';
-import {Player} from '../models/player';
-import {Query} from '../models/query';
-import {GameType} from '../models/gametype';
-import {CharacterType} from '../models/charactertype';
 import {Component, Injectable} from '@angular/core';
+import {PostQuery} from "../models/postquery";
+import {CharacterType} from "../models/charactertype";
+import {Player} from "../models/player";
+import {Query} from "../models/query";
+import {GameType} from "../models/gametype";
 
 @Component({
 
@@ -16,7 +16,7 @@ export class PostFactory {
         let result:Array<PostQuery> = [];
         let characterTypes:Array<CharacterType> = [];
         posts._embedded.items.forEach((post) => {
-            characterTypes.push(post.query.characterType.concat());
+            characterTypes.push(post.query.playerCharacters.concat());
             result.push(new PostQuery(
                 new Player(
                     post.player.id,
@@ -30,7 +30,7 @@ export class PostFactory {
                 new Query(
                     post.query.id,
                     post.query.minParagon,
-                    new GameType(post.query.game.level, post.query.game.type),
+                    new GameType(post.query.gameMode.level, post.query.gameMode.type),
                     characterTypes
                 )
             ));
