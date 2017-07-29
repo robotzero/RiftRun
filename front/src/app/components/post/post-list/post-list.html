@@ -1,5 +1,5 @@
-<!--<md-card>-->
-<!--<md-card-content>-->
+<md-card>
+<md-card-content>
 <!--<form [formGroup]="postForm" (ngSubmit) = "postContent(postForm.value)">-->
 <!--<div>-->
 <!--<md-input required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"></md-input>-->
@@ -25,8 +25,8 @@
 <!--</div>-->
 <!--<button md-raised-button color="primary" type="submit">Add Post</button>-->
 <!--</form>-->
-<!--</md-card-content>-->
-<!--</md-card>-->
+</md-card-content>
+</md-card>
 <!--<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>-->
 <ul *ngFor="let post of posts">
     <li>{{post.player.type}}</li>
