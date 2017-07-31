@@ -1,15 +1,10 @@
-import {APIGetService} from '../../../services/apigetservice';
-import {PostQuery} from '../../../models/postquery';
-import {APIPostService} from '../../../services/apipostservice';
-import {Component, OnInit} from '@angular/core';
-// import {CORE_DIRECTIVES, NgFor, NgIf} from '@angular/common';
-import {PostFactory} from "../../../utils/postFactory";
-import {FormBuilder, FormGroup} from "@angular/forms";
-// import {ModelSelector} from "../../directives/modelselector";
+import { APIGetService } from '../../../services/apigetservice';
+import { PostQuery } from '../../../models/postquery';
+import { APIPostService } from '../../../services/apipostservice';
+import { Component, OnInit } from '@angular/core';
+import { PostFactory } from "../../../utils/postFactory";
+import { FormBuilder, FormGroup } from "@angular/forms";
 // import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
-// import {MdCard} from "@angular2-material/card/card";
-// import {MdInput} from "@angular2-material/input/input";
-// import {MdButton} from "@angular2-material/button/button";
 
 @Component({
     selector: 'post-list',

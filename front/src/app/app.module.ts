@@ -5,7 +5,6 @@ import { FormsModule } from "@angular/forms";
 import { PostModule } from "./components/post/post.module";
 import { AppRoutingModule } from "./app.routing";
 import { HttpModule } from "@angular/http";
-import { MaterialModule } from "./components/material/material.module";
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import { MaterialModule } from "./components/material/material.module";
     FormsModule,
     HttpModule,
     PostModule,
-    AppRoutingModule,
-    MaterialModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
