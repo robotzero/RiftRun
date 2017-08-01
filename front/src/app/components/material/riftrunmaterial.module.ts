@@ -1,4 +1,4 @@
-import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListModule} from '@angular/material';
+import { MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListModule } from '@angular/material';
 import { NgModule} from "@angular/core";
 
 @NgModule({

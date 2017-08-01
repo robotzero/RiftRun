@@ -4205,16 +4205,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.5",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b9a0d3d2393f683b28043e9dbf83b8bf6b347faa"
+                "reference": "6f80cbd2dd89c5308b14e03d806356fac72c263e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b9a0d3d2393f683b28043e9dbf83b8bf6b347faa",
-                "reference": "b9a0d3d2393f683b28043e9dbf83b8bf6b347faa",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6f80cbd2dd89c5308b14e03d806356fac72c263e",
+                "reference": "6f80cbd2dd89c5308b14e03d806356fac72c263e",
                 "shasum": ""
             },
             "require": {
@@ -4354,7 +4354,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-07-17T19:08:46+00:00"
+            "time": "2017-08-01T10:26:30+00:00"
         },
         {
             "name": "twig/twig",
@@ -5065,12 +5065,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coduo/php-matcher.git",
-                "reference": "85e6c89619739551f54ec744c8064a4854b61879"
+                "reference": "bc84c200d8ce87add11098cc1f9935f76d4fd8a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/85e6c89619739551f54ec744c8064a4854b61879",
-                "reference": "85e6c89619739551f54ec744c8064a4854b61879",
+                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/bc84c200d8ce87add11098cc1f9935f76d4fd8a9",
+                "reference": "bc84c200d8ce87add11098cc1f9935f76d4fd8a9",
                 "shasum": ""
             },
             "require": {
@@ -5117,7 +5117,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2017-07-20T10:34:15+00:00"
+            "time": "2017-08-01T19:36:02+00:00"
         },
         {
             "name": "coduo/php-to-string",
@@ -5252,7 +5252,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-07-19T13:05:01+00:00"
+            "time": "2017-07-19 13:05:01"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5367,7 +5367,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-07-27T08:15:27+00:00"
+            "time": "2017-07-27 08:15:27"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -5710,12 +5710,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "7b5721b4d0d6361def770f7880401f3b6a4278fd"
+                "reference": "4b09868a207ff83b32dd3f45cf3b29c323dd7a4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/7b5721b4d0d6361def770f7880401f3b6a4278fd",
-                "reference": "7b5721b4d0d6361def770f7880401f3b6a4278fd",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4b09868a207ff83b32dd3f45cf3b29c323dd7a4c",
+                "reference": "4b09868a207ff83b32dd3f45cf3b29c323dd7a4c",
                 "shasum": ""
             },
             "require": {
@@ -5783,7 +5783,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-07-29T17:42:09+00:00"
+            "time": "2017-08-01T08:33:56+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -5846,7 +5846,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-07-19T07:44:25+00:00"
+            "time": "2017-07-19 07:44:25"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6180,7 +6180,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-07-30T08:28:26+00:00"
+            "time": "2017-07-30 08:28:26"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6893,7 +6893,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2017-07-23T07:08:53+00:00"
+            "time": "2017-07-23 07:08:53"
         },
         {
             "name": "symfony/var-dumper",
@@ -6901,12 +6901,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "e6e04b36888883ea8e3aa9baa534e97b1a4ca530"
+                "reference": "e3bb72b6e4d282f5402d4212ba16b21c080c3e4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e6e04b36888883ea8e3aa9baa534e97b1a4ca530",
-                "reference": "e6e04b36888883ea8e3aa9baa534e97b1a4ca530",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e3bb72b6e4d282f5402d4212ba16b21c080c3e4d",
+                "reference": "e3bb72b6e4d282f5402d4212ba16b21c080c3e4d",
                 "shasum": ""
             },
             "require": {
@@ -6961,7 +6961,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-07-28T15:35:42+00:00"
+            "time": "2017-07-29T09:49:20+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
