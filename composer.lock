@@ -3399,16 +3399,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "cf61ce9d9706ba35e60a894fe6f3584c6d0e5c9f"
+                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/cf61ce9d9706ba35e60a894fe6f3584c6d0e5c9f",
-                "reference": "cf61ce9d9706ba35e60a894fe6f3584c6d0e5c9f",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/9c7bfbc7be32781d39f8e262744f7fb0c410df67",
+                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67",
                 "shasum": ""
             },
             "require": {
@@ -3440,7 +3440,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-07-28T18:31:05+00:00"
+            "time": "2017-08-02T07:52:06+00:00"
         },
         {
             "name": "simple-bus/doctrine-orm-bridge",
@@ -5065,12 +5065,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coduo/php-matcher.git",
-                "reference": "bc84c200d8ce87add11098cc1f9935f76d4fd8a9"
+                "reference": "8cfa24bb381dc85771992000c448fc384ed5539a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/bc84c200d8ce87add11098cc1f9935f76d4fd8a9",
-                "reference": "bc84c200d8ce87add11098cc1f9935f76d4fd8a9",
+                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/8cfa24bb381dc85771992000c448fc384ed5539a",
+                "reference": "8cfa24bb381dc85771992000c448fc384ed5539a",
                 "shasum": ""
             },
             "require": {
@@ -5117,7 +5117,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2017-08-01T19:36:02+00:00"
+            "time": "2017-08-02T17:27:58+00:00"
         },
         {
             "name": "coduo/php-to-string",
@@ -5302,12 +5302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "6b48725731295d2a76a4f6eb48625c43ba97a4d8"
+                "reference": "28facece556ebd24d0ea0a57ccc20f5e9f9e874c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/6b48725731295d2a76a4f6eb48625c43ba97a4d8",
-                "reference": "6b48725731295d2a76a4f6eb48625c43ba97a4d8",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/28facece556ebd24d0ea0a57ccc20f5e9f9e874c",
+                "reference": "28facece556ebd24d0ea0a57ccc20f5e9f9e874c",
                 "shasum": ""
             },
             "require": {
@@ -5367,7 +5367,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-07-27 08:15:27"
+            "time": "2017-08-01T22:53:24+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -5710,12 +5710,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "4b09868a207ff83b32dd3f45cf3b29c323dd7a4c"
+                "reference": "43c20a0b4ac6cb6c548fd6a5af511851a309f0c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4b09868a207ff83b32dd3f45cf3b29c323dd7a4c",
-                "reference": "4b09868a207ff83b32dd3f45cf3b29c323dd7a4c",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/43c20a0b4ac6cb6c548fd6a5af511851a309f0c5",
+                "reference": "43c20a0b4ac6cb6c548fd6a5af511851a309f0c5",
                 "shasum": ""
             },
             "require": {
@@ -5783,7 +5783,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-08-01T08:33:56+00:00"
+            "time": "2017-08-02T07:39:45+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -6961,7 +6961,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-07-29T09:49:20+00:00"
+            "time": "2017-07-29 09:49:20"
         },
         {
             "name": "theofidry/alice-data-fixtures",

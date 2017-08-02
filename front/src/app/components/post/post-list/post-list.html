@@ -3,8 +3,10 @@
 <form [formGroup]="postForm" autocomplete="off" novalidate (ngSubmit) = "postContent(postForm.value)">
 <div>
 <md-input-container>
-    <input required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"/>
-    <input required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"/>
+    <input mdInput required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"/>
+</md-input-container>
+<md-input-container>
+    <input mdInput required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"/>
 </md-input-container>
 </div>
     <div>
@@ -12,26 +14,20 @@
     Your character type.
 <div class="mdl-selectfield">
     <label for="characterType"></label>l
-        <select class="form-control" id="characterType" required>
-            <option value="">Please Select...</option>
-            <option *ngFor="let type of playerTypes" [value]="type">{{type}}</option>
-        </select>
-
-<!--<model-selector [form]="postForm" [models]="playerTypes" (select)="onSelect([$event, 'playerTypes'])" [formKey]="'playerType'"></model-selector>-->
-<!--</div>-->
-<!--<div class="mdl-selectfield">-->
-<!--<model-selector [form]="postForm" [models]="playerRegions" (select)="onSelect([$event, 'playerRegions'])" [formKey]="'playerRegion'"></model-selector>-->
-<!--</div>-->
-<!--<div class="mdl-selectfield">-->
-<!--<model-selector [form]="postForm" [models]="queryGameLevels" (select)="onSelect([$event, 'queryGameLevels'])" [formKey]="'queryGameLevel'"></model-selector>-->
+        <md-select class="form-control" id="characterType" [formControl]="postForm.controls['queryCharacterType']" required>
+            <md-option value="">Please Select...</md-option>
+            <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
+        </md-select>
 </div>
-<!--<div>-->
-<!--<md-input-container required placeholder="Minimum paragon points" [formControl]="postForm.controls['queryMinParagon']"></md-input-container>-->
-<!--</div>-->
-<!--<div>-->
-<!--<md-input-container required placeholder="Minimum paragon points" [formControl]="postForm.controls['queryGameLevel']"></md-input-container>-->
-<!--</div>-->
-<button md-raised-button>Add Post</button>
+<div class="mdl-selectfield">
+    <label for="playerRegion"></label>l
+        <md-select class="form-control" id="playerRegion" [formControl]="postForm.controls['playerRegion']" required>
+            <md-option value="">Please Select...</md-option>
+            <md-option *ngFor="let region of playerRegions" [value]="region">{{region}}</md-option>
+        </md-select>
+</div>
+
+<button type="button" md-raised-button [disabled]="postForm.invalid">Add Post</button>
 </form>
 </md-card-content>
 </md-card>
@@ -43,7 +39,3 @@
         <p md-line class="demo-2"> {{post.player.gameType}} </p>
     </md-list-item>
 </md-list>
-
-<div>
-    <button type="button" class="btn btn-default btn-primary" [disabled]="postForm.invalid" (click)="submit()">Submit</button>
-</div>

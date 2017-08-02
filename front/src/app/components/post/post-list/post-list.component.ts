@@ -3,8 +3,11 @@ import { PostQuery } from '../../../models/postquery';
 import { APIPostService } from '../../../services/apipostservice';
 import { Component, OnInit } from '@angular/core';
 import { PostFactory } from "../../../utils/postFactory";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PostListDto } from "./post-list-dto";
+import {PlayerType} from "./types/player-type";
+import {GameType} from "./types/game-type";
+import {RegionType} from "./types/region-type";
 
 @Component({
     selector: 'post-list',
@@ -20,10 +23,29 @@ export class PostListComponent implements OnInit {
     private postForm: FormGroup;
     private response: any;
     private postListDto: PostListDto;
-    private playerTypes: Array<string> = ['Demon Hunter', 'Wizard', 'Witch Doctor', 'Barbarian', 'Crusader', 'Necromancer'];
-    private playerRegions: Array<string> = ['EU', 'US', 'ASIA'];
+    private playerTypes: Array<PlayerType> = [
+        PlayerType.DEMON_HUNTER,
+        PlayerType.WIZARD,
+        PlayerType.WITCH_DOCTOR,
+        PlayerType.BARBARIAN,
+        PlayerType.CRUSADER,
+        PlayerType.NECROMANCER
+    ];
+    private playerRegions: Array<RegionType> = [
+        RegionType.US,
+        RegionType.EU,
+        RegionType.AUSTRALIA,
+        RegionType.ASIA
+    ];
     private queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+', '90+', '100+'];
-    private queryGameTypes: Array<string> = ['Rift', 'Grift', 'Bounties', 'Keywardens', 'Ubers', 'Goblins'];
+    private queryGameTypes: Array<GameType> = [
+        GameType.RIFT,
+        GameType.GRIFT,
+        GameType.BOUNTIES,
+        GameType.KEYWARDENS,
+        GameType.UBERS,
+        GameType.GOBLINS
+    ];
 
     ngOnInit():void {
         this.postForm = this.formBuilder.group({
@@ -67,16 +89,17 @@ export class PostListComponent implements OnInit {
     }
 
     postContent(item:any) {
+        console.log("POST");
         console.log(item);
-        this.postService.postContent(item);
-    }
-
-    onSelect(element) {
-        console.log(element);
+        this.postListDto = this.postForm.value;
+        console.log(JSON.stringify(this.postListDto));
+        // this.postService.postContent(item);
     }
 
     private onValueChanged(data?: any) {
-        if (!this.postForm) { return; }
+        if (!this.postForm) {
+            return;
+        }
         const form = this.postForm;
 
         // for (const field in this.formErrors) {
@@ -92,10 +115,5 @@ export class PostListComponent implements OnInit {
         //         }
         //     }
         // }
-    }
-
-    submit() {
-        this.postListDto = this.postForm.value;
-        console.log(JSON.stringify(this.postListDto));
     }
 }

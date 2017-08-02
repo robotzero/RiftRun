@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { PostModule } from "./components/post/post.module";
 import { AppRoutingModule } from "./app.routing";
 import { HttpModule } from "@angular/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { HttpModule } from "@angular/http";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     PostModule,
