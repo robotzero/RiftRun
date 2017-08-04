@@ -5,16 +5,14 @@ import { Component, OnInit } from '@angular/core';
 import { PostFactory } from "../../../utils/postFactory";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PostListDto } from "./post-list-dto";
-import {PlayerType} from "./types/player-type";
-import {GameType} from "./types/game-type";
-import {RegionType} from "./types/region-type";
+import { PlayerType } from "./types/player-type";
+import { GameType } from "./types/game-type";
+import { RegionType } from "./types/region-type";
 
 @Component({
     selector: 'post-list',
     providers: [ APIPostService, PostFactory ],
-    // viewProviders: [FormBuilder],
     templateUrl: './post-list.html',
-    // directives: [NgFor, NgIf]
 })
 
 export class PostListComponent implements OnInit {
@@ -52,21 +50,12 @@ export class PostListComponent implements OnInit {
             'playerType': [this.postListDto.playerType, [Validators.required]],
             'playerParagonPoints': [this.postListDto.playerParagonPoints, [Validators.required]],
             'playerBattleTag': [this.postListDto.playerBattleTag, [Validators.required]],
-            'playerGameType': [this.postListDto.playerGameType],
             'playerRegion': [this.postListDto.playerRegion, [Validators.required]],
+            'playerGameType': [this.postListDto.playerGameType, [Validators.required]],
             'queryMinParagon': [this.postListDto.queryMinParagon, [Validators.required]],
             'queryGameLevel': [this.postListDto.queryGameLevel, [Validators.required]],
             'queryGameType': [this.postListDto.queryGameType, [Validators.required]],
             'queryCharacterType': [this.postListDto.queryCharacterType, [Validators.required]]
-            // playerType: ['Demon Hunter'],
-            // playerParagonPoints: [''],
-            // playerBattleTag: [''],
-            // playerRegion: ['EU'],
-            // playerGameType: ['seasonal'],
-            // queryMinParagon: ['15'],
-            // queryGameLevel: ['40+'],
-            // queryGameType: ['grift'],
-            // queryCharacterType: ['demon hunter']
         });
 
         this.postForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -80,8 +69,8 @@ export class PostListComponent implements OnInit {
     }
 
     constructor(
-        private getService:APIGetService,
-        private postService:APIPostService,
+        private getService: APIGetService,
+        private postService: APIPostService,
         private formBuilder: FormBuilder,
         private postFactory: PostFactory,
     ) {

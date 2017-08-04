@@ -1,33 +1,66 @@
 <md-card>
 <md-card-content>
 <form [formGroup]="postForm" autocomplete="off" novalidate (ngSubmit) = "postContent(postForm.value)">
-<div>
-<md-input-container>
-    <input mdInput required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"/>
-</md-input-container>
-<md-input-container>
-    <input mdInput required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"/>
-</md-input-container>
-</div>
     <div>
-</div>
+        <md-input-container>
+            <input mdInput required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"/>
+        </md-input-container>
+        <md-input-container>
+            <input mdInput required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"/>
+        </md-input-container>
+        <md-input-container>
+            <input mdInput required placeholder="Min paragon points" [formControl]="postForm.controls['queryMinParagon']"/>
+        </md-input-container>
+    </div>
+
     Your character type.
-<div class="mdl-selectfield">
-    <label for="characterType"></label>l
-        <md-select class="form-control" id="characterType" [formControl]="postForm.controls['queryCharacterType']" required>
+    <div class="mdl-selectfield">
+        <label for="playerType"></label>l
+            <md-select class="form-control" id="playerType" [formControl]="postForm.controls['playerType']" required>
+                <md-option value="">Please Select...</md-option>
+                <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
+            </md-select>
+    </div>
+    <div class="mdl-selectfield">
+        <label for="playerRegion"></label>l
+            <md-select class="form-control" id="playerRegion" [formControl]="postForm.controls['playerRegion']" required>
+                <md-option value="">Please Select...</md-option>
+                <md-option *ngFor="let region of playerRegions" [value]="region">{{region}}</md-option>
+            </md-select>
+    </div>
+    <div class="mdl-selectfield">
+        <label for="queryGameType"></label>l
+        <md-select class="form-control" id="queryGameType" [formControl]="postForm.controls['queryGameType']" required>
+            <md-option value="">Please Select...</md-option>
+            <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType">{{gameType}}</md-option>
+        </md-select>
+    </div>
+    <div class="mdl-selectfield">
+        <label for="queryGameLevel"></label>l
+        <md-select class="form-control" id="queryGameLevel" [formControl]="postForm.controls['queryGameLevel']" required>
+            <md-option value="">Please Select...</md-option>
+            <md-option *ngFor="let gameLevel of queryGameLevels" [value]="gameLevel">{{gameLevel}}</md-option>
+        </md-select>
+    </div>
+    <div class="mdl-selectfield">
+        <label for="queryCharacterType"></label>l
+        <md-select class="form-control" id="queryCharacterType" [formControl]="postForm.controls['queryCharacterType']" required>
             <md-option value="">Please Select...</md-option>
             <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
         </md-select>
-</div>
-<div class="mdl-selectfield">
-    <label for="playerRegion"></label>l
-        <md-select class="form-control" id="playerRegion" [formControl]="postForm.controls['playerRegion']" required>
-            <md-option value="">Please Select...</md-option>
-            <md-option *ngFor="let region of playerRegions" [value]="region">{{region}}</md-option>
-        </md-select>
-</div>
-
-<button type="button" md-raised-button [disabled]="postForm.invalid">Add Post</button>
+    </div>
+    Select your game type:
+    <div class="mdl-selectfield">
+        <md-radio-group [formControl]="postForm.controls['playerGameType']">
+            <md-radio-button class="example-radio-button" value="Season">
+                Season
+            </md-radio-button>
+            <md-radio-button class="example-radio-button" value="Non Season">
+                Non Season
+            </md-radio-button>
+        </md-radio-group>
+    </div>
+    <button md-raised-button [disabled]="postForm.invalid">Add Post</button>
 </form>
 </md-card-content>
 </md-card>
