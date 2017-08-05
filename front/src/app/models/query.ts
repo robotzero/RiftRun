@@ -1,11 +1,10 @@
-import {GameType} from "./gametype";
-import {CharacterType} from "./charactertype";
-export class Query
-{
+import {Game} from "./game";
+import {PlayerCharacter} from "./playercharacter";
+export class Query {
     constructor(
-        public id:number,
-        public minParagon:number,
-        public gameType: GameType,
-        public characterType: Array<CharacterType>
+        public minParagon: number,
+        public game: Game,
+        public playerCharacters: Array<PlayerCharacter>,
+        public id?: number
     ) {}
 }

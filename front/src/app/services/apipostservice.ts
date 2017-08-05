@@ -15,31 +15,12 @@ export class APIPostService
         this.http = http;
     }
 
-    postContent(json:Object) : void {
-        let postObject = {
-            "player": {
-                "type": json['playerType'],
-                "paragonPoints": json['playerParagonPoints'],
-                "battleTag": "#" + json['playerBattleTag'],
-                "region": json['playerRegion'],
-                "seasonal": true,
-                "gameType": "hardcore"
-            },
-            "query": {
-                "minParagon": json['queryMinParagon'],
-                "game": {
-                    "type": json['queryGameType'],
-                    "level": json['queryGameLevel']
-                },
-                "characterType": [{"type": "Demon Hunter"}]
-            }
-        };
-
+    postContent(postObject: Object) : void {
         let headers = new Headers();
 
-        let requestOptions = new RequestOptions({method: 'POST', headers: headers});
         headers.append('Content-Type', 'application/json');
-        
+        let requestOptions = new RequestOptions({method: 'POST', headers: headers});
+
         this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions)
             .map((res:Response) => res.json())
             .map((res:string) => this.response = res)

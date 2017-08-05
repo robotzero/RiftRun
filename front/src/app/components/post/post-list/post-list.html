@@ -6,6 +6,7 @@
             <input mdInput required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"/>
         </md-input-container>
         <md-input-container>
+            <span mdPrefix>#</span>
             <input mdInput required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"/>
         </md-input-container>
         <md-input-container>
@@ -21,6 +22,7 @@
                 <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
             </md-select>
     </div>
+    Server.
     <div class="mdl-selectfield">
         <label for="playerRegion"></label>l
             <md-select class="form-control" id="playerRegion" [formControl]="postForm.controls['playerRegion']" required>
@@ -28,6 +30,7 @@
                 <md-option *ngFor="let region of playerRegions" [value]="region">{{region}}</md-option>
             </md-select>
     </div>
+    Game type you want to play.
     <div class="mdl-selectfield">
         <label for="queryGameType"></label>l
         <md-select class="form-control" id="queryGameType" [formControl]="postForm.controls['queryGameType']" required>
@@ -35,6 +38,7 @@
             <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType">{{gameType}}</md-option>
         </md-select>
     </div>
+    Game level you want to play.
     <div class="mdl-selectfield">
         <label for="queryGameLevel"></label>l
         <md-select class="form-control" id="queryGameLevel" [formControl]="postForm.controls['queryGameLevel']" required>
@@ -42,6 +46,7 @@
             <md-option *ngFor="let gameLevel of queryGameLevels" [value]="gameLevel">{{gameLevel}}</md-option>
         </md-select>
     </div>
+    Player types you are looking for.
     <div class="mdl-selectfield">
         <label for="queryCharacterType"></label>l
         <md-select class="form-control" id="queryCharacterType" [formControl]="postForm.controls['queryCharacterType']" required>
@@ -52,11 +57,22 @@
     Select your game type:
     <div class="mdl-selectfield">
         <md-radio-group [formControl]="postForm.controls['playerGameType']">
-            <md-radio-button class="example-radio-button" value="Season">
+            <md-radio-button class="example-radio-button" value="Hardcore">
+                Hardcore
+            </md-radio-button>
+            <md-radio-button class="example-radio-button" value="Softcore">
+                Softcore
+            </md-radio-button>
+        </md-radio-group>
+    </div>
+    Season or not:
+    <div class="mdl-selectfield">
+        <md-radio-group [formControl]="postForm.controls['playerSeason']">
+            <md-radio-button class="example-radio-button" value=1>
                 Season
             </md-radio-button>
-            <md-radio-button class="example-radio-button" value="Non Season">
-                Non Season
+            <md-radio-button class="example-radio-button" value=0>
+                Non season
             </md-radio-button>
         </md-radio-group>
     </div>

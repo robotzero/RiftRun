@@ -8,6 +8,7 @@ import { PostListDto } from "./post-list-dto";
 import { PlayerType } from "./types/player-type";
 import { GameType } from "./types/game-type";
 import { RegionType } from "./types/region-type";
+import { postTranformOut } from './utilities/postTrasform';
 
 @Component({
     selector: 'post-list',
@@ -30,9 +31,9 @@ export class PostListComponent implements OnInit {
         PlayerType.NECROMANCER
     ];
     private playerRegions: Array<RegionType> = [
-        RegionType.US,
+        RegionType.NA,
         RegionType.EU,
-        RegionType.AUSTRALIA,
+        RegionType.AUS,
         RegionType.ASIA
     ];
     private queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+', '90+', '100+'];
@@ -52,6 +53,7 @@ export class PostListComponent implements OnInit {
             'playerBattleTag': [this.postListDto.playerBattleTag, [Validators.required]],
             'playerRegion': [this.postListDto.playerRegion, [Validators.required]],
             'playerGameType': [this.postListDto.playerGameType, [Validators.required]],
+            'playerSeason': [this.postListDto.playerSeason, [Validators.required]],
             'queryMinParagon': [this.postListDto.queryMinParagon, [Validators.required]],
             'queryGameLevel': [this.postListDto.queryGameLevel, [Validators.required]],
             'queryGameType': [this.postListDto.queryGameType, [Validators.required]],
@@ -78,11 +80,8 @@ export class PostListComponent implements OnInit {
     }
 
     postContent(item:any) {
-        console.log("POST");
-        console.log(item);
         this.postListDto = this.postForm.value;
-        console.log(JSON.stringify(this.postListDto));
-        // this.postService.postContent(item);
+        this.postService.postContent(postTranformOut(this.postListDto));
     }
 
     private onValueChanged(data?: any) {
