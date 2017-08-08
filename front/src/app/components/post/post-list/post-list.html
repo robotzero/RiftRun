@@ -43,7 +43,7 @@
         <label for="queryGameLevel"></label>l
         <md-select class="form-control" id="queryGameLevel" [formControl]="postForm.controls['queryGameLevel']" required>
             <md-option value="">Please Select...</md-option>
-            <md-option *ngFor="let gameLevel of queryGameLevels" [value]="gameLevel">{{gameLevel}}</md-option>
+            <md-option *ngFor="let gameLevel of queryGameLevels | async" [value]="gameLevel">{{gameLevel}}</md-option>
         </md-select>
     </div>
     Player types you are looking for.

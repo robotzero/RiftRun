@@ -28,12 +28,9 @@ App\Domain\Player\Model\Player:
             - Choice:
                 choices:  [EU, NA, AUS, ASIA]
         seasonal:
-            - NotBlank: ~
             - NotNull: ~
-#            - Choice:
-#                choices:  [0, 1]
-#            - Regex:
-#                pattern: '/^\d{1}$/'
+            - Choice:
+                choices:  [0, 1]
         gameType:
             - NotBlank: ~
             - NotNull: ~

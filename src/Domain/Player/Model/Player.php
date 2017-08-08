@@ -54,7 +54,7 @@ class Player
         int $paragonPoints,
         string $battleTag,
         string $region,
-        string $seasonal,
+        bool $seasonal,
         string $gameType,
         \DateTime $createdAt
     ) {

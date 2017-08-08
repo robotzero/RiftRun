@@ -9,6 +9,8 @@ import { PlayerType } from "./types/player-type";
 import { GameType } from "./types/game-type";
 import { RegionType } from "./types/region-type";
 import { postTranformOut } from './utilities/postTrasform';
+import { griftLevels } from './utilities/griftlevel-generator';
+import { Observable } from "rxjs/Rx";
 
 @Component({
     selector: 'post-list',
@@ -36,7 +38,9 @@ export class PostListComponent implements OnInit {
         RegionType.AUS,
         RegionType.ASIA
     ];
-    private queryGameLevels: Array<string> = ['0+', '10+', '20+', '30+', '40+', '50+', '60+', '70+', '80+', '90+', '100+'];
+
+    private queryGameLevels: Observable<string[]> = griftLevels().toArray();
+
     private queryGameTypes: Array<GameType> = [
         GameType.RIFT,
         GameType.GRIFT,

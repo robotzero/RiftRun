@@ -28,7 +28,7 @@ class PlayerType extends AbstractType
         $builder->add('paragonPoints', IntegerType::class, ['mapped' => false]);
         $builder->add('battleTag', TextType::class, ['mapped' => false]);
         $builder->add('region', TextType::class, ['mapped' => false]);
-        $builder->add('seasonal', TextType::class, ['mapped' => false]);
+        $builder->add('seasonal', IntegerType::class, ['mapped' => false]);
         $builder->add('gameType', TextType::class, ['mapped' => false]);
     }
 
@@ -51,7 +51,7 @@ class PlayerType extends AbstractType
                     $playerData['paragonPoints']->getData() ?: 0,
                     $playerData['battleTag']->getData() ?: '',
                     $playerData['region']->getData() ?: '',
-                    $playerData['seasonal']->getData() ?: '',
+                    $playerData['seasonal']->getData() ?: 0,
                     $playerData['gameType']->getData() ?: '',
                     new \DateTime()
                 );

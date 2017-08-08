@@ -5,6 +5,7 @@
 import {PostListDto} from "../post-list-dto";
 
 export function postTranformOut(data: PostListDto): Object {
+
     return { "player": {
                 "type": data.playerType.toLowerCase(),
                 "paragonPoints": data.playerParagonPoints,

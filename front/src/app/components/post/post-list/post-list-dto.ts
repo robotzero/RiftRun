@@ -6,7 +6,8 @@ export class PostListDto {
     playerGameType: string;
     playerSeason: boolean;
     queryMinParagon: number;
-    queryGameLevel: string;
+    queryGameLevel?: string;
+    queryGameTorment?: string;
     queryGameType: string;
     queryCharacterType: string;
 }
