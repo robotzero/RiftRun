@@ -4765,7 +4765,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-08-06T13:18:17+00:00"
+            "time": "2017-08-06 13:18:17"
         },
         {
             "name": "behat/gherkin",
@@ -5210,12 +5210,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "a0f4fa03080a163e1cab74e1539471e73d485174"
+                "reference": "76ef45e90b482125eaefe1745d19d69615911338"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a0f4fa03080a163e1cab74e1539471e73d485174",
-                "reference": "a0f4fa03080a163e1cab74e1539471e73d485174",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/76ef45e90b482125eaefe1745d19d69615911338",
+                "reference": "76ef45e90b482125eaefe1745d19d69615911338",
                 "shasum": ""
             },
             "require": {
@@ -5252,7 +5252,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-07T15:48:15+00:00"
+            "time": "2017-08-09T14:41:42+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5783,7 +5783,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-08-05T20:11:20+00:00"
+            "time": "2017-08-05 20:11:20"
         },
         {
             "name": "phpspec/prophecy",
@@ -6180,7 +6180,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-08T16:23:58+00:00"
+            "time": "2017-08-08 16:23:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6961,7 +6961,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-06T10:41:54+00:00"
+            "time": "2017-08-06 10:41:54"
         },
         {
             "name": "theofidry/alice-data-fixtures",
