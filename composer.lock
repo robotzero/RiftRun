@@ -5210,12 +5210,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "76ef45e90b482125eaefe1745d19d69615911338"
+                "reference": "e70d9612d9108ec07476f7c304f14b8e583b6494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/76ef45e90b482125eaefe1745d19d69615911338",
-                "reference": "76ef45e90b482125eaefe1745d19d69615911338",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e70d9612d9108ec07476f7c304f14b8e583b6494",
+                "reference": "e70d9612d9108ec07476f7c304f14b8e583b6494",
                 "shasum": ""
             },
             "require": {
@@ -5252,7 +5252,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-09T14:41:42+00:00"
+            "time": "2017-08-10T09:58:44+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6104,12 +6104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "bec23c3e829b7e827d300a7b9a094ff8321463d7"
+                "reference": "169bb8351039018b315438d7661606ed5e8609f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bec23c3e829b7e827d300a7b9a094ff8321463d7",
-                "reference": "bec23c3e829b7e827d300a7b9a094ff8321463d7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/169bb8351039018b315438d7661606ed5e8609f3",
+                "reference": "169bb8351039018b315438d7661606ed5e8609f3",
                 "shasum": ""
             },
             "require": {
@@ -6180,7 +6180,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-08 16:23:58"
+            "time": "2017-08-10T16:53:26+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6901,12 +6901,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "2a95e2d5f86c6e9fc5d041b6bb3ca5797d2ceea6"
+                "reference": "17533029c485695ee4231fdb98438bce171ba5b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/2a95e2d5f86c6e9fc5d041b6bb3ca5797d2ceea6",
-                "reference": "2a95e2d5f86c6e9fc5d041b6bb3ca5797d2ceea6",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/17533029c485695ee4231fdb98438bce171ba5b2",
+                "reference": "17533029c485695ee4231fdb98438bce171ba5b2",
                 "shasum": ""
             },
             "require": {
@@ -6961,7 +6961,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-06 10:41:54"
+            "time": "2017-08-10T14:21:53+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
