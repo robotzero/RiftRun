@@ -584,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "629d2a8b16f99a0b2ba6868f7af9986afee5fea7"
+                "reference": "59e35a2041d370107da5074025cc953803d1a1fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/629d2a8b16f99a0b2ba6868f7af9986afee5fea7",
-                "reference": "629d2a8b16f99a0b2ba6868f7af9986afee5fea7",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/59e35a2041d370107da5074025cc953803d1a1fc",
+                "reference": "59e35a2041d370107da5074025cc953803d1a1fc",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +657,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-07-28 20:57:50"
+            "time": "2017-08-12 10:13:31"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "bbe005837e51442e0d6037bafe70dc4b7712dac1"
+                "reference": "a0c0d3bf2a7f49020ad7e54d7d3319a251574230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bbe005837e51442e0d6037bafe70dc4b7712dac1",
-                "reference": "bbe005837e51442e0d6037bafe70dc4b7712dac1",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/a0c0d3bf2a7f49020ad7e54d7d3319a251574230",
+                "reference": "a0c0d3bf2a7f49020ad7e54d7d3319a251574230",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-08-06 12:40:16"
+            "time": "2017-08-11 20:29:45"
         },
         {
             "name": "egulias/email-validator",
@@ -5210,12 +5210,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "e70d9612d9108ec07476f7c304f14b8e583b6494"
+                "reference": "2d9813dbd31509dfaa1df5b78947fd19755e3c84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e70d9612d9108ec07476f7c304f14b8e583b6494",
-                "reference": "e70d9612d9108ec07476f7c304f14b8e583b6494",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2d9813dbd31509dfaa1df5b78947fd19755e3c84",
+                "reference": "2d9813dbd31509dfaa1df5b78947fd19755e3c84",
                 "shasum": ""
             },
             "require": {
@@ -5252,7 +5252,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-10T09:58:44+00:00"
+            "time": "2017-08-11T09:58:57+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6104,12 +6104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "169bb8351039018b315438d7661606ed5e8609f3"
+                "reference": "b4ef5873bc3e3e9cf2d62643041f58744d5f8bc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/169bb8351039018b315438d7661606ed5e8609f3",
-                "reference": "169bb8351039018b315438d7661606ed5e8609f3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b4ef5873bc3e3e9cf2d62643041f58744d5f8bc0",
+                "reference": "b4ef5873bc3e3e9cf2d62643041f58744d5f8bc0",
                 "shasum": ""
             },
             "require": {
@@ -6180,7 +6180,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-10T16:53:26+00:00"
+            "time": "2017-08-12T09:50:44+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6901,12 +6901,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "17533029c485695ee4231fdb98438bce171ba5b2"
+                "reference": "1c9fc6a47bbe5a0600e31ae699c50968cbd71c8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/17533029c485695ee4231fdb98438bce171ba5b2",
-                "reference": "17533029c485695ee4231fdb98438bce171ba5b2",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/1c9fc6a47bbe5a0600e31ae699c50968cbd71c8f",
+                "reference": "1c9fc6a47bbe5a0600e31ae699c50968cbd71c8f",
                 "shasum": ""
             },
             "require": {
@@ -6961,7 +6961,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-10T14:21:53+00:00"
+            "time": "2017-08-10T19:17:23+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
