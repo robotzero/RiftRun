@@ -1,6 +1,3 @@
 export class Game {
-    constructor(
-       public level: string,
-       public type: string
-    ) {}
+    constructor(public type: string, public level:string = null, public torment:number = null ) {}
 }

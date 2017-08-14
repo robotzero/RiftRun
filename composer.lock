@@ -3399,16 +3399,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "7d60f01b9a56dfd152796877d009b1a0578d6ef4"
+                "reference": "72f4238707071459a6680854c8c74a0ebb999549"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/7d60f01b9a56dfd152796877d009b1a0578d6ef4",
-                "reference": "7d60f01b9a56dfd152796877d009b1a0578d6ef4",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/72f4238707071459a6680854c8c74a0ebb999549",
+                "reference": "72f4238707071459a6680854c8c74a0ebb999549",
                 "shasum": ""
             },
             "require": {
@@ -3440,7 +3440,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-08-03T12:24:05+00:00"
+            "time": "2017-08-14T18:42:49+00:00"
         },
         {
             "name": "simple-bus/doctrine-orm-bridge",
@@ -5065,12 +5065,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coduo/php-matcher.git",
-                "reference": "8cfa24bb381dc85771992000c448fc384ed5539a"
+                "reference": "b30a2e4745aa019cc1d937492e429f728ed93660"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/8cfa24bb381dc85771992000c448fc384ed5539a",
-                "reference": "8cfa24bb381dc85771992000c448fc384ed5539a",
+                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/b30a2e4745aa019cc1d937492e429f728ed93660",
+                "reference": "b30a2e4745aa019cc1d937492e429f728ed93660",
                 "shasum": ""
             },
             "require": {
@@ -5083,6 +5083,7 @@
                 "symfony/property-access": "^2.3|^3.0"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.4",
                 "phpunit/phpunit": "^6.0"
             },
             "type": "library",
@@ -5117,7 +5118,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2017-08-02 17:27:58"
+            "time": "2017-08-13T19:44:29+00:00"
         },
         {
             "name": "coduo/php-to-string",
@@ -5252,7 +5253,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-11T09:58:57+00:00"
+            "time": "2017-08-11 09:58:57"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6180,7 +6181,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-12T09:50:44+00:00"
+            "time": "2017-08-12 09:50:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6961,7 +6962,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-10T19:17:23+00:00"
+            "time": "2017-08-10 19:17:23"
         },
         {
             "name": "theofidry/alice-data-fixtures",
