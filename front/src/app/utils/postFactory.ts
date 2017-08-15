@@ -1,5 +1,5 @@
 import {Component, Injectable} from '@angular/core';
-import {PostQuery} from "../models/postquery";
+import {Post} from "../models/post";
 import {PlayerCharacter} from "../models/playercharacter";
 import {Player} from "../models/player";
 import {Query} from "../models/query";
@@ -11,12 +11,12 @@ import {Game} from "../models/game";
 
 @Injectable()
 export class PostFactory {
-    buildPosts (posts):Array<PostQuery> {
-        let result:Array<PostQuery> = [];
+    buildPosts (posts):Array<Post> {
+        let result:Array<Post> = [];
         let characterTypes:Array<PlayerCharacter> = [];
         posts._embedded.items.forEach((post) => {
             characterTypes.push(post.query.playerCharacters.concat());
-            result.push(new PostQuery(
+            result.push(new Post(
                 new Player(
                     post.player.type,
                     post.player.paragonPoints,

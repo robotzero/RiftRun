@@ -1,10 +1,10 @@
 import { APIGetService } from '../../../services/apigetservice';
-import { PostQuery } from '../../../models/postquery';
+import { Post } from '../../../models/post';
 import { APIPostService } from '../../../services/apipostservice';
 import { Component, OnInit } from '@angular/core';
 import { PostFactory } from "../../../utils/postFactory";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { PostListDto } from "./post-list-dto";
+import { PostDTO } from "./post-dto";
 import { PlayerType } from "./types/player-type";
 import { GameType } from "./types/game-type";
 import { RegionType } from "./types/region-type";
@@ -20,10 +20,10 @@ import { Observable } from "rxjs/Rx";
 
 export class PostListComponent implements OnInit {
     private items: Array<string>;
-    private posts: Array<PostQuery> = [];
+    private posts: Array<Post> = [];
     private postForm: FormGroup;
     private response: any;
-    private postListDto: PostListDto;
+    private postListDto: PostDTO;
     private playerTypes: Array<PlayerType> = [
         PlayerType.DEMON_HUNTER,
         PlayerType.WIZARD,
@@ -52,20 +52,28 @@ export class PostListComponent implements OnInit {
 
     ngOnInit():void {
         this.postForm = this.formBuilder.group({
-            'playerType': [this.postListDto.playerType, [Validators.required]],
-            'playerParagonPoints': [this.postListDto.playerParagonPoints, [Validators.required]],
-            'playerBattleTag': [this.postListDto.playerBattleTag, [Validators.required]],
-            'playerRegion': [this.postListDto.playerRegion, [Validators.required]],
-            'playerGameType': [this.postListDto.playerGameType, [Validators.required]],
-            'playerSeason': [this.postListDto.playerSeason, [Validators.required]],
-            'queryMinParagon': [this.postListDto.queryMinParagon, [Validators.required]],
-            'queryGameLevel': [this.postListDto.queryGameLevel, [Validators.required]],
-            'queryGameType': [this.postListDto.queryGameType, [Validators.required]],
-            'queryCharacterType': [this.postListDto.queryCharacterType, [Validators.required]]
+            'player': this.formBuilder.group({
+                'type': ['', Validators.required],
+                'paragonPoints': ['', Validators.required],
+                'battleTag': ['', Validators.required],
+                'region': ['', Validators.required],
+                'gameType': ['', Validators.required],
+                'seasonal': ['', Validators.required]
+            }),
+            'query': this.formBuilder.group({
+                'minParagon': ['', Validators.required],
+                'game': this.formBuilder.group({
+                    'gameMode': ['', Validators.required],
+                    'gameLevel': ['', Validators.required]
+                }),
+                'playerCharacters': this.formBuilder.group({
+                    'type': ['', Validators.required]
+                })
+            })
         });
 
-        this.postForm.valueChanges.subscribe(data => this.onValueChanged(data));
-        this.onValueChanged();
+        // this.postForm.valueChanges.subscribe(data => this.onValueChanged(data));
+        // this.onValueChanged();
 
         this.getService.get('http://riftrun.local/v1/posts')
             .map((posts: any) => {
@@ -80,12 +88,13 @@ export class PostListComponent implements OnInit {
         private formBuilder: FormBuilder,
         private postFactory: PostFactory,
     ) {
-        this.postListDto = new PostListDto();
+        // this.postListDto = new PostDTO();
     }
 
-    postContent(item:any) {
-        this.postListDto = this.postForm.value;
-        this.postService.postContent(postTranformOut(this.postListDto));
+    postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
+        // this.postListDto = this.postForm.value;
+        console.log(postTranformOut(value));
+        // this.postService.postContent(postTranformOut(value));
     }
 
     private onValueChanged(data?: any) {

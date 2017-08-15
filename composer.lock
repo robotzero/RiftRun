@@ -2218,12 +2218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/tactician-doctrine.git",
-                "reference": "b30a735ba60f739a01c9a74253f4098c1ab00565"
+                "reference": "94928794128278269fb91ba7dc7db56ebbe0132f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/tactician-doctrine/zipball/b30a735ba60f739a01c9a74253f4098c1ab00565",
-                "reference": "b30a735ba60f739a01c9a74253f4098c1ab00565",
+                "url": "https://api.github.com/repos/thephpleague/tactician-doctrine/zipball/94928794128278269fb91ba7dc7db56ebbe0132f",
+                "reference": "94928794128278269fb91ba7dc7db56ebbe0132f",
                 "shasum": ""
             },
             "require": {
@@ -2263,7 +2263,7 @@
                 "tactician",
                 "transactions"
             ],
-            "time": "2017-06-19 10:51:46"
+            "time": "2017-08-15 08:51:48"
         },
         {
             "name": "matthiasnoback/symfony-config-test",
@@ -5118,7 +5118,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2017-08-13T19:44:29+00:00"
+            "time": "2017-08-13 19:44:29"
         },
         {
             "name": "coduo/php-to-string",
@@ -5211,12 +5211,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "2d9813dbd31509dfaa1df5b78947fd19755e3c84"
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2d9813dbd31509dfaa1df5b78947fd19755e3c84",
-                "reference": "2d9813dbd31509dfaa1df5b78947fd19755e3c84",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
                 "shasum": ""
             },
             "require": {
@@ -5230,7 +5230,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -5253,7 +5253,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-11 09:58:57"
+            "time": "2017-08-15T16:48:10+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6105,12 +6105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b4ef5873bc3e3e9cf2d62643041f58744d5f8bc0"
+                "reference": "2cb48f8682a787570a02a15943dc047abf835879"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b4ef5873bc3e3e9cf2d62643041f58744d5f8bc0",
-                "reference": "b4ef5873bc3e3e9cf2d62643041f58744d5f8bc0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2cb48f8682a787570a02a15943dc047abf835879",
+                "reference": "2cb48f8682a787570a02a15943dc047abf835879",
                 "shasum": ""
             },
             "require": {
@@ -6181,7 +6181,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-12 09:50:44"
+            "time": "2017-08-15T08:54:11+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

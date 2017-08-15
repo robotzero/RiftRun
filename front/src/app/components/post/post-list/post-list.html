@@ -1,81 +1,88 @@
 <md-card>
 <md-card-content>
-<form [formGroup]="postForm" autocomplete="off" novalidate (ngSubmit) = "postContent(postForm.value)">
-    <div>
+<form [formGroup]="postForm" autocomplete="off" novalidate (ngSubmit) = "postContent(postForm)">
+    <div formGroupName="player">
         <md-input-container>
-            <input mdInput required placeholder="Your paragon points" [formControl]="postForm.controls['playerParagonPoints']"/>
+            <input mdInput required placeholder="Your paragon points" formControlName="paragonPoints" />
         </md-input-container>
         <md-input-container>
             <span mdPrefix>#</span>
-            <input mdInput required placeholder="Your battle.net tag" [formControl]="postForm.controls['playerBattleTag']"/>
+            <input mdInput required placeholder="Your battle.net tag" formControlName="battleTag"/>
         </md-input-container>
-        <md-input-container>
-            <input mdInput required placeholder="Min paragon points" [formControl]="postForm.controls['queryMinParagon']"/>
-        </md-input-container>
-    </div>
-
-    Your character type.
-    <div class="mdl-selectfield">
-        <label for="playerType"></label>l
-            <md-select class="form-control" id="playerType" [formControl]="postForm.controls['playerType']" required>
+        Your character type.
+        <div class="mdl-selectfield">
+            <label for="playerType"></label>
+            <md-select class="form-control" name="type" id="playerType" formControlName="type" required placeholder="">
                 <md-option value="">Please Select...</md-option>
                 <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
             </md-select>
-    </div>
-    Server.
-    <div class="mdl-selectfield">
-        <label for="playerRegion"></label>l
-            <md-select class="form-control" id="playerRegion" [formControl]="postForm.controls['playerRegion']" required>
+        </div>
+        Region.
+        <div class="mdl-selectfield">
+            <label for="playerRegion"></label>l
+            <md-select class="form-control" id="playerRegion" formControlName="region" required>
                 <md-option value="">Please Select...</md-option>
                 <md-option *ngFor="let region of playerRegions" [value]="region">{{region}}</md-option>
             </md-select>
+        </div>
+        Select your game type:
+        <div class="mdl-selectfield">
+            <md-radio-group formControlName="gameType">
+                <md-radio-button class="example-radio-button" value="Hardcore">
+                    Hardcore
+                </md-radio-button>
+                <md-radio-button class="example-radio-button" value="Softcore">
+                    Softcore
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+        Season or not:
+        <div class="mdl-selectfield">
+            <md-radio-group formControlName="seasonal">
+                <md-radio-button class="example-radio-button" value=1>
+                    Season
+                </md-radio-button>
+                <md-radio-button class="example-radio-button" value=0>
+                    Non season
+                </md-radio-button>
+            </md-radio-group>
+        </div>
     </div>
-    Game type you want to play.
-    <div class="mdl-selectfield">
-        <label for="queryGameType"></label>l
-        <md-select class="form-control" id="queryGameType" [formControl]="postForm.controls['queryGameType']" required>
-            <md-option value="">Please Select...</md-option>
-            <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType">{{gameType}}</md-option>
-        </md-select>
+    <div formGroupName="query">
+        <md-input-container>
+            <input mdInput required placeholder="Min paragon points" formControlName="minParagon" />
+        </md-input-container>
+        Game type you want to play.
+        <div formGroupName="game">
+            <div class="mdl-selectfield">
+                <label for="queryGameType"></label>l
+                <md-select class="form-control" id="queryGameType" formControlName="gameMode" required>
+                    <md-option value="">Please Select...</md-option>
+                    <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType">{{gameType}}</md-option>
+                </md-select>
+            </div>
+            Game level you want to play.
+            <div class="mdl-selectfield">
+                <label for="queryGameLevel"></label>l
+                <md-select class="form-control" id="queryGameLevel" formControlName="gameLevel" required>
+                    <md-option value="">Please Select...</md-option>
+                    <md-option *ngFor="let gameLevel of queryGameLevels | async" [value]="gameLevel">{{gameLevel}}</md-option>
+                </md-select>
+            </div>
+        </div>
+        <div formGroupName="playerCharacters">
+            Player types you are looking for.
+            <div class="mdl-selectfield">
+                <label for="queryCharacterType"></label>l
+                <md-select class="form-control" id="queryCharacterType" formControlName="type" required>
+                    <md-option value="">Please Select...</md-option>
+                    <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
+                </md-select>
+            </div>
+        </div>
     </div>
-    Game level you want to play.
-    <div class="mdl-selectfield">
-        <label for="queryGameLevel"></label>l
-        <md-select class="form-control" id="queryGameLevel" [formControl]="postForm.controls['queryGameLevel']" required>
-            <md-option value="">Please Select...</md-option>
-            <md-option *ngFor="let gameLevel of queryGameLevels | async" [value]="gameLevel">{{gameLevel}}</md-option>
-        </md-select>
-    </div>
-    Player types you are looking for.
-    <div class="mdl-selectfield">
-        <label for="queryCharacterType"></label>l
-        <md-select class="form-control" id="queryCharacterType" [formControl]="postForm.controls['queryCharacterType']" required>
-            <md-option value="">Please Select...</md-option>
-            <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
-        </md-select>
-    </div>
-    Select your game type:
-    <div class="mdl-selectfield">
-        <md-radio-group [formControl]="postForm.controls['playerGameType']">
-            <md-radio-button class="example-radio-button" value="Hardcore">
-                Hardcore
-            </md-radio-button>
-            <md-radio-button class="example-radio-button" value="Softcore">
-                Softcore
-            </md-radio-button>
-        </md-radio-group>
-    </div>
-    Season or not:
-    <div class="mdl-selectfield">
-        <md-radio-group [formControl]="postForm.controls['playerSeason']">
-            <md-radio-button class="example-radio-button" value=1>
-                Season
-            </md-radio-button>
-            <md-radio-button class="example-radio-button" value=0>
-                Non season
-            </md-radio-button>
-        </md-radio-group>
-    </div>
+
+    <!--<button md-raised-button >Add Post</button>-->
     <button md-raised-button [disabled]="postForm.invalid">Add Post</button>
 </form>
 </md-card-content>
