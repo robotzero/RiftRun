@@ -14,6 +14,12 @@ export interface PostDTO {
             torment?: string;
             gameMode: string;
         };
-        playerCharacters: Array<object>
+        playerCharacters: Array<SearchedCharacters>
+    }
+}
+
+export interface SearchedCharacters {
+    playerCharacter: {
+        type: string
     }
 }

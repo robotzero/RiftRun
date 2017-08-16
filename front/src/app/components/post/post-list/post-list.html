@@ -70,14 +70,23 @@
                 </md-select>
             </div>
         </div>
-        <div formGroupName="playerCharacters">
-            Player types you are looking for.
-            <div class="mdl-selectfield">
-                <label for="queryCharacterType"></label>l
-                <md-select class="form-control" id="queryCharacterType" formControlName="type" required>
-                    <md-option value="">Please Select...</md-option>
-                    <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
-                </md-select>
+
+                <!--<md-checkbox>-->
+                <!--<md-select class="form-control" id="queryCharacterType" formControlName="type" required>-->
+                    <!--<md-option value="">Please Select...</md-option>-->
+                    <!--<md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>-->
+                <!--</md-select>-->
+            <!--</div>-->
+        </div>
+    <div formArrayName="playerCharacters">
+        Player types you are looking for.
+        <div class="mdl-selectfield">
+            <!--<label for="queryCharacterType"></label>-->
+            <div *ngFor="let playerType of playerCharacters.controls; let i=index" [formGroupName]="i">
+                <!--<div *ngFor="let key of playerType.controls" >-->
+                <md-checkbox type="checkbox" formControlName="">{{playerType.value.type}}</md-checkbox>
+                <!--</div>-->
+                <!--<md-checkbox id="queryCharacterType" type="checkbox"> {{playerType}} </md-checkbox>-->
             </div>
         </div>
     </div>

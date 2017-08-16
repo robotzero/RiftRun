@@ -3,7 +3,7 @@ import { Post } from '../../../models/post';
 import { APIPostService } from '../../../services/apipostservice';
 import { Component, OnInit } from '@angular/core';
 import { PostFactory } from "../../../utils/postFactory";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { PostDTO } from "./post-dto";
 import { PlayerType } from "./types/player-type";
 import { GameType } from "./types/game-type";
@@ -11,6 +11,7 @@ import { RegionType } from "./types/region-type";
 import { postTranformOut } from './utilities/postTrasform';
 import { griftLevels } from './utilities/griftlevel-generator';
 import { Observable } from "rxjs/Rx";
+import {applySourceSpanToExpressionIfNeeded} from "@angular/compiler/src/output/output_ast";
 
 @Component({
     selector: 'post-list',
@@ -66,15 +67,15 @@ export class PostListComponent implements OnInit {
                     'gameMode': ['', Validators.required],
                     'gameLevel': ['', Validators.required]
                 }),
-                'playerCharacters': this.formBuilder.group({
-                    'type': ['', Validators.required]
-                })
-            })
+
+            }),
+            'playerCharacters': this.buildQueryCharacters()
         });
 
         // this.postForm.valueChanges.subscribe(data => this.onValueChanged(data));
         // this.onValueChanged();
-
+        // let countries=['US', 'Germany', 'France'];
+        // this.setCountries(countries);
         this.getService.get('http://riftrun.local/v1/posts')
             .map((posts: any) => {
                 return this.postFactory.buildPosts(posts);
@@ -91,10 +92,38 @@ export class PostListComponent implements OnInit {
         // this.postListDto = new PostDTO();
     }
 
+    get playerCharacters(): FormArray {
+        return this.postForm.get('playerCharacters') as FormArray;
+    };
+
+    setCountries(countries:string[]) {
+
+        //One Form Group for one country
+        const countriesFGs = countries.map(country =>{
+            let obj={};obj[country]=true;
+            return this.formBuilder.group(obj)
+        });
+
+        const countryFormArray = this.formBuilder.array(countriesFGs);
+        this.postForm.setControl('playerCharacters', countryFormArray);
+    }
+
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
-        console.log(postTranformOut(value));
+        console.log(value);
+        // console.log(postTranformOut(value));
         // this.postService.postContent(postTranformOut(value));
+    }
+
+    buildQueryCharacters() {
+        const arr = this.playerTypes.map(playerType => {
+            let obj = {
+                type: playerType,
+                selected: false
+            };
+            return this.formBuilder.control(obj);
+        });
+        return this.formBuilder.array(arr);
     }
 
     private onValueChanged(data?: any) {
