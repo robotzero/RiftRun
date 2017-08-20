@@ -10,7 +10,7 @@ export interface PostDTO {
     query: {
         minParagon: number;
         game: {
-            level?: string;
+            gameLevel?: string;
             torment?: string;
             gameMode: string;
         };
@@ -19,7 +19,6 @@ export interface PostDTO {
 }
 
 export interface SearchedCharacters {
-    playerCharacter: {
-        type: string
-    }
+    type: string;
+    selected: boolean;
 }

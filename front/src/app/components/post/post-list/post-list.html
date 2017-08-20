@@ -63,34 +63,24 @@
             </div>
             Game level you want to play.
             <div class="mdl-selectfield">
-                <label for="queryGameLevel"></label>l
+                <label for="queryGameLevel"></label>
                 <md-select class="form-control" id="queryGameLevel" formControlName="gameLevel" required>
                     <md-option value="">Please Select...</md-option>
                     <md-option *ngFor="let gameLevel of queryGameLevels | async" [value]="gameLevel">{{gameLevel}}</md-option>
                 </md-select>
             </div>
         </div>
-
-                <!--<md-checkbox>-->
-                <!--<md-select class="form-control" id="queryCharacterType" formControlName="type" required>-->
-                    <!--<md-option value="">Please Select...</md-option>-->
-                    <!--<md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>-->
-                <!--</md-select>-->
-            <!--</div>-->
-        </div>
-    <div formArrayName="playerCharacters">
         Player types you are looking for.
-        <div class="mdl-selectfield">
-            <!--<label for="queryCharacterType"></label>-->
-            <div *ngFor="let playerType of playerCharacters.controls; let i=index" [formGroupName]="i">
-                <!--<div *ngFor="let key of playerType.controls" >-->
-                <md-checkbox type="checkbox" formControlName="">{{playerType.value.type}}</md-checkbox>
-                <!--</div>-->
-                <!--<md-checkbox id="queryCharacterType" type="checkbox"> {{playerType}} </md-checkbox>-->
+        <div formArrayName="playerCharacters">
+            <div *ngFor="let character of characters.controls; let i = index;" [formGroupName]="i">
+                <div>
+                    <md-checkbox type="checkbox" formControlName="selected">
+                       {{character.value.type}}
+                     </md-checkbox>
+                </div>
             </div>
         </div>
     </div>
-
     <!--<button md-raised-button >Add Post</button>-->
     <button md-raised-button [disabled]="postForm.invalid">Add Post</button>
 </form>
