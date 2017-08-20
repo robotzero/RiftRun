@@ -21,12 +21,12 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "require": {
         "php": ">=7.1",
         "roave/security-advisories": "dev-master",
-        "symfony/symfony": "3.3.x",
-        "doctrine/orm": "dev-master",
+        "symfony/symfony": "^3.3",
+        "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
