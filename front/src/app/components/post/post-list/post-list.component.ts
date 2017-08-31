@@ -8,17 +8,20 @@ import { PostDTO } from "./post-dto";
 import { PlayerType } from "./types/player-type";
 import { GameType } from "./types/game-type";
 import { RegionType } from "./types/region-type";
-import { postTranformOut } from './utilities/postTrasform';
-import { griftLevels } from './utilities/griftlevel-generator';
 import { Observable } from "rxjs/Rx";
+import {GameModeService, GameModeState} from "../../../services/gamemodeservice";
+import {griftLevels} from "../../../utilities/griftlevel-generator";
+
 
 @Component({
     selector: 'post-list',
-    providers: [ APIPostService, PostFactory ],
+    providers: [ APIPostService, PostFactory, GameModeService ],
     templateUrl: './post-list.html',
 })
 
 export class PostListComponent implements OnInit {
+    private selectedGameMode: Observable<GameModeState> = this.gameModeService.select<GameModeState>('gameMode');
+    private currentGameMode: GameModeState;
     private items: Array<string>;
     private posts: Array<Post> = [];
     private postForm: FormGroup;
@@ -38,6 +41,16 @@ export class PostListComponent implements OnInit {
         RegionType.AUS,
         RegionType.ASIA
     ];
+
+    constructor(
+        private gameModeService: GameModeService,
+        private getService: APIGetService,
+        private postService: APIPostService,
+        private formBuilder: FormBuilder,
+        private postFactory: PostFactory
+    ) {
+        // this.postListDto = new PostDTO();
+    }
 
     private queryGameLevels: Observable<string[]> = griftLevels().toArray();
 
@@ -77,15 +90,16 @@ export class PostListComponent implements OnInit {
                 return this.postFactory.buildPosts(posts);
             })
             .subscribe(response => this.posts = response);
-    }
 
-    constructor(
-        private getService: APIGetService,
-        private postService: APIPostService,
-        private formBuilder: FormBuilder,
-        private postFactory: PostFactory,
-    ) {
-        // this.postListDto = new PostDTO();
+        this.selectedGameMode.subscribe({
+            next: (value: GameModeState) => {
+                console.log("Hello from subscriber");
+                this.currentGameMode = value;
+            },
+            error: null,
+            complete: () => console.log("done")
+        });
+        console.log(this.currentGameMode.gameMode.options);
     }
 
     get characters(): FormArray {
@@ -94,7 +108,7 @@ export class PostListComponent implements OnInit {
 
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
-        this.postService.postContent(postTranformOut(value));
+        // this.postService.postContent(postTranformOut(value));
     }
 
     buildQueryCharacters(): FormArray {
@@ -105,6 +119,10 @@ export class PostListComponent implements OnInit {
             });
         });
         return this.formBuilder.array(arr);
+    }
+
+    private onChangeSelect(event) {
+        this.gameModeService.change(event.value);
     }
 
     private onValueChanged(data?: any) {

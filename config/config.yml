@@ -107,16 +107,12 @@ doctrine:
 
 # FOS Rest Configuration
 sensio_framework_extra:
-    view:       { annotations: true }
-    router:     { annotations: true }
-    psr_message: { enabled: true }
-
-#        router:      { annotations: true }
-#        request:     { converters: true, auto_convert: true }
-#        view:        { annotations: true }
-#        cache:       { annotations: true }
-#        security:    { annotations: true }
-#        psr_message: { enabled: false } # Defaults to true if
+    router:      { annotations: true }
+    request:     { converters: true, auto_convert: true }
+    view:        { annotations: true }
+    cache:       { annotations: true }
+    security:    { annotations: true }
+    psr_message: { enabled: false } # Defaults to true if the PSR-7 bridge is installed
 
 fos_rest:
     versioning:
@@ -127,13 +123,13 @@ fos_rest:
             media_type:
                 enabled: true
                 regex: '/(v|version)=(?P<version>[0-9\.]+)/'
-    param_fetcher_listener: force
+    param_fetcher_listener: true
     body_listener: true
     format_listener:
         rules:
             - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: true }
     view:
-        view_response_listener: force
+        view_response_listener: true
         formats:
             json: true
         mime_types:

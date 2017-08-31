@@ -2,7 +2,7 @@
  * Util function to transform Post data to send to API
  * @param {Array<any>} data
  */
-import {PostDTO} from "../post-dto";
+import {PostDTO} from "../components/post/post-list/post-dto";
 
 export function postTranformOut(data: PostDTO): Object {
     const characters = data.query.playerCharacters.filter(character => {
