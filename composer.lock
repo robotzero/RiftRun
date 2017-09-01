@@ -4690,12 +4690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "44b6de275cf5b593049ed62c4881e55378ca9c7a"
+                "reference": "2e1911bfaf41dde0244995335232478eaf5be5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/44b6de275cf5b593049ed62c4881e55378ca9c7a",
-                "reference": "44b6de275cf5b593049ed62c4881e55378ca9c7a",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/2e1911bfaf41dde0244995335232478eaf5be5ad",
+                "reference": "2e1911bfaf41dde0244995335232478eaf5be5ad",
                 "shasum": ""
             },
             "require": {
@@ -4765,7 +4765,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-08-31T08:08:26+00:00"
+            "time": "2017-09-01T08:50:08+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -6105,12 +6105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "400316a5c57914d47d1cc03063fba8a52b9dd423"
+                "reference": "e6e7085fbbd2e25f4ca128ac30c1b0d3dd4ef827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/400316a5c57914d47d1cc03063fba8a52b9dd423",
-                "reference": "400316a5c57914d47d1cc03063fba8a52b9dd423",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e6e7085fbbd2e25f4ca128ac30c1b0d3dd4ef827",
+                "reference": "e6e7085fbbd2e25f4ca128ac30c1b0d3dd4ef827",
                 "shasum": ""
             },
             "require": {
@@ -6181,7 +6181,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-30T07:32:04+00:00"
+            "time": "2017-09-01T08:39:38+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
