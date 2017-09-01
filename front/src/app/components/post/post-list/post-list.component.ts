@@ -9,9 +9,8 @@ import { PlayerType } from "./types/player-type";
 import { GameType } from "./types/game-type";
 import { RegionType } from "./types/region-type";
 import { Observable } from "rxjs/Rx";
-import {GameModeService, GameModeState} from "../../../services/gamemodeservice";
-import {griftLevels} from "../../../utilities/griftlevel-generator";
-
+import { GameModeService, GameModeState } from "../../../services/gamemodeservice";
+import { postTranformOut } from "../../../utilities/postTrasform";
 
 @Component({
     selector: 'post-list',
@@ -20,7 +19,7 @@ import {griftLevels} from "../../../utilities/griftlevel-generator";
 })
 
 export class PostListComponent implements OnInit {
-    private selectedGameMode: Observable<GameModeState> = this.gameModeService.select<GameModeState>('gameMode');
+    private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     private currentGameMode: GameModeState;
     private items: Array<string>;
     private posts: Array<Post> = [];
@@ -52,8 +51,6 @@ export class PostListComponent implements OnInit {
         // this.postListDto = new PostDTO();
     }
 
-    private queryGameLevels: Observable<string[]> = griftLevels().toArray();
-
     private queryGameTypes: Array<GameType> = [
         GameType.RIFT,
         GameType.GRIFT,
@@ -77,7 +74,8 @@ export class PostListComponent implements OnInit {
                 'minParagon': ['', Validators.required],
                 'game': this.formBuilder.group({
                     'gameMode': ['', Validators.required],
-                    'gameLevel': ['', Validators.required]
+                    'level': ['', Validators.nullValidator],
+                    'torment': ['', Validators.nullValidator]
                 }),
                 'playerCharacters': this.buildQueryCharacters()
             }),
@@ -93,22 +91,24 @@ export class PostListComponent implements OnInit {
 
         this.selectedGameMode.subscribe({
             next: (value: GameModeState) => {
-                console.log("Hello from subscriber");
                 this.currentGameMode = value;
             },
-            error: null,
-            complete: () => console.log("done")
+            error: (error) => console.log("Error selecting gameMode."),
+            complete: () => console.log("This stream should have not ended.")
         });
-        console.log(this.currentGameMode.gameMode.options);
     }
 
     get characters(): FormArray {
         return this.postForm.get('query').get('playerCharacters') as FormArray;
     };
 
+    get gameControl(): FormArray {
+        return this.postForm.get('query').get('game') as FormArray;
+    }
+
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
-        // this.postService.postContent(postTranformOut(value));
+        this.postService.postContent(postTranformOut(value));
     }
 
     buildQueryCharacters(): FormArray {
@@ -123,6 +123,25 @@ export class PostListComponent implements OnInit {
 
     private onChangeSelect(event) {
         this.gameModeService.change(event.value);
+        if (event.value === 'Grift') {
+            if (!this.gameControl.get('torment').disabled) {
+                this.gameControl.get('torment').disable();
+            }
+
+            if (this.gameControl.get('level').disabled) {
+                this.gameControl.get('level').enable();
+            }
+        }
+
+        if (event.value !== 'Grift') {
+            if (!this.gameControl.get('level').disabled) {
+                this.gameControl.get('level').disable();
+            }
+
+            if (this.gameControl.get('torment').disabled) {
+                this.gameControl.get('torment').enable();
+            }
+        }
     }
 
     private onValueChanged(data?: any) {

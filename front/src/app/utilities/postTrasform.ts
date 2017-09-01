@@ -21,10 +21,7 @@ export function postTranformOut(data: PostDTO): Object {
         },
             "query": {
                 "minParagon": data.query.minParagon,
-                "game": {
-                    "gameMode": data.query.game.gameMode.toLowerCase(),
-                    "level": data.query.game.gameLevel
-                },
+                "game": data.query.game,
                 "playerCharacters": characters
             }
     };

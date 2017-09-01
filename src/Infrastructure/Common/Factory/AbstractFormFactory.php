@@ -54,6 +54,10 @@ abstract class AbstractFormFactory
         /** @var FormInterface $form */
         $form = $this->createForm($action, $object)->submit($data, self::UPDATE !== $action);
         if (!$form->isValid()) {
+            foreach($form->getErrors(true, true) as $error) {
+                error_log($error->getMessage());
+                error_log($error->getOrigin()->getName());
+            }
             throw new FormException($form);
         }
         return $form->getData();

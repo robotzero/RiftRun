@@ -9,8 +9,8 @@
             <span mdPrefix>#</span>
             <input mdInput required placeholder="Your battle.net tag" formControlName="battleTag"/>
         </md-input-container>
-        Your character type.
         <div class="mdl-selectfield">
+            Your character type.
             <label for="playerType"></label>
             <md-select class="form-control" name="type" id="playerType" formControlName="type" required placeholder="">
                 <md-option value="">Please Select...</md-option>
@@ -52,24 +52,33 @@
         <md-input-container>
             <input mdInput required placeholder="Min paragon points" formControlName="minParagon" />
         </md-input-container>
-        Game type you want to play.
         <div formGroupName="game">
+            Game type you want to play.
             <div class="mdl-selectfield">
                 <label for="queryGameType"></label>l
                 <md-select class="form-control" id="queryGameType" formControlName="gameMode" (change)="onChangeSelect($event)" required>
                     <md-option value="">Please Select...</md-option>
-                    <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType">{{gameType}}</md-option>
+                    <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType | lowercase">{{gameType}}</md-option>
                 </md-select>
             </div>
-            {{currentGameMode}}
-            Game level you want to play.
+            <div *ngIf="currentGameMode.gameMode === 'Grift'; then thenBlock else elseBlock"></div>
+            {{currentGameMode.gameMode}} level you want to play.
             <div class="mdl-selectfield">
-                <!--<label for="queryGameLevel"></label>-->
+                <ng-template #thenBlock>
+                    <label for="queryGameLevel"></label>
+                    <md-select class="form-control" id="queryGameLevel" formControlName="level" required>
+                        <md-option value="">Please Select...</md-option>
+                        <md-option *ngFor="let gameLevel of currentGameMode.options.value | async" [value]="gameLevel">{{gameLevel}}</md-option>
+                    </md-select>
+                </ng-template>
+                <ng-template #elseBlock>
+                    <label for="queryGameTorment"></label>
+                    <md-select class="form-control" id="queryGameTorment" formControlName="torment" required>
+                        <md-option value="">Please Select...</md-option>
+                        <md-option *ngFor="let gameLevel of currentGameMode.options.value | async" [value]="gameLevel">{{gameLevel | romanNumerals}}</md-option>
+                    </md-select>
+                </ng-template>
 
-                <!--<md-select class="form-control" id="queryGameLevel" formControlName="gameLevel" required>-->
-                    <!--<md-option value="">Please Select...</md-option>-->
-                    <!--<md-option *ngFor="let gameLevel of currentGameMode.gameMode.gameMode.options.value" [value]="gameLevel">{{gameLevel}}</md-option>-->
-                <!--</md-select>-->
             </div>
         </div>
         Player types you are looking for.

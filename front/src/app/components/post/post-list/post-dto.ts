@@ -10,7 +10,7 @@ export interface PostDTO {
     query: {
         minParagon: number;
         game: {
-            gameLevel?: string;
+            level?: string;
             torment?: string;
             gameMode: string;
         };

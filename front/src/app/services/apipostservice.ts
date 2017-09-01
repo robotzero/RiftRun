@@ -40,18 +40,3 @@ export class APIPostService
         console.log("Token " + this.response.searchId);
     }
 }
-
-//
-//{
-//    "player":
-//    {
-//        "type":"demon hunter","paragonPoints":"13","battleTag":"#2000","region":"EU","seasonal":1,"gameType":"hardcore"},
-//    "query":{
-//    "minParagon":"10",
-//        "game":{
-//            "type":"grift","level":"40+"
-//        },
-//        "characterType":
-//            [{"type":"Demon Hunter"},{"type":"wizard"}]
-//        }
-//}

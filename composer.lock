@@ -1172,12 +1172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "42f4bdb744b98376889999846eaef9089398e28c"
+                "reference": "d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/42f4bdb744b98376889999846eaef9089398e28c",
-                "reference": "42f4bdb744b98376889999846eaef9089398e28c",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2",
+                "reference": "d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1266,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-08-08T11:01:19+00:00"
+            "time": "2017-08-31T21:35:13+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1274,12 +1274,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "d55b0db512c8f9897ded8ca798e889e39695f00d"
+                "reference": "3d3bb7cf72e30e05d2e39ea2ee1262e08740867c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/d55b0db512c8f9897ded8ca798e889e39695f00d",
-                "reference": "d55b0db512c8f9897ded8ca798e889e39695f00d",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/3d3bb7cf72e30e05d2e39ea2ee1262e08740867c",
+                "reference": "3d3bb7cf72e30e05d2e39ea2ee1262e08740867c",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1344,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2017-02-21T18:17:55+00:00"
+            "time": "2017-09-01T07:52:41+00:00"
         },
         {
             "name": "hautelook/templated-uri-bundle",
@@ -1729,12 +1729,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "83f0bffd5e3d5238d8ed8893e547392078e31626"
+                "reference": "a612724ec70d9cbb744316365d88ec9440f81ac9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/83f0bffd5e3d5238d8ed8893e547392078e31626",
-                "reference": "83f0bffd5e3d5238d8ed8893e547392078e31626",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/a612724ec70d9cbb744316365d88ec9440f81ac9",
+                "reference": "a612724ec70d9cbb744316365d88ec9440f81ac9",
                 "shasum": ""
             },
             "require": {
@@ -1799,7 +1799,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-08-28T10:13:59+00:00"
+            "time": "2017-08-31T10:41:30+00:00"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -6957,12 +6957,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "073917152bf7594e759930ba058f89e1b126eb7c"
+                "reference": "ab562c7acf94239d816edee7fc07a0a818d69b21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/073917152bf7594e759930ba058f89e1b126eb7c",
-                "reference": "073917152bf7594e759930ba058f89e1b126eb7c",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ab562c7acf94239d816edee7fc07a0a818d69b21",
+                "reference": "ab562c7acf94239d816edee7fc07a0a818d69b21",
                 "shasum": ""
             },
             "require": {
@@ -7018,7 +7018,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-29T23:06:25+00:00"
+            "time": "2017-08-30T08:17:18+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
