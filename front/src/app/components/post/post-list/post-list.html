@@ -14,7 +14,7 @@
             <label for="playerType"></label>
             <md-select class="form-control" name="type" id="playerType" formControlName="type" required placeholder="">
                 <md-option value="">Please Select...</md-option>
-                <md-option *ngFor="let type of playerTypes" [value]="type">{{type}}</md-option>
+                <md-option *ngFor="let type of playerTypes" [value]="type | lowercase">{{type}}</md-option>
             </md-select>
         </div>
         Region.
@@ -28,10 +28,10 @@
         Select your game type:
         <div class="mdl-selectfield">
             <md-radio-group formControlName="gameType">
-                <md-radio-button class="example-radio-button" value="Hardcore">
+                <md-radio-button class="example-radio-button" value="hardcore">
                     Hardcore
                 </md-radio-button>
-                <md-radio-button class="example-radio-button" value="Softcore">
+                <md-radio-button class="example-radio-button" value="softcore">
                     Softcore
                 </md-radio-button>
             </md-radio-group>

@@ -1,4 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
+export interface RomanNumeralsData {
+    arabic: number;
+    roman: string;
+}
 /*
  * Transform decimal numbers to roman numerals.
  * Usage:
@@ -10,15 +14,70 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'romanNumerals'})
 export class RomanNumerals implements PipeTransform {
     transform(value: number): string {
-        let result = '';
-        let decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-        let roman = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
-        for (let i = 0; i <= decimal.length; i++) {
-            while (value % decimal[i] < value) {
-                result += roman[i];
-                value -= decimal[i];
+        let data: RomanNumeralsData[] = [
+            {
+                arabic: 1000,
+                roman: 'M',
+            },
+            {
+                arabic: 900,
+                roman: 'CM',
+            },
+            {
+                arabic: 500,
+                roman: 'D',
+            },
+            {
+                arabic: 400,
+                roman: 'CD',
+            },
+            {
+                arabic: 100,
+                roman: 'C'
+            },
+            {
+                arabic: 90,
+                roman: 'XC'
+            },
+            {
+                arabic: 50,
+                roman: 'L'
+            },
+            {
+                arabic: 40,
+                roman: 'XL'
+            },
+            {
+                arabic: 10,
+                roman: 'X'
+            },
+            {
+                arabic: 9,
+                roman: 'IX'
+            },
+            {
+                arabic: 5,
+                roman: 'V'
+            },
+            {
+                arabic: 4,
+                roman: 'IV'
+            },
+            {
+                arabic: 1,
+                roman: 'I'
             }
-        }
+        ];
+        let result = '';
+        let remaining = value;
+
+        data.forEach(function(v) {
+           while (remaining % v.arabic < remaining) {
+               result += v.roman;
+               remaining -= v.arabic;
+           }
+        });
+
         return result;
     }
 }

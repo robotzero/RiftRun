@@ -4690,12 +4690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "2e1911bfaf41dde0244995335232478eaf5be5ad"
+                "reference": "74c665dcc28e18a34142032ddfcc5fd8333d74c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/2e1911bfaf41dde0244995335232478eaf5be5ad",
-                "reference": "2e1911bfaf41dde0244995335232478eaf5be5ad",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/74c665dcc28e18a34142032ddfcc5fd8333d74c8",
+                "reference": "74c665dcc28e18a34142032ddfcc5fd8333d74c8",
                 "shasum": ""
             },
             "require": {
@@ -4765,7 +4765,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2017-09-01T08:50:08+00:00"
+            "time": "2017-09-03T10:07:19+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -5211,12 +5211,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "c3f82846fdfd1760b277767ac21426ca030f795e"
+                "reference": "633549c771ae745af3e0e4ea26665b29ec01b7b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/c3f82846fdfd1760b277767ac21426ca030f795e",
-                "reference": "c3f82846fdfd1760b277767ac21426ca030f795e",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/633549c771ae745af3e0e4ea26665b29ec01b7b9",
+                "reference": "633549c771ae745af3e0e4ea26665b29ec01b7b9",
                 "shasum": ""
             },
             "require": {
@@ -5253,7 +5253,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-30T09:14:20+00:00"
+            "time": "2017-09-04T07:21:24+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5792,18 +5792,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "420d44c5534bbf269e85e6213446e8284d53c6c7"
+                "reference": "15ea9ac619e37009edcda64089e3fa4cc88aa659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/420d44c5534bbf269e85e6213446e8284d53c6c7",
-                "reference": "420d44c5534bbf269e85e6213446e8284d53c6c7",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/15ea9ac619e37009edcda64089e3fa4cc88aa659",
+                "reference": "15ea9ac619e37009edcda64089e3fa4cc88aa659",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
                 "sebastian/comparator": "^1.1|^2.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -5847,7 +5847,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-07-19T07:44:25+00:00"
+            "time": "2017-09-03T09:38:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6957,12 +6957,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "ab562c7acf94239d816edee7fc07a0a818d69b21"
+                "reference": "ccdd14998c0b823fda90bec0a84c02e7443ff036"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ab562c7acf94239d816edee7fc07a0a818d69b21",
-                "reference": "ab562c7acf94239d816edee7fc07a0a818d69b21",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ccdd14998c0b823fda90bec0a84c02e7443ff036",
+                "reference": "ccdd14998c0b823fda90bec0a84c02e7443ff036",
                 "shasum": ""
             },
             "require": {
@@ -7018,7 +7018,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-30T08:17:18+00:00"
+            "time": "2017-09-03T08:15:12+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",

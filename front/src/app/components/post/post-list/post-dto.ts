@@ -14,7 +14,7 @@ export interface PostDTO {
             torment?: string;
             gameMode: string;
         };
-        playerCharacters: Array<SearchedCharacters>
+        playerCharacters: Array<PSearchQ>
     }
 }
 
@@ -22,3 +22,9 @@ export interface SearchedCharacters {
     type: string;
     selected: boolean;
 }
+
+export type Partial<T> = {
+    [P in keyof T]?: T[P];
+};
+
+export type PSearchQ = Partial<SearchedCharacters>

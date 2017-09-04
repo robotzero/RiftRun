@@ -21,7 +21,7 @@ App\Domain\Player\Model\Player:
             - Type:
                 type: string
             - Regex:
-                pattern: '/^#\d{4}$/'
+                pattern: '/^\d{4}$/'
         region:
             - NotBlank: ~
             - NotNull: ~
