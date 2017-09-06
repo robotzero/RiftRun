@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { PostListComponent } from "./post-list/post-list.component";
+import { PostListComponent } from "./components/post-list/post-list.component";
 import { RiftRunMaterialModule } from "../material/riftrunmaterial.module";
 import { APIGetService } from "../../services/apigetservice";
-import {GameModeService} from "../../services/gamemodeservice";
-import {RomanNumerals} from "../../pipes/roman-numerals";
+import { GameModeService } from "../../services/gamemodeservice";
+import { RomanNumerals } from "../../pipes/roman-numerals";
+import { PostSearchComponent } from "./components/post-search/post-search.component";
 
 @NgModule({
-    declarations: [ PostListComponent, RomanNumerals ],
+    declarations: [ PostListComponent, RomanNumerals, PostSearchComponent ],
     providers: [ APIGetService, GameModeService ],
     imports: [ BrowserModule, FormsModule, ReactiveFormsModule, RiftRunMaterialModule ]
 })

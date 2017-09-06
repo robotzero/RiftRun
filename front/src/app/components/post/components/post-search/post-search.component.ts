@@ -1,31 +1,25 @@
-import { APIGetService } from '../../../services/apigetservice';
-import { Post } from '../../../models/post';
-import { APIPostService } from '../../../services/apipostservice';
+import { APIPostService } from '../../../../services/apipostservice';
 import { Component, OnInit } from '@angular/core';
-import { PostFactory } from "../../../utils/postFactory";
+import { PostFactory } from "../../../../utils/postFactory";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { PostDTO } from "./post-dto";
-import { PlayerType } from "./types/player-type";
-import { GameType } from "./types/game-type";
-import { RegionType } from "./types/region-type";
 import { Observable } from "rxjs/Rx";
-import { GameModeService, GameModeState } from "../../../services/gamemodeservice";
-import { postTranformOut } from "../../../utilities/postTrasform";
+import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
+import { postTranformOut } from "../../../../utilities/postTrasform";
+import {PostDTO} from "../post-list/post-dto";
+import {PlayerType} from "../post-list/types/player-type";
+import {RegionType} from "../post-list/types/region-type";
+import {GameType} from "../post-list/types/game-type";
 
 @Component({
-    selector: 'post-list',
+    selector: 'post-search',
     providers: [ APIPostService, PostFactory, GameModeService ],
-    templateUrl: './post-list.html',
+    templateUrl: 'post-search.html',
 })
 
-export class PostListComponent implements OnInit {
+export class PostSearchComponent implements OnInit {
     private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     private currentGameMode: GameModeState;
-    private items: Array<string>;
-    private posts: Array<Post> = [];
     private postForm: FormGroup;
-    private response: any;
-    private postListDto: PostDTO;
     private playerTypes: Array<PlayerType> = [
         PlayerType.DEMON_HUNTER,
         PlayerType.WIZARD,
@@ -43,7 +37,6 @@ export class PostListComponent implements OnInit {
 
     constructor(
         private gameModeService: GameModeService,
-        private getService: APIGetService,
         private postService: APIPostService,
         private formBuilder: FormBuilder,
         private postFactory: PostFactory
@@ -83,11 +76,6 @@ export class PostListComponent implements OnInit {
 
         // this.postForm.valueChanges.subscribe(data => this.onValueChanged(data));
         // this.onValueChanged();
-        this.getService.get('http://riftrun.local/v1/posts')
-            .map((posts: any) => {
-                return this.postFactory.buildPosts(posts);
-            })
-            .subscribe(response => this.posts = response);
 
         this.selectedGameMode.subscribe({
             next: (value: GameModeState) => {

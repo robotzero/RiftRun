@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Observable } from "rxjs/Observable";
 import { griftLevels } from "../utilities/griftlevel-generator";
-import {GameType} from "../components/post/post-list/types/game-type";
+import {GameType} from "../components/post/components/post-list/types/game-type";
 
 export interface GameModeState {
     gameMode: string;
