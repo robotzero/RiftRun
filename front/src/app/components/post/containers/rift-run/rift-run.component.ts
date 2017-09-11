@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {APIGetService} from "../../../../services/apigetservice";
+import { APIGetService } from "../../../../services/apigetservice";
+import {Observable} from "rxjs/Observable";
+import {Post} from "../../../../models/post";
 
 @Component({
     selector: 'rift-run',
@@ -24,6 +26,6 @@ import {APIGetService} from "../../../../services/apigetservice";
   `
 })
 export class RiftRunComponent {
-    posts = this.getService.get('http://riftrun.local/v1/posts');
+    posts: Observable<Array<Post>> = this.getService.get('http://riftrun.local/v1/posts');
     constructor(private getService: APIGetService) {}
 }

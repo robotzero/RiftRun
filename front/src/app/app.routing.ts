@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 // import { NotFoundComponent } from './not-found.component';
-import {PostListComponent} from "./components/post/components/post-list/post-list.component";
+import { RiftRunComponent } from "./components/post/containers/rift-run/rift-run.component";
 
 const routes: Routes = [
     // {
@@ -11,7 +11,7 @@ const routes: Routes = [
     // },
     {
         path: '',
-        component: PostListComponent
+        component: RiftRunComponent
     },
     // {
     //     path: '**',

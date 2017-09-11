@@ -7,10 +7,12 @@ import { APIGetService } from "../../services/apigetservice";
 import { GameModeService } from "../../services/gamemodeservice";
 import { RomanNumerals } from "../../pipes/roman-numerals";
 import { PostSearchComponent } from "./components/post-search/post-search.component";
+import { RiftRunComponent } from "./containers/rift-run/rift-run.component";
+import { PostFactory } from "../../utils/postFactory";
 
 @NgModule({
-    declarations: [ PostListComponent, RomanNumerals, PostSearchComponent ],
-    providers: [ APIGetService, GameModeService ],
+    declarations: [ PostListComponent, RomanNumerals, PostSearchComponent, RiftRunComponent ],
+    providers: [ APIGetService, GameModeService, PostFactory ],
     imports: [ BrowserModule, FormsModule, ReactiveFormsModule, RiftRunMaterialModule ]
 })
 export class PostModule { }

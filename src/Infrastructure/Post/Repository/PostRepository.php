@@ -28,7 +28,7 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
             ->innerJoin('q.playerCharacters', 'qp')
             ->orderBy('posts.createdAt', 'desc')
             ->add('where', ['posts.createdAt > :createdAt'])
-            ->setParameter('createdAt', new \DateTime('-1 month'), Type::DATETIME);
+            ->setParameter('createdAt', new \DateTime('-111 month'), Type::DATETIME);
 
         return $this->getPaginator($queryBuilder);
     }

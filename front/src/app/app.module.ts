@@ -6,6 +6,7 @@ import { PostModule } from "./components/post/post.module";
 import { AppRoutingModule } from "./app.routing";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {RiftRunComponent} from "./components/post/containers/rift-run/rift-run.component";
 
 @NgModule({
   declarations: [

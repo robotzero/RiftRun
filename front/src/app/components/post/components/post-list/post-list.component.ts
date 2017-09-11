@@ -21,7 +21,7 @@ import { postTranformOut } from "../../../../utilities/postTrasform";
 
 export class PostListComponent implements OnInit {
     @Input()
-    posts: Array<Post>;
+    posts: any;
     // private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     // private currentGameMode: GameModeState;
     // private items: Array<string>;
