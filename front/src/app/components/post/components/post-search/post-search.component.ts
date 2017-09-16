@@ -1,16 +1,17 @@
 import { APIPostService } from '../../../../services/apipostservice';
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { PostFactory } from "../../../../utils/postFactory";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Observable } from "rxjs/Rx";
 import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
 import { postTranformOut } from "../../../../utilities/postTrasform";
-import {PostDTO} from "../post-list/post-dto";
+import { PostDTO } from "../post-list/post-dto";
 import {PlayerType} from "../post-list/types/player-type";
 import {RegionType} from "../post-list/types/region-type";
 import {GameType} from "../post-list/types/game-type";
+import {Observable} from "rxjs/Observable";
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.Default,
     selector: 'post-search',
     providers: [ APIPostService, PostFactory, GameModeService ],
     templateUrl: 'post-search.html',
@@ -18,7 +19,6 @@ import {GameType} from "../post-list/types/game-type";
 
 export class PostSearchComponent implements OnInit {
     private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
-    private currentGameMode: GameModeState;
     private postForm: FormGroup;
     private playerTypes: Array<PlayerType> = [
         PlayerType.DEMON_HUNTER,
@@ -76,14 +76,6 @@ export class PostSearchComponent implements OnInit {
 
         // this.postForm.valueChanges.subscribe(data => this.onValueChanged(data));
         // this.onValueChanged();
-
-        this.selectedGameMode.subscribe({
-            next: (value: GameModeState) => {
-                this.currentGameMode = value;
-            },
-            error: (error) => console.log("Error selecting gameMode."),
-            complete: () => console.log("This stream should have not ended.")
-        });
     }
 
     get characters(): FormArray {
@@ -111,7 +103,7 @@ export class PostSearchComponent implements OnInit {
 
     private onChangeSelect(event) {
         this.gameModeService.change(event.value);
-        if (event.value === 'Grift') {
+        if (event.value === 'grift') {
             if (!this.gameControl.get('torment').disabled) {
                 this.gameControl.get('torment').disable();
             }
@@ -121,7 +113,7 @@ export class PostSearchComponent implements OnInit {
             }
         }
 
-        if (event.value !== 'Grift') {
+        if (event.value !== 'grift') {
             if (!this.gameControl.get('level').disabled) {
                 this.gameControl.get('level').disable();
             }

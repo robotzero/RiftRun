@@ -61,25 +61,25 @@
                     <md-option *ngFor="let gameType of queryGameTypes" [value]="gameType | lowercase">{{gameType}}</md-option>
                 </md-select>
             </div>
-            <div *ngIf="currentGameMode.gameMode === 'Grift'; then thenBlock else elseBlock"></div>
-            {{currentGameMode.gameMode}} level you want to play.
-            <div class="mdl-selectfield">
+            <div *ngIf="selectedGameMode | async; let currentGame; else loading">
+                <div *ngIf="currentGame.gameMode === 'grift';then thenBlock; else elseBlock"></div>
+                {{currentGame.gameMode}} level you want to play.
                 <ng-template #thenBlock>
-                    <label for="queryGameLevel"></label>
-                    <md-select class="form-control" id="queryGameLevel" formControlName="level" required>
-                        <md-option value="">Please Select...</md-option>
-                        <md-option *ngFor="let gameLevel of currentGameMode.options.value | async" [value]="gameLevel">{{gameLevel}}</md-option>
+                    <md-select formControlName={{currentGame.options.name}}>
+                        <ng-container>
+                            <md-option *ngFor="let gameLevel of currentGame.options.value | async"  [value]="gameLevel">{{gameLevel}}</md-option>
+                        </ng-container>
                     </md-select>
                 </ng-template>
                 <ng-template #elseBlock>
-                    <label for="queryGameTorment"></label>
-                    <md-select class="form-control" id="queryGameTorment" formControlName="torment" required>
-                        <md-option value="">Please Select...</md-option>
-                        <md-option *ngFor="let gameLevel of currentGameMode.options.value | async" [value]="gameLevel">{{gameLevel | romanNumerals}}</md-option>
+                    <md-select formControlName={{currentGame.options.name}}>
+                        <ng-container>
+                            <md-option *ngFor="let gameLevel of currentGame.options.value | async"  [value]="gameLevel">{{gameLevel | romanNumerals}}</md-option>
+                        </ng-container>
                     </md-select>
                 </ng-template>
-
             </div>
+            <ng-template #loading>Loading GameMode Data...</ng-template>
         </div>
         Player types you are looking for.
         <div formArrayName="playerCharacters">

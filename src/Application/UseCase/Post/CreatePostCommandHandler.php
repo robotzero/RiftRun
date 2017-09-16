@@ -27,7 +27,11 @@ final class CreatePostCommandHandler implements CommandHandler
     public function handle(Create $createPost)
     {
         $post = $this->formFactory->create($createPost->getRequestData());
-        $this->postRepository->save($post);
+        try {
+            $this->postRepository->save($post);
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+        }
 //        $pipelineBuilder = (new PipelineBuilder)
 //            ->add(new ProcessFormPipe($this->formFactory))
 //            ->add(new TransformDTOPipe());

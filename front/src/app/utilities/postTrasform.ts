@@ -9,6 +9,5 @@ export function postTranformOut(data: any): Object {
     }).map(character => {
         return {"type": character.type.toLowerCase()};
     });
-
     return data;
 }

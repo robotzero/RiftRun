@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Observable } from "rxjs/Observable";
 import { griftLevels } from "../utilities/griftlevel-generator";
-import {GameType} from "../components/post/components/post-list/types/game-type";
+import { GameType } from "../components/post/components/post-list/types/game-type";
 
 export interface GameModeState {
     gameMode: string;
@@ -14,18 +14,14 @@ export interface GameModeOptions {
     value: Observable<string[]>
 }
 
-const state: GameModeState = { gameMode: GameType.GRIFT.toString(), options: { name: 'level', value: this.queryGameLevels } };
+let state: GameModeState = { gameMode: GameType.GRIFT.toString().toLowerCase(), options: { name: 'level', value: this.queryTormentLevels } };
 
 @Injectable()
 export class GameModeService {
-    private queryGameLevels: Observable<string[]> = griftLevels().toArray();
-    private queryTormentLevels: Observable<string[]> = Observable.range(1, 13).map(value => value.toString()).toArray();
+    private queryGameLevels: Observable<string[]> = griftLevels().toArray().delay(1);
+    private queryTormentLevels: Observable<string[]> = Observable.range(1, 13).map(value => value.toString()).toArray().delay(1);
     private subject = new BehaviorSubject<GameModeState>(state);
-    store = this.subject.asObservable().distinctUntilChanged();
-
-    select<T>(): Observable<T> {
-        return this.store.pluck('options');
-    }
+    private store = this.subject.asObservable().distinctUntilChanged().delay(1);
 
     get currentStore(): Observable<GameModeState> {
         return this.store;
@@ -33,9 +29,9 @@ export class GameModeService {
 
     change<T>(name: string): void {
         if (name.toLowerCase() === GameType.GRIFT.toString().toLowerCase()) {
-            this.subject.next({ gameMode: name, options: { name: 'level', value: this.queryGameLevels } });
+            this.subject.next({ gameMode: name.toLowerCase(), options: { name: 'level', value: this.queryGameLevels } });
         } else {
-            this.subject.next({ gameMode: name, options: { name: 'torment', value: this.queryTormentLevels } });
+            this.subject.next({ gameMode: name.toLowerCase(), options: { name: 'torment', value: this.queryTormentLevels } });
         }
     }
 }

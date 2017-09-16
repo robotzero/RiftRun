@@ -13,7 +13,7 @@ import { GameModeService, GameModeState } from "../../../../services/gamemodeser
 import { postTranformOut } from "../../../../utilities/postTrasform";
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'post-list',
     providers: [ APIPostService, PostFactory, GameModeService ],
     templateUrl: 'post-list.html',
