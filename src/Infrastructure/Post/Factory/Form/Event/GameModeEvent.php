@@ -2,7 +2,9 @@
 
 namespace App\Infrastructure\Post\Factory\Form\Event;
 
+use App\Infrastructure\GameMode\Factory\Form\BountyType;
 use App\Infrastructure\GameMode\Factory\Form\GriftType;
+use App\Infrastructure\GameMode\Factory\Form\KeywardenType;
 use App\Infrastructure\GameMode\Factory\Form\RiftType;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
@@ -21,7 +23,9 @@ class GameModeEvent implements EventSubscriberInterface
     /** @var array  */
     private $typesMap = [
         'rift' => RiftType::class,
-        'grift' => GriftType::class
+        'grift' => GriftType::class,
+        'bounties' => BountyType::class,
+        'keywardens' => KeywardenType::class
     ];
 
     /**

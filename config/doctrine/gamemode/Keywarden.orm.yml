@@ -1,0 +1,4 @@
+App\Domain\GameMode\Model\Keywarden:
+    type: entity
+    table: keywarden
+    lifecycleCallbacks: {  }

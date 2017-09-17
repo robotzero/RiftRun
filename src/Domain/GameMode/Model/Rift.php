@@ -13,7 +13,7 @@ class Rift extends GameMode
     /**
      * @var int
      */
-    private $torment;
+    protected $torment;
 
     public function __construct(GameModeId $id, int $torment)
     {

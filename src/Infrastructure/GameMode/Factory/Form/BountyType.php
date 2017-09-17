@@ -2,9 +2,10 @@
 
 namespace App\Infrastructure\GameMode\Factory\Form;
 
-use App\Domain\GameMode\Model\GameMode;
+use App\Domain\GameMode\Model\Bounty;
 use App\Domain\GameMode\ValueObject\GameModeId;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -12,10 +13,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
 
 /**
- * Class GameModeType
+ * Class BountiesType
  * @package App\Infrastructure\GameMode\Factory\Form
  */
-class GameModeType extends AbstractType
+class BountyType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -23,6 +24,7 @@ class GameModeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $builder->add('torment', NumberType::class, ['mapped' => false]);
         $builder->add('gameMode', TextType::class, [ 'mapped' => false ]);
     }
 
@@ -34,15 +36,15 @@ class GameModeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
-            'data_class' => GameMode::class,
-            'empty_data' => function(FormInterface $form) {
-                return new GameMode(
-                    new GameModeId(),
-                    $form->get('gameMode')->getData() ?: ''
-                );
-            },
-            'csrf_protection' => false,
+            'data_class' => Bounty::class,
             'constraints' => new Valid(),
+            'csrf_protection' => false,
+            'empty_data' => function(FormInterface $form) {
+                return new Bounty(
+                    new GameModeId(),
+                    $form->get('torment')->getData() ?: 0
+                );
+            }
         ));
     }
 
@@ -51,6 +53,6 @@ class GameModeType extends AbstractType
      */
     public function getName(): string
     {
-        return 'gamemode';
+        return 'bounties';
     }
 }

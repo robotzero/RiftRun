@@ -1,5 +1,5 @@
 import { APIPostService } from '../../../../services/apipostservice';
-import {ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import { PostFactory } from "../../../../utils/postFactory";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
@@ -18,6 +18,9 @@ import {Observable} from "rxjs/Observable";
 })
 
 export class PostSearchComponent implements OnInit {
+
+    @Output()
+    private add = new EventEmitter();
     private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     private postForm: FormGroup;
     private playerTypes: Array<PlayerType> = [
@@ -88,6 +91,7 @@ export class PostSearchComponent implements OnInit {
 
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
+        this.add.emit(postTranformOut(value));
         this.postService.postContent(postTranformOut(value));
     }
 
@@ -122,26 +126,5 @@ export class PostSearchComponent implements OnInit {
                 this.gameControl.get('torment').enable();
             }
         }
-    }
-
-    private onValueChanged(data?: any) {
-        if (!this.postForm) {
-            return;
-        }
-        const form = this.postForm;
-
-        // for (const field in this.formErrors) {
-        //     // clear previous error message (if any)
-        //     this.formErrors[field] = '';
-        //     const control = form.get(field);
-        //
-        //     if (control && control.dirty && control.invalid) {
-        //         const messages = this.validationMessages[field];
-        //
-        //         for (const key in control.errors) {
-        //             this.formErrors[field] += messages[key] + ' ';
-        //         }
-        //     }
-        // }
     }
 }

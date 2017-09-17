@@ -35,4 +35,10 @@ export class APIGetService {
 
         return this.postsState.asObservable();
     }
+
+    updatePostsList(value) {
+        this.postsState.asObservable().take(1).subscribe(all => {
+            this.postsState.next([...all, value.value()])
+        })
+    }
 }

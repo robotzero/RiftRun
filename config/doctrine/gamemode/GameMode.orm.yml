@@ -11,6 +11,8 @@ App\Domain\GameMode\Model\GameMode:
     discriminatorMap:
         grift: App\Domain\GameMode\Model\Grift
         rift: App\Domain\GameMode\Model\Rift
+        bounties: App\Domain\GameMode\Model\Bounty
+        keywardens: App\Domain\GameMode\Model\Keywarden
         gameMode: App\Domain\GameMode\Model\GameMode
     embedded:
         gameMode:

@@ -6,6 +6,8 @@ App\Domain\GameMode\Model\GameMode:
         map:
             rift: App\Domain\GameMode\Model\Rift
             grift: App\Domain\GameMode\Model\Grift
+            bounty: App\Domain\GameMode\Model\Bounty
+            keywarden: App\Domain\GameMode\Model\Keywarden
     properties:
         id:
             expose: true

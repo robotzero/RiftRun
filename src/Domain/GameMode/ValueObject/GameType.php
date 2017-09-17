@@ -13,7 +13,7 @@ class GameType
     const
         RIFT = 'rift',
         GRIFT = 'grift',
-        KEYGUARDIAN = 'key_guardian',
+        KEYWARDENS = 'keywardens',
         BOUNTIES = 'bounties',
         PROGRESSION = 'progression'
     ;
@@ -52,6 +52,7 @@ class GameType
             self::RIFT,
             self::GRIFT,
             self::BOUNTIES,
+            self::KEYWARDENS,
             self::PROGRESSION
         ];
     }
@@ -70,6 +71,6 @@ class GameType
      */
     public function __toString(): string
     {
-        return (string) $this->type;
+        return $this->type;
     }
 }

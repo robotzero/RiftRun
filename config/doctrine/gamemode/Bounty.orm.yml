@@ -1,0 +1,4 @@
+App\Domain\GameMode\Model\Bounty:
+    type: entity
+    table: bounty
+    lifecycleCallbacks: {  }
