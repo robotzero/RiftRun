@@ -1,17 +1,17 @@
 import { APIPostService } from '../../../../services/apipostservice';
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { PostFactory } from "../../../../utils/postFactory";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
 import { postTranformOut } from "../../../../utilities/postTrasform";
 import { PostDTO } from "../post-list/post-dto";
-import {PlayerType} from "../post-list/types/player-type";
-import {RegionType} from "../post-list/types/region-type";
-import {GameType} from "../post-list/types/game-type";
-import {Observable} from "rxjs/Observable";
+import { PlayerType } from "../post-list/types/player-type";
+import { RegionType } from "../post-list/types/region-type";
+import { GameType } from "../post-list/types/game-type";
+import { Observable } from "rxjs/Observable";
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.Default,
+    // changeDetection: ChangeDetectionStrategy.Default,
     selector: 'post-search',
     providers: [ APIPostService, PostFactory, GameModeService ],
     templateUrl: 'post-search.html',
@@ -20,7 +20,8 @@ import {Observable} from "rxjs/Observable";
 export class PostSearchComponent implements OnInit {
 
     @Output()
-    private add = new EventEmitter();
+    add = new EventEmitter<any>();
+
     private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     private postForm: FormGroup;
     private playerTypes: Array<PlayerType> = [
@@ -91,8 +92,9 @@ export class PostSearchComponent implements OnInit {
 
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
-        this.add.emit(postTranformOut(value));
-        this.postService.postContent(postTranformOut(value));
+        let val = postTranformOut(value);
+        this.add.emit(val);
+        this.postService.postContent(val);
     }
 
     buildQueryCharacters(): FormArray {

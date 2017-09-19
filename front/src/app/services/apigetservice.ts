@@ -37,8 +37,8 @@ export class APIGetService {
     }
 
     updatePostsList(value) {
-        this.postsState.asObservable().take(1).subscribe(all => {
-            this.postsState.next([...all, value.value()])
+        this.get("blalalba", true).take(1).subscribe(all => {
+            this.postsState.next([...all, value])
         })
     }
 }

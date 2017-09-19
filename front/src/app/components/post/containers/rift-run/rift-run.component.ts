@@ -15,8 +15,7 @@ import { Post } from "../../../../models/post";
         </h1>
       </div>
       <div class="rift-run__panes">
-        <post-search>
-          <!--[toppings]="toppings$ | async"-->
+        <post-search
           (add)="updateList($event)">
         </post-search>
         <post-list
@@ -35,7 +34,6 @@ export class RiftRunComponent {
     constructor(private getService: APIGetService) {}
 
     public updateList(event: any) {
-        console.log("update");
-        this.getService.updatePostsList(event.value());
+        this.getService.updatePostsList(event);
     }
 }
