@@ -20,7 +20,8 @@ import {AsyncSubject} from "rxjs/AsyncSubject";
         </h1>
       </div>
       <div class="rift-run__panes">
-        <post-search (add)="updateList($event)">
+        <post-search
+          (add)="updateList($event)">
         </post-search>
         <post-list
           [posts]="posts | async">

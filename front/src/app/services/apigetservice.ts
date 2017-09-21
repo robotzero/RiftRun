@@ -61,5 +61,9 @@ export class APIGetService {
         // this.postsState.take(1).subscribe(all => {
         //     this.postsState.next([...all, value])
         // })
+//    updatePostsList(value) {
+//        this.get("blalalba", true).take(1).subscribe(all => {
+//            this.postsState.next([...all, value])
+//        })
     }
 }

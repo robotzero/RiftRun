@@ -1,5 +1,5 @@
 import { APIPostService } from '../../../../services/apipostservice';
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { PostFactory } from "../../../../utils/postFactory";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
@@ -10,9 +10,14 @@ import {RegionType} from "../post-list/types/region-type";
 import {GameType} from "../post-list/types/game-type";
 import {Observable} from "rxjs/Observable";
 import {nearer} from "q";
+import { PlayerType } from "../post-list/types/player-type";
+import { RegionType } from "../post-list/types/region-type";
+import { GameType } from "../post-list/types/game-type";
+import { Observable } from "rxjs/Observable";
+>>>>>>> f18e0ec3c9b8b6b9668d63c31ec13cd8f4dd8e89
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.Default,
+    // changeDetection: ChangeDetectionStrategy.Default,
     selector: 'post-search',
     providers: [ APIPostService, PostFactory, GameModeService ],
     templateUrl: 'post-search.html',
@@ -22,6 +27,7 @@ export class PostSearchComponent implements OnInit {
 
     @Output()
     private addEvent = new EventEmitter();
+
     private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     private postForm: FormGroup;
     private playerTypes: Array<PlayerType> = [
@@ -92,8 +98,9 @@ export class PostSearchComponent implements OnInit {
 
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
-        let newPost = postTranformOut(value);
-        this.postService.postContent(newPost, this.addEvent);
+        let val = postTranformOut(value);
+        this.add.emit(val);
+        this.postService.postContent(val);
     }
 
     buildQueryCharacters(): FormArray {
