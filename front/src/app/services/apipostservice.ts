@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Headers} from '@angular/http';
 import {Response} from '@angular/http';
@@ -15,7 +15,7 @@ export class APIPostService
         this.http = http;
     }
 
-    postContent(postObject: Object) : void {
+    postContent(postObject: Object, eventEmitter: EventEmitter<any>): void {
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -25,7 +25,7 @@ export class APIPostService
             .map((res:Response) => res.json())
             .map((res:string) => this.response = res)
             .subscribe(
-                data => this.saveJwt(data),
+                data => eventEmitter.emit(data),
                 err => this.logError(err),
                 () => console.log('Post done.')
             );

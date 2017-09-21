@@ -9,6 +9,7 @@ import {PlayerType} from "../post-list/types/player-type";
 import {RegionType} from "../post-list/types/region-type";
 import {GameType} from "../post-list/types/game-type";
 import {Observable} from "rxjs/Observable";
+import {nearer} from "q";
 
 @Component({
     changeDetection: ChangeDetectionStrategy.Default,
@@ -20,7 +21,7 @@ import {Observable} from "rxjs/Observable";
 export class PostSearchComponent implements OnInit {
 
     @Output()
-    private add = new EventEmitter();
+    private addEvent = new EventEmitter();
     private selectedGameMode: Observable<GameModeState> = this.gameModeService.currentStore;
     private postForm: FormGroup;
     private playerTypes: Array<PlayerType> = [
@@ -91,8 +92,8 @@ export class PostSearchComponent implements OnInit {
 
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
-        this.add.emit(postTranformOut(value));
-        this.postService.postContent(postTranformOut(value));
+        let newPost = postTranformOut(value);
+        this.postService.postContent(newPost, this.addEvent);
     }
 
     buildQueryCharacters(): FormArray {

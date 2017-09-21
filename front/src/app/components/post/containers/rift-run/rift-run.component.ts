@@ -1,7 +1,12 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+///<reference path="../../../../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { APIGetService } from "../../../../services/apigetservice";
 import { Observable } from "rxjs/Observable";
 import { Post } from "../../../../models/post";
+import {Subject} from "rxjs/Subject";
+import {Http} from "@angular/http";
+import {PostFactory} from "../../../../utils/postFactory";
+import {AsyncSubject} from "rxjs/AsyncSubject";
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,9 +20,7 @@ import { Post } from "../../../../models/post";
         </h1>
       </div>
       <div class="rift-run__panes">
-        <post-search>
-          <!--[toppings]="toppings$ | async"-->
-          (add)="updateList($event)">
+        <post-search (add)="updateList($event)">
         </post-search>
         <post-list
           [posts]="posts | async">
@@ -26,16 +29,19 @@ import { Post } from "../../../../models/post";
     </div>
   `
 })
-export class RiftRunComponent {
-    posts: Observable<Array<Post>> = this.getService.get('http://riftrun.local/v1/posts');
-    // posts: Observable<Array<Post>> = this.getService.get('http://riftrun.local/v1/posts').take(1).subscribe(users =>
-    // this.usersSubject.next([...users, newUser]));
-
+export class RiftRunComponent implements OnInit {
+    private posts: Observable<Array<Post>>;
 
     constructor(private getService: APIGetService) {}
 
+    ngOnInit(): void {
+        this.getService.loadData();
+        this.posts = this.getService.currentPostState;
+    }
+
     public updateList(event: any) {
-        console.log("update");
-        this.getService.updatePostsList(event.value());
+        console.log("load");
+        this.getService.loadData();
+        this.posts = this.getService.currentPostState;
     }
 }
