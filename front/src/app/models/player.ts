@@ -1,11 +1,9 @@
-export class Player {
-    constructor(
-        public type: string,
-        public paragonPoints: number,
-        public battleTag: string,
-        public region: string,
-        public seasonal: boolean,
-        public gametype: string,
-        public id?: number
-    ) {}
+export interface IPlayer {
+    id: string;
+    type: string;
+    paragonPoints: number;
+    battleTag: string;
+    region: string;
+    seasonal: boolean;
+    gameType: string;
 }

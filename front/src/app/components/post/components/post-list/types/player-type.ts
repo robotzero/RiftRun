@@ -1,8 +1,8 @@
 export enum PlayerType {
-    DEMON_HUNTER = 'Demon Hunter' as any,
-    WIZARD = 'Wizard' as any,
-    BARBARIAN = 'Barbarian' as any,
-    WITCH_DOCTOR = 'Witch Doctor' as any,
-    CRUSADER = 'Crusader' as any,
-    NECROMANCER = 'Necromancer' as any
+    DEMON_HUNTER = 'Demon Hunter',
+    WIZARD = 'Wizard',
+    BARBARIAN = 'Barbarian',
+    WITCH_DOCTOR = 'Witch Doctor',
+    CRUSADER = 'Crusader',
+    NECROMANCER = 'Necromancer'
 }

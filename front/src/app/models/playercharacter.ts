@@ -1,6 +1,3 @@
-export class PlayerCharacter {
-    constructor(
-        public type: string,
-        public id?: number
-    ) {}
+export interface IPlayerCharacter {
+    type: string;
 }

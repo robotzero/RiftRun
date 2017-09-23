@@ -1,29 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { PostFactory } from "../utils/postFactory";
-import { Post } from "../models/post";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import { IPost } from "../models/post";
 import { Subject } from "rxjs/Subject";
 import {ReplaySubject} from "rxjs/ReplaySubject";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class APIGetService {
-    private postData: Subject<Array<Post>> = new ReplaySubject(1);
+    private postData: Subject<Array<IPost>> = new ReplaySubject(1);
+    private postState = this.postData.asObservable().distinctUntilChanged();
 
-    constructor(public http : Http, private postFactory: PostFactory) {}
+    constructor(private http : Http) {}
 
     loadData() {
         this.http.get('http://riftrun.local/v1/posts').map(listPostsResponse => {
-            return this.postFactory.buildPosts(listPostsResponse.json())
+            return listPostsResponse.json()._embedded.items as IPost[];
         }).subscribe(posts => {
-            console.log(posts);
             this.postData.next(posts);
         });
     }
 
-    get currentPostState() {
-        return this.postData.asObservable();
+    get currentPostState(): Observable<Array<IPost>> {
+        return this.postState;
     }
 
     // get(url:string, forceRefresh: boolean = false) : Observable<Array<Post>> {

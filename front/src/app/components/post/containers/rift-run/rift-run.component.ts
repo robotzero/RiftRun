@@ -1,12 +1,7 @@
-///<reference path="../../../../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { APIGetService } from "../../../../services/apigetservice";
 import { Observable } from "rxjs/Observable";
-import { Post } from "../../../../models/post";
-import {Subject} from "rxjs/Subject";
-import {Http} from "@angular/http";
-import {PostFactory} from "../../../../utils/postFactory";
-import {AsyncSubject} from "rxjs/AsyncSubject";
+import { IPost } from "../../../../models/post";
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +16,7 @@ import {AsyncSubject} from "rxjs/AsyncSubject";
       </div>
       <div class="rift-run__panes">
         <post-search
-          (add)="updateList($event)">
+          (addEvent)="updateList($event)">
         </post-search>
         <post-list
           [posts]="posts | async">
@@ -31,18 +26,15 @@ import {AsyncSubject} from "rxjs/AsyncSubject";
   `
 })
 export class RiftRunComponent implements OnInit {
-    private posts: Observable<Array<Post>>;
+    private posts: Observable<Array<IPost>> = this.getService.currentPostState;
 
     constructor(private getService: APIGetService) {}
 
     ngOnInit(): void {
         this.getService.loadData();
-        this.posts = this.getService.currentPostState;
     }
 
     public updateList(event: any) {
-        console.log("load");
         this.getService.loadData();
-        this.posts = this.getService.currentPostState;
     }
 }

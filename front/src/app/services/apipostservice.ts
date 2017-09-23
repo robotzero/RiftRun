@@ -7,15 +7,12 @@ import {RequestOptions} from '@angular/http';
 @Injectable()
 export class APIPostService
 {
-    http:Http;
-    errorMessage: string;
     private response = null;
+    private logError: Function = (err) => console.log("MY ERROR " + err.toString());
 
-    constructor(http : Http) {
-        this.http = http;
-    }
+    constructor(private http : Http) {}
 
-    postContent(postObject: Object, eventEmitter: EventEmitter<any>): void {
+    postContent(postObject: Object, emitter:  EventEmitter<any>): void {
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -25,18 +22,9 @@ export class APIPostService
             .map((res:Response) => res.json())
             .map((res:string) => this.response = res)
             .subscribe(
-                data => eventEmitter.emit(data),
+                data => emitter.emit(data),
                 err => this.logError(err),
                 () => console.log('Post done.')
             );
-    }
-
-    logError(err) {
-        console.log("MY ERROR " + err.toString());
-    }
-
-    saveJwt(token) {
-        console.log("Token " + this.response.postId);
-        console.log("Token " + this.response.searchId);
     }
 }

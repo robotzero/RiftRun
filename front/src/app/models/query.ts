@@ -1,10 +1,9 @@
-import {Game} from "./game";
-import {PlayerCharacter} from "./playercharacter";
-export class Query {
-    constructor(
-        public minParagon: number,
-        public game: Game,
-        public playerCharacters: Array<PlayerCharacter>,
-        public id?: number
-    ) {}
+import {IPlayerCharacter} from "./playercharacter";
+import {IGame} from "./game";
+
+export interface IQuery {
+    id: string;
+    minParagon: number;
+    gameMode: IGame;
+    playerCharacters: IPlayerCharacter[];
 }

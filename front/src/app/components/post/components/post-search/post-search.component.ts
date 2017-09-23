@@ -1,6 +1,5 @@
 import { APIPostService } from '../../../../services/apipostservice';
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { PostFactory } from "../../../../utils/postFactory";
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
 import { postTranformOut } from "../../../../utilities/postTrasform";
@@ -9,17 +8,11 @@ import {PlayerType} from "../post-list/types/player-type";
 import {RegionType} from "../post-list/types/region-type";
 import {GameType} from "../post-list/types/game-type";
 import {Observable} from "rxjs/Observable";
-import {nearer} from "q";
-import { PlayerType } from "../post-list/types/player-type";
-import { RegionType } from "../post-list/types/region-type";
-import { GameType } from "../post-list/types/game-type";
-import { Observable } from "rxjs/Observable";
->>>>>>> f18e0ec3c9b8b6b9668d63c31ec13cd8f4dd8e89
 
 @Component({
     // changeDetection: ChangeDetectionStrategy.Default,
     selector: 'post-search',
-    providers: [ APIPostService, PostFactory, GameModeService ],
+    providers: [ APIPostService, GameModeService ],
     templateUrl: 'post-search.html',
 })
 
@@ -48,8 +41,7 @@ export class PostSearchComponent implements OnInit {
     constructor(
         private gameModeService: GameModeService,
         private postService: APIPostService,
-        private formBuilder: FormBuilder,
-        private postFactory: PostFactory
+        private formBuilder: FormBuilder
     ) {
         // this.postListDto = new PostDTO();
     }
@@ -99,14 +91,13 @@ export class PostSearchComponent implements OnInit {
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
         // this.postListDto = this.postForm.value;
         let val = postTranformOut(value);
-        this.add.emit(val);
-        this.postService.postContent(val);
+        this.postService.postContent(val, this.addEvent);
     }
 
     buildQueryCharacters(): FormArray {
         const arr = this.playerTypes.map(playerType => {
             return this.formBuilder.group({
-                type: playerType,
+                type: playerType.toLowerCase(),
                 selected: false
             });
         });
@@ -134,5 +125,10 @@ export class PostSearchComponent implements OnInit {
                 this.gameControl.get('torment').enable();
             }
         }
+    }
+
+    private addCharacters(value) {
+        console.log(value);
+        console.log("hoozzaa");
     }
 }
