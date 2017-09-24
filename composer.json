@@ -2,7 +2,7 @@
     "name": "riftrun/riftrun",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "Rift Run - find friends to play rifts.",
     "autoload": {
         "psr-4": { "App\\": "src/"}
     },
@@ -25,8 +25,8 @@
     "require": {
         "php": ">=7.1",
         "roave/security-advisories": "dev-master",
-        "symfony/symfony": "^3.3",
-        "doctrine/orm": "^2.5",
+        "symfony/symfony": "^3.4",
+        "doctrine/orm": "dev-master",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
@@ -68,7 +68,6 @@
 	    "ralfmaxxx/behat_multidimensional_extension": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "theofidry/alice-data-fixtures": "dev-master",
-        "symfony/var-dumper": "dev-master",
         "coduo/php-matcher": "dev-master"
     },
     "scripts": {
