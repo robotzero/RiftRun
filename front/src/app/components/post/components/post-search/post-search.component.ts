@@ -2,7 +2,6 @@ import { APIPostService } from '../../../../services/apipostservice';
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GameModeService, GameModeState } from "../../../../services/gamemodeservice";
-import { postTranformOut } from "../../../../utilities/postTrasform";
 import { PostDTO } from "../post-list/post-dto";
 import {PlayerType} from "../post-list/types/player-type";
 import {RegionType} from "../post-list/types/region-type";
@@ -89,19 +88,20 @@ export class PostSearchComponent implements OnInit {
     }
 
     postContent({ value, valid }: { value: PostDTO, valid: boolean }) {
-        // this.postListDto = this.postForm.value;
-        let val = postTranformOut(value);
-        this.postService.postContent(val, this.addEvent);
+        this.postService.postContent(value, this.addEvent);
     }
 
     buildQueryCharacters(): FormArray {
-        const arr = this.playerTypes.map(playerType => {
+        const playerTypeFormArray = this.playerTypes.map(playerType => {
             return this.formBuilder.group({
-                type: playerType.toLowerCase(),
-                selected: false
+                type: playerType.toLowerCase()
             });
         });
-        return this.formBuilder.array(arr);
+        playerTypeFormArray.forEach(control => {
+            control.disable();
+        });
+
+        return this.formBuilder.array(playerTypeFormArray);
     }
 
     private onChangeSelect(event) {
@@ -128,7 +128,15 @@ export class PostSearchComponent implements OnInit {
     }
 
     private addCharacters(value) {
-        console.log(value);
-        console.log("hoozzaa");
+        this.characters.controls.filter(control => {
+           console.log(control.value.type === value);
+           return control.value.type === value.toLowerCase();
+        }).forEach(filteredControl => {
+           if (filteredControl.disabled) {
+               filteredControl.enable();
+           } else {
+               filteredControl.disable();
+           }
+        });
     }
 }

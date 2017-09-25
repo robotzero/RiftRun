@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { Observable } from "rxjs/Observable";
-import { griftLevels } from "../utilities/griftlevel-generator";
 import { GameType } from "../components/post/components/post-list/types/game-type";
+import {Observable} from "rxjs/Rx";
 
 export interface GameModeState {
     gameMode: string;
@@ -18,10 +17,10 @@ let state: GameModeState = { gameMode: GameType.GRIFT.toString().toLowerCase(), 
 
 @Injectable()
 export class GameModeService {
-    private queryGameLevels: Observable<string[]> = griftLevels().toArray().delay(1);
+    private queryGameLevels: Observable<string[]> = Observable.range(1, 10).map(num => num * 10).map(num => num + '+').toArray().delay(1);
     private queryTormentLevels: Observable<string[]> = Observable.range(1, 13).map(value => value.toString()).toArray().delay(1);
     private subject = new BehaviorSubject<GameModeState>(state);
-    private store = this.subject.asObservable().distinctUntilChanged().delay(1);
+    private store = this.subject.asObservable().delay(1);
 
     get currentStore(): Observable<GameModeState> {
         return this.store;

@@ -82,12 +82,12 @@
             <ng-template #loading>Loading GameMode Data...</ng-template>
         </div>
         Player types you are looking for.
-        <div formArrayName="playerCharacters">
-            <div *ngFor="let character of characters.controls; let i = index;" [formGroupName]="i">
+        <div>
+            <div *ngFor="let character of playerTypes; let i = index;">
                 <div>
-                    <md-checkbox type="checkbox" formControlName="selected" (change)="addCharacters(character.value.type)">
-                       {{character.value.type | titlecase}}
-                     </md-checkbox>
+                    <md-checkbox type="checkbox" (change)="addCharacters(character)">
+                        {{character | titlecase}}
+                    </md-checkbox>
                 </div>
             </div>
         </div>

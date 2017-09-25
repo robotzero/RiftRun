@@ -3,6 +3,7 @@ import {Http} from '@angular/http';
 import {Headers} from '@angular/http';
 import {Response} from '@angular/http';
 import {RequestOptions} from '@angular/http';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class APIPostService
@@ -18,7 +19,7 @@ export class APIPostService
         headers.append('Content-Type', 'application/json');
         let requestOptions = new RequestOptions({method: 'POST', headers: headers});
 
-        this.http.post('http://riftrun.local/v1/posts', JSON.stringify(postObject), requestOptions)
+        this.http.post(`${environment.api_uri}`, JSON.stringify(postObject), requestOptions)
             .map((res:Response) => res.json())
             .map((res:string) => this.response = res)
             .subscribe(
