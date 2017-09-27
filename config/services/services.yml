@@ -1,4 +1,5 @@
 services:
+    Doctrine\ORM\EntityManager: '@doctrine.orm.default_entity_manager'
     JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
     League\Tactician\CommandBus: '@tactician.commandbus.default'
 

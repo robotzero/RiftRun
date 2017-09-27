@@ -32,6 +32,6 @@ final class FindPostHandler
      */
     public function handle(Pagination $request): Pagerfanta
     {
-        return $this->repository->findAll();
+        return $this->repository->findAll($request->getFilters(), $request->getOperators(), $request->getValues());
     }
 }

@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
+
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use Hateoas\Representation\PaginatedRepresentation;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,9 +34,53 @@ class PostsController extends AbstractBusController
      * @throws \Pagerfanta\Exception\NotIntegerCurrentPageException
      * @throws \Pagerfanta\Exception\LessThan1MaxPerPageException
      * @throws \Pagerfanta\Exception\LessThan1CurrentPageException
-     * @View(statusCode=200, serializerGroups={"Default", "Identifier", "Basic"})
-     * @QueryParam(name="page", key="page", requirements="\d+", default=1, description="Page Number", strict=true, nullable=true)
-     * @QueryParam(name="limit", key="limit", requirements="\d+", default=20, description="Item per page", strict=true, nullable=true)
+     * @View(
+     *     statusCode=200,
+     *     serializerGroups={"Default", "Identifier", "Basic"}
+     * )
+     * @QueryParam(
+     *     name="page",
+     *     key="page",
+     *     requirements="\d+",
+     *     default=1,
+     *     description="Page Number",
+     *     strict=true,
+     *     nullable=true
+     * )
+     *
+     * @QueryParam(
+     *     name="limit",
+     *     key="limit",
+     *     requirements="\d+",
+     *     default=20,
+     *     description="Items per page",
+     *     strict=true,
+     *     nullable=true
+     * )
+     *
+     * * @QueryParam(
+     *     name="filterParam",
+     *     nullable=true,
+     *     strict=true,
+     *     map=true,
+     *     description="Keys to filter"
+     * )
+     *
+     * @QueryParam(
+     *     name="filterOp",
+     *     nullable=true,
+     *     requirements="(gt|gte|lt|lte|eq|like|between)",
+     *     strict=true,
+     *     map=true,
+     *     description="Operators to filter"
+     * )
+     *
+     * @QueryParam(
+     *     name="filterValue",
+     *     map=true,
+     *     description="Values to filter"
+     * )
+     *
      * @Get("/posts")
      */
     public function getPostsAction(Request $request, ParamFetcherInterface $paramFetcher) : PaginatedRepresentation

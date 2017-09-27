@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "1d5c87ee4bcf22d699530b3792739f33b91cf6cd"
+                "reference": "53245e8a73cb16d5e9ba35ffa5bbb15cc417bb9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/1d5c87ee4bcf22d699530b3792739f33b91cf6cd",
-                "reference": "1d5c87ee4bcf22d699530b3792739f33b91cf6cd",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/53245e8a73cb16d5e9ba35ffa5bbb15cc417bb9f",
+                "reference": "53245e8a73cb16d5e9ba35ffa5bbb15cc417bb9f",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-09-21T12:30:25+00:00"
+            "time": "2017-09-26T11:10:39+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -1176,12 +1176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2"
+                "reference": "4a1b70199943460273c4ab8f8ff841c8c79e0d28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2",
-                "reference": "d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/4a1b70199943460273c4ab8f8ff841c8c79e0d28",
+                "reference": "4a1b70199943460273c4ab8f8ff841c8c79e0d28",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-08-31T21:35:13+00:00"
+            "time": "2017-09-25T20:12:34+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -3089,12 +3089,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid-doctrine.git",
-                "reference": "8766bf77b51c64a704b3bba41f1a276591fe31fe"
+                "reference": "2ca6ce959b2aad988803dcf84cfd9246bdcea5f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/8766bf77b51c64a704b3bba41f1a276591fe31fe",
-                "reference": "8766bf77b51c64a704b3bba41f1a276591fe31fe",
+                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/2ca6ce959b2aad988803dcf84cfd9246bdcea5f8",
+                "reference": "2ca6ce959b2aad988803dcf84cfd9246bdcea5f8",
                 "shasum": ""
             },
             "require": {
@@ -3137,7 +3137,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2017-09-14T15:53:05+00:00"
+            "time": "2017-09-27T14:28:41+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -3750,12 +3750,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "c9fb33a8446a05e676a07ced73bca67ef052c3ac"
+                "reference": "80c82d7d41c4eed0bf27e215f27531c05b217c17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/c9fb33a8446a05e676a07ced73bca67ef052c3ac",
-                "reference": "c9fb33a8446a05e676a07ced73bca67ef052c3ac",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/80c82d7d41c4eed0bf27e215f27531c05b217c17",
+                "reference": "80c82d7d41c4eed0bf27e215f27531c05b217c17",
                 "shasum": ""
             },
             "require": {
@@ -3802,7 +3802,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2017-05-18T08:23:53+00:00"
+            "time": "2017-09-26T03:17:02+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -4207,26 +4207,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "d31de92759321649aec6670ca4e19179b0ec3af4"
+                "reference": "339d2cb0437612d5e02925e1a5edd3059a7d8bcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/d31de92759321649aec6670ca4e19179b0ec3af4",
-                "reference": "d31de92759321649aec6670ca4e19179b0ec3af4",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/339d2cb0437612d5e02925e1a5edd3059a7d8bcc",
+                "reference": "339d2cb0437612d5e02925e1a5edd3059a7d8bcc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0",
                 "swiftmailer/swiftmailer": "^6.0.1",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.7|~3.0",
-                "symfony/http-kernel": "~2.7|~3.0"
+                "symfony/config": "~2.8|~3.0|~4.0",
+                "symfony/dependency-injection": "~2.7|~3.4|~4.0",
+                "symfony/http-kernel": "~2.7|~3.0|~4.0"
             },
             "require-dev": {
-                "symfony/console": "~2.7|~3.0",
-                "symfony/framework-bundle": "~2.7|~3.0",
-                "symfony/phpunit-bridge": "~3.3@dev",
-                "symfony/yaml": "~2.7|~3.0"
+                "symfony/console": "~2.7|~3.4|~4.0",
+                "symfony/framework-bundle": "~2.7|~3.0|~4.0",
+                "symfony/phpunit-bridge": "~3.3|~4.0",
+                "symfony/yaml": "~2.7|~3.0|~4.0"
             },
             "suggest": {
                 "psr/log": "Allows logging"
@@ -4234,7 +4234,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -4258,7 +4258,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2017-09-10T19:31:30+00:00"
+            "time": "2017-09-27T19:18:18+00:00"
         },
         {
             "name": "symfony/symfony",
@@ -4266,12 +4266,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b5906838361e4c3de2ee061ab8d4fc724e648129"
+                "reference": "f7eb7972ff7eb9e844b771c061e0f9fe8cc56fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b5906838361e4c3de2ee061ab8d4fc724e648129",
-                "reference": "b5906838361e4c3de2ee061ab8d4fc724e648129",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f7eb7972ff7eb9e844b771c061e0f9fe8cc56fa4",
+                "reference": "f7eb7972ff7eb9e844b771c061e0f9fe8cc56fa4",
                 "shasum": ""
             },
             "require": {
@@ -4411,20 +4411,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-09-24T10:15:51+00:00"
+            "time": "2017-09-27T17:32:40+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2"
+                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eab7c3288ae6603d7d6f92b531626af2b162d1f2",
-                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eddb97148ad779f27e670e1e3f19fb323aedafeb",
+                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb",
                 "shasum": ""
             },
             "require": {
@@ -4477,7 +4477,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-07T18:47:58+00:00"
+            "time": "2017-09-27T18:10:31+00:00"
         },
         {
             "name": "willdurand/hateoas",
@@ -6163,12 +6163,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "09c88073720c6046525a4274ebf4b8a725ca48ae"
+                "reference": "f29411235cb3b9e157501de8228fd3a56a5ba864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/09c88073720c6046525a4274ebf4b8a725ca48ae",
-                "reference": "09c88073720c6046525a4274ebf4b8a725ca48ae",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f29411235cb3b9e157501de8228fd3a56a5ba864",
+                "reference": "f29411235cb3b9e157501de8228fd3a56a5ba864",
                 "shasum": ""
             },
             "require": {
@@ -6239,7 +6239,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-09-24T07:26:38+00:00"
+            "time": "2017-09-25T07:50:58+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

@@ -17,9 +17,12 @@ use Pagerfanta\Pagerfanta;
 class PostRepository extends EntityRepository implements PostRepositoryInterface
 {
     /**
+     * @param array $filters
+     * @param array $operators
+     * @param array $values
      * @return Pagerfanta
      */
-    public function findAll() : Pagerfanta {
+    public function findAll(array $filters = [], array $operators = [], array $values = []) : Pagerfanta {
         $queryBuilder = $this->createQueryBuilder($alias = 'posts');
         $queryBuilder->select('posts')
             ->innerJoin('posts.query', 'q')
@@ -30,7 +33,8 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
             ->add('where', ['posts.createdAt > :createdAt'])
             ->setParameter('createdAt', new \DateTime('-111 month'), Type::DATETIME);
 
-        return $this->getPaginator($queryBuilder);
+        return $this->createOperatorPaginator($queryBuilder, $alias, $filters, $operators, $values);
+//        return $this->getPaginator($queryBuilder);
     }
 
     /**
