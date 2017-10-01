@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Common\Doctrine\ORM;
 
+use App\Domain\GameMode\Model\Rift;
 use Doctrine\ORM\EntityRepository as BaseEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Pagerfanta\Adapter\ArrayAdapter;
@@ -127,10 +128,13 @@ class EntityRepository extends BaseEntityRepository
                         $queryBuilder->andWhere($queryBuilder->expr()->in($name, $parameter));
 
                     } elseif ('' !== $parameterValue) {
-                        $queryBuilder->andWhere($queryBuilder->expr()->eq($name, $parameter));
+                        if ($name === 'game') {
+                            $queryBuilder->andWhere($queryBuilder->expr()->orX($queryBuilder->expr()->isInstanceOf($name, $parameter), $queryBuilder->expr()->in('rift.id', $queryBuilder->select()->from(Rift::class, 'rift')->where('rift.torment=10'))));
+                        } else {
+                            $queryBuilder->andWhere($queryBuilder->expr()->eq($name, $parameter));
+                        }
                     }
             }
-
             $queryBuilder->setParameter($parameter, $parameterValue);
         }
 

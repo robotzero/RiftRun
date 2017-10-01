@@ -35,7 +35,8 @@ curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"dh","par
 
 curl -H "Content-Type: application/json" -X POST -d '{"player":{"type":"demon hunter","paragonPoints":"13","battleTag":"#2000","region":"EU","seasonal":1,"gameType":"hardcore"},"query":{"minParagon":"10","game":{"type":"grift","level":"40+"},"characterType":[{"type":"demon hunter"},{"type":"wizard"}]}}' http://riftrun.local/v1/posts
 
-sudo docker run -it --rm -v /home/agnieszka/Code/RiftRun/fa:/workspace monostream/nodejs-gulp-bower gulp compile-ts
+curl -g -H "Content-Type: application/json" -X GET -d '{"player":{"type":"demon hunter","paragonPoints":"13","battleTag":"2000","region":"EU","seasonal":0,"gameType":"hardcore"},"query":{"minParagon":"10","game":{"gameMode":"bounties","torment":"5"},"playerCharacters":[{"type":"demon hunter"},{"type":"wizard"}]}}' "http://riftrun.local/v1/posts?filterParam[game]=player.paragonPoints&filterOp[game]=gt&filterValue[game]=10&filterParam[zomg]=game&filterOp[zomg]=eq&filterValue[zomg]=rift"
+
 sudo docker run -it --rm --workdir /data jamesgroat/node-bower-gulp-tsd-sass tsd install angular2 es6-promise rx rx-lite
 docker pull amitevski/docker-node-build
 
@@ -43,7 +44,5 @@ sudo docker run -it --rm -v /home/subzero/Code/RiftRun:/data --workdir=/data/fa 
 
 https://github.com/Belkar/CampinaAsAService/blob/master/src/CampinaAsAService/app/main.ts#L1
 https://github.com/angular/angular/issues/4504
-
 https://github.com/angular/angular/issues/4759
-
 https://github.com/rolandjitsu/ng2-lab
