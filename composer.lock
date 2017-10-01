@@ -4095,12 +4095,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "09afa6490980a95df005c6103d04eab61c1179a2"
+                "reference": "0c6eca34f6fd1e965c14b1bb77e34bf580cfcb52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/09afa6490980a95df005c6103d04eab61c1179a2",
-                "reference": "09afa6490980a95df005c6103d04eab61c1179a2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/0c6eca34f6fd1e965c14b1bb77e34bf580cfcb52",
+                "reference": "0c6eca34f6fd1e965c14b1bb77e34bf580cfcb52",
                 "shasum": ""
             },
             "require": {
@@ -4241,7 +4241,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-09-29T17:02:07+00:00"
+            "time": "2017-09-30T14:30:11+00:00"
         },
         {
             "name": "twig/twig",

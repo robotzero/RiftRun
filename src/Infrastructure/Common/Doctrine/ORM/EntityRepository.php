@@ -14,17 +14,16 @@ use Pagerfanta\Pagerfanta;
  */
 class EntityRepository extends BaseEntityRepository
 {
-    const OPERATOR_GT = "gt";
-    const OPERATOR_LT = "lt";
-    const OPERATOR_EQ = "eq";
-    const OPERATOR_LTE = "lte";
-    const OPERATOR_GTE = "gte" ;
-    const OPERATOR_LIKE = "like" ;
-    const OPERATOR_BETWEEN = "between";
+    const OPERATOR_GT = 'gt';
+    const OPERATOR_LT = 'lt';
+    const OPERATOR_EQ = 'eq';
+    const OPERATOR_LTE = 'lte';
+    const OPERATOR_GTE = 'gte';
+    const OPERATOR_LIKE = 'like';
+    const OPERATOR_BETWEEN = 'between';
 
     /**
      * @param QueryBuilder $queryBuilder
-     * @param string $alias
      * @param array $keys
      * @param array $operators
      * @param array $values
@@ -33,7 +32,6 @@ class EntityRepository extends BaseEntityRepository
      */
     public function createOperatorPaginator(
         QueryBuilder $queryBuilder,
-        string $alias,
         array $keys = [],
         array $operators = [],
         array $values = []
@@ -41,7 +39,7 @@ class EntityRepository extends BaseEntityRepository
     ): Pagerfanta
     {
 
-        $this->applyCriteriaOperator($alias, $queryBuilder, $keys, $operators, $values);
+        $this->applyCriteriaOperator($queryBuilder, $keys, $operators, $values);
 
         return $this->getPaginator($queryBuilder);
     }
@@ -65,7 +63,6 @@ class EntityRepository extends BaseEntityRepository
     }
 
     /**
-     * @param string $alias
      * @param QueryBuilder $queryBuilder
      * @param array $keys
      * @param array $operators
@@ -74,7 +71,6 @@ class EntityRepository extends BaseEntityRepository
      * @return QueryBuilder
      */
     protected function applyCriteriaOperator(
-        string $alias,
         QueryBuilder $queryBuilder,
         array $keys = [],
         array $operators = [],
@@ -82,12 +78,12 @@ class EntityRepository extends BaseEntityRepository
     ): QueryBuilder
     {
         foreach ($keys as $position => $value) {
+            if (null === $value) {
+                continue;
+            }
 
-            if (null === $value) continue;
-
-            $name = $this->getPropertyName($alias, $value);
+            $name = $value;
             $parameter = ':' . str_replace('.', '_', $value) . $position;
-
             $operation = $operators[$position];
             $parameterValue = $values[$position];
 
@@ -112,7 +108,7 @@ class EntityRepository extends BaseEntityRepository
 
                 case static::OPERATOR_LIKE:
                     $queryBuilder->andWhere($queryBuilder->expr()->like($name, $parameter));
-                    $parameterValue = "%" . $parameterValue . "%";
+                    $parameterValue = '%' . $parameterValue . '%';
                     break;
 
                 case static::OPERATOR_BETWEEN:
@@ -139,27 +135,5 @@ class EntityRepository extends BaseEntityRepository
         }
 
         return $queryBuilder;
-    }
-
-    /**
-     * @param string $alias
-     * @param string $name
-     *
-     * @return string
-     */
-    protected function getPropertyName(string $alias, string $name): string
-    {
-        return (false === $this->startsWith($name, $alias)) ? $alias.'.'.$name : $name;
-    }
-
-    /**
-     * @param string $haystack
-     * @param string $needle
-     *
-     * @return bool
-     */
-    private function startsWith(string $haystack, string $needle): bool
-    {
-        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
     }
 }

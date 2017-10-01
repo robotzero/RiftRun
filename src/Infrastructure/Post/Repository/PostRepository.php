@@ -23,17 +23,17 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
      * @return Pagerfanta
      */
     public function findAll(array $filters = [], array $operators = [], array $values = []) : Pagerfanta {
-        $queryBuilder = $this->createQueryBuilder($alias = 'posts');
+        $queryBuilder = $this->createQueryBuilder('posts');
         $queryBuilder->select('posts')
-            ->innerJoin('posts.query', 'q')
-            ->innerJoin('posts.player', 'p')
-            ->innerJoin('q.gameMode', 'g')
-            ->innerJoin('q.playerCharacters', 'qp')
+            ->innerJoin('posts.query', 'query')
+            ->innerJoin('posts.player', 'player')
+            ->innerJoin('query.gameMode', 'game')
+            ->innerJoin('query.playerCharacters', 'playerchars')
             ->orderBy('posts.createdAt', 'desc')
             ->add('where', ['posts.createdAt > :createdAt'])
             ->setParameter('createdAt', new \DateTime('-111 month'), Type::DATETIME);
 
-        return $this->createOperatorPaginator($queryBuilder, $alias, $filters, $operators, $values);
+        return $this->createOperatorPaginator($queryBuilder, $filters, $operators, $values);
 //        return $this->getPaginator($queryBuilder);
     }
 
@@ -52,6 +52,7 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
     /**
      * @param PostId $uuid
      * @return Post
+     * @throws \App\Domain\Post\Exception\PostNotFoundException
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws PostNotFoundException
      */
