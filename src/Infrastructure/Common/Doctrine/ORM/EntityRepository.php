@@ -2,6 +2,9 @@
 
 namespace App\Infrastructure\Common\Doctrine\ORM;
 
+use App\Domain\GameMode\Model\Bounty;
+use App\Domain\GameMode\Model\Grift;
+use App\Domain\GameMode\Model\Keywarden;
 use App\Domain\GameMode\Model\Rift;
 use Doctrine\ORM\EntityRepository as BaseEntityRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -22,6 +25,12 @@ class EntityRepository extends BaseEntityRepository
     const OPERATOR_GTE = 'gte';
     const OPERATOR_LIKE = 'like';
     const OPERATOR_BETWEEN = 'between';
+    const CLASS_MAP = [
+        'rift' => Rift::class,
+        'grift' => Grift::class,
+        'bounty' => Bounty::class,
+        'keywarden' => Keywarden::class
+    ];
 
     /**
      * @param QueryBuilder $queryBuilder
@@ -128,9 +137,19 @@ class EntityRepository extends BaseEntityRepository
                         $queryBuilder->andWhere($queryBuilder->expr()->in($name, $parameter));
 
                     } elseif ('' !== $parameterValue) {
-                        if ($name === 'game') {
-                            $queryBuilder->andWhere($queryBuilder->expr()->orX($queryBuilder->expr()->isInstanceOf($name, $parameter), $queryBuilder->expr()->in('rift.id', $queryBuilder->select()->from(Rift::class, 'rift')->where('rift.torment=10'))));
-                        } else {
+                        if ($this->startsWith($name, 'game.')) {
+                            [$parameterValueName, $parameterValueClass, $parameterValueLevel] = explode('.', $name);
+                            $queryBuilder2 = $this->createQueryBuilder('gameMode');
+                            $queryBuilder->andWhere($queryBuilder->expr()->andX(
+                                $queryBuilder->expr()->isInstanceOf($parameterValueName, $parameter),
+                                $queryBuilder->expr()->in(
+                                    $parameterValueName . '.id',
+                                    $queryBuilder2->select('gm.id')
+                                                 ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
+                                                 ->where('gm. ' . $parameterValueLevel . ' >=' . $parameterValue)
+                                                 ->getDQL())));
+                            $parameterValue = $parameterValueClass;
+                        } else  {
                             $queryBuilder->andWhere($queryBuilder->expr()->eq($name, $parameter));
                         }
                     }
@@ -139,5 +158,15 @@ class EntityRepository extends BaseEntityRepository
         }
 
         return $queryBuilder;
+    }
+
+    /**
+     * @param string $haystack
+     * @param string $needle
+     * @return bool
+     */
+    private function startsWith(string $haystack, string $needle): bool
+    {
+        return $needle === '' || strrpos($haystack, $needle, -strlen($haystack)) !== false;
     }
 }

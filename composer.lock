@@ -4095,12 +4095,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "0c6eca34f6fd1e965c14b1bb77e34bf580cfcb52"
+                "reference": "5e2f869033464020f7141a9cff45092b7e11153f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/0c6eca34f6fd1e965c14b1bb77e34bf580cfcb52",
-                "reference": "0c6eca34f6fd1e965c14b1bb77e34bf580cfcb52",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/5e2f869033464020f7141a9cff45092b7e11153f",
+                "reference": "5e2f869033464020f7141a9cff45092b7e11153f",
                 "shasum": ""
             },
             "require": {
@@ -4241,7 +4241,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-09-30T14:30:11+00:00"
+            "time": "2017-10-02T14:55:08+00:00"
         },
         {
             "name": "twig/twig",
@@ -5191,12 +5191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "d5dcbf553914519050ab18aa3876e51062cec8c4"
+                "reference": "1e496e26df1492b6c14e189055a97e26138480ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/d5dcbf553914519050ab18aa3876e51062cec8c4",
-                "reference": "d5dcbf553914519050ab18aa3876e51062cec8c4",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/1e496e26df1492b6c14e189055a97e26138480ff",
+                "reference": "1e496e26df1492b6c14e189055a97e26138480ff",
                 "shasum": ""
             },
             "require": {
@@ -5256,7 +5256,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2017-09-29T12:33:36+00:00"
+            "time": "2017-10-01T13:02:21+00:00"
         },
         {
             "name": "openlss/lib-array2xml",

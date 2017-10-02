@@ -34,7 +34,6 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
             ->setParameter('createdAt', new \DateTime('-111 month'), Type::DATETIME);
 
         return $this->createOperatorPaginator($queryBuilder, $filters, $operators, $values);
-//        return $this->getPaginator($queryBuilder);
     }
 
     /**
