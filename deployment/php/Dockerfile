@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.2.0RC3-fpm
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y sqlite3 libsqlite3-dev
