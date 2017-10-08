@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Common\Doctrine\ORM;
 
 use App\Infrastructure\Common\Exception\Doctrine\ORM\CriteriaOperatorException;
+use Doctrine\ORM\Query\Expr\Andx;
 use Doctrine\ORM\QueryBuilder;
 
 class DiscriminatorCriteriaOperator implements CriteriaOperator
@@ -13,41 +14,40 @@ class DiscriminatorCriteriaOperator implements CriteriaOperator
      * @param array $values
      * @param QueryBuilder|null $discriminatorQB
      * @param string[] $criteria
-     * @return QueryBuilder
-     * @throws \App\Infrastructure\Common\Exception\Doctrine\ORM\CriteriaOperatorException
+     * @throws CriteriaOperatorException
      */
-    public function applyCriteria(QueryBuilder $queryBuilder, array $values, QueryBuilder $discriminatorQB = null, string ...$criteria): QueryBuilder
+    public function applyCriteria(QueryBuilder $queryBuilder, array $values, QueryBuilder $discriminatorQB = null, string ...$criteria): void
     {
         [$operation, $name, $parameter, $parameterValue] = $criteria;
         [$parameterValueName, $parameterValueClass, $parameterValueLevel] = explode('.', $name);
-
+        $alias = $parameterValueName . $parameterValueClass;
         switch ($operation) {
 
             case static::OPERATOR_GT:
-                $dql = $discriminatorQB->select('gm.id')
-                                       ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
-                                       ->andWhere($queryBuilder->expr()->gt('gm.' . $parameterValueLevel, $parameterValue))
+                $dql = $discriminatorQB->select($alias . 'gm.id')
+                                       ->from(static::CLASS_MAP[$parameterValueClass], $alias . 'gm')
+                                       ->andWhere($queryBuilder->expr()->gt($alias . 'gm.' . $parameterValueLevel, $parameterValue))
                                        ->getDQL();
                 break;
 
             case static::OPERATOR_LT:
-                $dql = $discriminatorQB->select('gm.id')
-                                       ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
-                                       ->andWhere($queryBuilder->expr()->lt('gm.' . $parameterValueLevel, $parameterValue))
+                $dql = $discriminatorQB->select($alias . 'gm.id')
+                                       ->from(static::CLASS_MAP[$parameterValueClass], $alias . 'gm')
+                                       ->andWhere($queryBuilder->expr()->lt($alias . 'gm.' . $parameterValueLevel, $parameterValue))
                                        ->getDQL();
                 break;
 
             case static::OPERATOR_GTE:
-                $dql = $discriminatorQB->select('gm.id')
-                                       ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
-                                       ->andWhere($queryBuilder->expr()->gte('gm.' . $parameterValueLevel, $parameterValue))
+                $dql = $discriminatorQB->select($alias . 'gm.id')
+                                       ->from(static::CLASS_MAP[$parameterValueClass], $alias . 'gm')
+                                       ->andWhere($queryBuilder->expr()->gte($alias . 'gm.' . $parameterValueLevel, $parameterValue))
                                        ->getDQL();
                 break;
 
             case static::OPERATOR_LTE:
-                $dql = $discriminatorQB->select('gm.id')
-                                       ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
-                                       ->andWhere($queryBuilder->expr()->lte('gm.' . $parameterValueLevel, $parameterValue))
+                $dql = $discriminatorQB->select($alias . 'gm.id')
+                                       ->from(static::CLASS_MAP[$parameterValueClass], $alias . 'gm')
+                                       ->andWhere($queryBuilder->expr()->lte($alias . 'gm.' . $parameterValueLevel, $parameterValue))
                                        ->getDQL();
                 break;
 
@@ -70,30 +70,43 @@ class DiscriminatorCriteriaOperator implements CriteriaOperator
                 }
 
                 if (is_array($parameterValue)) {
-                    $dql = $discriminatorQB->select('gm.id')
-                                           ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
-                                           ->andWhere($queryBuilder->expr()->in('gm.' . $parameterValueLevel, $parameterValue))
+                    $dql = $discriminatorQB->select($alias . 'gm.id')
+                                           ->from(static::CLASS_MAP[$parameterValueClass], $alias . 'gm')
+                                           ->andWhere($queryBuilder->expr()->in($alias . 'gm.' . $parameterValueLevel, $parameterValue))
                                            ->getDQL();
                 } elseif ('' !== $parameterValue) {
-                    $dql = $discriminatorQB->select('gm.id')
-                                           ->from(static::CLASS_MAP[$parameterValueClass], 'gm')
-                                           ->andWhere($queryBuilder->expr()->eq('gm.' . $parameterValueLevel, $parameterValue))
+                    $dql = $discriminatorQB->select($alias . 'gm.id')
+                                           ->from(static::CLASS_MAP[$parameterValueClass], $alias . 'gm')
+                                           ->andWhere($queryBuilder->expr()->eq($alias . 'gm.' . $parameterValueLevel, $parameterValue))
                                            ->getDQL();
                 }
         }
 
-        $queryBuilder->andWhere($queryBuilder->expr()->andX(
-            $queryBuilder->expr()->isInstanceOf($parameterValueName, $parameter),
-            $queryBuilder->expr()->in(
-                $parameterValueName . '.id',
-                $dql
-            )
-        ));
+        // If we already had the query for different game type then use orX instead andX;
+        if (strpos($queryBuilder->getQuery()->getSQL(), '.type IN')) {
+            $queryBuilder->andWhere(
+                $queryBuilder->expr()->andX(
+                    $queryBuilder->expr()->isInstanceOf($parameterValueName, $parameter),
+                    $queryBuilder->expr()->in(
+                        $parameterValueName . '.id',
+                        $dql
+                    )
+                )
+            );
+        } else {
+            $queryBuilder->andWhere(
+                $queryBuilder->expr()->andX(
+                    $queryBuilder->expr()->isInstanceOf($parameterValueName, $parameter),
+                    $queryBuilder->expr()->in(
+                        $parameterValueName . '.id',
+                        $dql
+                    )
+                )
+            );
+        }
 
         $parameterValue = $parameterValueClass;
 
         $queryBuilder->setParameter($parameter, $parameterValue);
-
-        return $queryBuilder;
     }
 }

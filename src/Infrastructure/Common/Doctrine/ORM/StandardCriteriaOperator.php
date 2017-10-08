@@ -15,9 +15,8 @@ class StandardCriteriaOperator implements CriteriaOperator
      * @param array $values
      * @param QueryBuilder|null $discriminatorQB
      * @param string[] $criteria
-     * @return QueryBuilder
      */
-    public function applyCriteria(QueryBuilder $queryBuilder, array $values, QueryBuilder $discriminatorQB = null, string ...$criteria): QueryBuilder
+    public function applyCriteria(QueryBuilder $queryBuilder, array $values, QueryBuilder $discriminatorQB = null, string ...$criteria): void
     {
         [$operation, $name, $parameter, $parameterValue] = $criteria;
 
@@ -64,7 +63,5 @@ class StandardCriteriaOperator implements CriteriaOperator
                 }
         }
         $queryBuilder->setParameter($parameter, $parameterValue);
-
-        return $queryBuilder;
     }
 }

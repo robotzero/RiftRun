@@ -21,7 +21,6 @@ class PostRepository extends EntityRepository implements PostRepositoryInterface
      * @param array $operators
      * @param array $values
      * @return Pagerfanta
-     * @throws \App\Infrastructure\Common\Exception\Doctrine\ORM\CriteriaOperatorException
      */
     public function findAll(array $filters = [], array $operators = [], array $values = []) : Pagerfanta {
         $queryBuilder = $this->createQueryBuilder('posts');

@@ -14,6 +14,11 @@ use Pagerfanta\Pagerfanta;
  */
 class EntityRepository extends BaseEntityRepository
 {
+    /** @var CriteriaOperator */
+    private $standardCriteriaOperator;
+
+    /** @var CriteriaOperator */
+    private $discriminatorCriteriaOperator;
 
     /**
      * @param QueryBuilder $queryBuilder
@@ -21,7 +26,6 @@ class EntityRepository extends BaseEntityRepository
      * @param array $operators
      * @param array $values
      * @return Pagerfanta
-     * @throws \App\Infrastructure\Common\Exception\Doctrine\ORM\CriteriaOperatorException
      */
     public function createOperatorPaginator(
         QueryBuilder $queryBuilder,
@@ -60,15 +64,13 @@ class EntityRepository extends BaseEntityRepository
      * @param array $keys
      * @param array $operators
      * @param array $values
-     * @return QueryBuilder
-     * @throws \App\Infrastructure\Common\Exception\Doctrine\ORM\CriteriaOperatorException
      */
     protected function applyCriteriaOperator(
         QueryBuilder $queryBuilder,
         array $keys = [],
         array $operators = [],
         array $values = []
-    ): QueryBuilder
+    ): void
     {
         foreach ($keys as $position => $value) {
             if (null === $value) {
@@ -81,16 +83,12 @@ class EntityRepository extends BaseEntityRepository
             $parameterValue = $values[ $position ];
 
             if ($this->startsWith($value, 'game.')) {
-                $operator = new DiscriminatorCriteriaOperator();
-                $discriminatorQB = $this->createQueryBuilder('gameMode');
-                $queryBuilder = $operator->applyCriteria($queryBuilder, $values, $discriminatorQB, $operation, $name, $parameter, $parameterValue);
+                $discriminatorQB = $this->createQueryBuilder('gameMode' . $position);
+                $this->discriminatorCriteriaOperator->applyCriteria($queryBuilder, $values, $discriminatorQB, $operation, $name, $parameter, $parameterValue);
             } else {
-                $operator = new StandardCriteriaOperator();
-                $queryBuilder = $operator->applyCriteria($queryBuilder, $values, null, $operation, $name, $parameter, $parameterValue);
+                $this->standardCriteriaOperator->applyCriteria($queryBuilder, $values, null, $operation, $name, $parameter, $parameterValue);
             }
         }
-
-        return $queryBuilder;
     }
 
     /**
@@ -101,5 +99,13 @@ class EntityRepository extends BaseEntityRepository
     private function startsWith(string $haystack, string $needle): bool
     {
         return $needle === '' || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+    }
+
+    /**
+     * @param CriteriaOperator[] ...$criteriaOperators
+     */
+    public function setCriteria(CriteriaOperator ...$criteriaOperators): void
+    {
+        [$this->standardCriteriaOperator, $this->discriminatorCriteriaOperator] = $criteriaOperators;
     }
 }

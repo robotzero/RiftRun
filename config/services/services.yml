@@ -1,23 +1,33 @@
 services:
-    Doctrine\ORM\EntityManager: '@doctrine.orm.default_entity_manager'
-    JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
-    League\Tactician\CommandBus: '@tactician.commandbus.default'
+#    Doctrine\ORM\EntityManager: '@doctrine.orm.default_entity_manager'
+#    JMS\Serializer\SerializerInterface: '@jms_serializer.serializer'
+#    League\Tactician\CommandBus: '@tactician.commandbus.default'
 
     # Legacy aliases
     game_mode_event: '@App\Infrastructure\Post\Factory\Form\Event\GameModeEvent'
     post_repository: '@App\Infrastructure\Post\Repository\PostRepository'
     riftrun_factory_post: '@App\Infrastructure\Post\Factory\PostFormFactory'
+    common_standard_criteria: '@App\Infrastructure\Common\Doctrine\ORM\StandardCriteriaOperator'
+    common_discriminator_criteria: '@App\Infrastructure\Common\Doctrine\ORM\DiscriminatorCriteriaOperator'
 
     # =========== Split into separate files ========== #
-    Doctrine\ORM\EntityInterface:
+    Doctrine\ORM\EntityRepository:
         abstract: true
         factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+        calls:
+          - method: setCriteria
+            arguments:
+               - '@common_standard_criteria'
+               - '@common_discriminator_criteria'
         public: false
+
+    App\Infrastructure\Common\Doctrine\ORM\StandardCriteriaOperator:
+    App\Infrastructure\Common\Doctrine\ORM\DiscriminatorCriteriaOperator:
 
     App\Infrastructure\Post\Repository\PostRepository:
         arguments:
           - 'App\Domain\Post\Model\Post'
-        parent: Doctrine\ORM\EntityInterface
+        parent: Doctrine\ORM\EntityRepository
 
     App\Infrastructure\Post\Factory\PostFormFactory:
         parent: App\Infrastructure\Common\Factory
