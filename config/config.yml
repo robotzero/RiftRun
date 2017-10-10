@@ -36,6 +36,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    php_errors:
+        log: true
 
 # Twig Configuration
 twig:
@@ -129,7 +131,7 @@ fos_rest:
         rules:
             - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: true }
     view:
-        view_response_listener: true
+        view_response_listener: force
         formats:
             json: true
         mime_types:

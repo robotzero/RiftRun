@@ -72,23 +72,23 @@ class EntityRepository extends BaseEntityRepository
         array $values = []
     ): void
     {
-        foreach ($keys as $position => $value) {
-            if (null === $value) {
-                continue;
-            }
-
-            $name = $value;
-            $parameter = ':' . str_replace('.', '_', $value) . $position;
-            $operation = $operators[ $position ];
-            $parameterValue = $values[ $position ];
-
+        $discriminatorFilters = array_filter($keys, function($value) use (&$keys) {
             if ($this->startsWith($value, 'game.')) {
-                $discriminatorQB = $this->createQueryBuilder('gameMode' . $position);
-                $this->discriminatorCriteriaOperator->applyCriteria($queryBuilder, $values, $discriminatorQB, $operation, $name, $parameter, $parameterValue);
-            } else {
-                $this->standardCriteriaOperator->applyCriteria($queryBuilder, $values, null, $operation, $name, $parameter, $parameterValue);
+                unset($keys[array_flip($keys)[$value]]);
+                return $value;
             }
-        }
+            return null;
+        });
+
+        $this->standardCriteriaOperator->applyCriteria($queryBuilder, $keys, $operators, $values);
+
+        empty($discriminatorFilters) ?: $this->discriminatorCriteriaOperator->applyCriteria(
+            $queryBuilder,
+            $discriminatorFilters,
+            $operators,
+            $values,
+            $this
+        );
     }
 
     /**

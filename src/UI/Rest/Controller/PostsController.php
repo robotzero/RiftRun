@@ -65,7 +65,7 @@ class PostsController extends AbstractBusController
      *     map=true,
      *     description="Keys to filter"
      * )
-     **     requirements="(player.paragonPoints|player.battleTag|player.type|player.region|player.seasonal|player.gameType)",
+     **     requirements="(player.paragonPoints|player.battleTag|player.type|player.region|player.seasonal|player.gameType|game.rift.torment|game.bounty.torment|game.keywarden.torment|game.grift.level)",
      * @QueryParam(
      *     name="filterOp",
      *     nullable=true,

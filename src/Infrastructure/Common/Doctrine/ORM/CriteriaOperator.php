@@ -6,6 +6,7 @@ use App\Domain\GameMode\Model\Bounty;
 use App\Domain\GameMode\Model\Grift;
 use App\Domain\GameMode\Model\Keywarden;
 use App\Domain\GameMode\Model\Rift;
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\QueryBuilder;
 
 /**
@@ -30,9 +31,10 @@ interface CriteriaOperator
 
     /**
      * @param QueryBuilder $queryBuilder
+     * @param array $keys
+     * @param array $operators
      * @param array $values
-     * @param QueryBuilder|null $discriminatorQB
-     * @param string[] $criteria
+     * @param ObjectRepository $repository
      */
-    public function applyCriteria(QueryBuilder $queryBuilder, array $values, QueryBuilder $discriminatorQB = null, string ...$criteria): void;
+    public function applyCriteria(QueryBuilder $queryBuilder, array $keys, array $operators, array $values, ObjectRepository $repository = null): void;
 }

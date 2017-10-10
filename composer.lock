@@ -584,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "4e013fc02347dda38671500e275b5db1ec1f5d72"
+                "reference": "819c1fcadfa1eed3a2cdd5d5947ac1946a988963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/4e013fc02347dda38671500e275b5db1ec1f5d72",
-                "reference": "4e013fc02347dda38671500e275b5db1ec1f5d72",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/819c1fcadfa1eed3a2cdd5d5947ac1946a988963",
+                "reference": "819c1fcadfa1eed3a2cdd5d5947ac1946a988963",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +657,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-10-04T22:57:58+00:00"
+            "time": "2017-10-08T14:50:16+00:00"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "f2dc9a8f92b7eb9a566b3ba7af16559cc2bc0eb7"
+                "reference": "9e9e5628f55e253db60dc7a5003a4bd9a443873a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/f2dc9a8f92b7eb9a566b3ba7af16559cc2bc0eb7",
-                "reference": "f2dc9a8f92b7eb9a566b3ba7af16559cc2bc0eb7",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/9e9e5628f55e253db60dc7a5003a4bd9a443873a",
+                "reference": "9e9e5628f55e253db60dc7a5003a4bd9a443873a",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-10-08T12:47:15+00:00"
+            "time": "2017-10-09T18:05:46+00:00"
         },
         {
             "name": "fig/link-util",
@@ -4098,12 +4098,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b43bdf398de2eee50b98aeab03ee66a63bd5830c"
+                "reference": "6231acc8e824ef5b541873531da2c58c8d4d294f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b43bdf398de2eee50b98aeab03ee66a63bd5830c",
-                "reference": "b43bdf398de2eee50b98aeab03ee66a63bd5830c",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6231acc8e824ef5b541873531da2c58c8d4d294f",
+                "reference": "6231acc8e824ef5b541873531da2c58c8d4d294f",
                 "shasum": ""
             },
             "require": {
@@ -4126,7 +4126,7 @@
             },
             "conflict": {
                 "phpdocumentor/reflection-docblock": "<3.0||>=3.2.0,<3.2.2",
-                "phpdocumentor/type-resolver": "<0.2.0",
+                "phpdocumentor/type-resolver": "<0.2.1",
                 "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
             },
             "provide": {
@@ -4244,7 +4244,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-10-06T15:49:22+00:00"
+            "time": "2017-10-10T17:53:03+00:00"
         },
         {
             "name": "twig/twig",
@@ -5102,12 +5102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "2a1e07740c76b0c9da9c5708e8b3e927fc9a2796"
+                "reference": "a71e08134429e3d65f7df6fc4629bb95bd047afd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2a1e07740c76b0c9da9c5708e8b3e927fc9a2796",
-                "reference": "2a1e07740c76b0c9da9c5708e8b3e927fc9a2796",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a71e08134429e3d65f7df6fc4629bb95bd047afd",
+                "reference": "a71e08134429e3d65f7df6fc4629bb95bd047afd",
                 "shasum": ""
             },
             "require": {
@@ -5144,7 +5144,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-09-29T08:05:07+00:00"
+            "time": "2017-10-09T14:54:23+00:00"
         },
         {
             "name": "myclabs/deep-copy",
