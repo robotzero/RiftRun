@@ -8,6 +8,7 @@ use App\Application\UseCase\Post\Request\GetPost;
 use App\Domain\Post\Model\Post as ModelPost;
 use App\Infrastructure\Common\Exception\Form\FormException;
 use App\Infrastructure\Common\Pagination\PaginationTrait;
+use App\Infrastructure\Common\Validation\FilterParametersContraint;
 use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\View;
@@ -61,6 +62,7 @@ class PostsController extends AbstractBusController
      * * @QueryParam(
      *     name="filterParam",
      *     nullable=true,
+     *     requirements=@FilterParametersConstraint
      *     strict=true,
      *     map=true,
      *     description="Keys to filter"
